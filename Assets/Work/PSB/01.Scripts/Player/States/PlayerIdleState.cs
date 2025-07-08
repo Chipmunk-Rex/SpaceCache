@@ -12,16 +12,13 @@ namespace Code.Scripts.Player.States
         public override void Enter()
         {
             base.Enter();
-            _movement.CanManualMovement = true;
+            _movement.StopImmediately();
         }
         
         public override void Update()
         {
             base.Update();
-            Vector2 movementKey = _player.PlayerInput.MovementKey;
-            
-            _movement.SetMovementDirection(movementKey);
-            if (movementKey.magnitude > 0.01f)
+            if (!_player.PlayerInput.isLHolding || !_player.PlayerInput.isRHolding)
             {
                 _player.ChangeState("MOVE");
             }

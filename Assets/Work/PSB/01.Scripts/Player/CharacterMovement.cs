@@ -9,17 +9,11 @@ namespace Code.Scripts.Player
     {
         [SerializeField] private StatSO moveSpeedStat;
         [SerializeField] private Rigidbody2D rigid2D;
+        [SerializeField] private CharacterLookCam lookCam;
 
         private EntityStat _statCompo;
-
-        public bool CanManualMovement { get; set; } = true;
-
         private float _moveSpeed = 8f;
         private Vector2 _velocity;
-        
-        public Vector2 Velocity => _velocity;
-        private float _verticalVelocity;
-        private Vector3 _movementDirection;
 
         private Entity _entity;
 
@@ -33,9 +27,9 @@ namespace Code.Scripts.Player
         {
             _moveSpeed = _statCompo.SubscribeStat(moveSpeedStat, HandleMoveSpeedChange, 8f);
         }
-        
+
         private void OnDestroy()
-        { 
+        {
             _statCompo.UnSubscribeStat(moveSpeedStat, HandleMoveSpeedChange);
         }
 
@@ -49,32 +43,26 @@ namespace Code.Scripts.Player
         {
             _moveSpeed = currentValue;
         }
-        
-        public void SetMovementDirection(Vector2 movementInput)
-        {
-            _movementDirection = new Vector3(movementInput.x, movementInput.y, 0).normalized;
-        }
-        
+
         private void CalculateMovement()
         {
-            if (CanManualMovement)
-                _velocity = _movementDirection * _moveSpeed;
-            
+            _velocity = lookCam.transform.up * _moveSpeed;
+
             if (_velocity.sqrMagnitude > 0.001f)
             {
                 transform.up = _velocity;
             }
         }
-        
+
         private void Move()
         {
-            Vector2 move = _velocity.normalized * (_moveSpeed * Time.fixedDeltaTime);
+            Vector2 move = _velocity * Time.fixedDeltaTime;
             rigid2D.MovePosition(rigid2D.position + move);
         }
 
         public void StopImmediately()
         {
-            _movementDirection = Vector2.zero;
+            _velocity = Vector2.zero;
         }
         
         

@@ -1,39 +1,67 @@
 ﻿using System;
+using Code.Scripts.Entities;
 using UnityEngine;
 
 namespace Code.Scripts.Player
 {
-    public class CharacterLookCam : MonoBehaviour
+    public class CharacterLookCam : MonoBehaviour, IEntityComponent
     {
-        private Camera _mainCamera;
+        [SerializeField] private float rotationSpeed = 90f;
 
+        private float _currentAngle = 0f;
+
+        private Player _player;
+        
+        public void Initialize(Entity entity)
+        {
+            _player = entity as Player;
+        }
+        
         private void Start()
         {
-            _mainCamera = Camera.main;
+            _currentAngle = transform.eulerAngles.z;
+        }
+
+        private void OnEnable()
+        {
+            _player.PlayerInput.OnAngleChangeLPressed += HandleRotateLeft;
+            _player.PlayerInput.OnAngleChangeRPressed += HandleRotateRight;
+        }
+
+        private void OnDisable()
+        {
+            _player.PlayerInput.OnAngleChangeLPressed -= HandleRotateLeft;
+            _player.PlayerInput.OnAngleChangeRPressed -= HandleRotateRight;
         }
 
         private void FixedUpdate()
         {
-            LookAtMouse();
+            ApplyAngleRotation();
         }
         
-        private void LookAtMouse()
+        private void ApplyAngleRotation()
         {
-            if (_mainCamera == null) return;
-
-            Vector3 mouseWorldPos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            mouseWorldPos.z = 0f;
-
-            Vector3 selfPos = transform.position;
-            selfPos.z = 0f;
-
-            Vector2 dir = (mouseWorldPos - selfPos).normalized;
-
-            if (dir.sqrMagnitude > 0.001f)
-            {
-                transform.up = dir;
-            }
+            Vector2 dir = AngleToDirection(_currentAngle);
+            transform.up = dir;
         }
+
+        private Vector2 AngleToDirection(float angle)
+        {
+            float rad = angle * Mathf.Deg2Rad;
+            return new Vector2(Mathf.Cos(rad), Mathf.Sin(rad));
+        }
+
+        private void HandleRotateLeft()
+        {
+            _currentAngle += rotationSpeed * Time.fixedDeltaTime;
+        }
+
+        private void HandleRotateRight()
+        {
+            _currentAngle -= rotationSpeed * Time.fixedDeltaTime;
+        }
+
+
         
     }
 }

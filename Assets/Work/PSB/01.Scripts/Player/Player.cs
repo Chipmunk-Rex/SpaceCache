@@ -38,7 +38,9 @@ namespace Code.Scripts.Player
         private void Update()
         {
             _stateMachine.UpdateStateMachine();
+            PlayerInput.CalcHoldingKey();
         }
+        
         
         public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
 
