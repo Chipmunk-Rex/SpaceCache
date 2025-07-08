@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Torpedo Ship - Shield_0: -1366894017761551381
+      Nautolan Ship - Torpedo Ship - Shield_1: 4268642921907241256
+      Nautolan Ship - Torpedo Ship - Shield_2: 8138349295966742061
+      Nautolan Ship - Torpedo Ship - Shield_3: 5889158739492706486
+      Nautolan Ship - Torpedo Ship - Shield_4: -2218178564835892285
+      Nautolan Ship - Torpedo Ship - Shield_5: -5828163869148663198
+      Nautolan Ship - Torpedo Ship - Shield_6: -860826213867700437
+      Nautolan Ship - Torpedo Ship - Shield_7: 6928574646382048443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

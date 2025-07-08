@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Torpedo Ship - Engine_0: 5586334234020633538
+      Nairan - Torpedo Ship - Engine_1: 8549751728648108187
+      Nairan - Torpedo Ship - Engine_2: -6895697791003038313
+      Nairan - Torpedo Ship - Engine_3: -7995300848885505583
+      Nairan - Torpedo Ship - Engine_4: -2888865564710709500
+      Nairan - Torpedo Ship - Engine_5: -8634983252631513514
+      Nairan - Torpedo Ship - Engine_6: -8331798602626183093
+      Nairan - Torpedo Ship - Engine_7: -6658552434592537552
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

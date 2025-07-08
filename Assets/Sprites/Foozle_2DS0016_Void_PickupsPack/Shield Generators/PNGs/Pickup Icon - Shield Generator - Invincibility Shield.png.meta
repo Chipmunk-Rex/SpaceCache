@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pickup Icon - Shield Generator - Invincibility Shield_0: -5311436260645357221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

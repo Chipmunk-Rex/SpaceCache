@@ -622,7 +622,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Fighter - Shield_0: 6113214684239041427
+      Nairan - Fighter - Shield_1: -3073882572977887770
+      Nairan - Fighter - Shield_10: 7453449275333726573
+      Nairan - Fighter - Shield_11: -5867828880419995407
+      Nairan - Fighter - Shield_12: 9089192874348757889
+      Nairan - Fighter - Shield_13: -7551989873960468157
+      Nairan - Fighter - Shield_14: -2214900663799682322
+      Nairan - Fighter - Shield_15: -5363358807703347298
+      Nairan - Fighter - Shield_16: -2572966974371992773
+      Nairan - Fighter - Shield_17: -5416333000248018468
+      Nairan - Fighter - Shield_18: 721422770661334678
+      Nairan - Fighter - Shield_19: 6822222251261388661
+      Nairan - Fighter - Shield_2: -4680844416408110554
+      Nairan - Fighter - Shield_3: 2230275528330129453
+      Nairan - Fighter - Shield_4: 2236097628072120740
+      Nairan - Fighter - Shield_5: -9212968676949710147
+      Nairan - Fighter - Shield_6: 7942761961842365659
+      Nairan - Fighter - Shield_7: -502223581757944298
+      Nairan - Fighter - Shield_8: -1451825954524660902
+      Nairan - Fighter - Shield_9: -5738187790553288948
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

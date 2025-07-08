@@ -272,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Scout - Weapons_0: -8701461130298997222
+      Nairan - Scout - Weapons_1: 7606514791678733038
+      Nairan - Scout - Weapons_2: -2020496912381244660
+      Nairan - Scout - Weapons_3: -8294364343449638958
+      Nairan - Scout - Weapons_4: -2307128423096244412
+      Nairan - Scout - Weapons_5: -8609051369061119928
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

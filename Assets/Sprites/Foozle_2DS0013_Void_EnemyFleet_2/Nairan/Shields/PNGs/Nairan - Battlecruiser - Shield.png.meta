@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Battlecruiser - Shield_0: 6828217732792461546
+      Nairan - Battlecruiser - Shield_1: 5464801080578364317
+      Nairan - Battlecruiser - Shield_2: 7525203622807348454
+      Nairan - Battlecruiser - Shield_3: -6403369823512001576
+      Nairan - Battlecruiser - Shield_4: 126195514435842806
+      Nairan - Battlecruiser - Shield_5: -8785800699072922013
+      Nairan - Battlecruiser - Shield_6: -4160936954187608481
+      Nairan - Battlecruiser - Shield_7: -5151712906850203133
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

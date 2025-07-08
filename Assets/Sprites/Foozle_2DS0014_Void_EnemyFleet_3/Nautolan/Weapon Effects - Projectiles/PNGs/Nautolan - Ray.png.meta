@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan - Ray_0: 4990295452883742205
+      Nautolan - Ray_1: 1134916584629351961
+      Nautolan - Ray_2: 229981722835175474
+      Nautolan - Ray_3: 1837057475248341827
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

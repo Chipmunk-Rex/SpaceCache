@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Asteroid - Flame_0: 5354007501973836183
+      Asteroid - Flame_1: 4103666175311166162
+      Asteroid - Flame_2: 8003187237941425895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

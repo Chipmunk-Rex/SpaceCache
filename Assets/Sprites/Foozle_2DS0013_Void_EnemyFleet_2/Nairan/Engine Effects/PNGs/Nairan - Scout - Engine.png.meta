@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Scout - Engine_0: -1539443468136995811
+      Nairan - Scout - Engine_1: -3898890796554051749
+      Nairan - Scout - Engine_2: -8708300978108326534
+      Nairan - Scout - Engine_3: 2248891860933217253
+      Nairan - Scout - Engine_4: -7650145795165101068
+      Nairan - Scout - Engine_5: 1979582088154995759
+      Nairan - Scout - Engine_6: 8816361204711233273
+      Nairan - Scout - Engine_7: -5492261734507631187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

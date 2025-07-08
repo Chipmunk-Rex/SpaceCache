@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Bolt_0: -6847961354968287674
+      Nairan - Bolt_1: 4430387896857040721
+      Nairan - Bolt_2: -7143590511609857905
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

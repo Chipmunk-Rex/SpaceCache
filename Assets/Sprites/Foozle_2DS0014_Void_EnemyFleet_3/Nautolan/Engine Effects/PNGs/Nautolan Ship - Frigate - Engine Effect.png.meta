@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Frigate - Engine Effect_0: 8610966041989426131
+      Nautolan Ship - Frigate - Engine Effect_1: -6058325671940041382
+      Nautolan Ship - Frigate - Engine Effect_2: 127782731602000598
+      Nautolan Ship - Frigate - Engine Effect_3: -6126713137678502664
+      Nautolan Ship - Frigate - Engine Effect_4: 7182208827860286823
+      Nautolan Ship - Frigate - Engine Effect_5: 5976177019862342702
+      Nautolan Ship - Frigate - Engine Effect_6: 3811773620091302926
+      Nautolan Ship - Frigate - Engine Effect_7: -7522389050068992585
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Torpedo_0: 6597511049316547579
+      Nairan - Torpedo_1: 6153043530902134319
+      Nairan - Torpedo_2: -3701369703261501765
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

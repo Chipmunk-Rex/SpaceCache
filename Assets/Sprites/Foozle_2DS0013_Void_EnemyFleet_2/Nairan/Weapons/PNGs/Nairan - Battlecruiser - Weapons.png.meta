@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Battlecruiser - Weapons_0: 7409901365637005311
+      Nairan - Battlecruiser - Weapons_1: 145220010421194361
+      Nairan - Battlecruiser - Weapons_2: -1675746796770868302
+      Nairan - Battlecruiser - Weapons_3: 1383019860088299758
+      Nairan - Battlecruiser - Weapons_4: -3999402750196592955
+      Nairan - Battlecruiser - Weapons_5: -7330499183786701830
+      Nairan - Battlecruiser - Weapons_6: -1338137821318675818
+      Nairan - Battlecruiser - Weapons_7: 7476698145910807598
+      Nairan - Battlecruiser - Weapons_8: -6230573696637192213
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -422,7 +422,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Torpedo Ship - Weapons_0: -4793935544653399539
+      Nairan - Torpedo Ship - Weapons_1: -8475720888531049612
+      Nairan - Torpedo Ship - Weapons_10: -6327086653106297690
+      Nairan - Torpedo Ship - Weapons_11: 2879276960528706432
+      Nairan - Torpedo Ship - Weapons_2: 115605355869473175
+      Nairan - Torpedo Ship - Weapons_3: 698246441159480528
+      Nairan - Torpedo Ship - Weapons_4: -2651317183836308042
+      Nairan - Torpedo Ship - Weapons_5: 3168571346586363983
+      Nairan - Torpedo Ship - Weapons_6: -6014466625399396931
+      Nairan - Torpedo Ship - Weapons_7: 6152407315749292705
+      Nairan - Torpedo Ship - Weapons_8: 6109756140196244030
+      Nairan - Torpedo Ship - Weapons_9: -2809509940723565632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pickup Icon - Weapons - Rocket_0: 4858854400659717820
+      Pickup Icon - Weapons - Rocket_1: -4970047548864177911
+      Pickup Icon - Weapons - Rocket_10: 2203141033957984690
+      Pickup Icon - Weapons - Rocket_11: 5405452939408643217
+      Pickup Icon - Weapons - Rocket_12: 611369044783295944
+      Pickup Icon - Weapons - Rocket_13: -8093436415119321340
+      Pickup Icon - Weapons - Rocket_14: -157479607492146536
+      Pickup Icon - Weapons - Rocket_2: 8477052867580895699
+      Pickup Icon - Weapons - Rocket_3: -8687331518079725648
+      Pickup Icon - Weapons - Rocket_4: -7426765819540952693
+      Pickup Icon - Weapons - Rocket_5: -8051855449593763674
+      Pickup Icon - Weapons - Rocket_6: 7013976589595917027
+      Pickup Icon - Weapons - Rocket_7: 5766010903736501384
+      Pickup Icon - Weapons - Rocket_8: -5526038153946898194
+      Pickup Icon - Weapons - Rocket_9: 6905400786616112425
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

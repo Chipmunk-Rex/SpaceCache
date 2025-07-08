@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Dreadnought - Shield_0: 7804021952010018960
+      Nairan - Dreadnought - Shield_1: -5100027576888872293
+      Nairan - Dreadnought - Shield_2: 6756064825137275728
+      Nairan - Dreadnought - Shield_3: 2210233813481265369
+      Nairan - Dreadnought - Shield_4: -6238120015237091319
+      Nairan - Dreadnought - Shield_5: -7678180037762563851
+      Nairan - Dreadnought - Shield_6: 620184687718245539
+      Nairan - Dreadnought - Shield_7: -7294673074100304641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

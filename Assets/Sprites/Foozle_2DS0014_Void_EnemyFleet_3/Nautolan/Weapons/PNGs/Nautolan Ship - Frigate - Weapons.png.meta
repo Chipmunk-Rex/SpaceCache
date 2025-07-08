@@ -347,7 +347,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Frigate - Weapons_0: -51645918612987737
+      Nautolan Ship - Frigate - Weapons_1: 1365237725222308274
+      Nautolan Ship - Frigate - Weapons_2: 8338432639552658496
+      Nautolan Ship - Frigate - Weapons_3: 1165650977752398888
+      Nautolan Ship - Frigate - Weapons_4: -3796554778220058462
+      Nautolan Ship - Frigate - Weapons_5: 183909799465984933
+      Nautolan Ship - Frigate - Weapons_6: 7085271735078167557
+      Nautolan Ship - Frigate - Weapons_7: -5826633897221102251
+      Nautolan Ship - Frigate - Weapons_8: -2564679947231485430
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

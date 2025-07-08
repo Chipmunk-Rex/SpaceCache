@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan - Spinning Bullet_0: -6981184018074512748
+      Nautolan - Spinning Bullet_1: 2221531873267669835
+      Nautolan - Spinning Bullet_2: 419675544363572145
+      Nautolan - Spinning Bullet_3: -987982302007870004
+      Nautolan - Spinning Bullet_4: 7429568235866786039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

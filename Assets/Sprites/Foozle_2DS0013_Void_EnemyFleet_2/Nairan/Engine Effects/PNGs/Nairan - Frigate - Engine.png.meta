@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Frigate - Engine_0: -6497971099765170066
+      Nairan - Frigate - Engine_1: -7343040294464336396
+      Nairan - Frigate - Engine_10: 8813839149604815005
+      Nairan - Frigate - Engine_11: -2603438304285963809
+      Nairan - Frigate - Engine_12: -1336467009082179671
+      Nairan - Frigate - Engine_13: 2328427411155812161
+      Nairan - Frigate - Engine_14: 639487868978457034
+      Nairan - Frigate - Engine_15: -4370731150290868042
+      Nairan - Frigate - Engine_16: -1197982444857926869
+      Nairan - Frigate - Engine_17: 4174274223523484836
+      Nairan - Frigate - Engine_18: -3965178896694018204
+      Nairan - Frigate - Engine_19: -3702859423082366403
+      Nairan - Frigate - Engine_2: 3864201710506444075
+      Nairan - Frigate - Engine_20: 8268408514904333723
+      Nairan - Frigate - Engine_21: -1052974974455835980
+      Nairan - Frigate - Engine_22: -7142394362725760973
+      Nairan - Frigate - Engine_23: -8550845200353488769
+      Nairan - Frigate - Engine_3: 1244908868272612150
+      Nairan - Frigate - Engine_4: -4728901123870420585
+      Nairan - Frigate - Engine_5: -179745453449084228
+      Nairan - Frigate - Engine_6: -8355919912835434445
+      Nairan - Frigate - Engine_7: -6676984150056906788
+      Nairan - Frigate - Engine_8: 4061757252116076188
+      Nairan - Frigate - Engine_9: 9089523240211405172
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

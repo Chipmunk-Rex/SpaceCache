@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Bomber - Engine_0: 4500231158777745498
+      Nairan - Bomber - Engine_1: -8859110014581220339
+      Nairan - Bomber - Engine_2: -7201620079146846256
+      Nairan - Bomber - Engine_3: 4589460955418011413
+      Nairan - Bomber - Engine_4: -8377757409341978839
+      Nairan - Bomber - Engine_5: -1070224690912298682
+      Nairan - Bomber - Engine_6: -691701557965084494
+      Nairan - Bomber - Engine_7: -1949089923569644753
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

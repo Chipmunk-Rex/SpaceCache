@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pickup Icon - Engines - Base Engine_0: 1473390766520696716
+      Pickup Icon - Engines - Base Engine_1: -7698374293207690681
+      Pickup Icon - Engines - Base Engine_10: 804133567442331232
+      Pickup Icon - Engines - Base Engine_11: 4394143168795642530
+      Pickup Icon - Engines - Base Engine_12: -4751009746730350725
+      Pickup Icon - Engines - Base Engine_13: -7694987982002014749
+      Pickup Icon - Engines - Base Engine_14: 7613230866289710096
+      Pickup Icon - Engines - Base Engine_2: -978993921144622635
+      Pickup Icon - Engines - Base Engine_3: 4187866860118856989
+      Pickup Icon - Engines - Base Engine_4: 6032102220845969463
+      Pickup Icon - Engines - Base Engine_5: -123950475464566512
+      Pickup Icon - Engines - Base Engine_6: 2039469926788953901
+      Pickup Icon - Engines - Base Engine_7: 4427297774000103692
+      Pickup Icon - Engines - Base Engine_8: -5243842551253101990
+      Pickup Icon - Engines - Base Engine_9: 4870069633902938288
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

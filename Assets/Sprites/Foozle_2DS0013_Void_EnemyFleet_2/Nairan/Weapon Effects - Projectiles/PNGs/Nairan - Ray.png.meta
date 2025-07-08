@@ -222,7 +222,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Ray_0: 1071668552530858015
+      Nairan - Ray_1: 426276188118056310
+      Nairan - Ray_2: -8092645350714659557
+      Nairan - Ray_3: -479439983010596717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

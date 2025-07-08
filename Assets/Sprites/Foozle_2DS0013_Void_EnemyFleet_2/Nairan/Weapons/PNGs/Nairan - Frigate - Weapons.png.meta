@@ -247,7 +247,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Frigate - Weapons_0: -9063967139812899479
+      Nairan - Frigate - Weapons_1: -1593316861436041320
+      Nairan - Frigate - Weapons_2: 5489342256869132353
+      Nairan - Frigate - Weapons_3: -7450467232657509139
+      Nairan - Frigate - Weapons_4: -1818772816539461579
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

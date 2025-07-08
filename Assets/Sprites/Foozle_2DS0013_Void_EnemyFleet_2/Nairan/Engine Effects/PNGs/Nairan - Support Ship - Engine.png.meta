@@ -322,7 +322,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Support Ship - Engine_0: 3497941019753237078
+      Nairan - Support Ship - Engine_1: 756422563820195081
+      Nairan - Support Ship - Engine_2: 296565655194851512
+      Nairan - Support Ship - Engine_3: -5246969391214033811
+      Nairan - Support Ship - Engine_4: -8315420574847714015
+      Nairan - Support Ship - Engine_5: 286201593355514208
+      Nairan - Support Ship - Engine_6: 5961941243538432822
+      Nairan - Support Ship - Engine_7: -5115236924938432474
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

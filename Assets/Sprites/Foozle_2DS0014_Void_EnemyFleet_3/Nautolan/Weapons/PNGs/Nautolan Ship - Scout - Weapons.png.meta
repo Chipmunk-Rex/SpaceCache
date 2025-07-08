@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Scout - Weapons_0: -890952559573945103
+      Nautolan Ship - Scout - Weapons_1: 7980697631490298994
+      Nautolan Ship - Scout - Weapons_2: 1318467518653205625
+      Nautolan Ship - Scout - Weapons_3: -2312787045562173165
+      Nautolan Ship - Scout - Weapons_4: 760396124151451747
+      Nautolan Ship - Scout - Weapons_5: -8240889753089356293
+      Nautolan Ship - Scout - Weapons_6: 7680083943011690149
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

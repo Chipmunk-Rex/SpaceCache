@@ -722,7 +722,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nairan - Dreadnought - Engine_0: 3336977198686808877
+      Nairan - Dreadnought - Engine_1: -6331301459645199811
+      Nairan - Dreadnought - Engine_10: 6614092159483871513
+      Nairan - Dreadnought - Engine_11: 5911684586594677149
+      Nairan - Dreadnought - Engine_12: 1961013714816055100
+      Nairan - Dreadnought - Engine_13: -544967177820219619
+      Nairan - Dreadnought - Engine_14: 2386492345302735595
+      Nairan - Dreadnought - Engine_15: -6376783440032848282
+      Nairan - Dreadnought - Engine_16: -8073870835254803935
+      Nairan - Dreadnought - Engine_17: 5819772962835940259
+      Nairan - Dreadnought - Engine_18: -6024991618293397363
+      Nairan - Dreadnought - Engine_19: 4116672685961927172
+      Nairan - Dreadnought - Engine_2: 8458445788754008131
+      Nairan - Dreadnought - Engine_20: 8248445318002235601
+      Nairan - Dreadnought - Engine_21: -8746156621060672131
+      Nairan - Dreadnought - Engine_22: 3909036812968433289
+      Nairan - Dreadnought - Engine_23: 3823714823120214245
+      Nairan - Dreadnought - Engine_3: 4381193512469478758
+      Nairan - Dreadnought - Engine_4: -8594561384904287435
+      Nairan - Dreadnought - Engine_5: -4953791181421295288
+      Nairan - Dreadnought - Engine_6: -7162634244436167833
+      Nairan - Dreadnought - Engine_7: 361550242491939133
+      Nairan - Dreadnought - Engine_8: 2907010082223419966
+      Nairan - Dreadnought - Engine_9: -646531848383683932
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

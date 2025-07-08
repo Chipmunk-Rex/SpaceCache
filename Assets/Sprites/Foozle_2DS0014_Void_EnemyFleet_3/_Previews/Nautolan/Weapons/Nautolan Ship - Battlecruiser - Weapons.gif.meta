@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Battlecruiser - Weapons_0: 2501382580914083838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

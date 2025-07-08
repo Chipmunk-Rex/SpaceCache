@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Nautolan Ship - Bomber - Shield_0: -4410045562169706126
+      Nautolan Ship - Bomber - Shield_1: 44355319007934649
+      Nautolan Ship - Bomber - Shield_2: 3975675913567572651
+      Nautolan Ship - Bomber - Shield_3: 2795017033267906480
+      Nautolan Ship - Bomber - Shield_4: -1143099466181058616
+      Nautolan Ship - Bomber - Shield_5: -2458685159103076348
+      Nautolan Ship - Bomber - Shield_6: -8767343883310168386
+      Nautolan Ship - Bomber - Shield_7: 7679821581897806922
+      Nautolan Ship - Bomber - Shield_8: -3328822792471515237
+      Nautolan Ship - Bomber - Shield_9: -4186426938339884410
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
