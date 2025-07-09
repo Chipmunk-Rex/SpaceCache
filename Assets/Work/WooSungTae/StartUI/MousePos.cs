@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MousePos : MonoBehaviour
 {
-    [SerializeField] Rect range;
+    [SerializeField] private Rect range;
     private bool iInRange = false;
     private void Update()
     {
@@ -12,11 +12,13 @@ public class MousePos : MonoBehaviour
         if (range.Contains(mouseWorldPos))
         {
             iInRange = true;
+            range.x = -4.5f;
             Debug.Log("µé¾î¿È");
         }
         else
         {
             iInRange = false;
+            range.x = 4;
         }
     }
 
@@ -24,6 +26,7 @@ public class MousePos : MonoBehaviour
     {
         return iInRange;
     }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireCube(range.center, new Vector2(range.width, range.height));
