@@ -12,11 +12,10 @@ namespace Code.Scripts.Player
         public event Action OnAngleChangeLPressed;
         public event Action OnAngleChangeRPressed;
         public event Action OnAttackPressed;
-
-        public Vector2 MovementKey { get; private set; }
-        private Controls _controls;
         
-        public bool IsCanAttack { get; set; }
+        private Controls _controls;
+
+        public bool IsCanAttack { get; set; } = true;
 
         public bool isLHolding = false;
         public bool isRHolding = false;

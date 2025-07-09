@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01a1705f4d4041e28b844f971f8f057d, type: 3}
-  m_Name: HitImpactOrange
+  m_Name: Bullet
   m_EditorClassIdentifier: 
-  poolingName: HitImpactOrange
-  prefab: {fileID: 5612891283234968503, guid: c342dd86962e3a14684e3c900133cbc4, type: 3}
-  initCount: 2
+  poolingName: Bullet
+  prefab: {fileID: 39287039120353674, guid: 09a8c8f4a27ff26429de39c14ee37d79, type: 3}
+  initCount: 100
