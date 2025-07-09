@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c157e029e697e8b4dadf4a740a709ddb
+guid: ce90abf798e5c7e4db03bd8db923ed4a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3087939538138180030
-    second: Kla'ed - Bullet_0
+      213: 215243883402967914
+    second: Kla'ed - Torpedo Ship - Engine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -126,89 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Kla'ed - Bullet_0
+      name: Kla'ed - Torpedo Ship - Engine_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 4
-        height: 16
+        width: 320
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb92c9a36a09ada20800000000000000
-      internalID: 3087939538138180030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kla'ed - Bullet_1
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 0
-        width: 4
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d6c8023137cb62349b0d8736c65ecdb0
-      internalID: 1094911203
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kla'ed - Bullet_2
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 0
-        width: 4
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 65e7e8ad221721a44bbd99290062b99b
-      internalID: 1435931544
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Kla'ed - Bullet_3
-      rect:
-        serializedVersion: 2
-        x: 12
-        y: 0
-        width: 4
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77c5636409981b340801e2a17270a7cb
-      internalID: -1191785868
+      spriteID: a6b3f4aeb23bcf200800000000000000
+      internalID: 215243883402967914
       vertices: []
       indices: 
       edges: []
@@ -217,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d37dc527199ab01499d763aed1c40e2e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -227,10 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Kla'ed - Bullet_0: 3087939538138180030
-      Kla'ed - Bullet_1: 1094911203
-      Kla'ed - Bullet_2: 1435931544
-      Kla'ed - Bullet_3: -1191785868
+      Kla'ed - Torpedo Ship - Engine_0: 215243883402967914
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

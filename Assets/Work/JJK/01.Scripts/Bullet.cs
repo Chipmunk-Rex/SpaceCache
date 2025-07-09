@@ -1,37 +1,35 @@
 using UnityEngine;
 using System.Collections;
+using System;
+using DG.Tweening;
+using Unity.Mathematics;
 
 public class Bullet : MonoBehaviour
 {
-    Transform playerPos;
-    Boss boss;
-    Vector3 moveDir;
-    float moveSpeed = 15f;
-    float lifeTime = 1.5f;
-
-    private void Awake()
-    {
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
-        boss = GameObject.FindGameObjectWithTag("Boss").GetComponent<Boss>();
-    }
-
+    private Vector3 moveDir;
+    private float moveSpeed = 10f;
+    private float lifeTime = 2f;
 
     private void OnEnable()
     {
         StartCoroutine(LifeTime());
-        moveDir = boss.moveDir;     
+    }
+
+    public void InitDirection(Vector3 dir)
+    {
+        moveDir = dir.normalized;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
 
     private void FixedUpdate()
     {
-        transform.position += moveDir.normalized * moveSpeed * Time.fixedDeltaTime;
+        transform.position += moveDir * moveSpeed * Time.fixedDeltaTime;
     }
 
     private IEnumerator LifeTime()
     {
-        Debug.Log("StartLiftime");
         yield return new WaitForSeconds(lifeTime);
-        Debug.Log("ELiftime");
         gameObject.SetActive(false);
     }
 }

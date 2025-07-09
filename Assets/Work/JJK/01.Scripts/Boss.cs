@@ -8,13 +8,16 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] Transform playerPos;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] Transform firePoint;
+    [SerializeField] float reloadTime = 0.3f;
 
     float angle;
     public Vector3 moveDir;
     float moveSpeed = 4f;
     GameObject[] bulletPool;
-    int poolSize = 10;
+    int poolSize = 20;
     bool canFire = true;
+    int patternCount = 1;
 
     private void Start()
     {
@@ -26,6 +29,8 @@ public class Boss : MonoBehaviour
             bulletPool[i] = bullet;
             bullet.SetActive(false);
         }
+
+        NextPattern();
     }
 
     private void Update()
@@ -33,9 +38,80 @@ public class Boss : MonoBehaviour
         moveDir = playerPos.position - transform.position;
         Direction();
 
-        if (canFire)
-            Fire();
+        //if (canFire)
+        //    Fire();
     }
+
+    private IEnumerator Pattern1()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 6; j++)
+            {
+                yield return new WaitForSeconds(reloadTime);
+
+                if (j == 0)
+                {
+                    ShootBullet(0);
+                }
+                else
+                {
+                    float angle = 15 * j;
+                    ShootBullet(angle);
+                    ShootBullet(-angle);
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        NextPattern();
+    }
+
+    private void NextPattern()
+    {
+        switch (patternCount)
+        {
+            case 1:
+                StartCoroutine(Pattern1());
+                patternCount++;
+                break;
+            case 2:
+                patternCount++;
+                break;
+            case 3:
+                patternCount = 1;
+                break;
+        }
+    }
+
+    private void ShootBullet(float angleOffset)
+    {
+        GameObject bullet = GetPooledBullet();
+        if (bullet != null)
+        {
+            bullet.transform.position = firePoint.position;
+
+            Vector3 baseDir = transform.up;
+
+            Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
+
+            bullet.GetComponent<Bullet>().InitDirection(dir);
+            bullet.SetActive(true);
+        }
+    }
+
+    private GameObject GetPooledBullet()
+    {
+        for (int i = 0; i < bulletPool.Length; i++)
+        {
+            if (!bulletPool[i].activeInHierarchy)
+            {
+                return bulletPool[i];
+            }
+        }
+
+        return null;
+    }
+
 
     private void Fire()
     {
@@ -44,7 +120,7 @@ public class Boss : MonoBehaviour
             GameObject bullet = bulletPool[i];
             if (!bullet.activeSelf)
             {
-                bullet.transform.position = transform.position + moveDir.normalized;
+                bullet.transform.position = firePoint.position;
                 bullet.SetActive(true);
 
                 break;
@@ -71,7 +147,7 @@ public class Boss : MonoBehaviour
     private IEnumerator Reload()
     {
         canFire = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(reloadTime);
         canFire = true;
     }
 }
