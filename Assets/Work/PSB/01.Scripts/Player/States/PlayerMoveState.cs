@@ -12,7 +12,6 @@ namespace Code.Scripts.Player.States
         public override void Enter()
         {
             base.Enter();
-            _player.visual.SetActive(true);
         }
 
         public override void Update()
@@ -20,15 +19,14 @@ namespace Code.Scripts.Player.States
             base.Update();
             if (_player.PlayerInput.isLHolding && _player.PlayerInput.isRHolding)
             {
-                _movement.StopImmediately();
                 _player.ChangeState("IDLE");
             }
         }
 
         public override void Exit()
         {
-            _player.visual.SetActive(false);
             base.Exit();
         }
+        
     }
 }

@@ -1,10 +1,9 @@
-﻿using System;
-using Code.Scripts.Entities;
+﻿using Code.Scripts.Entities;
 using UnityEngine;
 
 namespace Code.Scripts.Player
 {
-    public class CharacterLookCam : MonoBehaviour, IEntityComponent
+    public class PlayerLookCam : MonoBehaviour, IEntityComponent
     {
         [SerializeField] private float rotationSpeed = 90f;
 

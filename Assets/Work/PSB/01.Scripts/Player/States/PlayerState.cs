@@ -6,13 +6,13 @@ namespace Code.Scripts.Player.States
     public class PlayerState : EntityState
     {
         protected Player _player;
+        protected PlayerMovement _movement;
         protected readonly float _inputThreshold = 0.1f;
-
-        protected CharacterMovement _movement;
+        
         public PlayerState(Entity entity, int animationHash) : base(entity, animationHash)
         {
             _player = entity as Player;
-            _movement = entity.GetCompo<CharacterMovement>();
+            _movement = entity.GetCompo<PlayerMovement>();
         }
         
     }

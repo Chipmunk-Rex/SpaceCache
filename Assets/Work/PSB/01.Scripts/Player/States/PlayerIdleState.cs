@@ -18,8 +18,9 @@ namespace Code.Scripts.Player.States
         public override void Update()
         {
             base.Update();
-            if (!_player.PlayerInput.isLHolding || !_player.PlayerInput.isRHolding)
+            if (!_player.PlayerInput.isLHolding && !_player.PlayerInput.isRHolding)
             {
+                _movement.isRunning = true;
                 _player.ChangeState("MOVE");
             }
         }

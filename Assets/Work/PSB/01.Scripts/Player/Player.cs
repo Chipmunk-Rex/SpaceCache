@@ -12,17 +12,10 @@ namespace Code.Scripts.Player
 
         private EntityStateMachine _stateMachine;
         
-        #region Temp
-
-        [field : SerializeField] public GameObject visual;
-        
-        #endregion 
-        
         protected override void Awake()
         {
             base.Awake();
             _stateMachine = new EntityStateMachine(this, states);
-            visual.gameObject.SetActive(false);
         }
 
         private void OnDestroy()
