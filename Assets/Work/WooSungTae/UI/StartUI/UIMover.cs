@@ -9,7 +9,7 @@ public class UIMover : MonoBehaviour
     [SerializeField] private MousePos mousePos;
     [SerializeField] private GameObject mainCamera;
 
-    private bool startStop = false;
+    public bool startStop { get; private set; } = false;
     private void Start()
     {
         StartPanelMove();
@@ -31,6 +31,10 @@ public class UIMover : MonoBehaviour
             }
         }
     }
+    public void SetStartStop(bool startStop)
+    {
+        this.startStop = startStop;
+    }
 
     private void StartPanelMove()
     {
@@ -46,7 +50,7 @@ public class UIMover : MonoBehaviour
         cachePanel.transform.DOLocalMove(new Vector3(2000, 0, 0), 1);
     }
 
-    private void EnterStartPanel()
+    public void EnterStartPanel()
     {
         startPanel.transform.DOLocalMove(new Vector3(-1000, 0, 0), 1);
     }

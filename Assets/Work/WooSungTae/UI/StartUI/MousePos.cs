@@ -18,7 +18,7 @@ public class MousePos : MonoBehaviour
         else
         {
             iInRange = false;
-            range.x = 4;
+            range.x = 5;
         }
     }
 
