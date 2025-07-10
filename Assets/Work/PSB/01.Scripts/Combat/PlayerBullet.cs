@@ -1,7 +1,4 @@
-﻿using System;
-using Code.Scripts.Entities;
-using Code.Scripts.Players;
-using PSB_Lib.ObjectPool.RunTime;
+﻿using PSB_Lib.ObjectPool.RunTime;
 using UnityEngine;
 
 namespace Code.Scripts.Items.Combat
@@ -13,7 +10,8 @@ namespace Code.Scripts.Items.Combat
         
         private Pool _myPool;
         private Rigidbody2D _rigidCompo;
-        
+
+        [SerializeField] private float damage = 10f;
         [SerializeField] private float speed = 10f; 
         [SerializeField] private float lifeTime = 3f;
 
@@ -25,6 +23,11 @@ namespace Code.Scripts.Items.Combat
             _rigidCompo = gameObject.GetComponent<Rigidbody2D>();
         }
 
+        public void SetDamage(float dam)
+        {
+            damage = dam;
+        }
+        
         private void FixedUpdate()
         {
             MoveForward();
@@ -49,11 +52,19 @@ namespace Code.Scripts.Items.Combat
             _rigidCompo.linearVelocity = Vector2.zero;
             _timer = 0f;
         }
+        
+        #region Temp
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            
+            if (other.gameObject.CompareTag("Test"))
+            {
+                other.gameObject.GetComponent<EntityHealth>().SetHp(-damage); 
+                gameObject.SetActive(false);
+            }
         }
+        
+        #endregion
         
     }
 }

@@ -51,6 +51,11 @@ namespace Code.Scripts.Items.Combat
             if (currentHealth <= 0)
                 Destroy(gameObject);
         }
+
+        public void SetHp(float h)
+        {
+            currentHealth += h;
+        }
         
         #endregion
 

@@ -1,5 +1,4 @@
-﻿using Code.Scripts.Players;
-using Code.Scripts.Entities;
+﻿using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
 using PSB_Lib.ObjectPool.RunTime;
@@ -10,11 +9,13 @@ namespace Code.Scripts.Players.States
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
+        [Header("Serializefield")]
         [SerializeField] private StatSO attackPowerStat;
         [SerializeField] private StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
         [SerializeField] private Transform spawnPoint;
         
+        [Header("Value")]
         [SerializeField] private float increaseSpeedValue = 1f;
         [SerializeField] private float decreaseSpeedValue = -0.5f;
         
@@ -22,10 +23,10 @@ namespace Code.Scripts.Players.States
         
         private Player _player;
         private EntityStat _statCompo;
-        private float _attackPower = 10f;
+        [SerializeField] private float _attackPower = 10f;
         private float _attackCooldown = 2f;
         private bool _canAttack = true;
-        
+
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
@@ -51,6 +52,8 @@ namespace Code.Scripts.Players.States
             _canAttack = false;
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
+
+            playerBullet.SetDamage(_attackPower);
             
             playerBullet.transform.position = spawnPoint.position;
             playerBullet.transform.rotation = spawnPoint.rotation;
