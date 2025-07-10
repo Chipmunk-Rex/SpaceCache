@@ -15,5 +15,6 @@ public class EnemySPown : MonoBehaviour
             enemyPool[i].SetActive(false);
         }
         enemyPool[0].SetActive(true);
-    }    
+    }
+    
 }
