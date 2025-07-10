@@ -104,19 +104,19 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1
+        y: 2
         width: 160
-        height: 95
+        height: 94
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: a78c13d9e0c8f8420800000000000000
-      internalID: 2634478301429745786
+      spriteID: bc2eb1827f34c114fb97b7fa71b9e796
+      internalID: -1610527572
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c0d5d0295821e5f4cb7b227b996e3bd0
     internalID: 0
     vertices: []
     indices: 
@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      gentle trees 80x96 v02_0: -1610527572
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
