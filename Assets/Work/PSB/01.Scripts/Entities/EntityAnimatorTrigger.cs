@@ -9,6 +9,7 @@ namespace Code.Scripts.Entities
         public Action OnStartAttackCast;
         public Action OnEndAttackCast;
         public Action OnDamageCastTrigger;
+        public Action OnHurtTrigger;
         
         private Entity _entity;
 
@@ -24,6 +25,8 @@ namespace Code.Scripts.Entities
         private void DamageCast() => OnDamageCastTrigger?.Invoke();
         private void StartCast() => OnStartAttackCast?.Invoke();
         private void EndCast() => OnEndAttackCast?.Invoke();
+        private void Hurt() => OnHurtTrigger?.Invoke();
+        
         
     }
 }

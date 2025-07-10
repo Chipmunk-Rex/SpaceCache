@@ -9,6 +9,8 @@ namespace Code.Scripts.Items.Combat
     {
         private Entity _entity;
         private EntityStat _statCompo;
+        private EntityAnimatorTrigger _animatorTrigger;
+        public event Action<float, float> OnHealthChanged;
         
         [SerializeField] private StatSO hpStat;
         [SerializeField] private float maxHealth;
@@ -18,6 +20,7 @@ namespace Code.Scripts.Items.Combat
         {
             _entity = entity; 
             _statCompo = entity.GetCompo<EntityStat>();
+            _animatorTrigger = entity.GetCompo<EntityAnimatorTrigger>();
         }
         
         public void AfterInitialize()
@@ -48,13 +51,19 @@ namespace Code.Scripts.Items.Combat
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SetHp(-10);
+            }
+            
             if (currentHealth <= 0)
                 Destroy(gameObject);
         }
 
         public void SetHp(float h)
         {
-            currentHealth += h;
+            currentHealth = Mathf.Clamp(currentHealth + h, 0, maxHealth);
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
         
         #endregion
