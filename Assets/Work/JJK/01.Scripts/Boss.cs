@@ -7,16 +7,23 @@ using UnityEngine.PlayerLoop;
 public class Boss : MonoBehaviour
 {
     [SerializeField] Transform playerPos;
+    [SerializeField] private float turnSpeed = 5f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
     [SerializeField] float reloadTime = 0.3f;
 
+    [Header("Pattern2")]
+    [SerializeField] private GameObject laserPrefab;
+    [SerializeField] float spinSpeed = 90f;
+
     float angle;
-    public Vector3 moveDir;
+    float currentAngle = 0f;
+    Vector3 moveDir;
     float moveSpeed = 4f;
     GameObject[] bulletPool;
-    int poolSize = 20;
+    int poolSize = 50;
     bool canFire = true;
+    bool isSpin = false;
     int patternCount = 1;
 
     private void Start()
@@ -36,34 +43,14 @@ public class Boss : MonoBehaviour
     private void Update()
     {
         moveDir = playerPos.position - transform.position;
-        Direction();
-
-        //if (canFire)
-        //    Fire();
-    }
-
-    private IEnumerator Pattern1()
-    {
-        for (int i = 0; i < 3; i++)
+        if (!isSpin)
+            Direction();
+        else
         {
-            for (int j = 0; j < 6; j++)
-            {
-                yield return new WaitForSeconds(reloadTime);
-
-                if (j == 0)
-                {
-                    ShootBullet(0);
-                }
-                else
-                {
-                    float angle = 15 * j;
-                    ShootBullet(angle);
-                    ShootBullet(-angle);
-                }
-            }
-            yield return new WaitForSeconds(0.5f);
+            float angleDelta = spinSpeed * Time.deltaTime;
+            currentAngle += angleDelta;
+            transform.Rotate(Vector3.back, angleDelta);
         }
-        NextPattern();
     }
 
     private void NextPattern()
@@ -75,17 +62,72 @@ public class Boss : MonoBehaviour
                 patternCount++;
                 break;
             case 2:
+                StartCoroutine(Pattern2());
                 patternCount++;
                 break;
             case 3:
+                StartCoroutine(Pattern3());
                 patternCount = 1;
                 break;
         }
     }
 
-    private void ShootBullet(float angleOffset)
+    private IEnumerator Pattern1()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                yield return new WaitForSeconds(reloadTime);
+
+                if (j == 0)
+                {
+                    ShootBullet1(0);
+                }
+                else
+                {
+                    float angle = 12 * j;
+                    ShootBullet1(angle);
+                    ShootBullet1(-angle);
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
+        NextPattern();
+    }
+
+    private IEnumerator Pattern2()
+    {
+        isSpin = true;
+        FireLaser();
+
+        yield return new WaitForSeconds(4f);
+
+        isSpin = false;
+        laserPrefab.SetActive(false);
+
+        yield return new WaitForSeconds(0.5f);
+
+        NextPattern();
+    }
+
+    private IEnumerator Pattern3()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            ShootBullet2();
+            yield return new WaitForSeconds(reloadTime + 0.1f);
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        NextPattern();
+    }
+
+    private void ShootBullet1(float angleOffset)
     {
         GameObject bullet = GetPooledBullet();
+
         if (bullet != null)
         {
             bullet.transform.position = firePoint.position;
@@ -96,6 +138,30 @@ public class Boss : MonoBehaviour
 
             bullet.GetComponent<Bullet>().InitDirection(dir);
             bullet.SetActive(true);
+        }
+    }
+
+    private void ShootBullet2()
+    {
+        Vector3 right = firePoint.right;
+        Vector3 up = firePoint.up;
+
+        Vector3[] offsets = new Vector3[]
+        {
+            -right - up,
+            Vector3.zero,
+            right - up
+        };
+
+        foreach (Vector3 offset in offsets)
+        {
+            GameObject bullet = GetPooledBullet();
+            if (bullet != null)
+            {
+                bullet.transform.position = firePoint.position + offset;
+                bullet.GetComponent<Bullet>().InitDirection(transform.up);
+                bullet.SetActive(true);
+            }
         }
     }
 
@@ -112,27 +178,15 @@ public class Boss : MonoBehaviour
         return null;
     }
 
-
-    private void Fire()
+    void FireLaser()
     {
-        for (int i = 0; i < poolSize; i++)
-        {
-            GameObject bullet = bulletPool[i];
-            if (!bullet.activeSelf)
-            {
-                bullet.transform.position = firePoint.position;
-                bullet.SetActive(true);
-
-                break;
-            }
-        }
-
-        StartCoroutine(Reload());
+        laserPrefab.SetActive(true);
+        laserPrefab.transform.rotation = transform.rotation;
     }
 
     private void FixedUpdate()
     {
-        if (MathF.Pow(playerPos.position.x - transform.position.x, 2) + MathF.Pow(playerPos.position.y - transform.position.y, 2) > 36)
+        if ((playerPos.position - transform.position).magnitude > 6)
         {
             transform.position += moveDir.normalized * moveSpeed * Time.fixedDeltaTime;
         }
@@ -140,14 +194,11 @@ public class Boss : MonoBehaviour
 
     private void Direction()
     {
-        angle = Mathf.Atan2(playerPos.transform.position.y - transform.position.y, playerPos.transform.position.x - transform.position.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
-    }
+        Vector3 dir = playerPos.position - transform.position;
+        float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-    private IEnumerator Reload()
-    {
-        canFire = false;
-        yield return new WaitForSeconds(reloadTime);
-        canFire = true;
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle - 90f);
+
+        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
     }
 }

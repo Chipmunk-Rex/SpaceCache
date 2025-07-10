@@ -6,8 +6,9 @@ using Unity.Mathematics;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] private float moveSpeed = 10f;
+
     private Vector3 moveDir;
-    private float moveSpeed = 10f;
     private float lifeTime = 2f;
 
     private void OnEnable()
