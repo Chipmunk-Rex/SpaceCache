@@ -47,7 +47,11 @@ namespace Code.Scripts.Items.Combat
             _rigidCompo.linearVelocity = Vector2.zero;
             _timer = 0f;
         }
-        
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            
+        }
         
         
     }

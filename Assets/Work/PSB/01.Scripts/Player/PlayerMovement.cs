@@ -42,18 +42,6 @@ namespace Code.Scripts.Player
             _player.PlayerInput.OnSpeedUpPressed -= HandleSpeedUp;
             _player.PlayerInput.OnSpeedDownPressed -= HandleSpeedDown;
         }
-
-        #region Temp
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                StopImmediately();
-            }
-        }
-        
-        #endregion
         
         private void FixedUpdate()
         {

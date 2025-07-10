@@ -963,7 +963,7 @@ GameObject:
   - component: {fileID: 1040925497}
   - component: {fileID: 1040925498}
   - component: {fileID: 1040925496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1262,6 +1262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 11400000, guid: 3528123e34e0a1a41be4f2b6bf4b8e58, type: 2}
   spawnPoint: {fileID: 1872784152}
+  attackSpeedStat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
+  attackCooldown: 2
 --- !u!1 &1413933925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1577,9 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: b9a489740628f9842ab41c795f138eb1, type: 2}
     isUseOverride: 1
     overrideValue: 10
+  - stat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
+    isUseOverride: 1
+    overrideValue: 2
 --- !u!1 &1872784151
 GameObject:
   m_ObjectHideFlags: 0
