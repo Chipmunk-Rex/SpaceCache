@@ -1,7 +1,7 @@
 ﻿using Code.Scripts.Entities;
 using UnityEngine;
 
-namespace Code.Scripts.Player
+namespace Code.Scripts.Players
 {
     public class PlayerLookCam : MonoBehaviour, IEntityComponent
     {

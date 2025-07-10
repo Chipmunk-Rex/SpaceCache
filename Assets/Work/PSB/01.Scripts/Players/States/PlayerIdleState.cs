@@ -1,7 +1,7 @@
 ﻿using Code.Scripts.Entities;
 using UnityEngine;
 
-namespace Code.Scripts.Player.States
+namespace Code.Scripts.Players.States
 {
     public class PlayerIdleState : PlayerCanAttackState
     {

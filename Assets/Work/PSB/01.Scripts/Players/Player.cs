@@ -2,7 +2,7 @@
 using Code.Scripts.FSM;
 using UnityEngine;
 
-namespace Code.Scripts.Player
+namespace Code.Scripts.Players
 {
     public class Player : Entity
     {

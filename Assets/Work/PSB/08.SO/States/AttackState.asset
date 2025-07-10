@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AttackState
   m_EditorClassIdentifier: 
   stateName: ATTACK
-  className: Code.Scripts.Player.States.PlayerAttackState
+  className: Code.Scripts.Players.States.PlayerAttackState
   animParamName: ATTACK
   animationHash: -1221006659

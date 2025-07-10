@@ -1,7 +1,7 @@
 ﻿using Code.Scripts.Entities;
 using Code.Scripts.FSM;
 
-namespace Code.Scripts.Player.States
+namespace Code.Scripts.Players.States
 {
     public class PlayerState : EntityState
     {

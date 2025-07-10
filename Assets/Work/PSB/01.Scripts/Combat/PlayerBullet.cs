@@ -1,4 +1,6 @@
 ﻿using System;
+using Code.Scripts.Entities;
+using Code.Scripts.Players;
 using PSB_Lib.ObjectPool.RunTime;
 using UnityEngine;
 
@@ -8,7 +10,7 @@ namespace Code.Scripts.Items.Combat
     {
         [field : SerializeField] public PoolItemSO PoolItem { get; private set; }
         public GameObject GameObject => gameObject;
-
+        
         private Pool _myPool;
         private Rigidbody2D _rigidCompo;
         
@@ -52,7 +54,6 @@ namespace Code.Scripts.Items.Combat
         {
             
         }
-        
         
     }
 }

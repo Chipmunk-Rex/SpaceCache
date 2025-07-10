@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Code.Scripts.Players;
 using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
@@ -6,18 +6,23 @@ using PSB_Lib.ObjectPool.RunTime;
 using PSB_Lib.StatSystem;
 using UnityEngine;
 
-namespace Code.Scripts.Player.States
+namespace Code.Scripts.Players.States
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
+        [SerializeField] private StatSO attackPowerStat;
         [SerializeField] private StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
         [SerializeField] private Transform spawnPoint;
+        
+        [SerializeField] private float increaseSpeedValue = 1f;
+        [SerializeField] private float decreaseSpeedValue = -0.5f;
         
         [Inject] private PoolManagerMono _poolManager;
         
         private Player _player;
         private EntityStat _statCompo;
+        private float _attackPower = 10f;
         private float _attackCooldown = 2f;
         private bool _canAttack = true;
         
@@ -29,11 +34,13 @@ namespace Code.Scripts.Player.States
 
         public void AfterInitialize()
         {
+            _attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
             _attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
         }
 
         private void OnDestroy()
         {
+            _statCompo.UnSubscribeStat(attackPowerStat, HandleAttackPowerChange);
             _statCompo.UnSubscribeStat(attackSpeedStat, HandleAttackSpeedChange);
         }
         
@@ -58,36 +65,12 @@ namespace Code.Scripts.Player.States
         {
             _attackCooldown = currentValue;
         }
+
+        private void HandleAttackPowerChange(StatSO stat, float currentValue, float prevValue)
+        {
+            _attackPower = currentValue;
+        }
         
-        #region Temp
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                HandleSpeedUp();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                HandleSpeedDown();
-            }
-        }
-
-        private void HandleSpeedUp()
-        {
-            if (_attackCooldown > 5) return;
-            
-            _statCompo.IncreaseBaseValue(attackSpeedStat, 1);
-        }
-
-        private void HandleSpeedDown()
-        {
-            if (_attackCooldown <= 0) return;
-            
-            _statCompo.IncreaseBaseValue(attackSpeedStat, -0.5f);
-        }        
-        #endregion
         
     }
 }

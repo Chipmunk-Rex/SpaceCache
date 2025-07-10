@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: MoveState
   m_EditorClassIdentifier: 
   stateName: MOVE
-  className: Code.Scripts.Player.States.PlayerMoveState
+  className: Code.Scripts.Players.States.PlayerMoveState
   animParamName: MOVE
   animationHash: -643048756

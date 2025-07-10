@@ -962,10 +962,11 @@ GameObject:
   - component: {fileID: 1040925495}
   - component: {fileID: 1040925497}
   - component: {fileID: 1040925498}
-  - component: {fileID: 1040925496}
+  - component: {fileID: 1040925500}
+  - component: {fileID: 1040925499}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -990,29 +991,6 @@ Transform:
   - {fileID: 1698170455}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1040925496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1040925494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca25fe4dc0554275aa8411f4938da677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnHitEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDeadEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  <PlayerInput>k__BackingField: {fileID: 11400000, guid: 9a8f6ffdc29d39e4d84e2b8235c2ba75, type: 2}
-  states:
-  - {fileID: 11400000, guid: 2e9fc06ba26be6849a23d8ef18181af9, type: 2}
-  - {fileID: 11400000, guid: 6fdf7fa2f5065b44684329d1baf56ac5, type: 2}
-  - {fileID: 11400000, guid: 7410efb61fc768b4ebce32c24469aedb, type: 2}
 --- !u!50 &1040925497
 Rigidbody2D:
   serializedVersion: 5
@@ -1076,6 +1054,44 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 1
+--- !u!114 &1040925499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040925494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: 1be2d418d3d23b64596c15cc47038929, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &1040925500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040925494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca25fe4dc0554275aa8411f4938da677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  <PlayerInput>k__BackingField: {fileID: 11400000, guid: 9a8f6ffdc29d39e4d84e2b8235c2ba75, type: 2}
+  states:
+  - {fileID: 11400000, guid: 2e9fc06ba26be6849a23d8ef18181af9, type: 2}
+  - {fileID: 11400000, guid: 6fdf7fa2f5065b44684329d1baf56ac5, type: 2}
+  - {fileID: 11400000, guid: 7410efb61fc768b4ebce32c24469aedb, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,10 +1276,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dad2a333f07435aa5dd5ec8a8595f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackPowerStat: {fileID: 11400000, guid: 0c4cf408d17f9b448a504b484d61e1a0, type: 2}
+  attackSpeedStat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
   bullet: {fileID: 11400000, guid: 3528123e34e0a1a41be4f2b6bf4b8e58, type: 2}
   spawnPoint: {fileID: 1872784152}
-  attackSpeedStat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
-  attackCooldown: 2
+  increaseSpeedValue: 1
+  decreaseSpeedValue: -0.5
 --- !u!1 &1413933925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1574,12 +1592,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statOverrides:
-  - stat: {fileID: 11400000, guid: b9a489740628f9842ab41c795f138eb1, type: 2}
+  - stat: {fileID: 11400000, guid: 1be2d418d3d23b64596c15cc47038929, type: 2}
+    isUseOverride: 1
+    overrideValue: 100
+  - stat: {fileID: 11400000, guid: 0c4cf408d17f9b448a504b484d61e1a0, type: 2}
     isUseOverride: 1
     overrideValue: 10
   - stat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
     isUseOverride: 1
     overrideValue: 2
+  - stat: {fileID: 11400000, guid: b9a489740628f9842ab41c795f138eb1, type: 2}
+    isUseOverride: 1
+    overrideValue: 10
 --- !u!1 &1872784151
 GameObject:
   m_ObjectHideFlags: 0

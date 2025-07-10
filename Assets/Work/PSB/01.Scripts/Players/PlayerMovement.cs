@@ -4,24 +4,23 @@ using PSB_Lib.StatSystem;
 using UnityEngine;
 
 
-namespace Code.Scripts.Player
+namespace Code.Scripts.Players
 {
     public class PlayerMovement : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
         [SerializeField] private StatSO moveSpeedStat;
         [SerializeField] private Rigidbody2D rigid2D;
         [SerializeField] private PlayerLookCam lookCam;
-
-        public float increaseSpeedValue = 5f;
-        public float decreaseSpeedValue = -5f;
+        
+        [SerializeField] private float increaseSpeedValue = 5f;
+        [SerializeField] private float decreaseSpeedValue = -5f;
+        
+        public float moveSpeed = 10f;
+        public bool isRunning = true;
         
         private Player _player;
         private EntityStat _statCompo;
         private Vector2 _velocity;
-
-        public float moveSpeed = 10f;
-        
-        public bool isRunning = true;
         
         public void Initialize(Entity entity)
         {

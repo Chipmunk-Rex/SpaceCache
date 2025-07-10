@@ -1,6 +1,6 @@
 ﻿using Code.Scripts.Entities;
 
-namespace Code.Scripts.Player.States
+namespace Code.Scripts.Players.States
 {
     public class PlayerCanAttackState : PlayerState
     {
