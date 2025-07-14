@@ -3,23 +3,33 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.PlayerLoop;
+using UnityEngine.InputSystem;
 
 public class Boss : MonoBehaviour
 {
+    [SerializeField] private BossDataSO stat;
+
     [SerializeField] Transform playerPos;
     [SerializeField] private float turnSpeed = 5f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] Transform firePoint;
-    [SerializeField] float reloadTime = 0.3f;
-
-    [Header("Pattern2")]
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] float spinSpeed = 90f;
+
+    [Header("Sprite")]
+    [SerializeField] private GameObject main;
+    [SerializeField] private GameObject engine;
+    [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject destruction;
+
+    float reloadTime;
+    float moveSpeed;
+    float hp;
+    float damage;
 
     float angle;
     float currentAngle = 0f;
     Vector3 moveDir;
-    float moveSpeed = 4f;
     GameObject[] bulletPool;
     int poolSize = 50;
     bool canFire = true;
@@ -37,7 +47,16 @@ public class Boss : MonoBehaviour
             bullet.SetActive(false);
         }
 
+        ApplyStat();
         NextPattern();
+    }
+
+    private void ApplyStat()
+    {
+        reloadTime = stat.reloadTime;
+        moveSpeed = stat.moveSpeed;
+        hp = stat.hp;
+        damage = stat.damage;
     }
 
     private void Update()
@@ -51,6 +70,23 @@ public class Boss : MonoBehaviour
             currentAngle += angleDelta;
             transform.Rotate(Vector3.back, angleDelta);
         }
+
+        if (hp <= 0)
+        {
+            StartCoroutine(Die());
+        }
+    }
+
+    private IEnumerator Die()
+    {
+        main.SetActive(false);
+        engine.SetActive(false);
+        weapon.SetActive(false);
+        destruction.SetActive(true);
+
+        yield return new WaitForSeconds(1.1f);
+
+        Destroy(gameObject);
     }
 
     private void NextPattern()
