@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class EnemySPown : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class EnemySPown : MonoBehaviour
     public GameObject enemyPrefab;
     private GameObject[] enemyPool;
 
-    public float spawnInterval = 1.0f; // 1초마다 적 스폰
+    public float spawnInterval = 1.0f;
     private float timer = 0f;
 
     void Start()
@@ -38,11 +39,19 @@ public class EnemySPown : MonoBehaviour
         {
             if (!enemyPool[i].activeInHierarchy)
             {
-                enemyPool[i].transform.position = transform.position; // 스폰 위치 초기화
+                Vector3 spawnPosition = GetRandomOutsideCameraPosition();
+                enemyPool[i].transform.position = spawnPosition;
                 enemyPool[i].SetActive(true);
-                Debug.Log("적 스폰됨: " + i);
+                Debug.Log("적 스폰됨 at " + spawnPosition);
                 break;
             }
         }
+    }
+
+    Vector3 GetRandomOutsideCameraPosition()
+    {
+        float randomX = Random.Range(100f, 80f);
+        float randomY = Random.Range(-115f, 100f);
+        return new Vector3(randomX, randomY, 0f);
     }
 }
