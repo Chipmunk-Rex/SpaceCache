@@ -6,6 +6,7 @@ public class StartMusic : MonoBehaviour
     [SerializeField] private AudioClip btnClick;
     [SerializeField] private AudioClip optionExit;
     [SerializeField] private AudioClip pageChange;
+    [SerializeField] private AudioClip whistle;
     private AudioSource audioSource;
     private UIMover mover;
     private bool oneTime = false;
@@ -21,6 +22,12 @@ public class StartMusic : MonoBehaviour
     private void Update()
     {
         PageChange();
+    }
+
+    public void StageStart()
+    {
+        audioSource.clip = whistle;
+        audioSource.Play();
     }
 
     public void BTNClick()
