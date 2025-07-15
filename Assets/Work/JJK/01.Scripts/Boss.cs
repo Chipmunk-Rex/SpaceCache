@@ -4,17 +4,25 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
+using System.Collections.Generic;
 
 public class Boss : MonoBehaviour
 {
-    [SerializeField] private BossDataSO stat;
+    [SerializeField] private BossStatSO stat;
+
+    [SerializeField] private List<BossPatternSO> patternList;
+    private int currentPatternIndex = 0;
 
     [SerializeField] Transform playerPos;
     [SerializeField] private float turnSpeed = 5f;
     [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject bulletPrefab2;
     [SerializeField] Transform firePoint;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] float spinSpeed = 90f;
+
+    public bool IsSpin { get => isSpin; set => isSpin = value; }
+    public float ReloadTime => reloadTime;
 
     [Header("Sprite")]
     [SerializeField] private GameObject main;
@@ -33,10 +41,16 @@ public class Boss : MonoBehaviour
     GameObject[] bulletPool;
     int poolSize = 50;
     bool canFire = true;
-    bool isSpin = false;
-    int patternCount = 1;
+    bool isSpin;
 
     private void Start()
+    {
+        ApplyStat();
+        NextPattern();
+        InitBulletPool();
+    }
+
+    private void InitBulletPool()
     {
         bulletPool = new GameObject[poolSize];
 
@@ -46,9 +60,6 @@ public class Boss : MonoBehaviour
             bulletPool[i] = bullet;
             bullet.SetActive(false);
         }
-
-        ApplyStat();
-        NextPattern();
     }
 
     private void ApplyStat()
@@ -91,60 +102,10 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        switch (patternCount)
-        {
-            case 1:
-                StartCoroutine(Pattern1());
-                patternCount++;
-                break;
-            case 2:
-                StartCoroutine(Pattern2());
-                patternCount++;
-                break;
-            case 3:
-                StartCoroutine(Pattern3());
-                patternCount = 1;
-                break;
-        }
-    }
+        if (patternList.Count == 0) return;
 
-    private IEnumerator Pattern1()
-    {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 7; j++)
-            {
-                yield return new WaitForSeconds(reloadTime);
-
-                if (j == 0)
-                {
-                    ShootBullet1(0);
-                }
-                else
-                {
-                    float angle = 12 * j;
-                    ShootBullet1(angle);
-                    ShootBullet1(-angle);
-                }
-            }
-            yield return new WaitForSeconds(0.5f);
-        }
-        NextPattern();
-    }
-
-    private IEnumerator Pattern2()
-    {
-        isSpin = true;
-        FireLaser();
-
-        yield return new WaitForSeconds(4f);
-
-        isSpin = false;
-        laserPrefab.SetActive(false);
-
-        yield return new WaitForSeconds(0.5f);
-
-        NextPattern();
+        StartCoroutine(RunPattern(patternList[currentPatternIndex]));
+        currentPatternIndex = (currentPatternIndex + 1) % patternList.Count;
     }
 
     private IEnumerator Pattern3()
@@ -160,7 +121,14 @@ public class Boss : MonoBehaviour
         NextPattern();
     }
 
-    private void ShootBullet1(float angleOffset)
+    private IEnumerator RunPattern(BossPatternSO pattern)
+    {
+        yield return StartCoroutine(pattern.Execute(this));
+        yield return new WaitForSeconds(0.5f);
+        NextPattern();
+    }
+
+    public void ShootBullet1(float angleOffset)
     {
         GameObject bullet = GetPooledBullet();
 
@@ -177,7 +145,7 @@ public class Boss : MonoBehaviour
         }
     }
 
-    private void ShootBullet2()
+    public void ShootBullet2()
     {
         Vector3 right = firePoint.right;
         Vector3 up = firePoint.up;
@@ -214,10 +182,11 @@ public class Boss : MonoBehaviour
         return null;
     }
 
-    void FireLaser()
+    public void ActivateLaser(bool active)
     {
-        laserPrefab.SetActive(true);
-        laserPrefab.transform.rotation = transform.rotation;
+        laserPrefab.SetActive(active);
+        if (active)
+            laserPrefab.transform.rotation = transform.rotation;
     }
 
     private void FixedUpdate()

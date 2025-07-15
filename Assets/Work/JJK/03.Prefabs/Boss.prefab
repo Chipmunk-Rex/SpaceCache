@@ -52,6 +52,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 9c78290baabe83644a2d93220c262c1f, type: 2}
+  patternList:
+  - {fileID: 11400000, guid: e3f6dbc5c925327429dd87dfb864bb40, type: 2}
+  - {fileID: 11400000, guid: 5a0e6915d9a9ee947ba90033a476183e, type: 2}
+  - {fileID: 11400000, guid: 8d4d516acf6730b46af30eee242276c7, type: 2}
   playerPos: {fileID: 0}
   turnSpeed: 3
   bulletPrefab: {fileID: 6360378169982674940, guid: 513c1a2972496b041877c2fbeb080e40, type: 3}

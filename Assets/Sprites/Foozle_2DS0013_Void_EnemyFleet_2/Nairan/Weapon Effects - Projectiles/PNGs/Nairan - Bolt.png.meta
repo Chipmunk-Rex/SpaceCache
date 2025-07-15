@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +78,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -115,6 +115,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,9 +135,9 @@ TextureImporter:
       name: Nairan - Bolt_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 15
+        width: 9
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -144,10 +157,10 @@ TextureImporter:
       name: Nairan - Bolt_1
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1
-        width: 14
-        height: 8
+        x: 9
+        y: 0
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,7 +179,7 @@ TextureImporter:
       name: Nairan - Bolt_2
       rect:
         serializedVersion: 2
-        x: 36
+        x: 18
         y: 0
         width: 9
         height: 9
@@ -184,11 +197,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Nairan - Bolt_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8af1bc6403b02f4488855688bd4dd8b
+      internalID: 2127795127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nairan - Bolt_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d760490e732f04e4f94e109cc1868899
+      internalID: -1046068631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 295d716d17a5b7647a3c24ea045ce0c5
     internalID: 0
     vertices: []
     indices: 
@@ -201,6 +258,8 @@ TextureImporter:
       Nairan - Bolt_0: -6847961354968287674
       Nairan - Bolt_1: 4430387896857040721
       Nairan - Bolt_2: -7143590511609857905
+      Nairan - Bolt_3: 2127795127
+      Nairan - Bolt_4: -1046068631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

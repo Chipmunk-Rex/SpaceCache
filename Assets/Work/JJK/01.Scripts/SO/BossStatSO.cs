@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "BossDataSo", menuName = "Scriptable Objects/BossDataSo")]
-public class BossDataSO : ScriptableObject
+public class BossStatSO : ScriptableObject
 {
     public string bossName;
 
