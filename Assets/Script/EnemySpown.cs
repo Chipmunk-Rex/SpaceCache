@@ -18,8 +18,6 @@ public class EnemySPown : MonoBehaviour
             enemyPool[i] = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             enemyPool[i].SetActive(false);
         }
-
-        Debug.Log("적 풀 생성 완료");
     }
 
     void Update()
@@ -42,7 +40,7 @@ public class EnemySPown : MonoBehaviour
                 Vector3 spawnPosition = GetRandomOutsideCameraPosition();
                 enemyPool[i].transform.position = spawnPosition;
                 enemyPool[i].SetActive(true);
-                Debug.Log("적 스폰됨 at " + spawnPosition);
+                Debug.Log("적 스폰 " + spawnPosition);
                 break;
             }
         }
@@ -50,8 +48,8 @@ public class EnemySPown : MonoBehaviour
 
     Vector3 GetRandomOutsideCameraPosition()
     {
-        float randomX = Random.Range(100f, 80f);
-        float randomY = Random.Range(-115f, 100f);
+        float randomX = Random.Range(100f, -100f);
+        float randomY = Random.Range(-115f, 80f);
         return new Vector3(randomX, randomY, 0f);
     }
 }
