@@ -118,7 +118,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -132,7 +132,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -156,7 +156,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -197,10 +197,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 10
-        width: 15
-        height: 22
+        x: 7
+        y: 11
+        width: 13
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,10 +219,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_1
       rect:
         serializedVersion: 2
-        x: 27
-        y: 10
-        width: 15
-        height: 22
+        x: 28
+        y: 11
+        width: 13
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,10 +241,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_2
       rect:
         serializedVersion: 2
-        x: 54
-        y: 10
-        width: 15
-        height: 21
+        x: 55
+        y: 11
+        width: 13
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,10 +263,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_3
       rect:
         serializedVersion: 2
-        x: 75
-        y: 10
-        width: 15
-        height: 22
+        x: 76
+        y: 11
+        width: 13
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +285,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_4
       rect:
         serializedVersion: 2
-        x: 102
-        y: 10
-        width: 11
-        height: 18
+        x: 103
+        y: 11
+        width: 13
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,35 +304,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Weapons - Rockets_5
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 23
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c04a9b759c38b0710800000000000000
-      internalID: 1660565788399608844
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Main Ship - Weapons - Rockets_6
       rect:
         serializedVersion: 2
-        x: 123
-        y: 10
-        width: 15
-        height: 22
+        x: 124
+        y: 11
+        width: 13
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +329,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_7
       rect:
         serializedVersion: 2
-        x: 150
-        y: 10
-        width: 16
-        height: 25
+        x: 151
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,9 +351,9 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_8
       rect:
         serializedVersion: 2
-        x: 171
-        y: 10
-        width: 15
+        x: 172
+        y: 11
+        width: 13
         height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -395,10 +373,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_9
       rect:
         serializedVersion: 2
-        x: 198
-        y: 10
-        width: 11
-        height: 26
+        x: 199
+        y: 11
+        width: 13
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,35 +392,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Weapons - Rockets_10
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 23
-        width: 15
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 662b33b2c50a28370800000000000000
-      internalID: 8323391379056341606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Main Ship - Weapons - Rockets_11
       rect:
         serializedVersion: 2
-        x: 223
-        y: 10
-        width: 11
-        height: 18
+        x: 220
+        y: 11
+        width: 13
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +417,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_12
       rect:
         serializedVersion: 2
-        x: 246
-        y: 10
-        width: 17
-        height: 25
+        x: 247
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -483,10 +439,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_13
       rect:
         serializedVersion: 2
-        x: 266
-        y: 10
-        width: 16
-        height: 25
+        x: 268
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,35 +458,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Weapons - Rockets_14
-      rect:
-        serializedVersion: 2
-        x: 294
-        y: 10
-        width: 7
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4f63762cb9d6723c0800000000000000
-      internalID: -4384415196472985868
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Main Ship - Weapons - Rockets_15
       rect:
         serializedVersion: 2
-        x: 298
-        y: 23
-        width: 6
-        height: 10
+        x: 316
+        y: 11
+        width: 13
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +483,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_16
       rect:
         serializedVersion: 2
-        x: 313
-        y: 10
-        width: 17
-        height: 26
+        x: 343
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,10 +505,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_17
       rect:
         serializedVersion: 2
-        x: 342
-        y: 10
-        width: 12
-        height: 25
+        x: 364
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,10 +527,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_18
       rect:
         serializedVersion: 2
-        x: 361
-        y: 10
-        width: 17
-        height: 25
+        x: 391
+        y: 11
+        width: 13
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,35 +546,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Weapons - Rockets_19
-      rect:
-        serializedVersion: 2
-        x: 390
-        y: 10
-        width: 14
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2cec7c1809dd7de40800000000000000
-      internalID: 5681253067673554626
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Main Ship - Weapons - Rockets_20
       rect:
         serializedVersion: 2
-        x: 416
-        y: 23
-        width: 6
-        height: 10
+        x: 439
+        y: 10
+        width: 13
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -659,10 +571,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_21
       rect:
         serializedVersion: 2
-        x: 419
-        y: 10
-        width: 7
-        height: 14
+        x: 460
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,35 +590,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Main Ship - Weapons - Rockets_22
-      rect:
-        serializedVersion: 2
-        x: 438
-        y: 9
-        width: 15
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dd296c49d34c89c80800000000000000
-      internalID: -8315680943171530019
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Main Ship - Weapons - Rockets_23
       rect:
         serializedVersion: 2
-        x: 462
-        y: 10
-        width: 12
-        height: 25
+        x: 508
+        y: 11
+        width: 13
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,10 +615,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_24
       rect:
         serializedVersion: 2
-        x: 486
-        y: 19
-        width: 6
-        height: 10
+        x: 556
+        y: 10
+        width: 35
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -747,10 +637,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_25
       rect:
         serializedVersion: 2
-        x: 508
-        y: 10
-        width: 34
-        height: 26
+        x: 613
+        y: 20
+        width: 152
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +659,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_26
       rect:
         serializedVersion: 2
-        x: 555
-        y: 9
-        width: 37
-        height: 24
+        x: 295
+        y: 11
+        width: 13
+        height: 23
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +681,10 @@ TextureImporter:
       name: Main Ship - Weapons - Rockets_27
       rect:
         serializedVersion: 2
-        x: 612
-        y: 19
-        width: 154
-        height: 13
+        x: 412
+        y: 11
+        width: 13
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,7 +703,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1dd2a7fc74a15ca459ddea43a2af010f
     internalID: 0
     vertices: []
     indices: 
