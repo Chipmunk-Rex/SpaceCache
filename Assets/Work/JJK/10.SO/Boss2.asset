@@ -17,3 +17,8 @@ MonoBehaviour:
   damage: 40
   moveSpeed: 6
   reloadTime: 0.3
+  phase1Patterns:
+  - {fileID: 11400000, guid: 885ae0706bad9c54a977def9ee0a8787, type: 2}
+  - {fileID: 11400000, guid: 23c757af9a0206a4485c409dcf5144b6, type: 2}
+  - {fileID: 11400000, guid: 5a0e6915d9a9ee947ba90033a476183e, type: 2}
+  phase2Patterns: []

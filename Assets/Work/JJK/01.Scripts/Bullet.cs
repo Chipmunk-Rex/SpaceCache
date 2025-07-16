@@ -28,6 +28,14 @@ public class Bullet : MonoBehaviour
         transform.position += moveDir * moveSpeed * Time.fixedDeltaTime;
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
     private IEnumerator LifeTime()
     {
         yield return new WaitForSeconds(lifeTime);

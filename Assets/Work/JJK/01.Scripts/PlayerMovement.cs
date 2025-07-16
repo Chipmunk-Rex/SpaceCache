@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Debug.Log(moveDir);
         transform.position += moveDir * moveSpeed * Time.fixedDeltaTime;
     }
 }

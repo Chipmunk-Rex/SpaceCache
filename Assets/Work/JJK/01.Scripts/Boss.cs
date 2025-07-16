@@ -10,9 +10,6 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] private BossStatSO stat;
 
-    [SerializeField] private List<BossPatternSO> patternList;
-    private int currentPatternIndex = 0;
-
     [SerializeField] Transform playerPos;
     [SerializeField] private float turnSpeed = 5f;
     [SerializeField] GameObject bulletPrefab;
@@ -30,24 +27,29 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject destruction;
 
+    List<BossPatternSO> currentPatternList;
+
     float reloadTime;
     float moveSpeed;
     float hp;
+    float maxHp;
     float damage;
-
     float angle;
     float currentAngle = 0f;
     Vector3 moveDir;
     GameObject[] bulletPool;
+    GameObject[] bulletPool2;
     int poolSize = 50;
-    bool canFire = true;
+    int currentPatternIndex = 0;
     bool isSpin;
+    bool isPhase2 = false;
 
     private void Start()
     {
         ApplyStat();
         NextPattern();
         InitBulletPool();
+        InitBulletPool2();
     }
 
     private void InitBulletPool()
@@ -62,12 +64,26 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private void InitBulletPool2()
+    {
+        bulletPool2 = new GameObject[poolSize];
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject missile = Instantiate(bulletPrefab2);
+            bulletPool2[i] = missile;
+            missile.SetActive(false);
+        }
+    }
+
     private void ApplyStat()
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
+        maxHp = stat.hp;
         hp = stat.hp;
         damage = stat.damage;
+        currentPatternList = stat.phase1Patterns;
     }
 
     private void Update()
@@ -84,8 +100,21 @@ public class Boss : MonoBehaviour
 
         if (hp <= 0)
         {
+            hp = 0;
             StartCoroutine(Die());
         }
+
+        if (hp <= maxHp * 0.5f)
+        {
+            EnterPhase2();
+        }
+    }
+
+    private void EnterPhase2()
+    {
+        isPhase2 = true;
+        currentPatternList = stat.phase2Patterns;
+        currentPatternIndex = 0;
     }
 
     private IEnumerator Die()
@@ -102,10 +131,10 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        if (patternList.Count == 0) return;
+        if (currentPatternList.Count == 0) return;
 
-        StartCoroutine(RunPattern(patternList[currentPatternIndex]));
-        currentPatternIndex = (currentPatternIndex + 1) % patternList.Count;
+        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        currentPatternIndex = (currentPatternIndex + 1) % currentPatternList.Count;
     }
 
     private IEnumerator Pattern3()
@@ -182,6 +211,19 @@ public class Boss : MonoBehaviour
         return null;
     }
 
+    private GameObject GetPooledBullet2()
+    {
+        for (int i = 0; i < bulletPool2.Length; i++)
+        {
+            if (!bulletPool2[i].activeInHierarchy)
+            {
+                return bulletPool2[i];
+            }
+        }
+
+        return null;
+    }
+
     public void ActivateLaser(bool active)
     {
         laserPrefab.SetActive(active);
@@ -206,4 +248,16 @@ public class Boss : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
     }
+
+    public void FireHomingMissile()
+    {
+        GameObject missile = GetPooledBullet2();
+        if (missile != null)
+        {
+            missile.transform.position = firePoint.position;
+            missile.transform.rotation = transform.rotation;
+            missile.SetActive(true);
+        }
+    }
+
 }

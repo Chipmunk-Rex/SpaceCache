@@ -17,14 +17,14 @@ public class ScatterShootSO : BossPatternSO
             {
                 yield return new WaitForSeconds(boss.ReloadTime);
 
-                float angle = angleStep * j - 60;
+                float angle = angleStep * j - 45;
                 boss.ShootBullet1(angle);
             }
             for (int j = 0; j < bulletPerRound; j++)
             {
                 yield return new WaitForSeconds(boss.ReloadTime);
 
-                float angle = angleStep * (bulletPerRound - j) - 60;
+                float angle = angleStep * (bulletPerRound - j) - 45;
                 boss.ShootBullet1(angle);
             }
         }

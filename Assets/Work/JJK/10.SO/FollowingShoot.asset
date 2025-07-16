@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0f246ca77a92d9469423e21a1c24940, type: 3}
-  m_Name: ScatterShoot
+  m_Script: {fileID: 11500000, guid: 811801f3e0f285f4db02186fafb06798, type: 3}
+  m_Name: FollowingShoot
   m_EditorClassIdentifier: 
-  repeatCount: 2
-  bulletPerRound: 6
-  angleStep: 15
-  waitBetweenRounds: 0.5
+  missileCount: 10
+  delayBetween: 0.6
