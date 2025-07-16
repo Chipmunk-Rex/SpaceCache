@@ -57,7 +57,7 @@ namespace Code.Scripts.Items.Combat
             }
             
             if (currentHealth <= 0)
-                Destroy(gameObject);
+                _entity.OnDeadEvent?.Invoke();
         }
 
         public void SetHp(float h)
