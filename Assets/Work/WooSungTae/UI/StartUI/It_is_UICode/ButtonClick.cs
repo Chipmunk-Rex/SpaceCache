@@ -13,10 +13,12 @@ public class ButtonClick : MonoBehaviour
     private Rigidbody2D rigid2;
     [SerializeField] private float up = 90;
     private UIMover mover;
+    private StartMusic startMusic;
 
 
     private void Awake()
     {
+        startMusic = GetComponent<StartMusic>();
         rigid = startBTN.GetComponent<Rigidbody2D>();
         rigid2 = startBTNParticle.GetComponent<Rigidbody2D>();
         mover = GetComponent<UIMover>();
@@ -50,11 +52,13 @@ public class ButtonClick : MonoBehaviour
     public void StartClick()
     {
         StartCoroutine(StartClickCoroutine());
+        startMusic.RocketLaunch();
     }
     IEnumerator StartClickCoroutine()
     {
         if (!mover.startStop)
         {
+            mover.SetStartStop(true);
             startBTN.transform.DOLocalMove(new Vector2(-900, 0), 1);
             yield return new WaitForSeconds(0.5f);
             rigid.linearVelocity = new Vector2(1600, 0);

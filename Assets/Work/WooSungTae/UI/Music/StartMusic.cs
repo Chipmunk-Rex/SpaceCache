@@ -1,4 +1,6 @@
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class StartMusic : MonoBehaviour
 {
@@ -6,10 +8,11 @@ public class StartMusic : MonoBehaviour
     [SerializeField] private AudioClip btnClick;
     [SerializeField] private AudioClip optionExit;
     [SerializeField] private AudioClip pageChange;
-    [SerializeField] private AudioClip whistle;
+    [SerializeField] private AudioClip rocketSound;
     private AudioSource audioSource;
     private UIMover mover;
     private bool oneTime = false;
+    public AudioMixerGroup SFXGroup;
 
 
     private void Awake()
@@ -18,18 +21,12 @@ public class StartMusic : MonoBehaviour
         audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.loop = false;
         audioSource.playOnAwake = false;
+        audioSource.outputAudioMixerGroup = SFXGroup;
     }
     private void Update()
     {
         PageChange();
     }
-
-    public void StageStart()
-    {
-        audioSource.clip = whistle;
-        audioSource.Play();
-    }
-
     public void BTNClick()
     {
         audioSource.clip = btnClick;
@@ -61,5 +58,11 @@ public class StartMusic : MonoBehaviour
             oneTime = false;
         }
        
+    }
+    public void RocketLaunch()
+    {
+        audioSource.clip = rocketSound;
+        audioSource.time = 3;
+        audioSource.Play();
     }
 }
