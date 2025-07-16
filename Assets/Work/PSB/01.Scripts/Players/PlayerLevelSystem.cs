@@ -1,10 +1,11 @@
 ﻿using System;
+using Code.Scripts.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Code.Scripts.Players
 {
-    public class PlayerLevelSystem : MonoBehaviour
+    public class PlayerLevelSystem : MonoBehaviour, IEntityComponent
     {
         [SerializeField] private Slider healthSlider;
         [SerializeField] private float maxManaPoint = 100f;
@@ -18,6 +19,13 @@ namespace Code.Scripts.Players
         
         public event Action OnLevelUp;
 
+        private Entity _entity;
+        
+        public void Initialize(Entity entity)
+        {
+            _entity = entity;
+        }
+        
         private void Awake()
         {
             OnLevelUp += HandleLevelUp;
@@ -82,5 +90,6 @@ namespace Code.Scripts.Players
             healthSlider.value = _currentMana;
         }
 
+        
     }
 }
