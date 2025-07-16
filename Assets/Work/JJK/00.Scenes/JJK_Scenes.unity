@@ -558,14 +558,6 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 331889341}
-    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
-      propertyPath: bulletPrefab
-      value: 
-      objectReference: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
-    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
-      propertyPath: bulletPrefab2
-      value: 
-      objectReference: {fileID: 6451283733897497935, guid: baa6e4ec8bf4b694fbf1c1b594fde8f4, type: 3}
     - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_Name
       value: Boss2

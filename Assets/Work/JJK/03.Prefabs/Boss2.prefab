@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss2
       objectReference: {fileID: 0}
+    - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 1464212740032195530, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite
       value: 
