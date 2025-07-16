@@ -48,8 +48,8 @@ public class EnemySPown : MonoBehaviour
 
     Vector3 GetRandomOutsideCameraPosition()
     {
-        float randomX = Random.Range(100f, -100f);
-        float randomY = Random.Range(-115f, 80f);
+        float randomX = Random.Range(40f, -40f);
+        float randomY = Random.Range(-40f, 40f);
         return new Vector3(randomX, randomY, 0f);
     }
 }
