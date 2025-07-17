@@ -1,25 +1,41 @@
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
+    public  bool iClicked { get; private set; } = false;
+    public static bool clicked { get; private set; } = false;
     public LevelUpSO _levelUpSO;
+    public CardManager _cardManager;
     [SerializeField] private TextMeshProUGUI _nameText;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private Image _image;
-    private void Awake()
+
+    public void CardGetBasic(LevelUpSO levelUpSO)
     {
-        CardGetID();
+        _nameText.text = levelUpSO.Cardname;
+        _descriptionText.text = levelUpSO.CardDescription;
+        _image.sprite = levelUpSO.CardImage;
     }
 
-    private void CardGetID()
+    public void OnClickCard()
     {
-        _nameText.text = _levelUpSO.Cardname;
-        _descriptionText.text = _levelUpSO.CardDescription;
-        _image.sprite = _levelUpSO.CardImage;
+        if(!clicked)
+        {
+            iClicked = true;
+            clicked = true;
+            _levelUpSO.level++;
+            Debug.Log("´­¸²");
+        }
+    }
 
+    public static void SetClicked(bool value)
+    {
+        clicked = value;
+    }
+    public void SetIClicked(bool value)
+    {
+        iClicked = value;
     }
 }

@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 55a6fad137379a44f93a328390a19cdc, type: 3}
-  m_Name: Card
+  m_Name: Card 1
   m_EditorClassIdentifier: 
   CardID: 0
-  Cardname: sdsad
-  CardDescription: asdasdasdsa
-  CardImage: {fileID: 5354007501973836183, guid: 194e57980d37f1748bcd4aa12bbf7664, type: 3}
+  Cardname: 111
+  CardDescription: wddwd
+  CardImage: {fileID: 981311319983426920, guid: 85a541493bd6c284bbe11c7bd939a89f, type: 3}
+  level: 0
