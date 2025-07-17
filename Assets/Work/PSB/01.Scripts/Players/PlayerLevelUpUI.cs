@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Code.Scripts.Entities;
 using Code.Scripts.Items;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Code.Scripts.Players
@@ -11,6 +12,8 @@ namespace Code.Scripts.Players
     {
         [SerializeField] private List<Transform> spawnTrans;
         [SerializeField] private List<GameObject> skillSelectUI;
+
+        public UnityEvent OnValueChanged;
         
         private Player _player;
         private PlayerLevelSystem _levelSystem;
@@ -76,7 +79,10 @@ namespace Code.Scripts.Players
             _selectionMade = true;
             
             // 여기서 적용 로직 호출 가능
-            selectedUI.gameObject.GetComponent<LevelUpItem>().ApplyItem(_player);
+            LevelUpItem item = selectedUI.gameObject.GetComponent<LevelUpItem>();
+            item.ApplyItem(_player);
+            
+            OnValueChanged?.Invoke();
             
             foreach (var ui in _activeSkillUIs)
             {
