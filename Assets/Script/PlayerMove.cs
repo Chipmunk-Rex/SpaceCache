@@ -1,19 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
 public class PlayerMove : MonoBehaviour
 {
-    private float speed = 5f;
-    public Vector2 _movedir;
+     public float moveSpeed = 5f;
+    private Vector2 moveDirection;
 
-
-    private void Update()
+    void Update()
     {
-        transform.position += (Vector3)_movedir * speed * Time.deltaTime;
+        transform.position += (Vector3)(moveDirection.normalized * moveSpeed * Time.deltaTime);
     }
 
-    private void OnMove(InputValue value)
+    public void SetDirection(Vector2 direction)
     {
-        _movedir = value.Get<Vector2>();
+        moveDirection = direction;
     }
 }

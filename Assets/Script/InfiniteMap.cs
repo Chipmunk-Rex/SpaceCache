@@ -1,6 +1,11 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class InfiniteMap : MonoBehaviour
 {
-    public GameObject gird;
+    private Tilemap tilemap;
+    void Start()
+    {
+        
+    }
 }

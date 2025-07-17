@@ -40,7 +40,7 @@ public class EnemySPown : MonoBehaviour
                 Vector3 spawnPosition = GetRandomOutsideCameraPosition();
                 enemyPool[i].transform.position = spawnPosition;
                 enemyPool[i].SetActive(true);
-                Debug.Log("적 스폰 " + spawnPosition);
+                Debug.Log("스폰함 " + spawnPosition);
                 break;
             }
         }
