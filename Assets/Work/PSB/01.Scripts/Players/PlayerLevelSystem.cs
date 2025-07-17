@@ -43,6 +43,18 @@ namespace Code.Scripts.Players
             Debug.Log($"{_currentLevel}");
         }
 
+        #region Temp
+        
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _currentMana += 100f;
+            }
+        }
+        
+        #endregion
+
         private void FixedUpdate()
         {
             if (_currentLevel < maxLevel)

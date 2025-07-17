@@ -9,11 +9,6 @@ namespace Code.Scripts.Players.States
         {
         }
         
-        public override void Enter()
-        {
-            base.Enter();
-        }
-
         public override void Update()
         {
             base.Update();
@@ -23,10 +18,6 @@ namespace Code.Scripts.Players.States
             }
         }
 
-        public override void Exit()
-        {
-            base.Exit();
-        }
         
     }
 }

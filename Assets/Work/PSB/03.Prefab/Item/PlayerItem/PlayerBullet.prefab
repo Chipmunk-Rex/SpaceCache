@@ -156,7 +156,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 384
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -199,6 +199,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PoolItem>k__BackingField: {fileID: 11400000, guid: 3528123e34e0a1a41be4f2b6bf4b8e58, type: 2}
-  attackPowerStat: {fileID: 11400000, guid: 0c4cf408d17f9b448a504b484d61e1a0, type: 2}
+  damage: 10
   speed: 30
   lifeTime: 3
