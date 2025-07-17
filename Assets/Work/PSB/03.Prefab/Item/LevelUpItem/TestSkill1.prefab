@@ -139,7 +139,7 @@ MonoBehaviour:
   _levelUpItemSO: {fileID: 11400000, guid: 931af269fb7d76e469037a3f21a279f6, type: 2}
   skillIcon: {fileID: 2438966007589943116}
   skillName: {fileID: 3983665202024826535}
-  _skillDescription: {fileID: 1742883316613347345}
+  skillDescription: {fileID: 1742883316613347345}
 --- !u!1 &6153079266622458658
 GameObject:
   m_ObjectHideFlags: 0

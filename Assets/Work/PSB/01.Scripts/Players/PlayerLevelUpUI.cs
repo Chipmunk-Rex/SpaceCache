@@ -12,7 +12,7 @@ namespace Code.Scripts.Players
         [SerializeField] private List<Transform> spawnTrans;
         [SerializeField] private List<GameObject> skillSelectUI;
         
-        private Entity _entity;
+        private Player _player;
         private PlayerLevelSystem _levelSystem;
         
         private bool _selectionMade = false;
@@ -20,7 +20,7 @@ namespace Code.Scripts.Players
         
         public void Initialize(Entity entity)
         {
-            _entity = entity;
+            _player = entity as Player;
             _levelSystem = entity.GetCompo<PlayerLevelSystem>();
         }
 
@@ -36,6 +36,7 @@ namespace Code.Scripts.Players
 
         private void HandleLevelUpUIShow()
         {
+            _player.PlayerInput.IsCanAttack = false;
             Time.timeScale = 0;
             _selectionMade = false;
             _activeSkillUIs.Clear();
@@ -73,11 +74,9 @@ namespace Code.Scripts.Players
                 return; 
 
             _selectionMade = true;
-
-            Debug.Log("선택된 스킬: " + selectedUI.name);
-
+            
             // 여기서 적용 로직 호출 가능
-            selectedUI.gameObject.GetComponent<LevelUpItem>().ApplyItem();
+            selectedUI.gameObject.GetComponent<LevelUpItem>().ApplyItem(_player);
             
             foreach (var ui in _activeSkillUIs)
             {
@@ -86,6 +85,7 @@ namespace Code.Scripts.Players
             _activeSkillUIs.Clear();
 
             Time.timeScale = 1;
+            _player.PlayerInput.IsCanAttack = true;
         }
         
         private void Shuffle(List<int> list)

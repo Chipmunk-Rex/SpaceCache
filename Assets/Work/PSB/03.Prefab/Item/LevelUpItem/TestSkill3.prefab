@@ -486,4 +486,4 @@ MonoBehaviour:
   _levelUpItemSO: {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
   skillIcon: {fileID: 4033587755104968993}
   skillName: {fileID: 2384366651638503418}
-  _skillDescription: {fileID: 4827240890415726224}
+  skillDescription: {fileID: 4827240890415726224}

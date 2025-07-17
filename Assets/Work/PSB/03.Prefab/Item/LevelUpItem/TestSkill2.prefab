@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 9169676709569095778}
   - component: {fileID: 5933878908163106084}
   - component: {fileID: 8929013866974451498}
-  - component: {fileID: 7783121323509157663}
+  - component: {fileID: 4740978183661686822}
   m_Layer: 5
   m_Name: TestSkill2
   m_TagString: Untagged
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7783121323509157663
+--- !u!114 &4740978183661686822
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,13 +269,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 107565950037899111}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05eff9246dfd4340805e58e367b07225, type: 3}
+  m_Script: {fileID: 11500000, guid: 3015ed58e7e249a5a5d3093a5a3714d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _levelUpItemSO: {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
   skillIcon: {fileID: 6677557615685664952}
   skillName: {fileID: 7811384798092188002}
-  _skillDescription: {fileID: 659268010786538265}
+  skillDescription: {fileID: 659268010786538265}
 --- !u!1 &2112165900781685494
 GameObject:
   m_ObjectHideFlags: 0

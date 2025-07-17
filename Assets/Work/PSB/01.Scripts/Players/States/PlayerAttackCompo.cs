@@ -3,6 +3,7 @@ using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
 using PSB_Lib.ObjectPool.RunTime;
 using PSB_Lib.StatSystem;
+using TMPro;
 using UnityEngine;
 
 namespace Code.Scripts.Players.States
@@ -10,8 +11,8 @@ namespace Code.Scripts.Players.States
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
         [Header("Serializefield")]
-        [SerializeField] private StatSO attackPowerStat;
-        [SerializeField] private StatSO attackSpeedStat;
+        [field: SerializeField] public StatSO attackPowerStat;
+        [field: SerializeField] public StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform spawnPoint2;
@@ -19,6 +20,9 @@ namespace Code.Scripts.Players.States
         [Header("Value")]
         [SerializeField] private float increaseSpeedValue = 1f;
         [SerializeField] private float decreaseSpeedValue = -0.5f;
+
+        [Header("UI")] 
+        [SerializeField] private TextMeshProUGUI attackPowerTxt;
         
         [Inject] private PoolManagerMono _poolManager;
         
@@ -40,6 +44,12 @@ namespace Code.Scripts.Players.States
             _attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
             _attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
         }
+        
+        private void Update()
+        {
+            attackPowerTxt.text = "One bullet Damage : " + _attackPower;
+        }
+
 
         private void OnDestroy()
         {
@@ -56,7 +66,7 @@ namespace Code.Scripts.Players.States
         public async void InitialCompo()
         {
             if (!_canAttack1) return;
-
+            
             _canAttack1 = false;
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
@@ -75,7 +85,7 @@ namespace Code.Scripts.Players.States
         public async void InitialCompo2()
         {
             if (!_canAttack2) return;
-
+            
             _canAttack2 = false;
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);

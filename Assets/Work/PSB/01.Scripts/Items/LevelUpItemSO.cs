@@ -9,5 +9,8 @@ namespace Code.Scripts.Items
         public Sprite SkillIcon;
         public string Name;
         public string Description;
+        
+        [System.NonSerialized]
+        public int selectCount;
     }
 }
