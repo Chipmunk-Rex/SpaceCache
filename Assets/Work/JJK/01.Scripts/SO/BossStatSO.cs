@@ -11,6 +11,5 @@ public class BossStatSO : ScriptableObject
     public float moveSpeed;
     public float reloadTime;
 
-    public List<BossPatternSO> phase1Patterns;
-    public List<BossPatternSO> phase2Patterns;
+    public List<BossPatternSO> patterns;
 }

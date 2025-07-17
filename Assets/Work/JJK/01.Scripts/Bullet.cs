@@ -16,9 +16,10 @@ public class Bullet : MonoBehaviour
         StartCoroutine(LifeTime());
     }
 
-    public void InitDirection(Vector3 dir)
+    public void Init(Vector3 dir, float speed)
     {
         moveDir = dir.normalized;
+        moveSpeed = speed;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }

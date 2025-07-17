@@ -28,5 +28,7 @@ public class ScatterShootSO : BossPatternSO
                 boss.ShootBullet1(angle);
             }
         }
+
+        yield return new WaitForSeconds(waitBetweenRounds);
     }
 }

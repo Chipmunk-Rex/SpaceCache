@@ -6,6 +6,7 @@ public class FollowingShootSO : BossPatternSO
 {
     public int missileCount = 3;
     public float delayBetween = 0.6f;
+    public float waitBetweenRounds = 0.5f;
 
     public override IEnumerator Execute(Boss boss)
     {
@@ -15,6 +16,6 @@ public class FollowingShootSO : BossPatternSO
             yield return new WaitForSeconds(delayBetween);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(waitBetweenRounds);
     }
 }

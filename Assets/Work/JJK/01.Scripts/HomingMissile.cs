@@ -19,6 +19,11 @@ public class HomingMissile : MonoBehaviour
         StartCoroutine(LifeSpan());
     }
 
+    public void InitHomingTime(float time)
+    {
+        homingTime = time;
+    }
+
     private void Update()
     {
         if (isHoming && target != null)
