@@ -6,6 +6,7 @@ public class CardManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] gameObjectCard;
     [SerializeField] private LevelUpSO[] levelUpSO;
+    [SerializeField] private CardMusic cardMusic;
     public bool dontClick { get; private set; } = false;
     private bool test = false;
     private int rand;
@@ -38,6 +39,7 @@ public class CardManager : MonoBehaviour
         test = true;
         foreach (var a in gameObjectCard)
         {
+            cardMusic.SlideCard();
             a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 1000, 0), 1);
             yield return new WaitForSeconds(0.5f);
         }
@@ -75,6 +77,7 @@ public class CardManager : MonoBehaviour
             Card card = a.GetComponent<Card>();
            if (!card.iClicked)
            {
+                cardMusic.SlideCard();
                 a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1000, 0), 1);
                 yield return new WaitForSeconds(0.5f);
            }

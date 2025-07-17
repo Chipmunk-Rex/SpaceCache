@@ -221,6 +221,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ba4fd13398e50d40bdb41e1a3ad50c3, type: 2}
   - {fileID: 11400000, guid: 8413290b77fa0f44aa341019ad1fab99, type: 2}
   - {fileID: 11400000, guid: c14f8592c5de7794da12949470689352, type: 2}
+  cardMusic: {fileID: 748728380}
 --- !u!1 &209918401
 GameObject:
   m_ObjectHideFlags: 0
