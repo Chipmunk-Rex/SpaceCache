@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
-  m_Name: PlayerSpeedUp
+  m_Name: PlayerManaGetDirInc
   m_EditorClassIdentifier: 
-  SkillIcon: {fileID: 1961588759639245742, guid: d052ec184edb99d4f8cd83dae5d5a1a0, type: 3}
-  Name: Speed_Up
-  Description: This card is Player's speed stat up
+  SkillIcon: {fileID: -4931301262454659851, guid: 38bfe6fb4b5366c4786034efb5e46865, type: 3}
+  Name: Get direction Increase
+  Description: This card is Player's mana get direction increase

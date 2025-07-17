@@ -3,11 +3,12 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class SpeedLevelUpItem : LevelUpItem
+    public class GetDirUpUI : LevelUpItem
     {
         public override void ApplyItem(Entity targetEntity)
         {
-            Debug.Log("SpeedItemSelected!!");
+            Debug.Log("ManaGetDirUpSelected!!");
+            _levelUpItemSO.selectCount++;
         }
         
     }
