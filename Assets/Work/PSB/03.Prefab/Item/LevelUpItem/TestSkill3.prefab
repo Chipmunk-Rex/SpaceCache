@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05eff9246dfd4340805e58e367b07225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelUpItemSO: {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
+  levelUpItemSO: {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
   skillIcon: {fileID: 4033587755104968993}
   skillName: {fileID: 2384366651638503418}
   skillDescription: {fileID: 4827240890415726224}

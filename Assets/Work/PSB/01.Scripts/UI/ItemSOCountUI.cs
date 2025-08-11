@@ -12,15 +12,16 @@ namespace Code.Scripts.Items.UI
         [SerializeField] private Image _icon;
         [SerializeField] private TextMeshProUGUI _cntTxt;
 
-        private void Awake()
+        public void SetItemSO(LevelUpItemSO so)
         {
+            _itemSO = so;
+            _icon.sprite = so.SkillIcon;
             gameObject.SetActive(false);
-            _icon.sprite = _itemSO.SkillIcon;
         }
-        
+
         public void ChangeSelectValue()
         {
-            if (_itemSO.selectCount > 0)
+            if (_itemSO != null && _itemSO.selectCount > 0)
             {
                 gameObject.SetActive(true);
                 _cntTxt.text = _itemSO.selectCount.ToString();

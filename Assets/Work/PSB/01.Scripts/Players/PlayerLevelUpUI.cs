@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Code.Scripts.Entities;
 using Code.Scripts.Items;
+using Code.Scripts.Items.Core;
+using PSB_Lib.Dependencies;
 using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
@@ -20,6 +22,8 @@ namespace Code.Scripts.Players
         
         private bool _selectionMade = false;
         private List<GameObject> _activeSkillUIs = new List<GameObject>();
+
+        [Inject] private ItemSOCountManager _uiManager;
         
         public void Initialize(Entity entity)
         {
@@ -82,7 +86,8 @@ namespace Code.Scripts.Players
             LevelUpItem item = selectedUI.gameObject.GetComponent<LevelUpItem>();
             item.ApplyItem(_player);
             
-            OnValueChanged?.Invoke();
+            //OnValueChanged?.Invoke();
+            _uiManager.ShowOrUpdateUI(item.levelUpItemSO);
             
             foreach (var ui in _activeSkillUIs)
             {

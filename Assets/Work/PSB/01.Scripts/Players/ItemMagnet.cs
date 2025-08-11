@@ -1,18 +1,25 @@
-﻿using Code.Scripts.Items;
+﻿using Code.Scripts.Entities;
+using Code.Scripts.Items;
 using UnityEngine;
 
 namespace Code.Scripts.Players
 {
-    public class ItemMagnet : MonoBehaviour
+    public class ItemMagnet : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private float radius = 5f;
+        [field:SerializeField] public float Radius { get; set; } = 5f;
         [SerializeField] private float destroyDistance = 0.5f;
         [SerializeField] private float pullSpeed = 5f;
         [SerializeField] private LayerMask itemLayer;
+        
 
+        public void Initialize(Entity entity)
+        {
+            
+        }
+        
         private void FixedUpdate()
         {
-            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius, itemLayer);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, Radius, itemLayer);
 
             foreach (Collider2D hit in hits)
             {
@@ -34,10 +41,9 @@ namespace Code.Scripts.Players
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, radius);
+            Gizmos.DrawWireSphere(transform.position, Radius);
         }
 #endif
-    
         
     }
 }

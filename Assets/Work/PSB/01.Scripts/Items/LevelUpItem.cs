@@ -8,7 +8,7 @@ namespace Code.Scripts.Items
 {
     public abstract class LevelUpItem : MonoBehaviour
     {
-        [SerializeField] protected LevelUpItemSO _levelUpItemSO;
+        public LevelUpItemSO levelUpItemSO;
         
         [SerializeField] protected Image skillIcon;
         [SerializeField] protected TextMeshProUGUI skillName;
@@ -16,9 +16,9 @@ namespace Code.Scripts.Items
 
         private void Awake()
         {
-            skillIcon.sprite = _levelUpItemSO.SkillIcon;
-            skillName.text = _levelUpItemSO.Name;
-            skillDescription.text = _levelUpItemSO.Description;
+            skillIcon.sprite = levelUpItemSO.SkillIcon;
+            skillName.text = levelUpItemSO.Name;
+            skillDescription.text = levelUpItemSO.Description;
         }
 
         public virtual void ApplyItem(Entity targetEntity)
