@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
   m_Name: PlayerAttackUpItem
   m_EditorClassIdentifier: 
-  SkillIcon: {fileID: -9195899263831450236, guid: e30ea3bfb1dce53478be8d6fea685872, type: 3}
+  SkillIcon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
   Name: Attack_Up
   Description: This card is Player's attack stat up

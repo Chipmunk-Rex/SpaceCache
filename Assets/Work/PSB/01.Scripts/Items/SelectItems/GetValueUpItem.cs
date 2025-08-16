@@ -4,20 +4,20 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class GetDirUpItem : LevelUpItem
+    public class GetValueUpItem : LevelUpItem
     {
-        private ItemMagnet _magnet;
+        private PlayerLevelSystem _levelSystem;
         
         public override void ApplyItem(Entity targetEntity)
         {
-            _magnet = targetEntity.GetCompo<ItemMagnet>();
+            _levelSystem = targetEntity.GetCompo<PlayerLevelSystem>();
             var statCompo = targetEntity.GetCompo<EntityStat>();
             if (statCompo == null)
-                Debug.LogError("No have ItemMagnet");
+                Debug.LogError("No have PlayerLevelSystem");
 
             Debug.Log("ManaGetDirUpSelected!!");
             
-            statCompo.IncreaseBaseValue(_magnet.manaRadiusStat, 1f);
+            statCompo.IncreaseBaseValue(_levelSystem.manaValueStat, 2f);
             levelUpItemSO.selectCount++;
         }
         

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
-  m_Name: PlayerAttackPower
+  m_Name: PlayerManaValue
   m_EditorClassIdentifier: 
-  statName: AttackPower
-  description: Player's attack power stat
-  icon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
-  displayName: AttackPower
-  baseValue: 10
-  minValue: 1
-  maxValue: 9999
+  statName: ManaValue
+  description: Player's mana value stat
+  icon: {fileID: -5471238548522414493, guid: 69fbd977f0d9336429090a4cbbaa1ea8, type: 3}
+  displayName: ManaValue
+  baseValue: 1
+  minValue: 0.1
+  maxValue: 30
   <IsPercent>k__BackingField: 0
