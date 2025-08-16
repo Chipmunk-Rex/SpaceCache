@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2205,6 +2205,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 931af269fb7d76e469037a3f21a279f6, type: 2}
   - {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
   - {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
+  - {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,10 +2397,11 @@ MonoBehaviour:
   bullet: {fileID: 11400000, guid: 3528123e34e0a1a41be4f2b6bf4b8e58, type: 2}
   spawnPoint: {fileID: 1872784152}
   spawnPoint2: {fileID: 1232054387}
+  attackPower: 10
+  attackCooldown: 2
   increaseSpeedValue: 1
   decreaseSpeedValue: -0.5
   attackPowerTxt: {fileID: 1211169289}
-  _attackPower: 5
 --- !u!1 &1388620592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3281,7 +3283,7 @@ GameObject:
   - component: {fileID: 2030023728}
   - component: {fileID: 2030023729}
   m_Layer: 0
-  m_Name: SOManager
+  m_Name: SoManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3322,6 +3324,8 @@ MonoBehaviour:
     prefab: {fileID: 686885420709170695, guid: ef6922df98bc4614daf4ad01a5f7e96d, type: 3}
   - itemSO: {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
     prefab: {fileID: 686885420709170695, guid: 73b4b6cbb918d8845b8541467bd11c55, type: 3}
+  - itemSO: {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
+    prefab: {fileID: 686885420709170695, guid: 3510033b9a00744459ffa1174d4c9c60, type: 3}
 --- !u!1 &2033244351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3391,6 +3395,7 @@ MonoBehaviour:
   - {fileID: 1910686350}
   skillSelectUI:
   - {fileID: 3814381248955194488, guid: f5d370101034ff340bc6e9650bf6b3e5, type: 3}
+  - {fileID: 8777412579992931095, guid: 68aba2652e6cf1342a29f59cc5d1ce1f, type: 3}
   - {fileID: 107565950037899111, guid: 2b692368e3ffdc7428ab86fa6693c63f, type: 3}
   - {fileID: 8777412579992931095, guid: 5ee2f50714d33104486710b399b2353e, type: 3}
   OnValueChanged:

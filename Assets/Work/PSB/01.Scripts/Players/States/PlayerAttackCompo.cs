@@ -10,7 +10,7 @@ namespace Code.Scripts.Players.States
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
-        [Header("Serializefield")]
+        [Header("SerializeField")]
         [field: SerializeField] public StatSO attackPowerStat;
         [field: SerializeField] public StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
@@ -18,6 +18,8 @@ namespace Code.Scripts.Players.States
         [SerializeField] private Transform spawnPoint2;
         
         [Header("Value")]
+        [SerializeField] private float attackPower = 10f;
+        [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private float increaseSpeedValue = 1f;
         [SerializeField] private float decreaseSpeedValue = -0.5f;
 
@@ -28,8 +30,6 @@ namespace Code.Scripts.Players.States
         
         private Player _player;
         private EntityStat _statCompo;
-        [SerializeField] private float _attackPower = 10f;
-        private float _attackCooldown = 2f;
         private bool _canAttack1 = true;
         private bool _canAttack2 = true;
 
@@ -41,13 +41,13 @@ namespace Code.Scripts.Players.States
 
         public void AfterInitialize()
         {
-            _attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
-            _attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
+            attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
+            attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
         }
         
         private void Update()
         {
-            attackPowerTxt.text = "One bullet Damage : " + _attackPower;
+            attackPowerTxt.text = "One bullet Damage : " + attackPower;
         }
 
 
@@ -71,12 +71,12 @@ namespace Code.Scripts.Players.States
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
 
-            playerBullet.SetDamage(_attackPower);
+            playerBullet.SetDamage(attackPower);
             
             playerBullet.transform.position = spawnPoint.position;
             playerBullet.transform.rotation = spawnPoint.rotation;
             
-            await Awaitable.WaitForSecondsAsync(_attackCooldown);
+            await Awaitable.WaitForSecondsAsync(attackCooldown);
             
             _poolManager.Push(playerBullet);
             _canAttack1 = true;
@@ -90,12 +90,12 @@ namespace Code.Scripts.Players.States
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
 
-            playerBullet.SetDamage(_attackPower);
+            playerBullet.SetDamage(attackPower);
             
             playerBullet.transform.position = spawnPoint2.position;
             playerBullet.transform.rotation = spawnPoint2.rotation;
             
-            await Awaitable.WaitForSecondsAsync(_attackCooldown);
+            await Awaitable.WaitForSecondsAsync(attackCooldown);
             
             _poolManager.Push(playerBullet);
             _canAttack2 = true;
@@ -103,12 +103,12 @@ namespace Code.Scripts.Players.States
 
         private void HandleAttackSpeedChange(StatSO stat, float currentValue, float prevValue)
         {
-            _attackCooldown = currentValue;
+            attackCooldown = currentValue;
         }
 
         private void HandleAttackPowerChange(StatSO stat, float currentValue, float prevValue)
         {
-            _attackPower = currentValue;
+            attackPower = currentValue;
         }
         
         
