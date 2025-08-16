@@ -12,5 +12,10 @@ namespace Code.Scripts.Items
         
         [System.NonSerialized]
         public int selectCount;
+
+        [Header("Max")] 
+        public int maxCount = 5;
+        public bool IsMaxed => selectCount >= maxCount;
+        
     }
 }

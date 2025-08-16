@@ -18,7 +18,6 @@ namespace Code.Scripts.Items
             Debug.Log("ManaGetDirUpSelected!!");
             
             statCompo.IncreaseBaseValue(_levelSystem.manaValueStat, 2f);
-            levelUpItemSO.selectCount++;
         }
         
     }

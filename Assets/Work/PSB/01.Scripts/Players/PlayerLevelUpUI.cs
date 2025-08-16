@@ -51,13 +51,29 @@ namespace Code.Scripts.Players
             List<int> skillIndices = new List<int>();
             List<int> spawnIndices = new List<int>();
 
-            for (int i = 0; i < skillSelectUI.Count; i++) skillIndices.Add(i);
+            for (int i = 0; i < skillSelectUI.Count; i++)
+            {
+                var candidate = skillSelectUI[i].GetComponent<LevelUpItem>();
+                if (candidate != null && !candidate.levelUpItemSO.IsMaxed)
+                {
+                    skillIndices.Add(i); // 최대치가 아닌 스킬만 후보
+                }
+            }
+            
+            if (skillIndices.Count == 0)
+            {
+                Debug.Log("선택 가능한 스킬이 없음!");
+                CloseUI();
+                return;
+            }
+            
             for (int i = 0; i < spawnTrans.Count; i++) spawnIndices.Add(i);
 
             Shuffle(skillIndices);
             Shuffle(spawnIndices);
 
-            for (int i = 0; i < 3; i++)
+            int showCount = Mathf.Min(3, skillIndices.Count);
+            for (int i = 0; i < showCount; i++)
             {
                 int skillIdx = skillIndices[i];
                 int spawnIdx = spawnIndices[i];
@@ -78,23 +94,27 @@ namespace Code.Scripts.Players
         private void OnSkillSelected(GameObject selectedUI)
         {
             if (_selectionMade)
-                return; 
+                return;
 
             _selectionMade = true;
-            
-            // 여기서 적용 로직 호출 가능
+
             LevelUpItem item = selectedUI.gameObject.GetComponent<LevelUpItem>();
+            item.levelUpItemSO.selectCount++; // 선택 횟수 증가
             item.ApplyItem(_player);
-            
-            //OnValueChanged?.Invoke();
+
             _uiManager.ShowOrUpdateUI(item.levelUpItemSO);
-            
+
             foreach (var ui in _activeSkillUIs)
             {
                 Destroy(ui);
             }
             _activeSkillUIs.Clear();
 
+            CloseUI();
+        }
+
+        private void CloseUI()
+        {
             Time.timeScale = 1;
             _player.PlayerInput.IsCanAttack = true;
         }

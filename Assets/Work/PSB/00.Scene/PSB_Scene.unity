@@ -673,6 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 326495974}
+  - component: {fileID: 326495975}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -695,6 +696,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2120803382}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326495975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326495973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ee5a1243554499b8e01a9cadb1a610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shurikenPrefab: {fileID: 4856105348990600982, guid: a27db72d55d261c49bcd5fa58f108a62, type: 3}
+  maxCount: 5
+  radius: 2
+  rotationSpeed: 100
 --- !u!1 &384186912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2206,6 +2223,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
   - {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
   - {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
+  - {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3326,6 +3344,8 @@ MonoBehaviour:
     prefab: {fileID: 686885420709170695, guid: 73b4b6cbb918d8845b8541467bd11c55, type: 3}
   - itemSO: {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
     prefab: {fileID: 686885420709170695, guid: 3510033b9a00744459ffa1174d4c9c60, type: 3}
+  - itemSO: {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
+    prefab: {fileID: 686885420709170695, guid: 205a408bd26a9ab48a2ae5213c28309e, type: 3}
 --- !u!1 &2033244351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3398,6 +3418,7 @@ MonoBehaviour:
   - {fileID: 8777412579992931095, guid: 68aba2652e6cf1342a29f59cc5d1ce1f, type: 3}
   - {fileID: 107565950037899111, guid: 2b692368e3ffdc7428ab86fa6693c63f, type: 3}
   - {fileID: 8777412579992931095, guid: 5ee2f50714d33104486710b399b2353e, type: 3}
+  - {fileID: 8777412579992931095, guid: dbbed5108825cfa41ac0d763266507a5, type: 3}
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

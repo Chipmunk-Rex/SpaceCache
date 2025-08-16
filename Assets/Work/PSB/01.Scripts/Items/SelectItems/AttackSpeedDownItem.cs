@@ -19,7 +19,6 @@ namespace Code.Scripts.Items
             Debug.Log("ManaGetDirUpSelected!!");
             
             statCompo.IncreaseBaseValue(_attackCompo.attackSpeedStat, -0.2f);
-            levelUpItemSO.selectCount++;
         }
         
     }

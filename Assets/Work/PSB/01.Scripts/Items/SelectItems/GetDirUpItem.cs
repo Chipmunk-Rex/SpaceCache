@@ -18,7 +18,6 @@ namespace Code.Scripts.Items
             Debug.Log("ManaGetDirUpSelected!!");
             
             statCompo.IncreaseBaseValue(_magnet.manaRadiusStat, 1f);
-            levelUpItemSO.selectCount++;
         }
         
     }

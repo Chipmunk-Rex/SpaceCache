@@ -18,7 +18,6 @@ namespace Code.Scripts.Items
             Debug.Log("AttackItemSelected!!");
 
             statCompo.IncreaseBaseValue(_attackCompo.attackPowerStat, 5f);
-            levelUpItemSO.selectCount++;
         }
         
     }

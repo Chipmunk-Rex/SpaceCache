@@ -42,20 +42,13 @@ namespace Code.Scripts.Players
         
         private void Awake()
         {
-            OnLevelUp += HandleLevelUp;
             healthSlider.minValue = _currentMana;
             healthSlider.maxValue = maxManaPoint;
         }
 
         private void OnDestroy()
         {
-            OnLevelUp -= HandleLevelUp;
             _statCompo.UnSubscribeStat(manaValueStat, HandleManaValueChange);
-        }
-
-        private void HandleLevelUp()
-        {
-            Debug.Log($"{_currentLevel}");
         }
 
         #region Temp
