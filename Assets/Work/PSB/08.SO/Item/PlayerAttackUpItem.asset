@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAttackUpItem
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
-  Name: Attack_Up
-  Description: This card is Player's attack stat up
+  Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
+  Description: "\uCD1D\uC54C \uD55C \uBC1C\uB2F9 \uACF5\uACA9\uB825\uC774 \n5 \uC99D\uAC00\uD569\uB2C8\uB2E4.\n\uCD5C\uB300
+    \uC120\uD0DD \uAC1C\uC218\uB294 5\uC785\uB2C8\uB2E4."
+  maxCount: 5

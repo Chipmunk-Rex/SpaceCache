@@ -47,7 +47,7 @@ namespace Code.Scripts.Players.States
         
         private void Update()
         {
-            attackPowerTxt.text = "One bullet Damage : " + attackPower;
+            attackPowerTxt.text = "총알 한 발당 데미지 : " + attackPower;
         }
 
 

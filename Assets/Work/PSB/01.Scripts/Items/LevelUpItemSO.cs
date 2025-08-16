@@ -8,6 +8,7 @@ namespace Code.Scripts.Items
     {
         public Sprite SkillIcon;
         public string Name;
+        [TextArea]
         public string Description;
         
         [System.NonSerialized]

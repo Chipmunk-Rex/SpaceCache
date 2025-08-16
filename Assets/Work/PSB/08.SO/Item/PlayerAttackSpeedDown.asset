@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: PlayerAttackSpeedDown
   m_EditorClassIdentifier: 
   SkillIcon: {fileID: -2520797534076920382, guid: 8dcb640bcabe405478e3512c675d4a43, type: 3}
-  Name: Player Attack Speed Down
-  Description: This card is Player's attack speed down
+  Name: "\uACF5\uACA9 \uC8FC\uAE30 \uAC10\uC18C"
+  Description: "\uCD1D\uC54C \uBC1C\uC0AC \uACF5\uACA9 \uC8FC\uAE30\uAC00 \n0.2 \uAC10\uC18C\uD569\uB2C8\uB2E4.\n\uCD5C\uB300
+    \uC120\uD0DD \uAC1C\uC218\uB294 5\uC785\uB2C8\uB2E4."
+  maxCount: 5

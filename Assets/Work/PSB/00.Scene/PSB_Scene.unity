@@ -298,7 +298,7 @@ MonoBehaviour:
   statOverrides:
   - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
     isUseOverride: 1
-    overrideValue: 15
+    overrideValue: 1000
 --- !u!61 &128426416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -709,9 +709,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shurikenPrefab: {fileID: 4856105348990600982, guid: a27db72d55d261c49bcd5fa58f108a62, type: 3}
+  currentCount: 0
   maxCount: 5
   radius: 2
-  rotationSpeed: 100
+  orbitSpeed: 100
+  selfRotateSpeed: 360
 --- !u!1 &384186912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2003,8 +2005,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: AttackPower
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28905ddfa2901754286553790fbbc515, type: 2}
+  m_sharedMaterial: {fileID: 4865067560792392490, guid: 28905ddfa2901754286553790fbbc515, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
