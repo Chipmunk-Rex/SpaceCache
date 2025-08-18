@@ -7,13 +7,13 @@ public class UIMover : MonoBehaviour
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject cachePanel;
     [SerializeField] private MousePos mousePos;
-    private StartMusic startMusic;
+    private StartMusicSFX startMusic;
 
     public bool startStop { get; private set; } = false;
 
     private void Awake()
     {
-        startMusic = GetComponent<StartMusic>();
+        startMusic = GetComponent<StartMusicSFX>();
     }
     private void Start()
     {

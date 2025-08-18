@@ -41,7 +41,7 @@ public class CardManager : MonoBehaviour
         {
             cardMusic.SlideCard();
             a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 1000, 0), 1);
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
         yield return new WaitForSeconds(1);
     }

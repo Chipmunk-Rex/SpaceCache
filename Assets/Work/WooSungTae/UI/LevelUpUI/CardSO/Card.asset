@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardID: 0
   Cardname: sdsad
-  CardDescription: asdasdasdsa
+  CardDescription: "\u3147\u3134\uBB34\u315C\u3147\u3134\u3141"
   CardImage: {fileID: 5354007501973836183, guid: 194e57980d37f1748bcd4aa12bbf7664, type: 3}
+  level: 2

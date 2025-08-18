@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CardID: 0
   Cardname: 3333
-  CardDescription: 33333
+  CardDescription: "\uB2E4\uB78C\uC950 \uD5CC \uCCC7\uBC14\uD034"
   CardImage: {fileID: -3629433535132674589, guid: 47806e002da7ea04991747e5552c26e1, type: 3}
   level: 0
