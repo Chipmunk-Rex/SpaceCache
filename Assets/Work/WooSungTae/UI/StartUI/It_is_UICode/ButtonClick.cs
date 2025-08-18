@@ -13,12 +13,12 @@ public class ButtonClick : MonoBehaviour
     private Rigidbody2D rigid2;
     [SerializeField] private float up = 90;
     private UIMover mover;
-    private StartMusic startMusic;
+    private StartMusicSFX startMusic;
 
 
     private void Awake()
     {
-        startMusic = GetComponent<StartMusic>();
+        startMusic = GetComponent<StartMusicSFX>();
         rigid = startBTN.GetComponent<Rigidbody2D>();
         rigid2 = startBTNParticle.GetComponent<Rigidbody2D>();
         mover = GetComponent<UIMover>();
