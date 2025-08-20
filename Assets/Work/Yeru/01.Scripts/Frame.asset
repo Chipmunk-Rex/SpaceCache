@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Frame
   maxHealth: 10000
-  moveSpeed: 2
-  attackCooldown: 0.5
+  moveSpeed: 2.3
+  attackCooldown: 0.1
   damage: 10
-  range: 10
+  range: 7
   rotationSpeed: 100
