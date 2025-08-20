@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 331889341}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: 'engine.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1556949203}
     - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_Name
       value: Boss2
@@ -746,6 +750,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+--- !u!1 &1556949203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 828844342206068791, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+  m_PrefabInstance: {fileID: 1397310744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

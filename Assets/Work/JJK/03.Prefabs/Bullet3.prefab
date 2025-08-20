@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5550244251819960820
+--- !u!1001 &31503149180167794
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,19 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_Name
-      value: HomingBullet
-      objectReference: {fileID: 0}
-    - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Bullet3
       objectReference: {fileID: 0}
     - target: {fileID: 1812458828569186466, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.4263153
+      value: -6.2926307
       objectReference: {fileID: 0}
     - target: {fileID: 1812458828569186466, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.08403481
+      value: 0.75151324
       objectReference: {fileID: 0}
     - target: {fileID: 1812458828569186466, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -59,38 +55,13 @@ PrefabInstance:
     - target: {fileID: 1842036457859850716, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 6597511049316547579, guid: 1dd72252d1734154090b6a1b9b92e3ba, type: 3}
+      objectReference: {fileID: -4250677989521320448, guid: 926ba43679c103e4ab4223bd9a5d10e6, type: 3}
     - target: {fileID: 5397201856607369068, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0b8bf9b02d9f232478a1623410863efd, type: 2}
-    m_RemovedComponents:
-    - {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      objectReference: {fileID: 9100000, guid: 471e9e2c70cbc8143b1418c8b08feda0, type: 2}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8135832207911019867}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
---- !u!1 &6451283733897497935 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
-  m_PrefabInstance: {fileID: 5550244251819960820}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8135832207911019867
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6451283733897497935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91944e3b189c3de4495f9be81345a241, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  rotateSpeed: 200
-  homingTime: 2
-  lifeTime: 5

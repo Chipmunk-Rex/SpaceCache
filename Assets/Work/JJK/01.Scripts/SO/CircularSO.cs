@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CircularSO", menuName = "Scriptable Objects/CircularSO")]
+[CreateAssetMenu(fileName = "CircularSO", menuName = "SO/CircularSO")]
 public class CircularSO : BossPatternSO
 {
     public int bulletCount = 12;

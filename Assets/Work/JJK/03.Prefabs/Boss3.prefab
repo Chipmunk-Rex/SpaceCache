@@ -210,6 +210,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1903204605164396243}
     - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1508167317381841609, guid: 3bbada8af3b1f284e9d0ad0397eb4793, type: 3}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: engine.Array.size
       value: 2
       objectReference: {fileID: 0}
