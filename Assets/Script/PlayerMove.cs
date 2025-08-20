@@ -2,24 +2,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerMove : MonoBehaviour
 {
-    Vector2 moveDirection;
-    private void Update()
+    public float speed = 5f;
+    private Vector2 movedir;
+
+    private void FixedUpdate()
     {
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+        if (Keyboard.current.wKey.isPressed)
         {
-            moveDirection += Vector2.up;
+            transform.position += Vector3.up * speed * Time.fixedDeltaTime;
         }
-        if (Keyboard.current.sKey.wasPressedThisFrame)
+        if (Keyboard.current.aKey.isPressed)
         {
-            moveDirection += Vector2.down;
+            transform.position += Vector3.left * speed * Time.fixedDeltaTime;
         }
-        if (Keyboard.current.aKey.wasPressedThisFrame)
+        if (Keyboard.current.sKey.isPressed)
         {
-            moveDirection += Vector2.left;
+            transform.position += Vector3.down * speed * Time.fixedDeltaTime;
         }
-        if (Keyboard.current.dKey.wasPressedThisFrame)
+        if (Keyboard.current.dKey.isPressed)
         {
-            moveDirection += Vector2.right;
+            transform.position += Vector3.right * speed * Time.fixedDeltaTime;
         }
     }
 }

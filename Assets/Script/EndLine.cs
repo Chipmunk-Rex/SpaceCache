@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class EndLine : MonoBehaviour
 {
-   public void OnTriggerEnter2D(Collider2D collision)
+    [SerializeField] private GameObject map;
+    public void OnTriggerEnter2D(Collider2D collision)
    {
-       if (collision.CompareTag("Player"))
+       if (collision.gameObject.CompareTag("Player"))
        {
-            Debug.Log("플레이어가 엔드라인에 닿음");
-            
-       }
-    }
+            GameObject maps = Instantiate(map, transform.position, Quaternion.identity);
+        }
+   }  
 }

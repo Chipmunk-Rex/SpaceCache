@@ -3,15 +3,16 @@ using UnityEngine.Tilemaps;
 
 public class InfiniteMap : MonoBehaviour
 {
-    [SerializeField] private GameObject map;      // 생성될 맵 프리팹
-    [SerializeField] private Vector3 spawnOffset; // 생성 위치 방향 (Offset)
+    [SerializeField] private GameObject mapPrefab;
+    [SerializeField] private Vector3 spawnOffset;
+    private bool hasSpawned = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (!hasSpawned && collision.CompareTag("Player"))
         {
-            // deadzone의 위치 + offset 방향으로 생성
-            Instantiate(map, transform.position + spawnOffset, Quaternion.identity);
+            Instantiate(mapPrefab, transform.parent.position + spawnOffset, Quaternion.identity);
+            hasSpawned = true;
         }
     }
 }
