@@ -200,5 +200,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <PoolItem>k__BackingField: {fileID: 11400000, guid: 3528123e34e0a1a41be4f2b6bf4b8e58, type: 2}
   damage: 10
-  speed: 30
+  speed: 50
   lifeTime: 3
