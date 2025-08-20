@@ -81,7 +81,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -125,12 +125,12 @@ TextureImporter:
       name: naninano_0
       rect:
         serializedVersion: 2
-        x: 13
-        y: 15
-        width: 40
-        height: 35
+        x: 14
+        y: 16
+        width: 38
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -147,12 +147,12 @@ TextureImporter:
       name: naninano_1
       rect:
         serializedVersion: 2
-        x: 77
-        y: 15
-        width: 40
-        height: 35
+        x: 78
+        y: 16
+        width: 38
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -169,12 +169,12 @@ TextureImporter:
       name: naninano_2
       rect:
         serializedVersion: 2
-        x: 141
-        y: 15
-        width: 40
-        height: 35
+        x: 142
+        y: 16
+        width: 38
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -191,12 +191,12 @@ TextureImporter:
       name: naninano_3
       rect:
         serializedVersion: 2
-        x: 205
-        y: 15
-        width: 40
-        height: 35
+        x: 206
+        y: 16
+        width: 38
+        height: 33
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2d89f71043a10ab459f1465cd274c4bf
+    spriteID: 62ebba7a9f53101408198bd255660801
     internalID: 0
     vertices: []
     indices: 
