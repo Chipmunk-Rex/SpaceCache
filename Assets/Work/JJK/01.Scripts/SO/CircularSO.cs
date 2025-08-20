@@ -5,34 +5,39 @@ using UnityEngine;
 public class CircularSO : BossPatternSO
 {
     public int bulletCount = 12;
+    public int repeatCount = 4;
     public float bulletSpeed = 5f;
     public float waitBetweenRounds = 0.5f;
 
     public override IEnumerator Execute(Boss boss)
     {
-        GameObject bullet = boss.GetPooledBullet();
-
         float angleStep = 360f / bulletCount;
-        Vector3 origin = boss.firePoint.position;
+        //Vector3 origin = boss.firePoint.position;
 
-        if (bullet != null)
+        for (int j = 0; j < repeatCount; j++)
         {
             for (int i = 0; i < bulletCount; i++)
             {
-                float angle = i * angleStep;
+                GameObject bullet = boss.GetPooledBullet();
+                if (bullet == null) continue;
+
+                float angle = i * angleStep + j * 15;
                 Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.up;
 
-                bullet.transform.position = origin;
+                //bullet.transform.position = origin;
+                bullet.transform.position = boss.transform.position;
                 bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
                 bullet.SetActive(true);
                 bullet.GetComponent<Bullet>().Init(dir, bulletSpeed);
+
+                Debug.Log("shoot");
+
+                //yield return new WaitForSeconds(boss.ReloadTime * 0.5f);
             }
-        }
-        else if (bullet == null)
-        {
-            Debug.Log("null");
+
+            yield return new WaitForSeconds(boss.ReloadTime * 2);
         }
 
-            yield return new WaitForSeconds(waitBetweenRounds);
+        yield return new WaitForSeconds(waitBetweenRounds);
     }
 }

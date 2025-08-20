@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Circular
   m_EditorClassIdentifier: 
   bulletCount: 12
-  bulletSpeed: 5
+  repeatCount: 4
+  bulletSpeed: 6
   waitBetweenRounds: 0.5
