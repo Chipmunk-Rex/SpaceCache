@@ -1,15 +1,14 @@
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
-public class EnemySPown : MonoBehaviour
+public class EnemySpown : MonoBehaviour
 {
+    [Header("에너미 스폰 설정")]
     private int enemyPoolSize = 50;
     public GameObject enemyPrefab;
     private GameObject[] enemyPool;
-
     public float spawnInterval = 1.0f;
     private float timer = 0f;
-
     void Start()
     {
         enemyPool = new GameObject[enemyPoolSize];
@@ -19,7 +18,6 @@ public class EnemySPown : MonoBehaviour
             enemyPool[i].SetActive(false);
         }
     }
-
     void Update()
     {
         timer += Time.deltaTime;
@@ -30,7 +28,6 @@ public class EnemySPown : MonoBehaviour
             timer = 0f;
         }
     }
-
     void SpawnEnemy()
     {
         for (int i = 0; i < enemyPool.Length; i++)
@@ -45,7 +42,6 @@ public class EnemySPown : MonoBehaviour
             }
         }
     }
-
     Vector3 GetRandomOutsideCameraPosition()
     {
         float randomX = Random.Range(40f, -40f);
