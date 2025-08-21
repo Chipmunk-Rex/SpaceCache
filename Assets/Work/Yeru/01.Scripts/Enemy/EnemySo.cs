@@ -10,4 +10,5 @@ public class EnemySo : ScriptableObject
     public float damage;
     public float range;
     public float rotationSpeed;
+    public GameObject prefab;
 }
