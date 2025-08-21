@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -19,7 +18,8 @@ public class WaveManager : MonoBehaviour
         {
             for(int i = 0; i < waveList.enemyCount; i++)
             {
-                pooling.SpawnEnemy(waveList.enemyType[0], trans);
+                int a = Random.Range(0, waveList.enemyType.Length);
+                pooling.SpawnEnemy(waveList.enemyType[a], trans);
                 yield return new WaitForSeconds(waveList.enemySpawnTime);
             }
             yield return new WaitForSeconds(waveList.waveEndTime);

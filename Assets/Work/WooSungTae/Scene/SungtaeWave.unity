@@ -288,7 +288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawnMaxCount: 10
-  enemyList: []
+  enemyList:
+  - {fileID: 11400000, guid: 66f6bfdcfa445f04e9d3b05db4d45125, type: 2}
 --- !u!4 &1498281155
 Transform:
   m_ObjectHideFlags: 0

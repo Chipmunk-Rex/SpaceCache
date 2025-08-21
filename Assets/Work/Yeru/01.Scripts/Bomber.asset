@@ -19,3 +19,4 @@ MonoBehaviour:
   damage: 100
   range: 1
   rotationSpeed: 120
+  prefab: {fileID: 6644365735932365257, guid: 5b3a01978604777439488f5ed07d0e99, type: 3}
