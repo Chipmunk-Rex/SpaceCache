@@ -5,12 +5,10 @@ using UnityEngine;
 
 public class ButtonClick : MonoBehaviour
 {
-    [SerializeField] private GameObject optionBTN;
+    [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject startBTN;
-    [SerializeField] private GameObject startBTNParticle;
-    private Rigidbody2D rigid;
-    private Rigidbody2D rigid2;
+    [SerializeField] private GameObject[] BTN;
+    [SerializeField] private GameObject closePanel2;
     [SerializeField] private float up = 90;
     private UIMover mover;
     private StartMusicSFX startMusic;
@@ -19,8 +17,6 @@ public class ButtonClick : MonoBehaviour
     private void Awake()
     {
         startMusic = GetComponent<StartMusicSFX>();
-        rigid = startBTN.GetComponent<Rigidbody2D>();
-        rigid2 = startBTNParticle.GetComponent<Rigidbody2D>();
         mover = GetComponent<UIMover>();
     }
     public void OptionClick()
@@ -28,20 +24,22 @@ public class ButtonClick : MonoBehaviour
         if(!mover.startStop)
         {
             mover.SetStartStop(true);
-            optionBTN.transform.DOLocalMove(new Vector3(0, up, 0), 1);
+            optionPanel.transform.DOLocalMove(new Vector3(0, up, 0), 1);
             startPanel.transform.DOLocalMove(new Vector3(0, 1300, 0), 1);
+            closePanel2.transform.DOLocalMoveY(-400, 1);
         }
     }
     public void OptionExit()
     {
         startPanel.transform.DOLocalMove(new Vector3(0, 0, 0), 1);
-        optionBTN.transform.DOLocalMove(new Vector3(0, -1300, 0), 1);
+        optionPanel.transform.DOLocalMove(new Vector3(0, -1300, 0), 1);
+        closePanel2.transform.DOLocalMoveY(-1100, 1);
         StartCoroutine(StartStopFalse());
     }
 
     private IEnumerator StartStopFalse()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(1f);
         mover.SetStartStop(false);
     }
 
@@ -59,12 +57,15 @@ public class ButtonClick : MonoBehaviour
         if (!mover.startStop)
         {
             mover.SetStartStop(true);
-            startBTN.transform.DOLocalMove(new Vector2(-900, 0), 1);
-            yield return new WaitForSeconds(0.5f);
-            rigid.linearVelocity = new Vector2(1600, 0);
-            yield return new WaitForSeconds(0.65f);
-            startBTNParticle.SetActive(true);
-            rigid2.linearVelocity = new Vector2(14.5f, 0);
+            for(int i = 0; i< BTN.Length; i++)
+            {
+                Sequence sequence = DOTween.Sequence();
+                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.4f));
+                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.8f));
+                yield return new WaitForSeconds(0.2f);
+            }
+            yield return new WaitForSeconds(1);
+            closePanel2.transform.DOLocalMoveY(0,0.3f).SetEase(Ease.InFlash);
         }
     }
 }

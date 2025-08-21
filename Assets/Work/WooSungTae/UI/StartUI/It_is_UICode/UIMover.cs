@@ -7,14 +7,7 @@ public class UIMover : MonoBehaviour
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject cachePanel;
     [SerializeField] private MousePos mousePos;
-    private StartMusicSFX startMusic;
-
     public bool startStop { get; private set; } = false;
-
-    private void Awake()
-    {
-        startMusic = GetComponent<StartMusicSFX>();
-    }
     private void Start()
     {
         StartPanelMove();
@@ -43,7 +36,7 @@ public class UIMover : MonoBehaviour
 
     private void StartPanelMove()
     {
-        startPanel.transform.DOLocalMove(new Vector3(0, -90, 0), 2);
+        startPanel.transform.DOLocalMove(new Vector3(0, -90, 0), 1);
     }
 
     private void EnterCachePanel()
@@ -67,7 +60,7 @@ public class UIMover : MonoBehaviour
     private IEnumerator StartStop()
     {
         startStop = true;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         startStop = false;
     }
 
