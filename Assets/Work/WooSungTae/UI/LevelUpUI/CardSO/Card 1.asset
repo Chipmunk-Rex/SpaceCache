@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Card 1
   m_EditorClassIdentifier: 
   CardID: 0
-  Cardname: 111
   CardDescription: "\u3141\u3134\u3147\u3141\u3134\u3141\u3147"
   CardImage: {fileID: 981311319983426920, guid: 85a541493bd6c284bbe11c7bd939a89f, type: 3}
-  level: 0
+  level: 2
+  cardUiSpawn: 0

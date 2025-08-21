@@ -13,6 +13,7 @@ public class Card : MonoBehaviour
 
     public void CardGetBasic(LevelUpSO levelUpSO)
     {
+        _levelUpSO = levelUpSO;
         _descriptionText.text = levelUpSO.CardDescription;
         _image.sprite = levelUpSO.CardImage;
     }

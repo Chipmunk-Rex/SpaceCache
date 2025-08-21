@@ -3,8 +3,17 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Frame : EnemyBase
 {
+   [SerializeField] private Muzzle[] muzzles;
+   
+   protected override void OnInit()
+   {
+      if (muzzles == null || muzzles.Length == 0)
+         muzzles = GetComponentsInChildren<Muzzle>(true);
+   }
+   
    protected override void Attack()
    {
-      Debug.Log("공격!! 넌 죽었다!");
+      for (int i = 0; i < muzzles.Length; i++)
+         muzzles[i]?.Fire();
    }
 }
