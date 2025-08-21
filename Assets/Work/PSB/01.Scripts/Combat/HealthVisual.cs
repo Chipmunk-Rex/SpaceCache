@@ -7,42 +7,44 @@ namespace Code.Scripts.Items.Combat
 {
     public class HealthVisual : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private EntityHealth health;
-        [SerializeField] private SpriteRenderer targetRenderer;
         [SerializeField] private Sprite fullHealthSprite;
         [SerializeField] private Sprite midHealthSprite;
         [SerializeField] private Sprite lowHealthSprite;
         [SerializeField] private Sprite lastHealthSprite;
 
         private Player _player;
+        private EntityHealth _health;
+        private SpriteRenderer _targetRenderer;
         
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
+            _health = entity.GetCompo<EntityHealth>();
+            _targetRenderer = GetComponent<SpriteRenderer>();
         }
 
         private void OnEnable()
         {
-            health.OnHealthChanged += UpdateVisual;
+            _health.OnHealthChanged += UpdateVisual;
         }
 
         private void OnDisable()
         {
-            health.OnHealthChanged -= UpdateVisual;
+            _health.OnHealthChanged -= UpdateVisual;
         }
 
         private void UpdateVisual(float current, float max)
         {
             float ratio = current / max;
             if (ratio > 0.7f)
-                targetRenderer.sprite = fullHealthSprite;
+                _targetRenderer.sprite = fullHealthSprite;
             else if (ratio > 0.4f)
-                targetRenderer.sprite = midHealthSprite;
+                _targetRenderer.sprite = midHealthSprite;
             else if (ratio > 0.10f)
-                targetRenderer.sprite = lowHealthSprite;
+                _targetRenderer.sprite = lowHealthSprite;
             else
             {
-                targetRenderer.sprite = lastHealthSprite;
+                _targetRenderer.sprite = lastHealthSprite;
             }
         }
         
