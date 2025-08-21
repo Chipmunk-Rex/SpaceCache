@@ -415,9 +415,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 331889341}
     - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: 'engine.Array.data[0]'
-      value: 
-      objectReference: {fileID: 1068621072}
+      propertyPath: spinSpeed
+      value: 72
+      objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -684,11 +684,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1068621072 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5163201406566268086, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-  m_PrefabInstance: {fileID: 408080797}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1397310744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -701,10 +696,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3
       objectReference: {fileID: 0}
+    - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412058014570634772, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 331889341}
+    - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.52

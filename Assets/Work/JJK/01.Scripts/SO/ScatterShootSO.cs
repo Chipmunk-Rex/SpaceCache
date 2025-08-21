@@ -8,6 +8,7 @@ public class ScatterShootSO : BossPatternSO
     public int bulletPerRound = 5;
     public float angleStep = 10f;
     public float waitBetweenRounds = 0.5f;
+    public float moveSpeed = 5f;
 
     public override IEnumerator Execute(Boss boss)
     {
@@ -18,14 +19,14 @@ public class ScatterShootSO : BossPatternSO
                 yield return new WaitForSeconds(boss.ReloadTime);
 
                 float angle = angleStep * j - 45;
-                boss.ShootBullet1(angle);
+                boss.ShootBullet1(angle, moveSpeed);
             }
             for (int j = 0; j < bulletPerRound; j++)
             {
                 yield return new WaitForSeconds(boss.ReloadTime);
 
                 float angle = angleStep * (bulletPerRound - j) - 45;
-                boss.ShootBullet1(angle);
+                boss.ShootBullet1(angle, moveSpeed);
             }
         }
 

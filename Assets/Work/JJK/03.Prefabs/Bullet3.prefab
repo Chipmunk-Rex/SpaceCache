@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 471e9e2c70cbc8143b1418c8b08feda0, type: 2}
+    - target: {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: lifeTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

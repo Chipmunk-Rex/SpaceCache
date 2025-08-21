@@ -92,9 +92,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2a9834ba0d2cf74ea847036db9dc370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
-  explodeTime: 1
-  fragmentCount: 6
+  moveSpeed: 50
+  explodeTime: 1.5
+  fragmentCount: 8
   fragmentSpeed: 7
 --- !u!1 &5224331941291755235
 GameObject:

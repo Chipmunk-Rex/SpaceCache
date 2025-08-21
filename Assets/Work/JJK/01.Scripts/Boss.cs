@@ -6,6 +6,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Microsoft.Win32.SafeHandles;
+using Random = System.Random;
 
 public class Boss : MonoBehaviour
 {
@@ -40,10 +41,9 @@ public class Boss : MonoBehaviour
     Vector3 moveDir;
     GameObject[] bulletPool;
     GameObject[] bulletPool2;
-    int poolSize = 50;
+    int poolSize = 120;
     int currentPatternIndex = 0;
     bool isSpin;
-    bool isPhase2 = false;
 
     private void Start()
     {
@@ -94,7 +94,7 @@ public class Boss : MonoBehaviour
             Direction();
         else
         {
-            float angleDelta = isPhase2 ? spinSpeed * Time.deltaTime : spinSpeed * Time.deltaTime * 0.8f;
+            float angleDelta = spinSpeed * Time.deltaTime;
             currentAngle += angleDelta;
             transform.Rotate(Vector3.back, angleDelta);
         }
@@ -103,17 +103,6 @@ public class Boss : MonoBehaviour
         {
             hp = 0;
             StartCoroutine(Die());
-        }
-
-        if (hp <= maxHp * 0.5f)
-        {
-            isPhase2 = true;
-        }
-
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            hp -= 50;
-            Debug.Log(hp);
         }
     }
 
@@ -136,10 +125,16 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        //if (currentPatternList.Count == 0) return;
-
         StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
-        currentPatternIndex = (currentPatternIndex + 1) % currentPatternList.Count;
+        
+        int newIndex = currentPatternIndex;
+
+        while (newIndex == currentPatternIndex)
+        {
+            newIndex = UnityEngine.Random.Range(0, currentPatternList.Count);
+        }
+        
+        currentPatternIndex = newIndex;
     }
 
     private IEnumerator RunPattern(BossPatternSO pattern)
@@ -149,7 +144,7 @@ public class Boss : MonoBehaviour
         NextPattern();
     }
 
-    public void ShootBullet1(float angleOffset)
+    public void ShootBullet1(float angleOffset, float speed)
     {
         GameObject bullet = GetPooledBullet();
 
@@ -160,8 +155,7 @@ public class Boss : MonoBehaviour
             Vector3 baseDir = transform.up;
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
-
-            float speed = isPhase2 ? 10f : 8f;
+            
             bullet.GetComponent<Bullet>().Init(dir, speed);
             bullet.SetActive(true);
         }
@@ -184,7 +178,7 @@ public class Boss : MonoBehaviour
             GameObject bullet = GetPooledBullet2();
             if (bullet != null)
             {
-                float speed = isPhase2 ? 10f : 8f;
+                float speed = 8f;
                 bullet.transform.position = firePoint.position + offset;
                 bullet.GetComponent<Bullet>().Init(transform.up, speed);
                 bullet.SetActive(true);
@@ -248,7 +242,7 @@ public class Boss : MonoBehaviour
         GameObject missile = GetPooledBullet2();
         if (missile != null)
         {
-            float time = isPhase2 ? 3f : 2f;
+            float time = 2f;
             missile.GetComponent<HomingMissile>().InitHomingTime(time);
             missile.transform.position = firePoint.position;
             missile.transform.rotation = transform.rotation;

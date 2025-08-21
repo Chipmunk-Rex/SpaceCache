@@ -16,7 +16,7 @@ MonoBehaviour:
   hp: 2000
   damage: 30
   moveSpeed: 4
-  reloadTime: 0.15
+  reloadTime: 0.1
   patterns:
   - {fileID: 11400000, guid: e3f6dbc5c925327429dd87dfb864bb40, type: 2}
   - {fileID: 11400000, guid: 8d4d516acf6730b46af30eee242276c7, type: 2}

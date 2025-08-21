@@ -5,22 +5,25 @@ using System.Collections;
 public class ExplosionShootSO : BossPatternSO
 {
     public GameObject explosionBulletPrefab;
-    int fireCount = 4;
-    float delay = 2f;
+    public float moveSpeed = 4f;
+    public int fireCount = 4;
+    public float delay = 2f;
 
     public override IEnumerator Execute(Boss boss)
     {
+        yield return new WaitForSeconds(0.5f);
+        
         for (int i = 0; i < fireCount; i++)
         {
-            yield return new WaitForSeconds(delay);
-
             Vector3 dir = boss.transform.up;
             GameObject bullet = Instantiate(explosionBulletPrefab);
             bullet.transform.position = boss.firePoint.position;
             bullet.SetActive(true);
-            bullet.GetComponent<ExplosionBullet>().Init(dir, 4f, boss);
+            bullet.GetComponent<ExplosionBullet>().Init(dir, moveSpeed, boss);
+            
+            yield return new WaitForSeconds(delay);
         }
 
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(delay);
     }
 }

@@ -12,7 +12,6 @@ public class CircularSO : BossPatternSO
     public override IEnumerator Execute(Boss boss)
     {
         float angleStep = 360f / bulletCount;
-        //Vector3 origin = boss.firePoint.position;
 
         for (int j = 0; j < repeatCount; j++)
         {
@@ -25,17 +24,14 @@ public class CircularSO : BossPatternSO
                 Vector3 dir = Quaternion.Euler(0, 0, angle) * Vector3.up;
 
                 //bullet.transform.position = origin;
-                bullet.transform.position = boss.transform.position;
+                bullet.transform.position = boss.transform.position + dir.normalized;
                 bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
                 bullet.SetActive(true);
                 bullet.GetComponent<Bullet>().Init(dir, bulletSpeed);
 
-                Debug.Log("shoot");
-
-                //yield return new WaitForSeconds(boss.ReloadTime * 0.5f);
             }
 
-            yield return new WaitForSeconds(boss.ReloadTime * 2);
+            yield return new WaitForSeconds(boss.ReloadTime * 2f);
         }
 
         yield return new WaitForSeconds(waitBetweenRounds);

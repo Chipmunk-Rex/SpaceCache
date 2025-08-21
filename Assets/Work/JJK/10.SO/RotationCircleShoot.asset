@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3bd4a3d1eb087c488c75880717b9958, type: 3}
-  m_Name: Circular
+  m_Script: {fileID: 11500000, guid: 740b11946947b744d9c3dff902baaaa1, type: 3}
+  m_Name: RotationCircleShoot
   m_EditorClassIdentifier: 
-  bulletCount: 12
-  repeatCount: 7
+  bulletCount: 5
+  rotationStep: 15
+  roundCount: 24
   bulletSpeed: 6
-  waitBetweenRounds: 0.5
+  delayBetweenRounds: 0.25
