@@ -674,6 +674,7 @@ GameObject:
   m_Component:
   - component: {fileID: 326495974}
   - component: {fileID: 326495975}
+  - component: {fileID: 326495976}
   m_Layer: 0
   m_Name: Item
   m_TagString: Untagged
@@ -714,6 +715,21 @@ MonoBehaviour:
   radius: 2
   orbitSpeed: 100
   selfRotateSpeed: 360
+--- !u!114 &326495976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326495973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bb866664df44a7b2f1b45e81668f45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldPrefab: {fileID: 4801450448489444406, guid: adeacfd310212d44f80f4dabff6e2b99, type: 3}
+  cooldown: 30
+  _cooldownTimer: 0
 --- !u!1 &384186912
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,6 +2242,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
   - {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
   - {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
+  - {fileID: 11400000, guid: 386447cb9801a0d468dc0224088dc31d, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -2829,6 +2846,7 @@ GameObject:
   - component: {fileID: 1684140383}
   - component: {fileID: 1684140385}
   - component: {fileID: 1684140384}
+  - component: {fileID: 1684140386}
   m_Layer: 5
   m_Name: RangeImage
   m_TagString: Untagged
@@ -2875,7 +2893,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2467547950366750657, guid: 26b41778eb347454ea2a28017daae2e1, type: 3}
+  m_Sprite: {fileID: 3796432296822019917, guid: 18f9bce65ca7f84469110280c5d1dbb9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2893,6 +2911,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1684140382}
   m_CullTransparentMesh: 1
+--- !u!95 &1684140386
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684140382}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 66151d2402048af4d8bf06973bb5c0f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1698170454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +3036,7 @@ MonoBehaviour:
     overrideValue: 10
   - stat: {fileID: 11400000, guid: ec257fe96baac0143b9e7bb7f2e7c558, type: 2}
     isUseOverride: 1
-    overrideValue: 1
+    overrideValue: 2
   - stat: {fileID: 11400000, guid: cedf8a76b37b75840a27bd992bbdea25, type: 2}
     isUseOverride: 1
     overrideValue: 2
@@ -3220,8 +3260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a880b288c0314250bd09c7062af2f7df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 1040925501}
-  targetRenderer: {fileID: 1856977940}
   fullHealthSprite: {fileID: -5448727121883926364, guid: b4e924bc20c57b44f8ad4e8b3a5e362d, type: 3}
   midHealthSprite: {fileID: -4835859195297287297, guid: 726044df7d35f1c41995b0ed34a6740c, type: 3}
   lowHealthSprite: {fileID: 5091398421201204211, guid: f1ddafb5ed173b3408a81c3cd51eaa57, type: 3}
@@ -3348,6 +3386,8 @@ MonoBehaviour:
     prefab: {fileID: 686885420709170695, guid: 3510033b9a00744459ffa1174d4c9c60, type: 3}
   - itemSO: {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
     prefab: {fileID: 686885420709170695, guid: 205a408bd26a9ab48a2ae5213c28309e, type: 3}
+  - itemSO: {fileID: 11400000, guid: 386447cb9801a0d468dc0224088dc31d, type: 2}
+    prefab: {fileID: 502057253905390610, guid: dce58c795ca505042a74c3133c39c609, type: 3}
 --- !u!1 &2033244351
 GameObject:
   m_ObjectHideFlags: 0
@@ -3393,7 +3433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e0b8a7099e4e719b2526b54ed879b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSlider: {fileID: 384186914}
+  manaSlider: {fileID: 384186914}
   maxManaPoint: 100
   maxLevel: 15
   manaTimeGetPercent: 0.01
@@ -3421,6 +3461,7 @@ MonoBehaviour:
   - {fileID: 107565950037899111, guid: 2b692368e3ffdc7428ab86fa6693c63f, type: 3}
   - {fileID: 8777412579992931095, guid: 5ee2f50714d33104486710b399b2353e, type: 3}
   - {fileID: 8777412579992931095, guid: dbbed5108825cfa41ac0d763266507a5, type: 3}
+  - {fileID: 8777412579992931095, guid: 73ede7fcc9c354e4fa03bbbcd650b569, type: 3}
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

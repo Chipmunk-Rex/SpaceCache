@@ -8,7 +8,7 @@ namespace Code.Scripts.Players
 {
     public class PlayerLevelSystem : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
-        [SerializeField] private Slider healthSlider;
+        [SerializeField] private Slider manaSlider;
         [SerializeField] private float maxManaPoint = 100f;
         [SerializeField] private int maxLevel = 15;
 
@@ -42,8 +42,8 @@ namespace Code.Scripts.Players
         
         private void Awake()
         {
-            healthSlider.minValue = _currentMana;
-            healthSlider.maxValue = maxManaPoint;
+            manaSlider.minValue = _currentMana;
+            manaSlider.maxValue = maxManaPoint;
         }
 
         private void OnDestroy()
@@ -76,7 +76,7 @@ namespace Code.Scripts.Players
                 OnLevelUp?.Invoke();
             }
             
-            healthSlider.value = _currentMana;
+            manaSlider.value = _currentMana;
         }
 
         public void GetManaAtItem()
@@ -92,7 +92,7 @@ namespace Code.Scripts.Players
                 OnLevelUp?.Invoke();
             }
             
-            healthSlider.value = _currentMana;
+            manaSlider.value = _currentMana;
         }
 
         
