@@ -17,8 +17,12 @@ public class WaveManager : MonoBehaviour
     {
         foreach(var waveList in waveListSO.waves)
         {
-            pooling.SpawnEnemy(waveList.enemyType[0], trans);
-            yield return new WaitForSeconds(waveList.enemySpawnTime);
+            for(int i = 0; i < waveList.enemyCount; i++)
+            {
+                pooling.SpawnEnemy(waveList.enemyType[0], trans);
+                yield return new WaitForSeconds(waveList.enemySpawnTime);
+            }
+            yield return new WaitForSeconds(waveList.waveEndTime);
         }
     }
 }

@@ -9,6 +9,6 @@ public class WaveSO : ScriptableObject
     public float enemySpawnTime; //에너미 스폰 간격
 
     [Header("웨이브 설정")]
-    public float waveEndTime; // 웨이브 끝나는 시간
+    public float waveEndTime; // 에너미가 소환 다 된 후, 다음 라운드로 가는 시간
     public bool bossSpawnTiming; // 보스 소환되는 시간
 }
