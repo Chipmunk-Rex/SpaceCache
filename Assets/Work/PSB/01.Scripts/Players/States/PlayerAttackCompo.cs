@@ -3,29 +3,35 @@ using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
 using PSB_Lib.ObjectPool.RunTime;
 using PSB_Lib.StatSystem;
+using TMPro;
 using UnityEngine;
 
 namespace Code.Scripts.Players.States
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
-        [Header("Serializefield")]
-        [SerializeField] private StatSO attackPowerStat;
-        [SerializeField] private StatSO attackSpeedStat;
+        [Header("SerializeField")]
+        [field: SerializeField] public StatSO attackPowerStat;
+        [field: SerializeField] public StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
         [SerializeField] private Transform spawnPoint;
+        [SerializeField] private Transform spawnPoint2;
         
         [Header("Value")]
+        [SerializeField] private float attackPower = 10f;
+        [SerializeField] private float attackCooldown = 2f;
         [SerializeField] private float increaseSpeedValue = 1f;
         [SerializeField] private float decreaseSpeedValue = -0.5f;
+
+        [Header("UI")] 
+        [SerializeField] private TextMeshProUGUI attackPowerTxt;
         
         [Inject] private PoolManagerMono _poolManager;
         
         private Player _player;
         private EntityStat _statCompo;
-        [SerializeField] private float _attackPower = 10f;
-        private float _attackCooldown = 2f;
-        private bool _canAttack = true;
+        private bool _canAttack1 = true;
+        private bool _canAttack2 = true;
 
         public void Initialize(Entity entity)
         {
@@ -35,43 +41,74 @@ namespace Code.Scripts.Players.States
 
         public void AfterInitialize()
         {
-            _attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
-            _attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
+            attackPower = _statCompo.SubscribeStat(attackPowerStat, HandleAttackPowerChange, 10f);
+            attackCooldown = _statCompo.SubscribeStat(attackSpeedStat, HandleAttackSpeedChange, 2f);
         }
+        
+        private void Update()
+        {
+            attackPowerTxt.text = "총알 한 발당 데미지 : " + attackPower;
+        }
+
 
         private void OnDestroy()
         {
             _statCompo.UnSubscribeStat(attackPowerStat, HandleAttackPowerChange);
             _statCompo.UnSubscribeStat(attackSpeedStat, HandleAttackSpeedChange);
         }
+
+        public void InitialBullet()
+        {
+            InitialCompo();
+            InitialCompo2();
+        }
         
         public async void InitialCompo()
         {
-            if (!_canAttack) return;
-
-            _canAttack = false;
+            if (!_canAttack1) return;
+            
+            _canAttack1 = false;
             
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
 
-            playerBullet.SetDamage(_attackPower);
+            playerBullet.SetDamage(attackPower);
             
             playerBullet.transform.position = spawnPoint.position;
             playerBullet.transform.rotation = spawnPoint.rotation;
             
-            await Awaitable.WaitForSecondsAsync(_attackCooldown);
+            await Awaitable.WaitForSecondsAsync(attackCooldown);
             
             _poolManager.Push(playerBullet);
-            _canAttack = true;
+            _canAttack1 = true;
+        }
+
+        public async void InitialCompo2()
+        {
+            if (!_canAttack2) return;
+            
+            _canAttack2 = false;
+            
+            PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
+
+            playerBullet.SetDamage(attackPower);
+            
+            playerBullet.transform.position = spawnPoint2.position;
+            playerBullet.transform.rotation = spawnPoint2.rotation;
+            
+            await Awaitable.WaitForSecondsAsync(attackCooldown);
+            
+            _poolManager.Push(playerBullet);
+            _canAttack2 = true;
         }
 
         private void HandleAttackSpeedChange(StatSO stat, float currentValue, float prevValue)
         {
-            _attackCooldown = currentValue;
+            attackCooldown = currentValue;
         }
 
         private void HandleAttackPowerChange(StatSO stat, float currentValue, float prevValue)
         {
-            _attackPower = currentValue;
+            attackPower = currentValue;
         }
         
         

@@ -135,6 +135,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShieldSkill"",
+                    ""type"": ""Button"",
+                    ""id"": ""6f0a11ba-17ec-4b3d-a913-c070df3053d8"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -210,7 +219,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""SpeedUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -221,7 +230,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""SpeedDown"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -232,7 +241,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""AngleChangeLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -243,8 +252,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""AngleChangeRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""47396a74-7644-47c0-85f8-ead3444e8a59"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""ShieldSkill"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -837,6 +857,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_SpeedDown = m_Player.FindAction("SpeedDown", throwIfNotFound: true);
         m_Player_AngleChangeLeft = m_Player.FindAction("AngleChangeLeft", throwIfNotFound: true);
         m_Player_AngleChangeRight = m_Player.FindAction("AngleChangeRight", throwIfNotFound: true);
+        m_Player_ShieldSkill = m_Player.FindAction("ShieldSkill", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -935,6 +956,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SpeedDown;
     private readonly InputAction m_Player_AngleChangeLeft;
     private readonly InputAction m_Player_AngleChangeRight;
+    private readonly InputAction m_Player_ShieldSkill;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -966,6 +988,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/AngleChangeRight".
         /// </summary>
         public InputAction @AngleChangeRight => m_Wrapper.m_Player_AngleChangeRight;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/ShieldSkill".
+        /// </summary>
+        public InputAction @ShieldSkill => m_Wrapper.m_Player_ShieldSkill;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1007,6 +1033,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @AngleChangeRight.started += instance.OnAngleChangeRight;
             @AngleChangeRight.performed += instance.OnAngleChangeRight;
             @AngleChangeRight.canceled += instance.OnAngleChangeRight;
+            @ShieldSkill.started += instance.OnShieldSkill;
+            @ShieldSkill.performed += instance.OnShieldSkill;
+            @ShieldSkill.canceled += instance.OnShieldSkill;
         }
 
         /// <summary>
@@ -1033,6 +1062,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @AngleChangeRight.started -= instance.OnAngleChangeRight;
             @AngleChangeRight.performed -= instance.OnAngleChangeRight;
             @AngleChangeRight.canceled -= instance.OnAngleChangeRight;
+            @ShieldSkill.started -= instance.OnShieldSkill;
+            @ShieldSkill.performed -= instance.OnShieldSkill;
+            @ShieldSkill.canceled -= instance.OnShieldSkill;
         }
 
         /// <summary>
@@ -1368,6 +1400,13 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnAngleChangeRight(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ShieldSkill" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnShieldSkill(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
