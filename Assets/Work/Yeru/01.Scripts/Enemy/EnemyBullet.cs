@@ -1,0 +1,65 @@
+using UnityEngine;
+using System.Collections;
+
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
+[DisallowMultipleComponent]
+public class EnemyBullet : MonoBehaviour
+{
+    [SerializeField] private float speed = 7f;
+    [SerializeField] private float life  = 5f;
+
+    private Rigidbody2D rb;
+    private float damage;
+    private Coroutine lifeCo;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        rb.gravityScale = 0f;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // 권장
+
+        var col = GetComponent<Collider2D>();
+        if (col) col.isTrigger = true; // 트리거 강제(권장)
+    }
+
+    void OnEnable()
+    {
+        if (lifeCo != null) StopCoroutine(lifeCo);
+        lifeCo = StartCoroutine(LifeTimer());
+    }
+
+    void OnDisable()
+    {
+        if (lifeCo != null) { StopCoroutine(lifeCo); lifeCo = null; }
+        rb.linearVelocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+        damage = 0f;
+    }
+
+ 
+    public void InitFromMuzzle(Transform muzzle, float damageFromSo)
+    {
+        transform.position = muzzle.position;
+        transform.up = muzzle.up;
+
+        damage = damageFromSo;
+        
+        if (!gameObject.activeSelf) gameObject.SetActive(true);
+        
+        rb.linearVelocity = (Vector2)transform.up * speed;
+    }
+
+    IEnumerator LifeTimer()
+    {
+        yield return new WaitForSeconds(life);
+        gameObject.SetActive(false);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player")) return;
+        var d = other.GetComponentInParent<IDamageable>();
+        if (d != null) d.TakeDamage(damage);
+        gameObject.SetActive(false);
+    }
+}

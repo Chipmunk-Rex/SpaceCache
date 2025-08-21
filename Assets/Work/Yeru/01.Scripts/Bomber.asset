@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Bomber
   maxHealth: 5000
-  moveSpeed: 5
+  moveSpeed: 6
   attackCooldown: 0
   damage: 100
   range: 1

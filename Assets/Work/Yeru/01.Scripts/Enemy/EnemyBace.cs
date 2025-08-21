@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class EnemyBase : MonoBehaviour, IDamageable
 {
     [SerializeField] protected EnemySo data;
+    public EnemySo Data => data;
 
     protected Transform     player;
     protected int           currentHealth;
