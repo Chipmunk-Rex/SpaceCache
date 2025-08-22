@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66214aaa27faf2f458fbb9fe79c848a3, type: 3}
+  m_Name: Boss3
+  m_EditorClassIdentifier: 
+  bossName: Boss3
+  hp: 4500
+  damage: 50
+  moveSpeed: 5
+  reloadTime: 0.3
+  patterns:
+  - {fileID: 11400000, guid: 0b0df485d67104440a2c68bbe1114975, type: 2}
+  - {fileID: 11400000, guid: 0038e4da126c3ce48bbe700fcf96e219, type: 2}
+  - {fileID: 11400000, guid: 99c43e213e5c8b549a474eaf93aae408, type: 2}

@@ -8,6 +8,7 @@ public class SpreadShootSO : BossPatternSO
     public int bulletPerRound = 7;
     public float angleStep = 12f;
     public float waitBetweenRounds = 0.5f;
+    public float moveSpeed = 8f;
 
     public override IEnumerator Execute(Boss boss)
     {
@@ -19,13 +20,13 @@ public class SpreadShootSO : BossPatternSO
 
                 if (j == 0)
                 {
-                    boss.ShootBullet1(0);
+                    boss.ShootBullet1(0, moveSpeed);
                 }
                 else
                 {
                     float angle = angleStep * j;
-                    boss.ShootBullet1(angle);
-                    boss.ShootBullet1(-angle);
+                    boss.ShootBullet1(angle, moveSpeed);
+                    boss.ShootBullet1(-angle, moveSpeed);
                 }
             }
 
