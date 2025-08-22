@@ -9,16 +9,17 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float moveSpeed = 10f;
 
     private Vector3 moveDir;
-    private float lifeTime = 2f;
+    [SerializeField] private float lifeTime = 2f;
 
     private void OnEnable()
     {
         StartCoroutine(LifeTime());
     }
 
-    public void InitDirection(Vector3 dir)
+    public void Init(Vector3 dir, float speed)
     {
         moveDir = dir.normalized;
+        moveSpeed = speed;  
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
     }
@@ -26,6 +27,14 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.position += moveDir * moveSpeed * Time.fixedDeltaTime;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private IEnumerator LifeTime()

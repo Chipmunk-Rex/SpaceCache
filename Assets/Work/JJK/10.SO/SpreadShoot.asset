@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpreadShoot
   m_EditorClassIdentifier: 
   repeatCount: 3
-  bulletPerRound: 7
-  angleStep: 12
+  bulletPerRound: 6
+  angleStep: 18
   waitBetweenRounds: 0.5
+  moveSpeed: 5

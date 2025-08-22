@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4e875a8db413c04994599051903bba5, type: 3}
   m_Name: LaserSpin
   m_EditorClassIdentifier: 
-  spinDuration: 4
-  laserActiveTime: 4
+  laserActiveTime: 5
+  waitBetweenRounds: 1
