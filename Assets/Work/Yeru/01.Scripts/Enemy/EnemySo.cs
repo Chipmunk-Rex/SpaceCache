@@ -4,11 +4,13 @@ using UnityEngine;
 public class EnemySo : ScriptableObject
 {
     public string enemyName;
-    public int maxHealth;
+    public float maxHealth;
     public float moveSpeed;
     public float attackCooldown;
     public float damage;
     public float range;
     public float rotationSpeed;
     public GameObject prefab;
+    public float enemyDamageUp;
+    public float enemyDefenseUp;
 }

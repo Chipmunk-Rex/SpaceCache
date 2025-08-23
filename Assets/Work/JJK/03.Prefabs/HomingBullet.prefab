@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HomingBullet
       objectReference: {fileID: 0}
+    - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1812458828569186466, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.4263153
@@ -86,6 +90,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91944e3b189c3de4495f9be81345a241, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 6
+  moveSpeed: 8
   rotateSpeed: 200
+  homingTime: 2
   lifeTime: 5

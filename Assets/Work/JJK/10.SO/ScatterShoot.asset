@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f246ca77a92d9469423e21a1c24940, type: 3}
   m_Name: ScatterShoot
   m_EditorClassIdentifier: 
-  repeatCount: 3
-  bulletPerRound: 6
-  angleStep: 20
+  repeatCount: 2
+  bulletPerRound: 5
+  angleStep: 15
   waitBetweenRounds: 0.5
+  moveSpeed: 7

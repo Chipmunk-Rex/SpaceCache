@@ -4,8 +4,8 @@ using System.Collections;
 [CreateAssetMenu(fileName = "LaserSO", menuName = "Scriptable Objects/LaserSO")]
 public class LaserSO : BossPatternSO
 {
-    public float spinDuration = 4f;
     public float laserActiveTime = 4f;
+    public float waitBetweenRounds = 0.5f;
 
     public override IEnumerator Execute(Boss boss)
     {
@@ -17,7 +17,7 @@ public class LaserSO : BossPatternSO
         boss.IsSpin = false;
         boss.ActivateLaser(false);
 
-        yield return null;
+        yield return new WaitForSeconds(waitBetweenRounds);
     }
 }
         
