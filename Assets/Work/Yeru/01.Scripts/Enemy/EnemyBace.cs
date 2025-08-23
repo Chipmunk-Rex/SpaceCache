@@ -7,7 +7,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     public EnemySo Data => data;
 
     protected Transform     player;
-    protected int           currentHealth;
+    protected float           currentHealth;
     protected SpriteRenderer spriteRenderer;
     protected Animator       animator;
     protected Rigidbody2D    rb;
