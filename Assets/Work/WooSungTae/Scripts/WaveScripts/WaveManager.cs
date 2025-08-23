@@ -23,31 +23,19 @@ public class WaveManager : MonoBehaviour
                 int a = Random.Range(0, waveList.enemyType.Length);
                 pooling.SpawnEnemy(waveList.enemyType[a], trans);
                 EnemySo enemyData = waveList.enemyType[a];
+                if (waveNum % 5 == 0)
+                {
+                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
+                }
+                else if (waveNum % 3 == 0)
+                {
+                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
+                }
+                else
+                {
+                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
+                }
                 yield return new WaitForSeconds(waveList.enemySpawnTime);
-            }
-            if(waveNum % 5 == 0)
-            {
-                for (int i = 0; i < waveList.enemyType.Length; i++)
-                {
-                    waveList.enemyType[i].damage += waveList.enemyType[i].enemyDamageUp;
-                    //waveList.enemyType[i].maxHealth += waveList.enemyType[i].enemyDamageUp;
-                }
-            }
-            else if (waveNum % 3 == 0)
-            {
-                for (int i = 0; i < waveList.enemyType.Length; i++)
-                {
-                    waveList.enemyType[i].damage -= waveList.enemyType[i].enemyDamageUp;
-                    //waveList.enemyType[i].maxHealth -= waveList.enemyType[i].enemyDamageUp;
-                }
-            }
-            else
-            {
-                for (int i = 0; i < waveList.enemyType.Length; i++)
-                {
-                    waveList.enemyType[i].damage += waveList.enemyType[i].enemyDamageUp;
-                    //waveList.enemyType[i].maxHealth += waveList.enemyType[i].enemyDamageUp;
-                }
             }
             yield return new WaitForSeconds(waveList.waveEndTime);
         }
