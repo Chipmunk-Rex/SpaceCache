@@ -15,7 +15,7 @@ namespace Code.Scripts.Players.States
         public override void Enter()
         {
             base.Enter();
-            _attackCompo.InitialBullet();
+            _attackCompo.FireBullet();
         }
 
         public override void Update()
