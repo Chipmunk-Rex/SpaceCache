@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80d16702a0804eafa4759a56d6f5c7f8, type: 3}
   m_Name: PlayerInputSO
   m_EditorClassIdentifier: 
-  <IsMachineGun>k__BackingField: 1
+  <IsMachineGun>k__BackingField: 0
   isLHolding: 0
   isRHolding: 0

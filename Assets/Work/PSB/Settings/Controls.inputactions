@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MachineSkill",
+                    "type": "Button",
+                    "id": "ec2e522d-462a-49cc-b57e-9594d4249e77",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -179,6 +188,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "ShieldSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82487746-1575-42b5-9752-19d8823eb978",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MachineSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
