@@ -56,11 +56,14 @@ namespace Code.Scripts.Players.States
             attackPowerTxt.text = "총알 한 발당 데미지 : " + attackPower;
         }
 
-
         private void OnDestroy()
         {
             _statCompo.UnSubscribeStat(attackPowerStat, HandleAttackPowerChange);
             _statCompo.UnSubscribeStat(attackSpeedStat, HandleAttackSpeedChange);
+            
+            _player.PlayerInput.OnAttackPressed -= FireBullet;
+            _player.PlayerInput.OnAttackStart -= StartAutoFire;
+            _player.PlayerInput.OnAttackStop -= StopAutoFire;
         }
 
         public void FireBullet()
@@ -110,7 +113,7 @@ namespace Code.Scripts.Players.States
             
             _ = ResetAttackCooldown();
         }
-        
+
         private async Task ResetAttackCooldown()
         {
             float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;

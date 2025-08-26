@@ -40,31 +40,29 @@ namespace Code.Scripts.Items
 
         private void Start()
         {
-            _player.PlayerInput.OnShieldPressed += HandleShieldClickTest;
+            _player.PlayerInput.OnShieldPressed += HandleShieldClick;
         }
 
         private void OnDestroy()
         {
-            _player.PlayerInput.OnShieldPressed -= HandleShieldClickTest;
+            _player.PlayerInput.OnShieldPressed -= HandleShieldClick;
             shieldPrefab.OnDestroyAction -= HandleShieldDestroy;
         }
 
-        private void HandleShieldClickTest()
+        private void HandleShieldClick()
         {
             if (_cooldownTimer > 0 || _shieldActive)
             {
-                Debug.Log("스킬을 사용할 수 없습니다. (쿨타임 or 이미 실드 있음)");
+                Debug.Log("스킬을 사용할 수 없습니다.");
                 return;
             }
             
             Debug.Log("Shield clicked");
             PlayerShield shieldInstance = Instantiate(shieldPrefab, transform);
             
-            // 현재 실드 추적
             _shieldActive = true;
             _player.PlayerInput.IsCanShield = false;
-
-            // 실드가 파괴되면 다시 쿨타임 시작
+            
             shieldInstance.OnDestroyAction += HandleShieldDestroy;
         }
 
