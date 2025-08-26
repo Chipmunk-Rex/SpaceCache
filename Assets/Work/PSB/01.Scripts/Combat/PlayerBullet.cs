@@ -35,10 +35,15 @@ namespace Code.Scripts.Items.Combat
 
         private void OnEnable()
         {
-            _timer = Time.deltaTime;
+            _timer = 0f;
+        }
+        
+        private void Update()
+        {
+            _timer += Time.deltaTime;
             if (_timer >= lifeTime)
             {
-                _myPool.Pop();
+                _myPool.Push(this);
             }
         }
 
@@ -60,7 +65,7 @@ namespace Code.Scripts.Items.Combat
             if (other.gameObject.CompareTag("Test"))
             {
                 other.gameObject.GetComponent<EntityHealth>().SetHp(-damage); 
-                gameObject.SetActive(false);
+                _myPool.Push(this);
             }
         }
         

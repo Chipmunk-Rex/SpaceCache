@@ -11,7 +11,7 @@
                     "id": "6c2ab1b8-8984-453a-af3d-a3c78ae1679a",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold(duration=0.01,pressPoint=0.01)",
                     "initialStateCheck": false
                 },
                 {
@@ -54,6 +54,15 @@
                     "name": "ShieldSkill",
                     "type": "Button",
                     "id": "6f0a11ba-17ec-4b3d-a913-c070df3053d8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MachineSkill",
+                    "type": "Button",
+                    "id": "ec2e522d-462a-49cc-b57e-9594d4249e77",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -179,6 +188,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "ShieldSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "82487746-1575-42b5-9752-19d8823eb978",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "MachineSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

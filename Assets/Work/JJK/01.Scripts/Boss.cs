@@ -5,42 +5,44 @@ using System.Collections;
 using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
+using Microsoft.Win32.SafeHandles;
+using Random = System.Random;
 
 public class Boss : MonoBehaviour
 {
     [SerializeField] private BossStatSO stat;
-
-    [SerializeField] private List<BossPatternSO> patternList;
-    private int currentPatternIndex = 0;
-
-    [SerializeField] Transform playerPos;
-    [SerializeField] private float turnSpeed = 5f;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] GameObject bulletPrefab2;
-    [SerializeField] Transform firePoint;
+    [SerializeField] Transform playerPos;
+    [SerializeField] private float turnSpeed = 5f;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] float spinSpeed = 90f;
+
+    public Transform firePoint;
 
     public bool IsSpin { get => isSpin; set => isSpin = value; }
     public float ReloadTime => reloadTime;
 
     [Header("Sprite")]
     [SerializeField] private GameObject main;
-    [SerializeField] private GameObject engine;
+    [SerializeField] private GameObject[] engine;
     [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject destruction;
+
+    List<BossPatternSO> currentPatternList;
 
     float reloadTime;
     float moveSpeed;
     float hp;
+    float maxHp;
     float damage;
-
     float angle;
     float currentAngle = 0f;
     Vector3 moveDir;
     GameObject[] bulletPool;
-    int poolSize = 50;
-    bool canFire = true;
+    GameObject[] bulletPool2;
+    int poolSize = 120;
+    int currentPatternIndex = 0;
     bool isSpin;
 
     private void Start()
@@ -48,6 +50,7 @@ public class Boss : MonoBehaviour
         ApplyStat();
         NextPattern();
         InitBulletPool();
+        InitBulletPool2();
     }
 
     private void InitBulletPool()
@@ -62,12 +65,26 @@ public class Boss : MonoBehaviour
         }
     }
 
+    private void InitBulletPool2()
+    {
+        bulletPool2 = new GameObject[poolSize];
+
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject missile = Instantiate(bulletPrefab2);
+            bulletPool2[i] = missile;
+            missile.SetActive(false);
+        }
+    }
+
     private void ApplyStat()
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
+        maxHp = stat.hp;
         hp = stat.hp;
         damage = stat.damage;
+        currentPatternList = stat.patterns;
     }
 
     private void Update()
@@ -84,6 +101,7 @@ public class Boss : MonoBehaviour
 
         if (hp <= 0)
         {
+            hp = 0;
             StartCoroutine(Die());
         }
     }
@@ -91,8 +109,13 @@ public class Boss : MonoBehaviour
     private IEnumerator Die()
     {
         main.SetActive(false);
-        engine.SetActive(false);
         weapon.SetActive(false);
+
+        for (int i = 0; i < engine.Length; i++)
+        {
+            engine[i].SetActive(false);
+        }
+
         destruction.SetActive(true);
 
         yield return new WaitForSeconds(1.1f);
@@ -102,23 +125,16 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        if (patternList.Count == 0) return;
+        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        
+        int newIndex = currentPatternIndex;
 
-        StartCoroutine(RunPattern(patternList[currentPatternIndex]));
-        currentPatternIndex = (currentPatternIndex + 1) % patternList.Count;
-    }
-
-    private IEnumerator Pattern3()
-    {
-        for (int i = 0; i < 20; i++)
+        while (newIndex == currentPatternIndex)
         {
-            ShootBullet2();
-            yield return new WaitForSeconds(reloadTime + 0.1f);
+            newIndex = UnityEngine.Random.Range(0, currentPatternList.Count);
         }
-
-        yield return new WaitForSeconds(0.5f);
-
-        NextPattern();
+        
+        currentPatternIndex = newIndex;
     }
 
     private IEnumerator RunPattern(BossPatternSO pattern)
@@ -128,7 +144,7 @@ public class Boss : MonoBehaviour
         NextPattern();
     }
 
-    public void ShootBullet1(float angleOffset)
+    public void ShootBullet1(float angleOffset, float speed)
     {
         GameObject bullet = GetPooledBullet();
 
@@ -139,8 +155,8 @@ public class Boss : MonoBehaviour
             Vector3 baseDir = transform.up;
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
-
-            bullet.GetComponent<Bullet>().InitDirection(dir);
+            
+            bullet.GetComponent<Bullet>().Init(dir, speed);
             bullet.SetActive(true);
         }
     }
@@ -159,23 +175,37 @@ public class Boss : MonoBehaviour
 
         foreach (Vector3 offset in offsets)
         {
-            GameObject bullet = GetPooledBullet();
+            GameObject bullet = GetPooledBullet2();
             if (bullet != null)
             {
+                float speed = 8f;
                 bullet.transform.position = firePoint.position + offset;
-                bullet.GetComponent<Bullet>().InitDirection(transform.up);
+                bullet.GetComponent<Bullet>().Init(transform.up, speed);
                 bullet.SetActive(true);
             }
         }
     }
 
-    private GameObject GetPooledBullet()
+    public GameObject GetPooledBullet()
     {
         for (int i = 0; i < bulletPool.Length; i++)
         {
             if (!bulletPool[i].activeInHierarchy)
             {
                 return bulletPool[i];
+            }
+        }
+
+        return null;
+    }
+
+    public GameObject GetPooledBullet2()
+    {
+        for (int i = 0; i < bulletPool2.Length; i++)
+        {
+            if (!bulletPool2[i].activeInHierarchy)
+            {
+                return bulletPool2[i];
             }
         }
 
@@ -206,4 +236,18 @@ public class Boss : MonoBehaviour
 
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
     }
+
+    public void FireHomingMissile()
+    {
+        GameObject missile = GetPooledBullet2();
+        if (missile != null)
+        {
+            float time = 2f;
+            missile.GetComponent<HomingMissile>().InitHomingTime(time);
+            missile.transform.position = firePoint.position;
+            missile.transform.rotation = transform.rotation;
+            missile.SetActive(true);
+        }
+    }
+
 }

@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Code.Scripts.Players
@@ -13,12 +12,17 @@ namespace Code.Scripts.Players
         public event Action OnAngleChangeLPressed;
         public event Action OnAngleChangeRPressed;
         public event Action OnAttackPressed;
+        public event Action OnAttackStart;
+        public event Action OnAttackStop;
         public event Action OnShieldPressed;
+        public event Action OnMachinePressed;
         
         private Controls _controls;
 
         public bool IsCanAttack { get; set; } = true;
-        [field:SerializeField] public bool IsCanShield { get; set; } = false;
+        public bool IsCanShield { get; set; } = false;
+        public bool IsCanMachine { get; set; } = false;
+        [field:SerializeField] public bool IsMachineGun { get; set; } = false;
 
         public bool isLHolding = false;
         public bool isRHolding = false;
@@ -39,11 +43,23 @@ namespace Code.Scripts.Players
         {
             _controls.Player.Disable();
         }
-        
+
         public void OnAttack(InputAction.CallbackContext context)
         {
-            if (IsCanAttack && context.performed)
-                OnAttackPressed?.Invoke();
+            if (!IsCanAttack) return;
+
+            if (IsMachineGun)
+            {
+                if (context.started)
+                    OnAttackStart?.Invoke();
+                else if (context.canceled)
+                    OnAttackStop?.Invoke();
+            }
+            else
+            {
+                if (context.performed)
+                    OnAttackPressed?.Invoke();
+            }
         }
 
         public void OnSpeedUp(InputAction.CallbackContext context)
@@ -96,6 +112,12 @@ namespace Code.Scripts.Players
         {
             if (IsCanShield && context.performed)
                 OnShieldPressed?.Invoke();
+        }
+
+        public void OnMachineSkill(InputAction.CallbackContext context)
+        {
+            if (IsCanMachine && context.performed)
+                OnMachinePressed?.Invoke();
         }
 
 

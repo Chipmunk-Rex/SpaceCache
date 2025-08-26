@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2504c2e02d73084e8ff55b37ea0640b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpawnMaxCount: 10
+  enemySpawnMaxCount: 100
   enemyList:
   - {fileID: 11400000, guid: 66f6bfdcfa445f04e9d3b05db4d45125, type: 2}
 --- !u!4 &1498281155
