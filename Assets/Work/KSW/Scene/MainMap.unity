@@ -389,7 +389,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 32
+  orthographic size: 6.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -414,10 +414,11 @@ Transform:
   m_GameObject: {fileID: 560610725}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -138.13992, y: -115.37556, z: -324.31454}
+  m_LocalPosition: {x: 3, y: -1, z: -324.31454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1528047477}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &560610729
@@ -540,12 +541,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528047475}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3, y: 1, z: 324.31454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 560610728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808343704
 GameObject:
@@ -620,7 +621,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 32
+    OrthographicSize: 6.4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -647,7 +648,7 @@ Transform:
   m_GameObject: {fileID: 1919298380}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -138.13992, y: -115.37556, z: -324.31454}
+  m_LocalPosition: {x: 3, y: -1, z: -324.31454}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -661,9 +662,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421596705254676209, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
+      propertyPath: direction.x
+      value: -11
+      objectReference: {fileID: 0}
+    - target: {fileID: 421596705254676209, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
+      propertyPath: direction.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 711864995905385514, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
       propertyPath: direction.y
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2686540559280932253, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
       propertyPath: mapPrefab
@@ -671,7 +680,7 @@ PrefabInstance:
       objectReference: {fileID: 1421222065}
     - target: {fileID: 2686540559280932253, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
       propertyPath: mapSize.x
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2686540559280932253, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
       propertyPath: mapSize.y
@@ -685,6 +694,14 @@ PrefabInstance:
       propertyPath: spawnOffset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2686540559280932253, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
+      propertyPath: mapPrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686540559280932253, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
+      propertyPath: 'mapPrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8909421150160783994, guid: 4ebe6005118f7de44898509350d239ce, type: 3}
     - target: {fileID: 6288022359224395862, guid: 2089d7391ca6af94690d490a57a476ae, type: 3}
       propertyPath: m_LocalScale.x
       value: 8
@@ -751,7 +768,6 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 560610728}
-  - {fileID: 1528047477}
   - {fileID: 3725729041075570795}
   - {fileID: 344198785}
   - {fileID: 1808343705}

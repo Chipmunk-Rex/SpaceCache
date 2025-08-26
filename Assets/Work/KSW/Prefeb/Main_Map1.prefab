@@ -493,7 +493,7 @@ GameObject:
   - component: {fileID: 3785330326104057151}
   - component: {fileID: 2686540559280932253}
   m_Layer: 0
-  m_Name: Main_Map
+  m_Name: Main_Map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,5 +607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d05fb79fee7034b4cb4f5d9c900c7d7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapPrefab: {fileID: 7227273763768845259}
+  mapPrefabs:
+  - {fileID: 7227273763768845259}
   mapSize: {x: 8, y: 7}
