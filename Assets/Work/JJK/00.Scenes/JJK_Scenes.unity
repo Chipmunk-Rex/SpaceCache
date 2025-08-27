@@ -414,10 +414,6 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 331889341}
-    - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: spinSpeed
-      value: 72
-      objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -456,6 +452,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5786116020749964597, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -696,22 +696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3
       objectReference: {fileID: 0}
-    - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6412058014570634772, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 331889341}
-    - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.52
