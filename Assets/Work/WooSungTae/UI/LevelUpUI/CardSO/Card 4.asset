@@ -15,5 +15,6 @@ MonoBehaviour:
   CardID: 0
   CardDescription: 44444
   CardImage: {fileID: -5818444505595671379, guid: 47806e002da7ea04991747e5552c26e1, type: 3}
-  level: 7
+  level: 1
   cardUiSpawn: 1
+  maxLevel: 3

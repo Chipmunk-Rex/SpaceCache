@@ -25,7 +25,6 @@ public class Card : MonoBehaviour
             iClicked = true;
             clicked = true;
             _levelUpSO.level++;
-            Debug.Log("´­¸²");
         }
     }
 
