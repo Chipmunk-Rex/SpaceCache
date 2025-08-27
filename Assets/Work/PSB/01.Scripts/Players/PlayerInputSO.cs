@@ -37,6 +37,7 @@ namespace Code.Scripts.Players
                 _controls.Player.SetCallbacks(this);
             }
             _controls.Player.Enable();
+            IsCanAttack = true;
         }
 
         private void OnDisable()
@@ -51,9 +52,13 @@ namespace Code.Scripts.Players
             if (IsMachineGun)
             {
                 if (context.started)
+                {
                     OnAttackStart?.Invoke();
+                }
                 else if (context.canceled)
+                {
                     OnAttackStop?.Invoke();
+                }
             }
             else
             {
@@ -127,6 +132,11 @@ namespace Code.Scripts.Players
                 OnAngleChangeLPressed?.Invoke();
             else if (_lastKey == "R" && isRHolding)
                 OnAngleChangeRPressed?.Invoke();
+        }
+        
+        public void ForceStopAttack()
+        {
+            OnAttackStop?.Invoke();
         }
         
     }

@@ -15,7 +15,6 @@ namespace Code.Scripts.Items
             var statCompo = targetEntity.GetCompo<EntityStat>();
             if (statCompo == null)
                 Debug.LogError("No have attackCompo");
-            Debug.Log("AttackItemSelected!!");
 
             statCompo.IncreaseBaseValue(_attackCompo.attackPowerStat, 5f);
         }

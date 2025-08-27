@@ -62,7 +62,6 @@ namespace Code.Scripts.Players
             
             if (skillIndices.Count == 0)
             {
-                Debug.Log("선택 가능한 스킬이 없음!");
                 CloseUI();
                 return;
             }
