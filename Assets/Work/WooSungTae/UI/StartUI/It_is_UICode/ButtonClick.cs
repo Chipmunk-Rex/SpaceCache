@@ -11,7 +11,7 @@ public class ButtonClick : MonoBehaviour
     [SerializeField] private GameObject closePanel2;
     [SerializeField] private float up = 90;
     private UIMover mover;
-    private StartMusicSFX startMusic;
+    private StartMusicSFX startMusic; // 쓸 수도 있음
 
 
     private void Awake()
@@ -50,7 +50,6 @@ public class ButtonClick : MonoBehaviour
     public void StartClick()
     {
         StartCoroutine(StartClickCoroutine());
-        startMusic.RocketLaunch();
     }
     IEnumerator StartClickCoroutine()
     {

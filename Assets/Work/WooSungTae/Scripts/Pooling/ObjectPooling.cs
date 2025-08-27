@@ -28,7 +28,7 @@ public class ObjectPooling : MonoBehaviour
         }
     }
 
-    public GameObject SpawnEnemy(EnemySo so, Transform spawnPosition)
+    public GameObject SpawnEnemy(EnemySo so, Vector2 spawnPosition)
     {
         if (!enemyDic.ContainsKey(so)) return null;
         GameObject a;
@@ -41,7 +41,7 @@ public class ObjectPooling : MonoBehaviour
             a = Instantiate(so.prefab, transform);
         }
         a.SetActive(true);
-        a.transform.position = spawnPosition.position;
+        a.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
 
         return a;
     }

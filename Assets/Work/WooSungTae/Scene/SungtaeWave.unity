@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveListSO: {fileID: 11400000, guid: 2650e4a4d259efd4a88a19a0acc6e023, type: 2}
   pooling: {fileID: 1498281154}
-  trans: {fileID: 2050212649}
+  trans: {fileID: 434152377}
 --- !u!1 &557189220
 GameObject:
   m_ObjectHideFlags: 0
