@@ -18,4 +18,6 @@ MonoBehaviour:
   attackCooldown: 0
   damage: 100
   range: 1
+  engageRange: 1
   rotationSpeed: 120
+  prefab: {fileID: 0}
