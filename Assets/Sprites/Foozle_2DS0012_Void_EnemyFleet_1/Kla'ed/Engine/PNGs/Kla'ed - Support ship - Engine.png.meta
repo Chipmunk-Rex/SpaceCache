@@ -58,7 +58,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -150,10 +150,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_0
       rect:
         serializedVersion: 2
-        x: 26
-        y: 16
-        width: 12
-        height: 8
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_1
       rect:
         serializedVersion: 2
-        x: 92
-        y: 16
-        width: 70
-        height: 8
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_2
       rect:
         serializedVersion: 2
-        x: 220
-        y: 16
-        width: 8
-        height: 8
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_3
       rect:
         serializedVersion: 2
-        x: 282
-        y: 16
-        width: 12
-        height: 8
+        x: 192
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_4
       rect:
         serializedVersion: 2
-        x: 346
-        y: 16
-        width: 12
-        height: 8
+        x: 256
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_5
       rect:
         serializedVersion: 2
-        x: 412
-        y: 16
-        width: 70
-        height: 8
+        x: 320
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_6
       rect:
         serializedVersion: 2
-        x: 540
-        y: 16
-        width: 8
-        height: 8
+        x: 384
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: Kla'ed - Support ship - Engine_7
       rect:
         serializedVersion: 2
-        x: 602
-        y: 16
-        width: 12
-        height: 8
+        x: 448
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,11 +322,55 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Support ship - Engine_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4247458e2be4ccd4ca7756a0fb5e36dd
+      internalID: -1192434651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kla'ed - Support ship - Engine_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8aba71825c654042b341c2da6840b76
+      internalID: 385432144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 93d06a0b2b5fda34b9010773d8cb2c66
     internalID: 0
     vertices: []
     indices: 
@@ -344,6 +388,8 @@ TextureImporter:
       Kla'ed - Support ship - Engine_5: 780604709098620160
       Kla'ed - Support ship - Engine_6: -6477695158366031596
       Kla'ed - Support ship - Engine_7: -6785970477433577531
+      Kla'ed - Support ship - Engine_8: -1192434651
+      Kla'ed - Support ship - Engine_9: 385432144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

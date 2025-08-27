@@ -15,23 +15,26 @@ namespace Code.Scripts.Players.States
         public override void Enter()
         {
             base.Enter();
-            _attackCompo.InitialCompo();
+            _attackCompo.FireBullet();
         }
 
         public override void Update()
         {
             base.Update();
+    
             if (_isTriggerCall)
             {
-                _player.ChangeState("MOVE");
+                if (_player.PlayerInput.isLHolding || _player.PlayerInput.isRHolding)
+                {
+                    _player.ChangeState("MOVE");
+                }
+                else
+                {
+                    _player.ChangeState("IDLE");
+                }
             }
-        }
 
-        public override void Exit()
-        {
-            base.Exit();
         }
-        
         
     }
 }
