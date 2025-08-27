@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MoonMat
-  m_Shader: {fileID: -6465566751694194690, guid: 06843a55cde16d947a4c42ae4c6b010f, type: 3}
-  m_Parent: {fileID: -876546973899608171, guid: 06843a55cde16d947a4c42ae4c6b010f, type: 3}
+  m_Name: CacheMat
+  m_Shader: {fileID: -6465566751694194690, guid: 8d5228ea777ca244fbd6fa1c1778013b, type: 3}
+  m_Parent: {fileID: -876546973899608171, guid: 8d5228ea777ca244fbd6fa1c1778013b, type: 3}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,19 +22,13 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs:
-    - _BaseMap:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
+    m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - _scale: 0.6
-    m_Colors:
-    - _Direction: {r: 0.2, g: 1, b: 0.4, a: 0}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &5432320654560432365
+--- !u!114 &8904643291508538064
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -15,5 +15,6 @@ MonoBehaviour:
   CardID: 0
   CardDescription: "\uB2E4\uB78C\uC950 \uD5CC \uCCC7\uBC14\uD034"
   CardImage: {fileID: -3629433535132674589, guid: 47806e002da7ea04991747e5552c26e1, type: 3}
-  level: 7
-  cardUiSpawn: 1
+  level: 0
+  cardUiSpawn: 0
+  maxLevel: 3

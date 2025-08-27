@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -32,17 +33,23 @@ public class CardManager : MonoBehaviour
             StartCoroutine(CardDown());
         }
     }
-
     public void ImageChange()
     {
         for(int i = 0; i < 3; i++)
         {
-            rand = Random.Range(0, levelUpSO.Length);
+            var candidates = levelUpSO.Where(so => so.level < so.maxLevel).ToList();
+            if (candidates.Count == 0)
+            {
+                Debug.Log("»ÌÀ»°Ô ¾øÀ½");
+                continue;
+            }
+
+            rand = Random.Range(0, candidates.Count);
             Card a = gameObjectCard[i].GetComponent<Card>();
-            a.CardGetBasic(levelUpSO[rand]);
+            a.CardGetBasic(candidates[rand]);
         }
     }
-
+    #region Card Mover
     IEnumerator CardDown()
     {
         foreach (var a in gameObjectCard)
@@ -119,4 +126,5 @@ public class CardManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         dontClick = false;
     }
+    #endregion
 }
