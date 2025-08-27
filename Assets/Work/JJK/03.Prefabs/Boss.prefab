@@ -57,7 +57,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   turnSpeed: 3
   laserPrefab: {fileID: 5786116020749964597}
-  spinSpeed: 90
+  spinSpeed: 72
   firePoint: {fileID: 6560895121879736994}
   main: {fileID: 3766630437826574850}
   engine:
