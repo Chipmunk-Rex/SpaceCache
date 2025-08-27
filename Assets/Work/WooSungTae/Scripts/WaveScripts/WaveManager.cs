@@ -49,9 +49,8 @@ public class WaveManager : MonoBehaviour
             for(int i = 0; i < waveList.enemyCount; i++)
             {
                 int enemyType = Random.Range(0, waveList.enemyType.Length);
-                GameObject enemy = pooling.SpawnEnemy(waveList.enemyType[enemyType], GetRandonSpawnPosition());
+                GameObject enemy = pooling.SpawnEnemy(waveList.enemyType[enemyType], GetRandonSpawnPosition() + (Vector2)cam.transform.position);
                 EnemySo enemyData = waveList.enemyType[enemyType];
-                // 생성 위치 만들기
                 if (waveNum % 5 == 0)
                 {
                     //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
