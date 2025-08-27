@@ -13,12 +13,16 @@ PrefabInstance:
       value: Boss2
       objectReference: {fileID: 0}
     - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Boss
       objectReference: {fileID: 0}
     - target: {fileID: 1464212740032195530, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite
@@ -64,6 +68,22 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7380117214071703739, guid: 8a7c74905e824e84f985613b8eb329ac, type: 3}
+    - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -460639315
+      objectReference: {fileID: 0}
+    - target: {fileID: 2153874507460532030, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Size.x
       value: 4
@@ -77,6 +97,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1336104967557193268, guid: b85506ca0dab6e243b5b4adbe4e690b7, type: 3}
     - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -460639315
+      objectReference: {fileID: 0}
+    - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
@@ -84,6 +116,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ccf8726f7f94e684d8a4e191ff45e458, type: 2}
+    - target: {fileID: 3766630437826574850, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 4180639636316009737, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -132,9 +168,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5163201406566268086, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5635662016958496662, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5786116020749964597, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6090769756749705500, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6560895121879736994, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.y

@@ -139,10 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss2
       objectReference: {fileID: 0}
-    - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2623119900522431616, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.57852906
@@ -406,10 +402,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: playerPos
       value: 
@@ -452,10 +444,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5786116020749964597, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -637,7 +625,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 00000000ad338be4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -692,29 +680,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4890198926352249711, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_Size.x
-      value: 2.0589066
-      objectReference: {fileID: 0}
-    - target: {fileID: 4890198926352249711, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_Size.y
-      value: 2.9956565
-      objectReference: {fileID: 0}
-    - target: {fileID: 4890198926352249711, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.026480913
-      objectReference: {fileID: 0}
-    - target: {fileID: 4890198926352249711, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.08946419
-      objectReference: {fileID: 0}
     - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: m_Name
       value: Boss3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6412058014570634772, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: playerPos
@@ -758,10 +726,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8176285133087748806, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8674504312140250755, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
