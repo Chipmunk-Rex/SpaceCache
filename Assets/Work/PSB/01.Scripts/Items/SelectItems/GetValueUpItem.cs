@@ -14,8 +14,6 @@ namespace Code.Scripts.Items
             var statCompo = targetEntity.GetCompo<EntityStat>();
             if (statCompo == null)
                 Debug.LogError("No have PlayerLevelSystem");
-
-            Debug.Log("ManaGetDirUpSelected!!");
             
             statCompo.IncreaseBaseValue(_levelSystem.manaValueStat, 2f);
         }

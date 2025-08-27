@@ -68,6 +68,8 @@ namespace Code.Scripts.Items
             _isActive = false;
             _player.PlayerInput.IsMachineGun = false;
             _cooldownTimer = cooldown;
+
+            _player.PlayerInput.ForceStopAttack();
         }
         
     }
