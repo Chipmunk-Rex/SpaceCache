@@ -110,7 +110,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
                 if (attackTimer > 0f)
                     attackTimer -= Time.deltaTime;
                 
-                if (distance <= data.range && attackTimer <= 0f)
+                if (distance <= data.engageRange && attackTimer <= 0f)
                 {
                     Attack();
                     attackTimer = Mathf.Max(0.01f, data.attackCooldown);
