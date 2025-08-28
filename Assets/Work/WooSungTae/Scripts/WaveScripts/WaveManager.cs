@@ -50,14 +50,13 @@ public class WaveManager : MonoBehaviour
         {
             waveNum++;
             _text.text = $"wave : {waveNum}";
-            for (int i = 0; i < waveList.enemyCount; i++)
+            foreach(var e in waveList.sequence)
             {
-                int enemyType = Random.Range(0, waveList.enemyType.Length);
-                GameObject enemy = pooling.SpawnEnemy(waveList.enemyType[enemyType], GetRandonSpawnPosition() + (Vector2)cam.transform.position);
-                EnemySo enemyData = waveList.enemyType[enemyType];
-                
-
-                yield return new WaitForSeconds(waveList.enemySpawnTime);
+                for(int i = 0; i < e.count; i++)
+                {
+                    GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
+                    yield return new WaitForSeconds(e.defaultGap);
+                }
             }
             yield return new WaitForSeconds(waveList.waveEndTime);
         }

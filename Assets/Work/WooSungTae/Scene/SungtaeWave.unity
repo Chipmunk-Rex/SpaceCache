@@ -737,7 +737,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: enemyList.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: 'enemyList.Array.data[0]'
@@ -746,7 +746,7 @@ PrefabInstance:
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: 'enemyList.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
+      objectReference: {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: 'enemyList.Array.data[2]'
       value: 
