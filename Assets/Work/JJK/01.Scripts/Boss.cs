@@ -34,7 +34,6 @@ public class Boss : MonoBehaviour
     float reloadTime;
     float moveSpeed;
     float hp;
-    float maxHp;
     float damage;
     float angle;
     float currentAngle = 0f;
@@ -81,7 +80,6 @@ public class Boss : MonoBehaviour
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
-        maxHp = stat.hp;
         hp = stat.hp;
         damage = stat.damage;
         currentPatternList = stat.patterns;
@@ -104,6 +102,11 @@ public class Boss : MonoBehaviour
             hp = 0;
             StartCoroutine(Die());
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        hp -= damage;
     }
 
     private IEnumerator Die()

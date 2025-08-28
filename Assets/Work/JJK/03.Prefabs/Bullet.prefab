@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3141227667355023571}
   - component: {fileID: 6148923690222346907}
   - component: {fileID: 442427659453527083}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6209093827537040462}
   - component: {fileID: 4588789672438050037}
   - component: {fileID: 5911938762092770760}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  lifeTime: 2
 --- !u!58 &5911938762092770760
 CircleCollider2D:
   m_ObjectHideFlags: 0
