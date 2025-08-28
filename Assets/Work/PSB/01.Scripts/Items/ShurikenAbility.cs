@@ -29,7 +29,6 @@ namespace Code.Scripts.Items
         {
             if (shurikenList.Count >= maxCount)
             {
-                Debug.Log("표창이 이미 최대치입니다!");
                 return;
             }
 
@@ -38,7 +37,7 @@ namespace Code.Scripts.Items
             GameObject newShuriken = Instantiate(shurikenPrefab, transform);
             shurikenList.Add(newShuriken.transform);
             
-            float scaleFactor = 1f + (currentCount - 1) * 0.2f;
+            float scaleFactor = 1f + (currentCount - 1) * 0.4f;
             foreach (var shuriken in shurikenList)
             {
                 shuriken.localScale = Vector3.one * scaleFactor;

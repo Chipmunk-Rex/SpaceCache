@@ -17,7 +17,12 @@ MonoBehaviour:
     - 989c7ba81b8b4c44f8993d72dd83b0d2
     values:
     - goDatas_byGlobalId:
-        keys: []
-        values: []
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-989c7ba81b8b4c44f8993d72dd83b0d2-852148329-0
+        values:
+        - colorIndex: 9
+          iconNameOrGuid: 
+          isIconRecursive: 0
+          isColorRecursive: 0
   bookmarks: []
   bookmarkedScenePaths: []

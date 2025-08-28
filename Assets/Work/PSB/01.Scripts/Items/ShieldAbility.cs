@@ -53,11 +53,9 @@ namespace Code.Scripts.Items
         {
             if (_cooldownTimer > 0 || _shieldActive)
             {
-                Debug.Log("스킬을 사용할 수 없습니다.");
                 return;
             }
             
-            Debug.Log("Shield clicked");
             PlayerShield shieldInstance = Instantiate(shieldPrefab, transform);
             
             _shieldActive = true;

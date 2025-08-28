@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
@@ -20,7 +21,7 @@ namespace Code.Scripts.Players.States
         
         [Header("Value")]
         [SerializeField] private float attackPower = 10f;
-        [SerializeField] private float attackCooldown = 2f;
+        [field: SerializeField] public float attackCooldown = 2f;
         [SerializeField] private float increaseSpeedValue = 1f;
         [SerializeField] private float decreaseSpeedValue = -0.5f;
 
@@ -28,17 +29,24 @@ namespace Code.Scripts.Players.States
         [SerializeField] private TextMeshProUGUI attackPowerTxt;
         
         [Inject] private PoolManagerMono _poolManager;
+
+        public event Action<float> OnAttackCooldownStart;
+        public event Action OnAttackCooldownEnd;
         
         private Player _player;
         private EntityStat _statCompo;
         private bool _canAttack1 = true;
         private bool _canAttack2 = true;
         private bool _isAutoFiring;
+        
+        private float _lastAttackTime;
+        private float _nextAttackTime;
 
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
             _statCompo = entity.GetCompo<EntityStat>();
+            _player.PlayerInput.IsCanAttack = true;
         }
 
         public void AfterInitialize()
@@ -68,8 +76,17 @@ namespace Code.Scripts.Players.States
 
         public void FireBullet()
         {
+            if (Time.time < _nextAttackTime) return;
+
             InitialCompo();
             InitialCompo2();
+
+            _lastAttackTime = Time.time;
+            float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;
+            _nextAttackTime = Time.time + delay;
+
+            OnAttackCooldownStart?.Invoke(delay);
+            _ = ResetAttackCooldown(delay);
         }
         
         private async void StartAutoFire()
@@ -87,10 +104,11 @@ namespace Code.Scripts.Players.States
 
         private void StopAutoFire()
         {
+            Debug.Log("StopAutoFire");
             _isAutoFiring = false;
         }
         
-        public async void InitialCompo()
+        public void InitialCompo()
         {
             if (!_canAttack1) return;
             _canAttack1 = false;
@@ -98,11 +116,9 @@ namespace Code.Scripts.Players.States
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
             playerBullet.SetDamage(attackPower);
             playerBullet.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-            
-            _ = ResetAttackCooldown();
         }
 
-        public async void InitialCompo2()
+        public void InitialCompo2()
         {
             if (!_canAttack2) return;
             _canAttack2 = false;
@@ -110,16 +126,15 @@ namespace Code.Scripts.Players.States
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
             playerBullet.SetDamage(attackPower);
             playerBullet.transform.SetPositionAndRotation(spawnPoint2.position, spawnPoint2.rotation);
-            
-            _ = ResetAttackCooldown();
         }
 
-        private async Task ResetAttackCooldown()
+        private async Task ResetAttackCooldown(float delay)
         {
-            float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;
             await Awaitable.WaitForSecondsAsync(delay);
             _canAttack1 = true;
             _canAttack2 = true;
+
+            OnAttackCooldownEnd?.Invoke();
         }
 
         private void HandleAttackSpeedChange(StatSO stat, float currentValue, float prevValue)
