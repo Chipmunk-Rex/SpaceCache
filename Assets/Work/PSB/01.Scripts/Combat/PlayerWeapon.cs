@@ -5,23 +5,29 @@ namespace Code.Scripts.Items.Combat
 {
     public class PlayerWeapon : MonoBehaviour, IEntityComponent
     {
-        private Entity _entity;
+        [SerializeField] private float angleOffset = 90f;
+        private Camera _camera;
         
         public void Initialize(Entity entity)
         {
-            _entity = entity;
         }
         
-        [SerializeField] private float angleOffset = 90f;
+        private void Start()
+        {
+            _camera = Camera.main;
+        }
 
         private void Update()
         {
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 direction = (mousePos - transform.position);
+            if (_camera != null)
+            {
+                Vector3 mousePos = _camera.ScreenToWorldPoint(Input.mousePosition);
+                Vector2 direction = (mousePos - transform.position);
 
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-            transform.rotation = Quaternion.Euler(0, 0, angle - angleOffset);
+                transform.rotation = Quaternion.Euler(0, 0, angle - angleOffset);
+            }
         }
     
         

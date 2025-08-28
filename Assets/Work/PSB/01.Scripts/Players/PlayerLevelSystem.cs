@@ -65,7 +65,11 @@ namespace Code.Scripts.Players
 
         private void FixedUpdate()
         {
-            if (_currentLevel >= maxLevel) return;
+            if (_currentLevel >= maxLevel)
+            {
+                manaSlider.value = maxManaPoint;
+                return;
+            }
 
             _currentMana += manaTimeGetPercent;
             

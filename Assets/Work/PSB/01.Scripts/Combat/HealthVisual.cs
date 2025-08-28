@@ -11,14 +11,12 @@ namespace Code.Scripts.Items.Combat
         [SerializeField] private Sprite midHealthSprite;
         [SerializeField] private Sprite lowHealthSprite;
         [SerializeField] private Sprite lastHealthSprite;
-
-        private Player _player;
+        
         private EntityHealth _health;
         private SpriteRenderer _targetRenderer;
         
         public void Initialize(Entity entity)
         {
-            _player = entity as Player;
             _health = entity.GetCompo<EntityHealth>();
             _targetRenderer = GetComponent<SpriteRenderer>();
         }

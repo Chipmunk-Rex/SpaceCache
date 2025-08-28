@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Code.Scripts.Items
@@ -11,7 +12,7 @@ namespace Code.Scripts.Items
         [TextArea]
         public string Description;
         
-        [System.NonSerialized]
+        [NonSerialized]
         public int selectCount;
 
         [Header("Max")] 

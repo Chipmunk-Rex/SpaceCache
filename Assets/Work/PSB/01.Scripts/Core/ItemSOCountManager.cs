@@ -2,16 +2,18 @@
 using Code.Scripts.Items.UI;
 using PSB_Lib.Dependencies;
 using UnityEngine;
+using System;
+using UnityEngine.Serialization;
 
 namespace Code.Scripts.Items.Core
 {
     [Provide]
     public class ItemSOCountManager : MonoBehaviour, IDependencyProvider
     {
-        [System.Serializable]
+        [Serializable]
         public class ItemUIPrefabData
         {
-            public LevelUpItemSO itemSO;
+            public LevelUpItemSO itemSo;
             public ItemSOCountUI prefab;
         }
 
@@ -24,7 +26,7 @@ namespace Code.Scripts.Items.Core
         {
             if (!_activeUIs.ContainsKey(so))
             {
-                var prefabData = itemUIPrefabs.Find(p => p.itemSO == so);
+                var prefabData = itemUIPrefabs.Find(p => p.itemSo == so);
                 if (prefabData == null)
                 {
                     Debug.LogWarning($"No prefab assigned for {so.name}");

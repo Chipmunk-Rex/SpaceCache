@@ -15,13 +15,11 @@ namespace Code.Scripts.Players
         [SerializeField] private float destroyDistance = 1f;
         [SerializeField] private float pullSpeed = 10f;
         [SerializeField] private LayerMask itemLayer;
-
-        private Player _player;
+        
         private EntityStat _statCompo;
 
         public void Initialize(Entity entity)
         {
-            _player = entity as Player;
             _statCompo = entity.GetCompo<EntityStat>();
         }
         
@@ -60,13 +58,5 @@ namespace Code.Scripts.Players
             }
         }
 
-#if UNITY_EDITOR
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(transform.position, radius);
-        }
-#endif
-        
     }
 }
