@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCount: 10
   enemyType:
-  - {fileID: 11400000, guid: 66f6bfdcfa445f04e9d3b05db4d45125, type: 2}
+  - {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
   - {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
   enemySpawnTime: 1
   waveEndTime: 3

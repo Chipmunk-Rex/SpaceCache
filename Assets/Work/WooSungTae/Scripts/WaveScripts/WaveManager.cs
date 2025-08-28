@@ -55,18 +55,23 @@ public class WaveManager : MonoBehaviour
                 int enemyType = Random.Range(0, waveList.enemyType.Length);
                 GameObject enemy = pooling.SpawnEnemy(waveList.enemyType[enemyType], GetRandonSpawnPosition() + (Vector2)cam.transform.position);
                 EnemySo enemyData = waveList.enemyType[enemyType];
-                //EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
-                if (waveNum % 3 == 0)
-                {
-                    
-                }
-                else
-                {
-                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
-                }
+                
+
                 yield return new WaitForSeconds(waveList.enemySpawnTime);
             }
             yield return new WaitForSeconds(waveList.waveEndTime);
+        }
+    }
+
+    public void UpgradeEnemy(EnemyBase enemyBase)
+    {
+        if (waveNum % 3 == 0)
+        {
+
+        }
+        else
+        {
+
         }
     }
 }
