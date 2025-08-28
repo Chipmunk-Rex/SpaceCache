@@ -383,5 +383,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapPrefab: {fileID: 8804671042792806755}
   player: {fileID: 0}
-  chunkSize: 16
+  MapSize: 32
   viewRange: 2
