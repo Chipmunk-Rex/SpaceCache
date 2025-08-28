@@ -15,7 +15,10 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
 
     protected float attackTimer;
     protected bool  isDead; 
-
+    
+    public float Health { get; set; }
+    public float AttackPower { get; set; } 
+    
     protected virtual void Awake()
     {
         currentHealth   = data.maxHealth;
