@@ -74,8 +74,8 @@ public class TorpedoBullet : MonoBehaviour
         
         steerT += Time.fixedDeltaTime;
         
-        float u = Mathf.Clamp01(steerT / turnDuration); // 0→1
-        float turnRate = Mathf.Lerp(turnStart, 0f, u);  // ★ 선형 감소(처음=turnStart, 끝=0)
+        float u = Mathf.Clamp01(steerT / turnDuration); 
+        float turnRate = Mathf.Lerp(turnStart, 0f, u);  
         
         if (turnRate > 0f)
         {

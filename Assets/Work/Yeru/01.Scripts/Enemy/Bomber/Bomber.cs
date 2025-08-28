@@ -3,19 +3,31 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Bomber : EnemyBase
 {
-    [Header("Explosion")]
     [SerializeField] private float     explosionRadius = 1.7f;  // 폭발 반경
     [SerializeField] private float     explosionDamage = 100f;   //폭발 데ㅔ미지
     [SerializeField] private LayerMask damageLayers;            
-
+  
     private bool exploded;
-
+    
+    private float bonusDamage = 0f;
+    private float bonusHealth = 0f;
+    
     protected override void OnInit()
     {
         exploded = false;
     }
-
     
+    public override void IncreaseAttack(float amount)
+        {
+            bonusDamage += amount;
+        }
+        
+        public override void IncreaseDefense(float amount)
+        {
+            bonusHealth += amount;
+            currentHealth += amount; 
+        }
+        
     protected override void Attack()
     {
         if (currentHealth <= 0) return;

@@ -4,11 +4,24 @@ using UnityEngine;
 public class Frame : EnemyBase
 {
    [SerializeField] private Muzzle[] muzzles;
+   private float bonusDamage = 0f;
+   private float bonusHealth = 0f;
    
    protected override void OnInit()
    {
       if (muzzles == null || muzzles.Length == 0)
          muzzles = GetComponentsInChildren<Muzzle>(true);
+   }
+   
+   public override void IncreaseAttack(float amount)
+   {
+       bonusDamage += amount;
+   }
+       
+   public override void IncreaseDefense(float amount)
+   {
+       bonusHealth += amount;
+       currentHealth += amount; 
    }
    
    protected override void Attack()
