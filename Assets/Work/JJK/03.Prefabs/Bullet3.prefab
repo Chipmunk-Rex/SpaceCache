@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet3
       objectReference: {fileID: 0}
+    - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 1812458828569186466, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.2926307
@@ -60,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 471e9e2c70cbc8143b1418c8b08feda0, type: 2}
+    - target: {fileID: 6059631621154120570, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: lifeTime
       value: 3
