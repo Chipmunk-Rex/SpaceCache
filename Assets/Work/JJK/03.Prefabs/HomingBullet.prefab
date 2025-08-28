@@ -13,6 +13,10 @@ PrefabInstance:
       value: HomingBullet
       objectReference: {fileID: 0}
     - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1477741281577182395, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 0b8bf9b02d9f232478a1623410863efd, type: 2}
+    - target: {fileID: 6059631621154120570, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
     m_RemovedGameObjects: []

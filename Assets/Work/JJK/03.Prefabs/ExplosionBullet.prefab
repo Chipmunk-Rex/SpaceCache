@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9089412084280036726}
   - component: {fileID: 8925193748463132915}
   - component: {fileID: 7995340422643829589}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ExplosionBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 5395589057166432963}
   - component: {fileID: 6799986807391402447}
   - component: {fileID: 9086207587403290986}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
