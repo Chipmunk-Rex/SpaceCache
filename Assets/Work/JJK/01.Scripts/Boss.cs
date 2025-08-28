@@ -29,7 +29,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject destruction;
 
-    List<BossPatternSO> currentPatternList;
+    List<BossPatternSO> currentPatternList = new List<BossPatternSO>();
+    int currentPatternIndex = 0;
 
     float reloadTime;
     float moveSpeed;
@@ -40,13 +41,13 @@ public class Boss : MonoBehaviour
     Vector3 moveDir;
     GameObject[] bulletPool;
     GameObject[] bulletPool2;
-    int poolSize = 120;
-    int currentPatternIndex = 0;
+    int poolSize = 150;
     bool isSpin;
 
     private void Start()
     {
         ApplyStat();
+        ShufflePatterns();
         NextPattern();
         InitBulletPool();
         InitBulletPool2();
@@ -128,16 +129,30 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        if (currentPatternList == null || currentPatternList.Count <= 0)
+            Debug.Log("덱이 비었습니다.");
         
-        int newIndex = currentPatternIndex;
-
-        while (newIndex == currentPatternIndex)
+        if (currentPatternIndex >= currentPatternList.Count)
         {
-            newIndex = UnityEngine.Random.Range(0, currentPatternList.Count);
+            ShufflePatterns();
         }
         
-        currentPatternIndex = newIndex;
+        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        
+        currentPatternIndex++;
+    }
+    
+    private void ShufflePatterns()
+    {
+        for (int i = 0; i < currentPatternList.Count; i++)
+        {
+            int rand = UnityEngine.Random.Range(i, currentPatternList.Count);
+            var temp = currentPatternList[i];
+            currentPatternList[i] = currentPatternList[rand];
+            currentPatternList[rand] = temp;
+        }
+
+        currentPatternIndex = 0;
     }
 
     private IEnumerator RunPattern(BossPatternSO pattern)
@@ -211,7 +226,7 @@ public class Boss : MonoBehaviour
                 return bulletPool2[i];
             }
         }
-
+        
         return null;
     }
 

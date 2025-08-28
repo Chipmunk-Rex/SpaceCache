@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss2
       objectReference: {fileID: 0}
+    - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2623119900522431616, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.57852906
@@ -180,8 +184,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5293364739202316529, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
@@ -405,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: playerPos
@@ -415,6 +418,10 @@ PrefabInstance:
       propertyPath: laserPrefab
       value: 
       objectReference: {fileID: 2051269953}
+    - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: allPatterns.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.49
@@ -700,10 +707,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3
       objectReference: {fileID: 0}
-    - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6412058014570634772, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: playerPos
       value: 
@@ -749,8 +752,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2047728856757833399, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
