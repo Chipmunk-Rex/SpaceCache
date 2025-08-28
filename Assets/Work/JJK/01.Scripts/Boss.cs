@@ -96,17 +96,17 @@ public class Boss : MonoBehaviour
             currentAngle += angleDelta;
             transform.Rotate(Vector3.back, angleDelta);
         }
-
-        if (hp <= 0)
-        {
-            hp = 0;
-            StartCoroutine(Die());
-        }
     }
 
     public void TakeDamage(float damage)
     {
         hp -= damage;
+        
+        if (hp <= 0)
+        {
+            hp = 0;
+            StartCoroutine(Die());
+        }
     }
 
     private IEnumerator Die()
