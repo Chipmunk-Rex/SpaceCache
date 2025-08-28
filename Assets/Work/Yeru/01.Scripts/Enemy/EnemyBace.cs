@@ -19,6 +19,9 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     public float Health { get; set; }
     public float AttackPower { get; set; } 
     
+    public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
+    public abstract void IncreaseDefense(float amount);  // 체력 수치 증가
+    
     protected virtual void Awake()
     {
         currentHealth   = data.maxHealth;
@@ -32,7 +35,14 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
         OnInit();
     }
     
-    protected virtual void OnInit() { }
+    protected virtual void OnInit() 
+    {
+         if (data != null)
+         {
+             if (data.enemyDamageUp  != 0f) IncreaseAttack ((int)data.enemyDamageUp);
+             if (data.enemyDefenseUp != 0f) IncreaseDefense((int)data.enemyDefenseUp);
+         }
+    }
     
     protected virtual void Move()
     {
