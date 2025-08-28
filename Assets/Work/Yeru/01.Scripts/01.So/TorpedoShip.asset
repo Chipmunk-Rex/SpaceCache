@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cf88628be90edf249b1f993245b45e7f, type: 3}
-  m_Name: Bomber
+  m_Name: TorpedoShip
   m_EditorClassIdentifier: 
-  enemyName: Bomber
-  maxHealth: 5000
-  moveSpeed: 6
+  enemyName: TorpedoShip
+  maxHealth: 123
+  moveSpeed: 4
   attackCooldown: 0
-  damage: 100
-  range: 1
-  engageRange: 1
-  rotationSpeed: 120
-  prefab: {fileID: 3252333900620965849, guid: d4b30ea4204501f4eb03b5cd84bdde8c, type: 3}
-  enemyDamageUp: 10
-  enemyDefenseUp: 10
+  damage: 20
+  range: 15
+  engageRange: 15
+  rotationSpeed: 105
+  prefab: {fileID: 0}
