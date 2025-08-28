@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -6,6 +7,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private WaveListSO waveListSO;
     [SerializeField] private ObjectPooling pooling;
     [SerializeField] private Vector2 spawnRegionSize;
+    [SerializeField] private TextMeshProUGUI _text;
     private Camera cam;
     private int waveNum = 0;
 
@@ -20,6 +22,7 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Wave());
+        _text.text = $"wave : {waveNum}";
     }
     public Vector2 GetRandonSpawnPosition()
     {
@@ -46,18 +49,16 @@ public class WaveManager : MonoBehaviour
         foreach(var waveList in waveListSO.waves)
         {
             waveNum++;
-            for(int i = 0; i < waveList.enemyCount; i++)
+            _text.text = $"wave : {waveNum}";
+            for (int i = 0; i < waveList.enemyCount; i++)
             {
                 int enemyType = Random.Range(0, waveList.enemyType.Length);
                 GameObject enemy = pooling.SpawnEnemy(waveList.enemyType[enemyType], GetRandonSpawnPosition() + (Vector2)cam.transform.position);
                 EnemySo enemyData = waveList.enemyType[enemyType];
-                if (waveNum % 5 == 0)
+                //EnemyBase enemyBase = enemy.GetComponent<EnemyBase>();
+                if (waveNum % 3 == 0)
                 {
-                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 강화시키기 수정하기
-                }
-                else if (waveNum % 3 == 0)
-                {
-                    //나중에 적 스크립트에 공격력, 방어력 있으면 그 것 가져와서 공격력 약화시키기 수정하기
+                    
                 }
                 else
                 {

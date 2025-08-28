@@ -4,7 +4,7 @@ using UnityEngine;
 public class WaveSO : ScriptableObject
 {
     [Header("적 기본 설정")]
-    public int enemyCount; //에너미 수
+    public int enemyCount; //각각 에너미 스폰 횟수
     public EnemySo[] enemyType; // 소환 가능한 에너미 종류
     public float enemySpawnTime; //에너미 스폰 간격
 
