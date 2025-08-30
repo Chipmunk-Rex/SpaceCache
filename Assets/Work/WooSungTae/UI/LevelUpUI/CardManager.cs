@@ -69,10 +69,10 @@ public class CardManager : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             var candidates = levelUpSO.Where(so =>
-                    so.selectCount < so.maxCount &&                          // maxCount 넘으면 제외
-                    (!IsFixedSlot(so.itemType) || !selectedSlots.Contains(so.itemType)) && // Q/E/R 이미 선택된 슬롯 제외
-                    !usedThisDraw.Contains(so)                               // 같은 세트에서 중복 제외
+                    so.selectCount < so.maxCount &&
+                    !usedThisDraw.Contains(so) 
             ).ToList();
+            
             if (candidates.Count == 0)
             {
                 Debug.Log("������ ����");
@@ -85,7 +85,7 @@ public class CardManager : MonoBehaviour
             Card card = gameObjectCard[i].GetComponent<Card>();
             card.CardGetBasic(chosen);
 
-            usedThisDraw.Add(chosen); // 이번 세트에선 다시 안 나오게
+            usedThisDraw.Add(chosen);
         }
     }
     
@@ -114,7 +114,7 @@ public class CardManager : MonoBehaviour
     IEnumerator CardUp()
     {
         yield return new WaitForSecondsRealtime(0.1f);
-
+        
         foreach (var a in gameObjectCard)
         {
             Card card = a.GetComponent<Card>();
@@ -122,13 +122,6 @@ public class CardManager : MonoBehaviour
             
             if (card.iClicked)
             {
-                LevelUpItemSO so = card._levelUpSO;
-            
-                if (IsFixedSlot(so.itemType))
-                {
-                    selectedSlots.Add(so.itemType);
-                }
-                
                 GameObject obj = null;
                 if(!card._levelUpSO.cardUiSpawn)
                 {
@@ -151,7 +144,6 @@ public class CardManager : MonoBehaviour
                     }
                     destroyCopy[card._levelUpSO] = obj;
                 }
-
 
                 a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 200, 0), 0.5f).SetUpdate(true);
                 yield return new WaitForSecondsRealtime(0.5f);
@@ -178,12 +170,5 @@ public class CardManager : MonoBehaviour
         dontClick = false;
     }
     #endregion
-    
-    private bool IsFixedSlot(ItemType type)
-    {
-        return type == ItemType.QCLICK || 
-               type == ItemType.ECLICK || 
-               type == ItemType.RCLICK;
-    }
     
 }

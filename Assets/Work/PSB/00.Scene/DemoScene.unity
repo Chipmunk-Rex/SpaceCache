@@ -3398,7 +3398,7 @@ GameObject:
   - component: {fileID: 1901485125}
   - component: {fileID: 1901485126}
   m_Layer: 0
-  m_Name: MachinItem
+  m_Name: MachineItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
