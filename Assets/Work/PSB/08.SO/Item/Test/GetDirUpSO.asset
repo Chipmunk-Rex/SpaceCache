@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87da5a4fd2504e62988c610bfeb6c90a, type: 3}
+  m_Name: GetDirUpSO
+  m_EditorClassIdentifier: 
+  itemType: 1
+  SkillIcon: {fileID: -5471238548522414493, guid: 69fbd977f0d9336429090a4cbbaa1ea8, type: 3}
+  Name: "\uB9C8\uB098 \uD68D\uB4DD \uBC94\uC704 \uC99D\uAC00"
+  Description: "\uB9C8\uB098\uB97C \uD68D\uB4DD\uD560 \uC218 \uC788\uB294 \uBC94\uC704\uAC00
+    \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  cardUiSpawn: 0
+  maxCount: 5

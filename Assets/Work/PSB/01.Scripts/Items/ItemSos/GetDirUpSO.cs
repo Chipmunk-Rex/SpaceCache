@@ -2,9 +2,10 @@
 using Code.Scripts.Players;
 using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class GetDirUpItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "GetDirUpSO", menuName = "SO/Item/GetDirUp", order = 0)]
+    public class GetDirUpSO : LevelUpItemSO
     {
         private ItemMagnet _magnet;
         

@@ -1,8 +1,10 @@
 ﻿using Code.Scripts.Entities;
+using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class ShurikenSpawnItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "ShurikenSpawnSO", menuName = "SO/Item/ShurikenSpawnSO", order = 0)]
+    public class ShurikenSpawnSO : LevelUpItemSO
     {
         private ShurikenAbility _shuriken;
         
@@ -12,6 +14,7 @@ namespace Code.Scripts.Items
             
             _shuriken.UpgradeShuriken();
         }
+
         
     }
 }

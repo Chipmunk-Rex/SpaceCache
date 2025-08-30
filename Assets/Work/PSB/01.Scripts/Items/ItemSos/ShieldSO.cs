@@ -1,12 +1,12 @@
 ﻿using Code.Scripts.Entities;
-using Code.Scripts.Items.Combat;
 using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class ShieldItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "ShieldSO", menuName = "SO/Item/ShieldSO", order = 0)]
+    public class ShieldSO : LevelUpItemSO
     {
-        private ShieldAbility _playerShield;
+         private ShieldAbility _playerShield;
 
         public override void ApplyItem(Entity targetEntity)
         {
@@ -14,5 +14,6 @@ namespace Code.Scripts.Items
 
             _playerShield.gameObject.SetActive(true);
         }
+        
     }
 }

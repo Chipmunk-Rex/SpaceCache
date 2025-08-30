@@ -1,4 +1,5 @@
 ﻿using System;
+using Code.Scripts.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,7 +17,7 @@ namespace Code.Scripts.Items
     
     
     [CreateAssetMenu(fileName = "LevelUpItem", menuName = "SO/Item", order = 0)]
-    public class LevelUpItemSO : ScriptableObject
+    public abstract class LevelUpItemSO : ScriptableObject
     {
         public ItemType itemType;
         public Sprite SkillIcon;
@@ -31,6 +32,8 @@ namespace Code.Scripts.Items
         [Header("Max")] 
         public int maxCount = 5;
         public bool IsMaxed => selectCount >= maxCount;
+        
+        public abstract void ApplyItem(Entity targetEntity);
         
     }
 }

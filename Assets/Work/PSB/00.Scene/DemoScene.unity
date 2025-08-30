@@ -2005,13 +2005,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelUpItems:
-  - {fileID: 11400000, guid: 931af269fb7d76e469037a3f21a279f6, type: 2}
-  - {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
-  - {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
-  - {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
-  - {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
-  - {fileID: 11400000, guid: 386447cb9801a0d468dc0224088dc31d, type: 2}
-  - {fileID: 11400000, guid: a9db043719643c04b92b17822ca47b91, type: 2}
+  - {fileID: 11400000, guid: f02026e361703414384727ea25538d48, type: 2}
+  - {fileID: 11400000, guid: 77dca40eeafd826468414c4cda9c4c25, type: 2}
+  - {fileID: 11400000, guid: e9f20f48f26eb2c4599d7a9606d2376b, type: 2}
+  - {fileID: 11400000, guid: 0134fafe77d6d6a4b89257dc56e9beb9, type: 2}
+  - {fileID: 11400000, guid: 8a741f00600642643bce69156df095ee, type: 2}
+  - {fileID: 11400000, guid: 42f6e2fe759f58749867dead3d4b7f9a, type: 2}
+  - {fileID: 11400000, guid: 053acc05efde66247ac27ab5e2a490a0, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,19 +3515,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentUIRoot: {fileID: 1223835548}
   itemUIPrefabs:
-  - itemSo: {fileID: 11400000, guid: 931af269fb7d76e469037a3f21a279f6, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 6405610000816180700, guid: 3a1472bf98d32254b8f28a9d01e3547d, type: 3}
-  - itemSo: {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 686885420709170695, guid: ef6922df98bc4614daf4ad01a5f7e96d, type: 3}
-  - itemSo: {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 686885420709170695, guid: 73b4b6cbb918d8845b8541467bd11c55, type: 3}
-  - itemSo: {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 686885420709170695, guid: 3510033b9a00744459ffa1174d4c9c60, type: 3}
-  - itemSo: {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 686885420709170695, guid: 205a408bd26a9ab48a2ae5213c28309e, type: 3}
-  - itemSo: {fileID: 11400000, guid: 386447cb9801a0d468dc0224088dc31d, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 502057253905390610, guid: dce58c795ca505042a74c3133c39c609, type: 3}
-  - itemSo: {fileID: 11400000, guid: a9db043719643c04b92b17822ca47b91, type: 2}
+  - itemSo: {fileID: 0}
     prefab: {fileID: 686885420709170695, guid: 18dc860d21430224189c6bbeed44daa9, type: 3}
 --- !u!1 &2033244351
 GameObject:
@@ -4241,13 +4241,13 @@ MonoBehaviour:
   - {fileID: 535231119930599791}
   - {fileID: 3510282092107952445}
   levelUpSO:
-  - {fileID: 11400000, guid: 57a550f514c79ce4f8cf1f37e4b21010, type: 2}
-  - {fileID: 11400000, guid: 931af269fb7d76e469037a3f21a279f6, type: 2}
-  - {fileID: 11400000, guid: a9db043719643c04b92b17822ca47b91, type: 2}
-  - {fileID: 11400000, guid: 86e3622518abda0409e69b1fc821b647, type: 2}
-  - {fileID: 11400000, guid: d4e97fa5d79cd154a9b971a040b28a31, type: 2}
-  - {fileID: 11400000, guid: 386447cb9801a0d468dc0224088dc31d, type: 2}
-  - {fileID: 11400000, guid: 9c89a66aed231bf45bedb981cacef892, type: 2}
+  - {fileID: 11400000, guid: 77dca40eeafd826468414c4cda9c4c25, type: 2}
+  - {fileID: 11400000, guid: e9f20f48f26eb2c4599d7a9606d2376b, type: 2}
+  - {fileID: 11400000, guid: 0134fafe77d6d6a4b89257dc56e9beb9, type: 2}
+  - {fileID: 11400000, guid: 8a741f00600642643bce69156df095ee, type: 2}
+  - {fileID: 11400000, guid: 42f6e2fe759f58749867dead3d4b7f9a, type: 2}
+  - {fileID: 11400000, guid: 053acc05efde66247ac27ab5e2a490a0, type: 2}
+  - {fileID: 11400000, guid: f02026e361703414384727ea25538d48, type: 2}
   cardMusic: {fileID: 1562416443}
   content: {fileID: 1482078625}
   skillUi: {fileID: 444057517309015986, guid: d11186333b015454c8e589518a6a802f, type: 3}

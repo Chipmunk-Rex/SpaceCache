@@ -2,9 +2,10 @@
 using Code.Scripts.Players;
 using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class GetValueUpItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "GetValueUpSO", menuName = "SO/Item/GetValueUpSO", order = 0)]
+    public class GetValueUpSO : LevelUpItemSO
     {
         private PlayerLevelSystem _levelSystem;
         

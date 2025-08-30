@@ -1,8 +1,10 @@
 ﻿using Code.Scripts.Entities;
+using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class MachineGunItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "MachineGunSO", menuName = "SO/Item/MachineGunSO", order = 0)]
+    public class MachineGunSO : LevelUpItemSO
     {
         private MachineAbility _machineAbility;
         
@@ -12,8 +14,6 @@ namespace Code.Scripts.Items
             
             _machineAbility.gameObject.SetActive(true);
         }
-        
-        
         
     }
 }

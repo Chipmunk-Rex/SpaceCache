@@ -1,14 +1,14 @@
-﻿using System;
-using Code.Scripts.Entities;
+﻿using Code.Scripts.Entities;
 using Code.Scripts.Players.States;
 using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class AttackLevelUpItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "AttackUpSO", menuName = "SO/Item/AttackUp", order = 0)]
+    public class AttacpUpSO : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
-
+        
         public override void ApplyItem(Entity targetEntity)
         {
             _attackCompo = targetEntity.GetCompo<PlayerAttackCompo>();

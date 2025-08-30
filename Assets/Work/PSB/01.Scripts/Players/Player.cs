@@ -1,10 +1,12 @@
 ﻿using Code.Scripts.Entities;
 using Code.Scripts.FSM;
+using PSB_Lib.Dependencies;
 using UnityEngine;
 
 namespace Code.Scripts.Players
 {
-    public class Player : Entity
+    [Provide]
+    public class Player : Entity, IDependencyProvider
     {
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
         

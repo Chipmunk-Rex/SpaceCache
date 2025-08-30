@@ -1,11 +1,11 @@
 ﻿using Code.Scripts.Entities;
-using Code.Scripts.Players;
 using Code.Scripts.Players.States;
 using UnityEngine;
 
-namespace Code.Scripts.Items
+namespace Code.Scripts.Items.ItemSos
 {
-    public class AttackSpeedDownItem : LevelUpItemSO
+    [CreateAssetMenu(fileName = "AttackSpeedDownSO", menuName = "SO/Item/AttackSpeedDownSO", order = 0)]
+    public class AttackSpeedDownSO : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
         
@@ -19,6 +19,5 @@ namespace Code.Scripts.Items
             statCompo.IncreaseBaseValue(_attackCompo.attackSpeedStat, -0.2f);
         }
 
-        
     }
 }
