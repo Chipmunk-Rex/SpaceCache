@@ -1,12 +1,14 @@
 ﻿using System;
 using Code.Scripts.Entities;
+using PSB_Lib.Dependencies;
 using PSB_Lib.StatSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Code.Scripts.Players
 {
-    public class PlayerLevelSystem : MonoBehaviour, IEntityComponent, IAfterInitialize
+    [Provide]
+    public class PlayerLevelSystem : MonoBehaviour, IEntityComponent, IAfterInitialize, IDependencyProvider
     {
         [SerializeField] private Slider manaSlider;
         [SerializeField] private float maxManaPoint = 100f;

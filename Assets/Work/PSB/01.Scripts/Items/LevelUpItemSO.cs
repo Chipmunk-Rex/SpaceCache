@@ -26,6 +26,7 @@ namespace Code.Scripts.Items
         
         [NonSerialized]
         public int selectCount;
+        public bool cardUiSpawn = false;
 
         [Header("Max")] 
         public int maxCount = 5;
