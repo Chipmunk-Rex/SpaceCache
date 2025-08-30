@@ -4,9 +4,21 @@ using UnityEngine.UI;
 
 namespace Code.Scripts.Items
 {
+    [Flags]
+    public enum ItemType
+    {
+        PASSIVE = 1,
+        ACTIVE = 2,
+        QCLICK = 4,
+        ECLICK = 8,
+        RCLICK = 16,
+    }
+    
+    
     [CreateAssetMenu(fileName = "LevelUpItem", menuName = "SO/Item", order = 0)]
     public class LevelUpItemSO : ScriptableObject
     {
+        public ItemType itemType;
         public Sprite SkillIcon;
         public string Name;
         [TextArea]

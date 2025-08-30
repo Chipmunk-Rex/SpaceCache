@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
   m_Name: PlayerManaValueUp
   m_EditorClassIdentifier: 
+  itemType: 1
   SkillIcon: {fileID: 2784468965456250579, guid: 35855c5eb74c3a94382d1e6a334ed186, type: 3}
   Name: "\uB9C8\uB098 \uD68D\uB4DD\uB7C9 \uC99D\uAC00"
   Description: "\uC544\uC774\uD15C\uC73C\uB85C \uC5BB\uC744 \uC218 \uC788\uB294\n\uB9C8\uB098\uB7C9\uC774
