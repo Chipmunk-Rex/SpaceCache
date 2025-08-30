@@ -22,6 +22,7 @@ public class CardManager : MonoBehaviour
     [Inject] private PlayerLevelSystem playerLevelSystem;
     
     private Dictionary<LevelUpItemSO,GameObject> destroyCopy = new();
+    private HashSet<ItemType> selectedSlots = new();
     
     public bool dontClick { get; private set; } = false;
     private int rand;
@@ -63,9 +64,15 @@ public class CardManager : MonoBehaviour
     
     public void ImageChange()
     {
+        HashSet<LevelUpItemSO> usedThisDraw = new HashSet<LevelUpItemSO>();
+        
         for(int i = 0; i < 3; i++)
         {
-            var candidates = levelUpSO.Where(so => so.selectCount < so.maxCount).ToList();
+            var candidates = levelUpSO.Where(so =>
+                    so.selectCount < so.maxCount &&                          // maxCount 넘으면 제외
+                    (!IsFixedSlot(so.itemType) || !selectedSlots.Contains(so.itemType)) && // Q/E/R 이미 선택된 슬롯 제외
+                    !usedThisDraw.Contains(so)                               // 같은 세트에서 중복 제외
+            ).ToList();
             if (candidates.Count == 0)
             {
                 Debug.Log("������ ����");
@@ -73,8 +80,12 @@ public class CardManager : MonoBehaviour
             }
 
             rand = Random.Range(0, candidates.Count);
-            Card a = gameObjectCard[i].GetComponent<Card>();
-            a.CardGetBasic(candidates[rand]);
+            LevelUpItemSO chosen = candidates[rand];
+
+            Card card = gameObjectCard[i].GetComponent<Card>();
+            card.CardGetBasic(chosen);
+
+            usedThisDraw.Add(chosen); // 이번 세트에선 다시 안 나오게
         }
     }
     
@@ -108,8 +119,16 @@ public class CardManager : MonoBehaviour
         {
             Card card = a.GetComponent<Card>();
             Debug.Log(card.iClicked);
+            
             if (card.iClicked)
             {
+                LevelUpItemSO so = card._levelUpSO;
+            
+                if (IsFixedSlot(so.itemType))
+                {
+                    selectedSlots.Add(so.itemType);
+                }
+                
                 GameObject obj = null;
                 if(!card._levelUpSO.cardUiSpawn)
                 {
@@ -152,10 +171,19 @@ public class CardManager : MonoBehaviour
            }
             Card.SetClicked(false);
             card.SetIClicked(false);
+            
         }
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1;
         dontClick = false;
     }
     #endregion
+    
+    private bool IsFixedSlot(ItemType type)
+    {
+        return type == ItemType.QCLICK || 
+               type == ItemType.ECLICK || 
+               type == ItemType.RCLICK;
+    }
+    
 }
