@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Frame_0
+  m_Name: Blue_Nebula_03-1024x1024_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -2595170840266223467, guid: 2add85314b65da644bfbe9f0a27c2a0b, type: 3}
+  m_Sprite: {fileID: -7241584900618331443, guid: e8f4c4cf919d34b4484e2cb3deb5ec7f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
