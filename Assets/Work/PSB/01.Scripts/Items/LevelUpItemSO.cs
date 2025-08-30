@@ -1,22 +1,39 @@
-﻿using UnityEngine;
+﻿using System;
+using Code.Scripts.Entities;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Code.Scripts.Items
 {
-    [CreateAssetMenu(fileName = "LevelUpItem", menuName = "SO/Item", order = 0)]
-    public class LevelUpItemSO : ScriptableObject
+    [Flags]
+    public enum ItemType
     {
+        PASSIVE = 1,
+        ACTIVE = 2,
+        QCLICK = 4,
+        ECLICK = 8,
+        RCLICK = 16,
+    }
+    
+    
+    [CreateAssetMenu(fileName = "LevelUpItem", menuName = "SO/Item", order = 0)]
+    public abstract class LevelUpItemSO : ScriptableObject
+    {
+        public ItemType itemType;
         public Sprite SkillIcon;
         public string Name;
         [TextArea]
         public string Description;
         
-        [System.NonSerialized]
+        [NonSerialized]
         public int selectCount;
+        public bool cardUiSpawn = false;
 
         [Header("Max")] 
         public int maxCount = 5;
         public bool IsMaxed => selectCount >= maxCount;
+        
+        public abstract void ApplyItem(Entity targetEntity);
         
     }
 }

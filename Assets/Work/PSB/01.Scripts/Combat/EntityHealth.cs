@@ -25,15 +25,15 @@ namespace Code.Scripts.Items.Combat
         
         public void AfterInitialize()
         {
-            currentHealth = maxHealth = _statCompo.SubscribeStat(hpStat, HandleMaxHPChange, 10f);
+            currentHealth = maxHealth = _statCompo.SubscribeStat(hpStat, HandleMaxHpChange, 10f);
         }
         
         private void OnDestroy()
         {
-            _statCompo.UnSubscribeStat(hpStat, HandleMaxHPChange);
+            _statCompo.UnSubscribeStat(hpStat, HandleMaxHpChange);
         }
         
-        private void HandleMaxHPChange(StatSO stat, float currentValue, float prevValue)
+        private void HandleMaxHpChange(StatSO stat, float currentValue, float prevValue)
         {
             float changed = currentValue - prevValue;
             maxHealth = currentValue;
@@ -59,14 +59,14 @@ namespace Code.Scripts.Items.Combat
             if (currentHealth <= 0)
                 _entity.OnDeadEvent?.Invoke();
         }
+        
+        #endregion
 
         public void SetHp(float h)
         {
             currentHealth = Mathf.Clamp(currentHealth + h, 0, maxHealth);
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
-        
-        #endregion
 
 
     }

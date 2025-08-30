@@ -52,12 +52,12 @@ namespace Code.Scripts.Players
 
         private void HandleRotateLeft()
         {
-            _currentAngle += rotationSpeed * Time.fixedDeltaTime;
+            _currentAngle += (rotationSpeed / 1.5f) * Time.fixedDeltaTime;
         }
 
         private void HandleRotateRight()
         {
-            _currentAngle -= rotationSpeed * Time.fixedDeltaTime;
+            _currentAngle -= (rotationSpeed / 1.5f) * Time.fixedDeltaTime;
         }
 
 

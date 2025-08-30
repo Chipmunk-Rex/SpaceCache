@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2385108419033876398}
   - component: {fileID: 1096150147410776214}
   - component: {fileID: 3550738833888772121}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 927280880051592488}
   - component: {fileID: 1462377490613278213}
   - component: {fileID: 1106120331507814162}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BigBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  lifeTime: 2
 --- !u!58 &1106120331507814162
 CircleCollider2D:
   m_ObjectHideFlags: 0

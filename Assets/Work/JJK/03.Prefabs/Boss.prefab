@@ -11,13 +11,13 @@ GameObject:
   - component: {fileID: 4422470896466638407}
   - component: {fileID: 1503059959410645653}
   - component: {fileID: 1151443593464772590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4422470896466638407
 Transform:
   m_ObjectHideFlags: 0
@@ -57,7 +57,7 @@ MonoBehaviour:
   playerPos: {fileID: 0}
   turnSpeed: 3
   laserPrefab: {fileID: 5786116020749964597}
-  spinSpeed: 90
+  spinSpeed: 72
   firePoint: {fileID: 6560895121879736994}
   main: {fileID: 3766630437826574850}
   engine:
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 3954944603542431025}
   - component: {fileID: 1579671432381134568}
   - component: {fileID: 8999273827320574557}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,9 +175,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -460639315
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: 6893091792257860803, guid: d3e4ba988fd900f439130874b5e28382, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -221,7 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7245665626226667399}
   - component: {fileID: 7976822509936044465}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,9 +284,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -460639315
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: -6074857878563150496, guid: 938ad032945f25543aff9514b9624c6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 4180639636316009737}
   - component: {fileID: 1464212740032195530}
   - component: {fileID: 3120643389641660476}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -372,9 +372,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -460639315
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: -1129887740347124904, guid: cae6c5fb97cf9844983700f8f971ded2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6560895121879736994}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FirePos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -450,7 +450,7 @@ GameObject:
   - component: {fileID: 3277857496679214766}
   - component: {fileID: 2564997985730309037}
   - component: {fileID: 4244189034364790172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Destruction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -513,9 +513,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -460639315
+  m_SortingLayer: 4
+  m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -604,6 +604,10 @@ PrefabInstance:
     - target: {fileID: 8184844837122320506, guid: 9609c2a1b2bcf6d4190a65a9ede3f418, type: 3}
       propertyPath: m_Name
       value: Laser
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184844837122320506, guid: 9609c2a1b2bcf6d4190a65a9ede3f418, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 8184844837122320506, guid: 9609c2a1b2bcf6d4190a65a9ede3f418, type: 3}
       propertyPath: m_IsActive

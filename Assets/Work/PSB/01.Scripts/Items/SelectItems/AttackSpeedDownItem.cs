@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class AttackSpeedDownItem : LevelUpItem
+    public class AttackSpeedDownItem : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
         
@@ -15,11 +15,10 @@ namespace Code.Scripts.Items
             var statCompo = targetEntity.GetCompo<EntityStat>();
             if (statCompo == null)
                 Debug.LogError("No have PlayerAttackCompo");
-
-            Debug.Log("ManaGetDirUpSelected!!");
             
             statCompo.IncreaseBaseValue(_attackCompo.attackSpeedStat, -0.2f);
         }
+
         
     }
 }

@@ -22,7 +22,8 @@ namespace Code.Scripts.Players
         
         private bool _selectionMade = false;
         private List<GameObject> _activeSkillUIs = new List<GameObject>();
-
+        private HashSet<ItemType> _selectedSlots = new HashSet<ItemType>();
+        
         [Inject] private ItemSOCountManager _uiManager;
         
         public void Initialize(Entity entity)
@@ -56,13 +57,23 @@ namespace Code.Scripts.Players
                 var candidate = skillSelectUI[i].GetComponent<LevelUpItem>();
                 if (candidate != null && !candidate.levelUpItemSO.IsMaxed)
                 {
-                    skillIndices.Add(i); // 최대치가 아닌 스킬만 후보
+                    ItemType type = candidate.levelUpItemSO.itemType;
+
+                    bool eQ = type == ItemType.QCLICK;
+                    bool eE = type == ItemType.ECLICK;
+                    bool eR = type == ItemType.RCLICK;
+                    
+                    if ((eQ || eE || eR) && _selectedSlots.Contains(type))
+                    {
+                        continue;
+                    }
+
+                    skillIndices.Add(i);
                 }
             }
             
             if (skillIndices.Count == 0)
             {
-                Debug.Log("선택 가능한 스킬이 없음!");
                 CloseUI();
                 return;
             }
@@ -101,6 +112,13 @@ namespace Code.Scripts.Players
             LevelUpItem item = selectedUI.gameObject.GetComponent<LevelUpItem>();
             item.levelUpItemSO.selectCount++; // 선택 횟수 증가
             item.ApplyItem(_player);
+            
+            if (item.levelUpItemSO.itemType == ItemType.QCLICK ||
+                item.levelUpItemSO.itemType == ItemType.ECLICK ||
+                item.levelUpItemSO.itemType == ItemType.RCLICK)
+            {
+                _selectedSlots.Add(item.levelUpItemSO.itemType);
+            }
 
             _uiManager.ShowOrUpdateUI(item.levelUpItemSO);
 

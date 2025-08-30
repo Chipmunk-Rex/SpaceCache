@@ -2,7 +2,7 @@
 
 namespace Code.Scripts.Items
 {
-    public class MachineGunItem : LevelUpItem
+    public class MachineGunItem : LevelUpItemSO
     {
         private MachineAbility _machineAbility;
         

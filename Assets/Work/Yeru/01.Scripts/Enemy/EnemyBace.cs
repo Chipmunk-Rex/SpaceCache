@@ -15,7 +15,13 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
 
     protected float attackTimer;
     protected bool  isDead; 
-
+    
+    public float Health { get; set; }
+    public float AttackPower { get; set; } 
+    
+    public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
+    public abstract void IncreaseDefense(float amount);  // 체력 수치 증가
+    
     protected virtual void Awake()
     {
         currentHealth   = data.maxHealth;
@@ -29,7 +35,14 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
         OnInit();
     }
     
-    protected virtual void OnInit() { }
+    protected virtual void OnInit() 
+    {
+         if (data != null)
+         {
+             if (data.enemyDamageUp  != 0f) IncreaseAttack ((int)data.enemyDamageUp);
+             if (data.enemyDefenseUp != 0f) IncreaseDefense((int)data.enemyDefenseUp);
+         }
+    }
     
     protected virtual void Move()
     {
@@ -110,7 +123,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
                 if (attackTimer > 0f)
                     attackTimer -= Time.deltaTime;
                 
-                if (distance <= data.range && attackTimer <= 0f)
+                if (distance <= data.engageRange && attackTimer <= 0f)
                 {
                     Attack();
                     attackTimer = Mathf.Max(0.01f, data.attackCooldown);

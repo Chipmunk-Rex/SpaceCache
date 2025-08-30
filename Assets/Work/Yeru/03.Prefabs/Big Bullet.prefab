@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 504166033141999137}
   - component: {fileID: 6988931413350338882}
   - component: {fileID: 1374434642276698987}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Big Bullet
-  m_TagString: Untagged
+  m_TagString: 'EnemyBullet  '
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -189,5 +189,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8728c7ea9cf0cd542b13d3f953705ebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 13
   life: 5

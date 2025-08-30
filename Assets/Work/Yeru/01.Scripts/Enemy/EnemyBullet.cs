@@ -16,10 +16,10 @@ public class EnemyBullet : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous; // 권장
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         var col = GetComponent<Collider2D>();
-        if (col) col.isTrigger = true; // 트리거 강제(권장)
+        if (col) col.isTrigger = true; 
     }
 
     void OnEnable()

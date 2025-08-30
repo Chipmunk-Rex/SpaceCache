@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
   m_Name: PlayerMachinSkill
   m_EditorClassIdentifier: 
-  SkillIcon: {fileID: 9053464894602077246, guid: 3621a78179d0de04899451dda02a3f23, type: 3}
+  itemType: 4
+  SkillIcon: {fileID: 7472042081794340552, guid: 68240a26dea69f94194828d95d4a6ca5, type: 3}
   Name: "\uBA38\uC2E0\uAC74"
-  Description: "\uBA38\uC2E0\uAC74 \uBE75\uC57C\uBE75\uC57C"
+  Description: "3\uCD08\uAC04 \uCD1D\uC54C \uBC1C\uC0AC \uCFE8\uD0C0\uC784\uC774
+    \n\uC5C6\uC5B4\uC9C0\uB294 \uBA38\uC2E0\uAC74\uC744\n\uC0AC\uC6A9\uD560 \uC218
+    \uC788\uAC8C\n\uB429\uB2C8\uB2E4.\n\n15\uCD08 \uB9C8\uB2E4 Q\uD0A4\uB85C\n\uC0AC\uC6A9\uD560
+    \uC218 \uC788\uC2B5\uB2C8\uB2E4."
   maxCount: 1

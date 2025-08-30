@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
   m_Name: PlayerShuriken
   m_EditorClassIdentifier: 
+  itemType: 1
   SkillIcon: {fileID: 3988828326770655150, guid: dfebf9e88f25dec428182a43c6a2ef4b, type: 3}
   Name: "\uD68C\uC804\uACA9"
   Description: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uBCC0\uC5D0\uC11C \uD68C\uC804\uD558\uB294\n\uD68C\uC804\uACA9\uC774

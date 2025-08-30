@@ -1,18 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Code.Scripts.Items;
+using Code.Scripts.Players;
 using DG.Tweening;
+using PSB_Lib.Dependencies;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class CardManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] gameObjectCard;
-    [SerializeField] private LevelUpSO[] levelUpSO;
+    [SerializeField] private LevelUpItemSO[] levelUpSO;
     [SerializeField] private CardMusic cardMusic;
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject skillUi;
-    private Dictionary<LevelUpSO,GameObject> destroyCopy = new();
+
+    [Inject] private PlayerLevelSystem playerLevelSystem;
+    
+    private Dictionary<LevelUpItemSO,GameObject> destroyCopy = new();
+    
     public bool dontClick { get; private set; } = false;
     private int rand;
 
@@ -21,37 +31,63 @@ public class CardManager : MonoBehaviour
         foreach(var so in levelUpSO)
         {
             so.cardUiSpawn = false;
-            so.level = 0;
+            so.selectCount = 0;
         }
     }
+
+    private void OnEnable()
+    {
+        playerLevelSystem.OnLevelUp += LevelUpUIOpen;
+    }
+
+    private void OnDestroy()
+    {
+        playerLevelSystem.OnLevelUp -= LevelUpUIOpen;
+    }
+
     private void Update()
     {
-        if(Keyboard.current.spaceKey.wasPressedThisFrame)
+        if(Keyboard.current.leftAltKey.wasPressedThisFrame)
         {
             ImageChange();
             StartCoroutine(CardDown());
         }
     }
 
+    private void LevelUpUIOpen()
+    {
+        Time.timeScale = 0;
+        ImageChange();
+        StartCoroutine(CardDown());
+    }
+    
     public void ImageChange()
     {
         for(int i = 0; i < 3; i++)
         {
-            rand = Random.Range(0, levelUpSO.Length);
+            var candidates = levelUpSO.Where(so => so.selectCount < so.maxCount).ToList();
+            if (candidates.Count == 0)
+            {
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                continue;
+            }
+
+            rand = Random.Range(0, candidates.Count);
             Card a = gameObjectCard[i].GetComponent<Card>();
-            a.CardGetBasic(levelUpSO[rand]);
+            a.CardGetBasic(candidates[rand]);
         }
     }
-
+    
+    #region Card Mover
     IEnumerator CardDown()
     {
         foreach (var a in gameObjectCard)
         {
             cardMusic.SlideCard();
-            a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 1000, 0), 1);
-            yield return new WaitForSeconds(0.3f);
+            a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 1000, 0), 1).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(0.3f);
         }
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSecondsRealtime(1);
     }
 
     public void StartCardUp()
@@ -60,12 +96,13 @@ public class CardManager : MonoBehaviour
         {
             dontClick = true;
             StartCoroutine(CardUp());
-            Debug.Log("½ÇÇàµÊ");
+            Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
     }
+    
     IEnumerator CardUp()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         foreach (var a in gameObjectCard)
         {
@@ -77,7 +114,7 @@ public class CardManager : MonoBehaviour
                 if(!card._levelUpSO.cardUiSpawn)
                 {
                     obj = Instantiate(skillUi, content.transform);
-                    obj.GetComponent<Image>().sprite = card._levelUpSO.CardImage;
+                    obj.GetComponent<Image>().sprite = card._levelUpSO.SkillIcon;
                     card._levelUpSO.cardUiSpawn = true;
                     SkillUiStar skillUiStar = obj.GetComponent<SkillUiStar>();
                     skillUiStar.StarInstantiate(card._levelUpSO);
@@ -86,7 +123,7 @@ public class CardManager : MonoBehaviour
                 else
                 {
                     obj = Instantiate(skillUi, content.transform);
-                    obj.GetComponent<Image>().sprite = card._levelUpSO.CardImage;
+                    obj.GetComponent<Image>().sprite = card._levelUpSO.SkillIcon;
                     SkillUiStar skillUiStar = obj.GetComponent<SkillUiStar>();
                     skillUiStar.StarInstantiate(card._levelUpSO);
                     if (destroyCopy.ContainsKey(card._levelUpSO))
@@ -97,10 +134,10 @@ public class CardManager : MonoBehaviour
                 }
 
 
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 200, 0), 0.5f);
-                yield return new WaitForSeconds(0.5f);
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1200, 0), 0.7f);
-                yield return new WaitForSeconds(0.6f);
+                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 200, 0), 0.5f).SetUpdate(true);
+                yield return new WaitForSecondsRealtime(0.5f);
+                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1200, 0), 0.7f).SetUpdate(true);
+                yield return new WaitForSecondsRealtime(0.6f);
             }
         }
 
@@ -110,13 +147,15 @@ public class CardManager : MonoBehaviour
            if (!card.iClicked)
            {
                 cardMusic.SlideCard();
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1000, 0), 1);
-                yield return new WaitForSeconds(0.5f);
+                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1000, 0), 1).SetUpdate(true);
+                yield return new WaitForSecondsRealtime(0.5f);
            }
             Card.SetClicked(false);
             card.SetIClicked(false);
         }
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
         dontClick = false;
     }
+    #endregion
 }

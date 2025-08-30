@@ -2,7 +2,7 @@
 
 namespace Code.Scripts.Items
 {
-    public class ShurikenSpawnItem : LevelUpItem
+    public class ShurikenSpawnItem : LevelUpItemSO
     {
         private ShurikenAbility _shuriken;
         

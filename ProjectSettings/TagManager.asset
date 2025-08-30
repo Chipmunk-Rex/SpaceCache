@@ -7,6 +7,7 @@ TagManager:
   - Bullet
   - Test
   - 'EnemyBullet  '
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -19,8 +20,8 @@ TagManager:
   - Bullet
   - ManaItem
   - EnemyBullet
-  - 
-  - 
+  - Boss
+  - BossBullet
   - 
   - 
   - 
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: PlayerObject
     uniqueID: 1276312995
+    locked: 0
+  - name: Boss
+    uniqueID: 3834327981
     locked: 0
   m_RenderingLayers:
   - Default

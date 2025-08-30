@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class AttackLevelUpItem : LevelUpItem
+    public class AttackLevelUpItem : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
 
@@ -15,7 +15,6 @@ namespace Code.Scripts.Items
             var statCompo = targetEntity.GetCompo<EntityStat>();
             if (statCompo == null)
                 Debug.LogError("No have attackCompo");
-            Debug.Log("AttackItemSelected!!");
 
             statCompo.IncreaseBaseValue(_attackCompo.attackPowerStat, 5f);
         }

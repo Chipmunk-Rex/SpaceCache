@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655efcad4f8f4afea0b29dccdc4d429f, type: 3}
   m_Name: PlayerShield
   m_EditorClassIdentifier: 
+  itemType: 4
   SkillIcon: {fileID: -2888773462806500780, guid: ecfa659b6e9ce5e4d98e044ab6ed0554, type: 3}
   Name: "\uC274\uB4DC"
   Description: "\uC801\uC758 \uACF5\uACA9\uC744 \uD55C \uBC88 \n\uBC84\uD2F0\uAC8C
