@@ -18,6 +18,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private CardMusic cardMusic;
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject skillUi;
+    [SerializeField] private GameObject biHangGi_image;
 
     [Inject] private PlayerLevelSystem playerLevelSystem;
     
@@ -92,10 +93,16 @@ public class CardManager : MonoBehaviour
     #region Card Mover
     IEnumerator CardDown()
     {
+        RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
+        bihanggiRect.DOAnchorPosY(-1000, 1).SetUpdate(true);
+        int minusAnchor = 0;
         foreach (var a in gameObjectCard)
         {
             cardMusic.SlideCard();
-            a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 1000, 0), 1).SetUpdate(true);
+            RectTransform rt = (RectTransform)a.transform;
+            rt.DOAnchorPosY(-1430 + minusAnchor, 1f)    
+              .SetUpdate(true);
+            minusAnchor += 350;
             yield return new WaitForSecondsRealtime(0.3f);
         }
         yield return new WaitForSecondsRealtime(1);
@@ -122,6 +129,7 @@ public class CardManager : MonoBehaviour
             
             if (card.iClicked)
             {
+                #region ESC button image spawn
                 GameObject obj = null;
                 if(!card._levelUpSO.cardUiSpawn)
                 {
@@ -144,11 +152,21 @@ public class CardManager : MonoBehaviour
                     }
                     destroyCopy[card._levelUpSO] = obj;
                 }
+                #endregion
+                RectTransform rt = (RectTransform)a.transform;
 
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y - 200, 0), 0.5f).SetUpdate(true);
-                yield return new WaitForSecondsRealtime(0.5f);
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1200, 0), 0.7f).SetUpdate(true);
+                yield return rt.DOAnchorPosY(-210f, 0.5f)
+               .SetRelative()
+               .SetUpdate(true)
+               .WaitForCompletion();
+
+                rt.DOAnchorPosY(1200f, 0.7f)
+                .SetRelative()
+                .SetUpdate(true);
+
                 yield return new WaitForSecondsRealtime(0.6f);
+                rt.DOAnchorPos(new Vector2(774, 0), 0.1f)
+                 .SetUpdate(true);
             }
         }
 
@@ -158,13 +176,19 @@ public class CardManager : MonoBehaviour
            if (!card.iClicked)
            {
                 cardMusic.SlideCard();
-                a.transform.DOMove(new Vector3(a.transform.position.x, a.transform.position.y + 1000, 0), 1).SetUpdate(true);
+                RectTransform rt = (RectTransform)a.transform;
+
+                rt.DOAnchorPos(new Vector2(774, 0),1)
+                  .SetUpdate(true);
+
                 yield return new WaitForSecondsRealtime(0.5f);
-           }
+            }
             Card.SetClicked(false);
             card.SetIClicked(false);
             
         }
+        RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
+        bihanggiRect.DOAnchorPosY(1000, 1).SetUpdate(true);
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1;
         dontClick = false;
