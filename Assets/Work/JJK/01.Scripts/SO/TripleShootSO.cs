@@ -15,6 +15,6 @@ public class TripleShootSO : BossPatternSO
             yield return new WaitForSeconds(boss.ReloadTime + interval);
         }
 
-        yield return null;
+        yield return new WaitForSeconds(0.5f);
     }
 }

@@ -31,6 +31,7 @@ public class Boss : MonoBehaviour
 
     List<BossPatternSO> currentPatternList = new List<BossPatternSO>();
     int currentPatternIndex = 0;
+    private BossPatternSO lastPattern = null;
 
     float reloadTime;
     float moveSpeed;
@@ -44,13 +45,17 @@ public class Boss : MonoBehaviour
     int poolSize = 150;
     bool isSpin;
 
+    private void Awake()
+    {
+        InitBulletPool();
+        InitBulletPool2();
+    }
+
     private void Start()
     {
         ApplyStat();
         ShufflePatterns();
         NextPattern();
-        InitBulletPool();
-        InitBulletPool2();
     }
 
     private void InitBulletPool()
@@ -144,12 +149,17 @@ public class Boss : MonoBehaviour
     
     private void ShufflePatterns()
     {
+        currentPatternList = new List<BossPatternSO>(stat.patterns);
+        
         for (int i = 0; i < currentPatternList.Count; i++)
         {
             int rand = UnityEngine.Random.Range(i, currentPatternList.Count);
-            var temp = currentPatternList[i];
-            currentPatternList[i] = currentPatternList[rand];
-            currentPatternList[rand] = temp;
+            (currentPatternList[i], currentPatternList[rand]) = (currentPatternList[rand], currentPatternList[i]);
+        }
+        
+        if (lastPattern != null && currentPatternList[0] == lastPattern)
+        {
+            (currentPatternList[0], currentPatternList[1]) = (currentPatternList[1], currentPatternList[0]);
         }
 
         currentPatternIndex = 0;
@@ -159,6 +169,7 @@ public class Boss : MonoBehaviour
     {
         yield return StartCoroutine(pattern.Execute(this));
         yield return new WaitForSeconds(0.5f);
+        lastPattern = pattern;
         NextPattern();
     }
 
