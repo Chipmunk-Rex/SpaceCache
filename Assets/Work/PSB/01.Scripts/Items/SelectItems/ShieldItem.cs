@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class ShieldItem : LevelUpItem
+    public class ShieldItem : LevelUpItemSO
     {
         private ShieldAbility _playerShield;
 

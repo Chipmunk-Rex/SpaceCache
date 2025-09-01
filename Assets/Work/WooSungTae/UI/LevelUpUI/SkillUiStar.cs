@@ -1,15 +1,16 @@
+using Code.Scripts.Items;
 using UnityEngine;
 
 public class SkillUiStar : MonoBehaviour
 {
     [SerializeField] private GameObject starPosition;
     [SerializeField] private GameObject star;
-    private LevelUpSO levelUpSO;
+    private LevelUpItemSO levelUpSO;
 
-    public void StarInstantiate(LevelUpSO upSO)
+    public void StarInstantiate(LevelUpItemSO upSO)
     {
         levelUpSO = upSO;
-        for(int i = 0; i < levelUpSO.level; i++)
+        for(int i = 0; i < levelUpSO.selectCount; i++)
         Instantiate(star, starPosition.transform);
     }
 }

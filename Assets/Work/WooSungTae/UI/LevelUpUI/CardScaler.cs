@@ -10,7 +10,7 @@ public class CardScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         cardDescription.SetActive(true);
         cardImage.SetActive(false);
-        transform.DOScale(new Vector2(1.1f,1.1f), 0.5f);
+        transform.DOScale(new Vector2(1.2f,1.2f), 0.5f);
     }
 
     public void OnPointerExit(PointerEventData eventData)

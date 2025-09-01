@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class GetValueUpItem : LevelUpItem
+    public class GetValueUpItem : LevelUpItemSO
     {
         private PlayerLevelSystem _levelSystem;
         

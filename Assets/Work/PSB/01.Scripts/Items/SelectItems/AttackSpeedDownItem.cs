@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class AttackSpeedDownItem : LevelUpItem
+    public class AttackSpeedDownItem : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
         
@@ -18,6 +18,7 @@ namespace Code.Scripts.Items
             
             statCompo.IncreaseBaseValue(_attackCompo.attackSpeedStat, -0.2f);
         }
+
         
     }
 }

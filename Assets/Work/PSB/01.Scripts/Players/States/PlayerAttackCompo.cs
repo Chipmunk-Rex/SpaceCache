@@ -22,8 +22,6 @@ namespace Code.Scripts.Players.States
         [Header("Value")]
         [SerializeField] private float attackPower = 10f;
         [field: SerializeField] public float attackCooldown = 2f;
-        [SerializeField] private float increaseSpeedValue = 1f;
-        [SerializeField] private float decreaseSpeedValue = -0.5f;
 
         [Header("UI")] 
         [SerializeField] private TextMeshProUGUI attackPowerTxt;
@@ -46,7 +44,8 @@ namespace Code.Scripts.Players.States
         {
             _player = entity as Player;
             _statCompo = entity.GetCompo<EntityStat>();
-            _player.PlayerInput.IsCanAttack = true;
+            
+            if (_player != null) _player.PlayerInput.IsCanAttack = true;
         }
 
         public void AfterInitialize()
@@ -108,7 +107,7 @@ namespace Code.Scripts.Players.States
             _isAutoFiring = false;
         }
         
-        public void InitialCompo()
+        private void InitialCompo()
         {
             if (!_canAttack1) return;
             _canAttack1 = false;
@@ -118,7 +117,7 @@ namespace Code.Scripts.Players.States
             playerBullet.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
         }
 
-        public void InitialCompo2()
+        private void InitialCompo2()
         {
             if (!_canAttack2) return;
             _canAttack2 = false;

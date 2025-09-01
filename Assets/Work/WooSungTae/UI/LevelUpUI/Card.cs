@@ -1,3 +1,6 @@
+using Code.Scripts.Items;
+using Code.Scripts.Players;
+using PSB_Lib.Dependencies;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,16 +9,17 @@ public class Card : MonoBehaviour
 {
     public  bool iClicked { get; private set; } = false;
     public static bool clicked { get; private set; } = false;
-    public LevelUpSO _levelUpSO;
+    public LevelUpItemSO _levelUpSO;
     public CardManager _cardManager;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private Image _image;
+    [Inject] private Player _player;
 
-    public void CardGetBasic(LevelUpSO levelUpSO)
+    public void CardGetBasic(LevelUpItemSO levelUpSO)
     {
         _levelUpSO = levelUpSO;
-        _descriptionText.text = levelUpSO.CardDescription;
-        _image.sprite = levelUpSO.CardImage;
+        _descriptionText.text = levelUpSO.Description;
+        _image.sprite = levelUpSO.SkillIcon;
     }
 
     public void OnClickCard()
@@ -24,7 +28,8 @@ public class Card : MonoBehaviour
         {
             iClicked = true;
             clicked = true;
-            _levelUpSO.level++;
+            _levelUpSO.selectCount++;
+            _levelUpSO.ApplyItem(_player);
         }
     }
 

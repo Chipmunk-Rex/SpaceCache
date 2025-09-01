@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Code.Scripts.Items
 {
-    public class GetDirUpItem : LevelUpItem
+    public class GetDirUpItem : LevelUpItemSO
     {
         private ItemMagnet _magnet;
         
