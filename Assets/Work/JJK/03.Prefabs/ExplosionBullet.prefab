@@ -93,9 +93,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 50
-  explodeTime: 1.5
+  explodeTime: 1.2
   fragmentCount: 8
-  fragmentSpeed: 7
+  fragmentSpeed: 8
 --- !u!1 &5224331941291755235
 GameObject:
   m_ObjectHideFlags: 0

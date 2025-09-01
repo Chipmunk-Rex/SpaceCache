@@ -29,7 +29,9 @@ public class Boss : MonoBehaviour
     [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject destruction;
 
-    List<BossPatternSO> currentPatternList;
+    List<BossPatternSO> currentPatternList = new List<BossPatternSO>();
+    int currentPatternIndex = 0;
+    private BossPatternSO lastPattern = null;
 
     float reloadTime;
     float moveSpeed;
@@ -40,16 +42,20 @@ public class Boss : MonoBehaviour
     Vector3 moveDir;
     GameObject[] bulletPool;
     GameObject[] bulletPool2;
-    int poolSize = 120;
-    int currentPatternIndex = 0;
+    int poolSize = 150;
     bool isSpin;
+
+    private void Awake()
+    {
+        InitBulletPool();
+        InitBulletPool2();
+    }
 
     private void Start()
     {
         ApplyStat();
+        ShufflePatterns();
         NextPattern();
-        InitBulletPool();
-        InitBulletPool2();
     }
 
     private void InitBulletPool()
@@ -96,17 +102,17 @@ public class Boss : MonoBehaviour
             currentAngle += angleDelta;
             transform.Rotate(Vector3.back, angleDelta);
         }
-
-        if (hp <= 0)
-        {
-            hp = 0;
-            StartCoroutine(Die());
-        }
     }
 
     public void TakeDamage(float damage)
     {
         hp -= damage;
+        
+        if (hp <= 0)
+        {
+            hp = 0;
+            StartCoroutine(Die());
+        }
     }
 
     private IEnumerator Die()
@@ -128,22 +134,42 @@ public class Boss : MonoBehaviour
 
     private void NextPattern()
     {
-        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        if (currentPatternList == null || currentPatternList.Count <= 0)
+            Debug.Log("덱이 비었습니다.");
         
-        int newIndex = currentPatternIndex;
-
-        while (newIndex == currentPatternIndex)
+        if (currentPatternIndex >= currentPatternList.Count)
         {
-            newIndex = UnityEngine.Random.Range(0, currentPatternList.Count);
+            ShufflePatterns();
         }
         
-        currentPatternIndex = newIndex;
+        StartCoroutine(RunPattern(currentPatternList[currentPatternIndex]));
+        
+        currentPatternIndex++;
+    }
+    
+    private void ShufflePatterns()
+    {
+        currentPatternList = new List<BossPatternSO>(stat.patterns);
+        
+        for (int i = 0; i < currentPatternList.Count; i++)
+        {
+            int rand = UnityEngine.Random.Range(i, currentPatternList.Count);
+            (currentPatternList[i], currentPatternList[rand]) = (currentPatternList[rand], currentPatternList[i]);
+        }
+        
+        if (lastPattern != null && currentPatternList[0] == lastPattern)
+        {
+            (currentPatternList[0], currentPatternList[1]) = (currentPatternList[1], currentPatternList[0]);
+        }
+
+        currentPatternIndex = 0;
     }
 
     private IEnumerator RunPattern(BossPatternSO pattern)
     {
         yield return StartCoroutine(pattern.Execute(this));
         yield return new WaitForSeconds(0.5f);
+        lastPattern = pattern;
         NextPattern();
     }
 
@@ -211,7 +237,7 @@ public class Boss : MonoBehaviour
                 return bulletPool2[i];
             }
         }
-
+        
         return null;
     }
 
