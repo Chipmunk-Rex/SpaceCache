@@ -10,7 +10,7 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     private Canvas canvas;
     private CanvasGroup cg;
     private Vector3 startPos;
-    private bool wasDropped = false;
+    public bool wasDropped { get; private set; } = false;
 
     private void Awake()
     {

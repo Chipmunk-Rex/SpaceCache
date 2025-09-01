@@ -101,6 +101,8 @@ public class CardManager : MonoBehaviour
         int minusAnchor = 0;
         foreach (var a in gameObjectCard)
         {
+            CardScaler cardScaler = a.GetComponent<CardScaler>();
+            cardScaler.CardImageActive();
             cardMusic.SlideCard();
             RectTransform rt = (RectTransform)a.transform;
             rt.DOAnchorPosY(-1430 + minusAnchor, 1f)    

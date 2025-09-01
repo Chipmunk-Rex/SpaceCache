@@ -6,14 +6,25 @@ public class CardScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 {
     [SerializeField] private GameObject cardDescription;
     [SerializeField] private GameObject cardImage;
+
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        cardDescription.SetActive(true);
-        cardImage.SetActive(false);
-        transform.DOScale(new Vector2(1.2f,1.2f), 0.5f);
+        CardDescriptionActive();
     }
 
     public void OnPointerExit(PointerEventData eventData)
+    {
+        CardImageActive();
+    }
+
+    public void CardDescriptionActive()
+    {
+        cardDescription.SetActive(true);
+        cardImage.SetActive(false);
+        transform.DOScale(new Vector2(1.2f, 1.2f), 0.5f);
+    }
+    public void CardImageActive()
     {
         cardDescription.SetActive(false);
         cardImage.SetActive(true);
