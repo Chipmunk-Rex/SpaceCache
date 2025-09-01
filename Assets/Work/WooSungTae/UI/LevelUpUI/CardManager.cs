@@ -5,6 +5,8 @@ using System.Linq;
 using Code.Scripts.Items;
 using Code.Scripts.Players;
 using DG.Tweening;
+using DG.Tweening.Core.Easing;
+using JetBrains.Annotations;
 using PSB_Lib.Dependencies;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,6 +21,7 @@ public class CardManager : MonoBehaviour
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject skillUi;
     [SerializeField] private GameObject biHangGi_image;
+    [SerializeField] private GameObject airPlane;
 
     [Inject] private PlayerLevelSystem playerLevelSystem;
     
@@ -110,12 +113,18 @@ public class CardManager : MonoBehaviour
 
     public void StartCardUp()
     {
+        Debug.Log("ed");
         if(!dontClick)
         {
             dontClick = true;
             StartCoroutine(CardUp());
-            Debug.Log("�����");
         }
+    }
+    public void AirPlaneMove()
+    {
+        Sequence seq = DOTween.Sequence();
+        seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce));
+        seq.Append(airPlane.transform.DOScale(1, 0.6f));
     }
     
     IEnumerator CardUp()
@@ -153,20 +162,24 @@ public class CardManager : MonoBehaviour
                     destroyCopy[card._levelUpSO] = obj;
                 }
                 #endregion
+
+                a.SetActive(false);
                 RectTransform rt = (RectTransform)a.transform;
 
-                yield return rt.DOAnchorPosY(-210f, 0.5f)
-               .SetRelative()
-               .SetUpdate(true)
-               .WaitForCompletion();
-
-                rt.DOAnchorPosY(1200f, 0.7f)
-                .SetRelative()
-                .SetUpdate(true);
-
-                yield return new WaitForSecondsRealtime(0.6f);
+                float flash = 1;
+                Image airPlane_image = airPlane.GetComponent<Image>();
+                airPlane_image.material.SetFloat("_Flash", flash);
+                AirPlaneMove();
+                while (flash > 0)
+                {
+                    flash -= Time.deltaTime * 2;
+                    airPlane_image.material.SetFloat("_Flash", flash);
+                    yield return null;
+                }
                 rt.DOAnchorPos(new Vector2(774, 0), 0.1f)
-                 .SetUpdate(true);
+                .SetUpdate(true);
+                yield return new WaitForSeconds(0.1f);
+                a.SetActive(true);
             }
         }
 

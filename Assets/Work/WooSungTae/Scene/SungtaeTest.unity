@@ -419,6 +419,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2102683563 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4622227128449116435, guid: 8d4f489728932f144a5cf33d3fd53983, type: 3}
+  m_PrefabInstance: {fileID: 2669178402681404159}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &787579809549673329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -529,6 +534,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1873222877}
     - target: {fileID: 1970395656304451078, guid: 8d4f489728932f144a5cf33d3fd53983, type: 3}
+      propertyPath: airPlane
+      value: 
+      objectReference: {fileID: 2102683563}
+    - target: {fileID: 1970395656304451078, guid: 8d4f489728932f144a5cf33d3fd53983, type: 3}
       propertyPath: cardMusic
       value: 
       objectReference: {fileID: 748728380}
@@ -536,6 +545,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CardPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 7152730631579164048, guid: 8d4f489728932f144a5cf33d3fd53983, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 880e5576962e2cc4ab29fae70274ed52, type: 2}
     - target: {fileID: 8393140898553241247, guid: 8d4f489728932f144a5cf33d3fd53983, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

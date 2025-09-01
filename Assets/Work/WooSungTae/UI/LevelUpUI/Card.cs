@@ -3,6 +3,7 @@ using Code.Scripts.Players;
 using PSB_Lib.Dependencies;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Card : MonoBehaviour
