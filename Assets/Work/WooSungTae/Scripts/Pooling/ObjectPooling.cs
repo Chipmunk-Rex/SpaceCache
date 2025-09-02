@@ -43,8 +43,8 @@ public class ObjectPooling : MonoBehaviour
         {
             boss = Instantiate(so.bossPrefab, transform);
         }
-        boss.SetActive(true);
         boss.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
+        boss.SetActive(true);
 
         return boss;
     }
@@ -84,8 +84,8 @@ public class ObjectPooling : MonoBehaviour
         {
             a = Instantiate(so.prefab, transform);
         }
-        a.SetActive(true);
         a.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
+        a.SetActive(true);
 
         return a;
     }

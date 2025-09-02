@@ -69,7 +69,7 @@ public class WaveManager : MonoBehaviour
     IEnumerator BossEnter(WaveSO waveSO)
     {
         float time = 0;
-        while (time > waveSO.bossSpawnTiming)
+        while (waveSO.bossSpawnTiming > time)
         {
             time += Time.deltaTime;
             yield return null;
