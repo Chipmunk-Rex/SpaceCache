@@ -29,11 +29,6 @@ public class TorpedoShip : EnemyBase
         animator.SetTrigger("attack");
     }
     
-    public void AE_FireAt(Transform shooter)
-    {
-        if (!shooter || !bulletPrefab) return;
-        FireFrom(shooter);
-    }
     
     public void AE_FireIdx(int i)
     {
