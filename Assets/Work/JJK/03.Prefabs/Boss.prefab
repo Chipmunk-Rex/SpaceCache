@@ -56,7 +56,7 @@ MonoBehaviour:
   bulletPrefab2: {fileID: 1294722249204338870, guid: 2ffbf4f919ad62d42b6f9ad3fa7f35f1, type: 3}
   playerPos: {fileID: 0}
   turnSpeed: 3
-  laserPrefab: {fileID: 0}
+  laserPrefab: {fileID: 5786346314752789046}
   spinSpeed: 72
   firePoint: {fileID: 6560895121879736994}
   main: {fileID: 3766630437826574850}
@@ -561,6 +561,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser
       objectReference: {fileID: 0}
+    - target: {fileID: 2104349193273376222, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5345920206478112272, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -604,10 +608,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2104349193273376222, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5722725785346416026}
   m_SourcePrefab: {fileID: 100100000, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
 --- !u!4 &525121510931595768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5345920206478112272, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
   m_PrefabInstance: {fileID: 5582525244872816616}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5786346314752789046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2104349193273376222, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
+  m_PrefabInstance: {fileID: 5582525244872816616}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5722725785346416026
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786346314752789046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2da069f798046a54994dc30c60ccdd3e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

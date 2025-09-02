@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Boss1
   m_EditorClassIdentifier: 
   bossName: Boss1
+  bossPrefab: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
   hp: 2000
   damage: 30
   moveSpeed: 4
