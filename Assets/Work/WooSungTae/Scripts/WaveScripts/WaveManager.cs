@@ -50,6 +50,11 @@ public class WaveManager : MonoBehaviour
         {
             waveNum++;
             _text.text = $"wave : {waveNum}";
+
+            if(waveList.bossSpawn)
+            {
+                StartCoroutine(BossEnter(waveList));
+            }
             foreach(var e in waveList.sequence)
             {
                 for(int i = 0; i < e.count; i++)
@@ -60,6 +65,16 @@ public class WaveManager : MonoBehaviour
             }
             yield return new WaitForSeconds(waveList.waveEndTime);
         }
+    }
+    IEnumerator BossEnter(WaveSO waveSO)
+    {
+        float time = 0;
+        while (time > waveSO.bossSpawnTiming)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+        pooling.SpawnBoss(waveSO.boss, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
     }
 
     public void UpgradeEnemy(EnemyBase enemyBase)

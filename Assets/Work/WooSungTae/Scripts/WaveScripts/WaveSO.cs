@@ -6,8 +6,9 @@ public class WaveSO : ScriptableObject
 
     [Header("웨이브 설정")]
     public float waveEndTime; // 에너미가 소환 다 된 후, 다음 라운드로 가는 시간
-    public bool bossSpawnTiming; // 보스 소환되는 시간
-
+    public float bossSpawnTiming; // 보스 소환되는 시간
+    public BossStatSO boss;
+    public bool bossSpawn;
     
        [Header("스폰")]
     public SequenceEntry[] sequence;

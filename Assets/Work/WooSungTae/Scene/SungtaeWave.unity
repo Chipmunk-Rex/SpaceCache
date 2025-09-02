@@ -736,9 +736,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
+      propertyPath: bossSpawnMaxCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
+      propertyPath: bossList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: enemyList.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
+      propertyPath: 'bossList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c78290baabe83644a2d93220c262c1f, type: 2}
     - target: {fileID: 2304040474187923952, guid: d2fe95151f29a8042a69429538cca095, type: 3}
       propertyPath: 'enemyList.Array.data[0]'
       value: 

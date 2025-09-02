@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Wave1
   m_EditorClassIdentifier: 
   waveEndTime: 3
-  bossSpawnTiming: 0
+  bossSpawnTiming: 10
+  boss: {fileID: 11400000, guid: 9c78290baabe83644a2d93220c262c1f, type: 2}
+  bossSpawn: 1
   sequence:
   - enemy: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
     count: 10
