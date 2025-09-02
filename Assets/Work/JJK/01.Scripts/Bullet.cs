@@ -33,6 +33,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.Log(collision.gameObject.name);
             gameObject.SetActive(false);
         }
     }

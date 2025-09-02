@@ -15,5 +15,5 @@ MonoBehaviour:
   repeatCount: 2
   bulletPerRound: 5
   angleStep: 15
-  waitBetweenRounds: 0.5
+  waitBetweenRounds: 1
   moveSpeed: 7
