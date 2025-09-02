@@ -18,15 +18,15 @@ public class Bomber : EnemyBase
     }
     
     public override void IncreaseAttack(float amount)
-        {
+    {
             bonusDamage += amount;
-        }
+    }
         
-        public override void IncreaseDefense(float amount)
-        {
+    public override void IncreaseDefense(float amount)
+    {
             bonusHealth += amount;
             currentHealth += amount; 
-        }
+    }
         
     protected override void Attack()
     {
