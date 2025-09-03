@@ -72,6 +72,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7445160507947023252, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8316952275482800050, guid: 89855d70a0f1067458191f056e4f34a0, type: 3}
       propertyPath: lifeTime
       value: 3
