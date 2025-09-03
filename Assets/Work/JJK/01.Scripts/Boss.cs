@@ -44,11 +44,14 @@ public class Boss : MonoBehaviour
     GameObject[] bulletPool2;
     int poolSize = 150;
     bool isSpin;
+    
+    ObjectPooling objectPooling;
 
     private void Awake()
     {
         InitBulletPool();
         InitBulletPool2();
+        objectPooling = GetComponentInParent<ObjectPooling>();
     }
 
     private void Start()
@@ -129,7 +132,7 @@ public class Boss : MonoBehaviour
 
         yield return new WaitForSeconds(1.1f);
 
-        Destroy(gameObject);
+        objectPooling.ReturnBoss(stat, gameObject);
     }
 
     private void NextPattern()
