@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6204621183595656170}
   - component: {fileID: 5364402422251972702}
   - component: {fileID: 5005360236720778682}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Bomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,9 +78,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -5549919797473692805, guid: 68d2b278e28ad2548a0a334ef98c3f44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 2497518949808899295}
   - component: {fileID: 5527717105499854294}
   - component: {fileID: 8729336084387052396}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BomberEn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
