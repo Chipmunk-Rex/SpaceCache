@@ -60,11 +60,16 @@ public class WaveManager : MonoBehaviour
                 for(int i = 0; i < e.count; i++)
                 {
                     GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
-                    yield return new WaitForSeconds(e.defaultGap);
                     UpgradeEnemy(enemy, e.enemy);
+                    yield return new WaitForSeconds(e.defaultGap);
                 }
             }
-            yield return new WaitForSeconds(waveList.waveEndTime);
+            float a = 0;
+            while(a < waveList.waveEndTime && pooling.enemyCount > 0)
+            {
+                a += Time.deltaTime;
+                yield return null;
+            }
         }
     }
     IEnumerator BossEnter(WaveSO waveSO)
@@ -80,37 +85,15 @@ public class WaveManager : MonoBehaviour
 
     public void UpgradeEnemy(GameObject enemy, EnemySo so)
     {
-        if(waveNum > 12)
-        {
-            if (enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
-            {
-                enemyBase.IncreaseAttack(so.enemyDamageUp * 4);
-                enemyBase.IncreaseDefense(so.enemyDefenseUp * 4);
-            }
-        }
-        else if(waveNum > 9)
-        {
-            if (enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
-            {
-                enemyBase.IncreaseAttack(so.enemyDamageUp * 3);
-                enemyBase.IncreaseDefense(so.enemyDefenseUp * 3);
-            }
-        }
-        else if(waveNum > 6)
-        {
-            if (enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
-            {
-                enemyBase.IncreaseAttack(so.enemyDamageUp * 2);
-                enemyBase.IncreaseDefense(so.enemyDefenseUp * 2);
-            }
-        }
-        else if(waveNum > 3)
-        {
-            if (enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase))
-            {
-                enemyBase.IncreaseAttack(so.enemyDamageUp * 1.5f);
-                enemyBase.IncreaseDefense(so.enemyDefenseUp * 1.5f);
-            }
-        }
+        if (!enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase)) return;
+
+        float mul =
+        (waveNum > 12) ? 4f :
+        (waveNum > 9) ? 3f :
+        (waveNum > 6) ? 2f :
+        (waveNum > 3) ? 1.5f : 1f;
+
+        enemyBase.IncreaseAttack(so.enemyDamageUp * mul);
+        enemyBase.IncreaseDefense(so.enemyDefenseUp * mul);
     }
 }
