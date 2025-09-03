@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7141720193446432434}
   - component: {fileID: 5919411027325128721}
   - component: {fileID: 812737897199885643}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 601218000172454481}
   - component: {fileID: 641726549310950745}
   - component: {fileID: 3555999015175337251}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 9165489683368236032}
   - component: {fileID: 5655030736315206603}
   - component: {fileID: 6540969758097077722}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 6374936308180953154}
   - component: {fileID: 4668122650016468823}
   - component: {fileID: 6366721890983812898}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,8 +265,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -6806687357194173547, guid: 17b87b8368d0c6046bcd92b92089e36e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 4383549229441720447}
   - component: {fileID: 1885873624944176059}
   - component: {fileID: 7288873871653093544}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   - component: {fileID: 8996946276850726044}
   - component: {fileID: 8294209498025632358}
   - component: {fileID: 2743039631751740745}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6772777152207994902}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607895497911283771}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 5086511687787529668}
   - component: {fileID: 8027408604211550836}
   - component: {fileID: 4705639973942950807}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TorpedoEn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165654100546128782}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5565866257467434040}
   - component: {fileID: 4298522158305906803}
   - component: {fileID: 4758416558569417467}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TorpedoEn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818541460979828352}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3137703120968939896}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   - component: {fileID: 2558274604833099830}
   - component: {fileID: 247298039688739045}
   - component: {fileID: 7268924969477701493}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: 'TorpedoShip '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -490,8 +490,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -108714686370236361, guid: df9b6316b94019342836217cca19f109, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -629,7 +629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6728200175982250020}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter4
   m_TagString: Untagged
   m_Icon: {fileID: 0}

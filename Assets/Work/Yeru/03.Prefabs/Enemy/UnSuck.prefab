@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4780132298128521770}
   - component: {fileID: 5728425876152169623}
   - component: {fileID: 3392607062482311876}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 4019285326129596977, guid: 47806e002da7ea04991747e5552c26e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -220,7 +220,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4478491060231431561}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: UnSuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
