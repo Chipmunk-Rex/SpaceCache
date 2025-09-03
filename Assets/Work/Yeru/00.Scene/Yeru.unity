@@ -502,6 +502,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4575568298653646426, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4575568298653646426, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 2121691203
+      objectReference: {fileID: 0}
     - target: {fileID: 4998605848131002836, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
       propertyPath: m_Name
       value: 'TorpedoShip '
