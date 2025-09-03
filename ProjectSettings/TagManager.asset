@@ -60,5 +60,11 @@ TagManager:
   - name: Boss
     uniqueID: 3834327981
     locked: 0
+  - name: EnemyBullet
+    uniqueID: 2144510361
+    locked: 0
+  - name: BossBullet
+    uniqueID: 4083421237
+    locked: 0
   m_RenderingLayers:
   - Default

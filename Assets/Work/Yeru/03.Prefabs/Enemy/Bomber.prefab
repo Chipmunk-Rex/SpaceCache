@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3014516575959379642}
   - component: {fileID: 6204621183595656170}
   - component: {fileID: 5364402422251972702}
-  - component: {fileID: 5005360236720778682}
+  - component: {fileID: 4039883459444956573}
   m_Layer: 16
   m_Name: Bomber
   m_TagString: Untagged
@@ -159,8 +159,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5005360236720778682
-PolygonCollider2D:
+--- !u!61 &4039883459444956573
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,36 +193,18 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.22811699, y: 0.3241933}
-      - {x: 0.16627932, y: 0.3410266}
-      - {x: 0.12363052, y: 0.38708842}
-      - {x: -0.15054607, y: 0.38115767}
-      - {x: -0.18306684, y: 0.32072115}
-      - {x: -0.26984215, y: 0.3334846}
-      - {x: -0.38793993, y: 0.3373489}
-      - {x: -0.5077276, y: 0.29318154}
-      - {x: -0.47787285, y: -0.5104922}
-      - {x: -0.15287161, y: -0.48046374}
-      - {x: 0.21185637, y: -0.46914792}
-      - {x: 0.29820728, y: -0.5008426}
-      - {x: 0.43771362, y: -0.49457097}
-      - {x: 0.5002136, y: -0.37217844}
-      - {x: 0.53010035, y: 0.2845354}
-      - {x: 0.5307045, y: 0.28917718}
-      - {x: 0.39017677, y: 0.34353608}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 1.9, y: 1.7}
+  m_EdgeRadius: 0
 --- !u!1 &8777226444813315981
 GameObject:
   m_ObjectHideFlags: 0
