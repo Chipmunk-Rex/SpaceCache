@@ -502,13 +502,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4575568298653646426, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4998605848131002836, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
       propertyPath: m_Name
       value: 'TorpedoShip '
       objectReference: {fileID: 0}
     - target: {fileID: 4998605848131002836, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7429833203692388794, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
       propertyPath: m_LocalPosition.x
