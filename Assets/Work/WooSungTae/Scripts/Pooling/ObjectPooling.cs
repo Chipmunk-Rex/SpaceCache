@@ -5,6 +5,7 @@ public class ObjectPooling : MonoBehaviour
 {
     [SerializeField] private int enemySpawnMaxCount; // ¿¡³Ê¹Ì ÃÑ ¼ÒÈ¯ ÇÑµµ È½¼ö
     [SerializeField] private int bossSpawnMaxCount; // º¸½º ÃÑ ¼ÒÈ¯ ÇÑµµ È½¼ö
+    public int enemyCount { get; private set; } = 0;
 
     private Dictionary<EnemySo,Stack<GameObject>> enemyDic = new();
     [SerializeField] private List<EnemySo> enemyList = new();
@@ -38,10 +39,12 @@ public class ObjectPooling : MonoBehaviour
         if (bossDic[so].Count > 0)
         {
             boss = bossDic[so].Pop();
+            enemyCount++;
         }
         else
         {
             boss = Instantiate(so.bossPrefab, transform);
+            enemyCount++;
         }
         boss.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
         boss.SetActive(true);
@@ -53,6 +56,7 @@ public class ObjectPooling : MonoBehaviour
     {
         boss.SetActive(false);
         bossDic[so].Push(boss);
+        enemyCount--;
     }
     #endregion
     #region enemy
@@ -79,10 +83,12 @@ public class ObjectPooling : MonoBehaviour
         if (enemyDic[so].Count > 0)
         {
             a = enemyDic[so].Pop();
+            enemyCount++;
         }
         else
         {
             a = Instantiate(so.prefab, transform);
+            enemyCount++;
         }
         a.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
         a.SetActive(true);
@@ -94,6 +100,7 @@ public class ObjectPooling : MonoBehaviour
     {
          enemy.SetActive(false);
          enemyDic[so].Push(enemy);
+        enemyCount--;
     }
     #endregion
 }
