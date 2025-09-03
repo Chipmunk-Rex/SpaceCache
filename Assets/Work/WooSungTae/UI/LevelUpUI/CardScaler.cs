@@ -22,12 +22,12 @@ public class CardScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         cardDescription.SetActive(true);
         cardImage.SetActive(false);
-        transform.DOScale(new Vector2(1.2f, 1.2f), 0.5f);
+        transform.DOScale(new Vector2(1.2f, 1.2f), 0.5f).SetUpdate(true);
     }
     public void CardImageActive()
     {
         cardDescription.SetActive(false);
         cardImage.SetActive(true);
-        transform.DOScale(new Vector2(1f, 1f), 0.5f);
+        transform.DOScale(new Vector2(1f, 1f), 0.5f).SetUpdate(true);
     }
 }
