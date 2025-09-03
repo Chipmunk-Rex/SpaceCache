@@ -62,7 +62,8 @@ namespace Code.Scripts.Items.Combat
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (other.gameObject.CompareTag("Test"))
+            if (other.gameObject.layer == LayerMask.NameToLayer("Enemy")
+                || other.gameObject.layer == LayerMask.NameToLayer("Boss"))
             {
                 other.gameObject.GetComponent<EntityHealth>().SetHp(-damage); 
                 _myPool.Push(this);

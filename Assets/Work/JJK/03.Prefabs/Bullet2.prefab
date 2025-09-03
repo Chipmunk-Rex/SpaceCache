@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5911938762092770760, guid: 513c1a2972496b041877c2fbeb080e40, type: 3}
+      propertyPath: m_Radius
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 6148923690222346907, guid: 513c1a2972496b041877c2fbeb080e40, type: 3}
       propertyPath: m_Sprite
       value: 
