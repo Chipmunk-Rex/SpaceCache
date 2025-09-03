@@ -868,7 +868,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1489093113
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -2
   m_Time: 1
   m_PreviewTimeScale: 1
@@ -1152,7 +1152,7 @@ TrailRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1489093113
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -2
   m_Time: 1
   m_PreviewTimeScale: 1
@@ -1783,7 +1783,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1040944987
-  m_SortingLayer: 5
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 3371055400210140835, guid: 9e3d4b267d9d6d94c81bcc711d6fad93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3706,7 +3706,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1276312995
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 611724665972262944, guid: a5cd65ed3295bfa48afe14fcbf0c4399, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3823,7 +3823,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1489093113
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -5448727121883926364, guid: b4e924bc20c57b44f8ad4e8b3a5e362d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4274,7 +4274,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1489093113
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: -1
   m_Sprite: {fileID: -5448727121883926364, guid: b4e924bc20c57b44f8ad4e8b3a5e362d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4884,6 +4884,8 @@ MonoBehaviour:
   cardMusic: {fileID: 1562416443}
   content: {fileID: 1482078625}
   skillUi: {fileID: 444057517309015986, guid: d11186333b015454c8e589518a6a802f, type: 3}
+  biHangGi_image: {fileID: 0}
+  airPlane: {fileID: 0}
 --- !u!1 &2001640600779393208
 GameObject:
   m_ObjectHideFlags: 0
