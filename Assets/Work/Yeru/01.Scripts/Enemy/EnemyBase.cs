@@ -22,6 +22,8 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
     public abstract void IncreaseDefense(float amount);  // 체력 수치 증가
     
+    private ObjectPooling pool;
+    
     protected virtual void Awake()
     {
         currentHealth   = data.maxHealth;
@@ -30,6 +32,8 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
         animator        = GetComponent<Animator>();
         rb              = GetComponent<Rigidbody2D>();
         col             = GetComponent<Collider2D>();
+        
+        pool = GetComponentInParent<ObjectPooling>();
 
         attackTimer     = 0f;
         OnInit();
@@ -86,7 +90,8 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
             spriteRenderer.color = color;
             yield return null; 
         }
-        gameObject.SetActive(false);
+        if (pool != null)
+                    pool.ReturnEnemy(data, gameObject);
     }
 
     private void OnEnable()

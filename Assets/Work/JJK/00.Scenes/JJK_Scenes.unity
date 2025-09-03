@@ -139,10 +139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss2
       objectReference: {fileID: 0}
-    - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2623119900522431616, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.57852906
@@ -394,7 +390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a2326da05ef674448d7fcf3e155d724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &408080797
+--- !u!1001 &505960252
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -406,21 +402,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 65640576155392621, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 331889341}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.49
+      value: -4.280158
       objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: 2.925033
       objectReference: {fileID: 0}
     - target: {fileID: 4422470896466638407, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -633,7 +621,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 00000000ad338be4
+  m_ApplyToSortingLayers: 00000000a570f4c1f9c1c1584370767ea3fd124cad338be4
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -753,6 +741,6 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 331889341}
-  - {fileID: 408080797}
   - {fileID: 1397310744}
   - {fileID: 211443506}
+  - {fileID: 505960252}
