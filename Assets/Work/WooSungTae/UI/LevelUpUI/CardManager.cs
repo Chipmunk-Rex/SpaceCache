@@ -125,8 +125,8 @@ public class CardManager : MonoBehaviour
     public void AirPlaneMove()
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce));
-        seq.Append(airPlane.transform.DOScale(1, 0.6f));
+        seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce)).SetUpdate(true);
+        seq.Append(airPlane.transform.DOScale(1, 0.6f)).SetUpdate(true);
     }
     
     IEnumerator CardUp()
