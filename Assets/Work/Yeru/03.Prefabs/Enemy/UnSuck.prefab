@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf64f41f6b0faa42b888af3fb43dd8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Range: 1.5
+  Range: 3
   damege: 100
   playerTag: Player
 --- !u!1 &6097428571700696030
