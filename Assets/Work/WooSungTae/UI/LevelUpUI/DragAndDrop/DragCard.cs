@@ -19,16 +19,19 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
         canvas = GetComponentInParent<Canvas>();
     }
     public void OnBeginDrag(PointerEventData eventData)
-    {
-        startPos = rt.anchoredPosition;
-        cg.blocksRaycasts = false;
-        wasDropped = false;
-        Debug.Log(cg.blocksRaycasts);
+    { 
+            startPos = rt.anchoredPosition;
+            cg.blocksRaycasts = false;
+            wasDropped = false;
+            Debug.Log(cg.blocksRaycasts);
+        
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
+       
+            rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
