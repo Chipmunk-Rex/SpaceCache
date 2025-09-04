@@ -2,6 +2,7 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ButtonClick : MonoBehaviour
 {
@@ -26,14 +27,12 @@ public class ButtonClick : MonoBehaviour
             mover.SetStartStop(true);
             optionPanel.transform.DOLocalMove(new Vector3(0, up, 0), 1);
             startPanel.transform.DOLocalMove(new Vector3(0, 1300, 0), 1);
-            closePanel2.transform.DOLocalMoveY(-400, 1);
         }
     }
     public void OptionExit()
     {
         startPanel.transform.DOLocalMove(new Vector3(0, 0, 0), 1);
         optionPanel.transform.DOLocalMove(new Vector3(0, -1300, 0), 1);
-        closePanel2.transform.DOLocalMoveY(-1100, 1);
         StartCoroutine(StartStopFalse());
     }
 
@@ -59,12 +58,13 @@ public class ButtonClick : MonoBehaviour
             for(int i = 0; i< BTN.Length; i++)
             {
                 Sequence sequence = DOTween.Sequence();
-                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.4f));
-                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.8f));
-                yield return new WaitForSeconds(0.2f);
+                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f));
+                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f));
+                yield return new WaitForSeconds(0.15f);
             }
             yield return new WaitForSeconds(1);
-            closePanel2.transform.DOLocalMoveY(0,0.3f).SetEase(Ease.InFlash);
+
+            //SceneManager.LoadScene("DemoScene");
         }
     }
 }
