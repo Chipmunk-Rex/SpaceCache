@@ -6,7 +6,6 @@ public class EnemySo : ScriptableObject
     public string enemyName;
     public float moveSpeed;
     public float attackCooldown;
-    public float damage;
     public float range;
     public float engageRange;
     public float rotationSpeed;

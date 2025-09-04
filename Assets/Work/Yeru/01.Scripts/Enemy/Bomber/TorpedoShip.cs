@@ -1,17 +1,18 @@
+using Code.Scripts.Entities;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class TorpedoShip : EnemyBase
 {
     [SerializeField] private TorpedoBullet bulletPrefab;
-    [SerializeField] private Transform[] shooter; 
+    [SerializeField] private Transform[] shooter;
 
-    private float bonusDamage = 0f;
-    private float bonusHealth = 0f;
+    private EntityAttack _attackCompo;
 
     protected override void Awake()
     {
         base.Awake();
+        _attackCompo = GetCompo<EntityAttack>();
     }
 
     protected override void OnInit()
@@ -21,13 +22,12 @@ public class TorpedoShip : EnemyBase
     
      public override void IncreaseAttack(float amount)
      {
-         bonusDamage += amount;
+         _statCompo.IncreaseBaseValue(attackStat, amount);
      }
             
      public override void IncreaseDefense(float amount)
      {
-         bonusHealth += amount;
-         //currentHealth += amount; 
+         _statCompo.IncreaseBaseValue(hpStat, amount);
      }
     
     protected override void Attack()
@@ -56,7 +56,7 @@ public class TorpedoShip : EnemyBase
     private void FireFrom(Transform shooter)
     {
         var b = Instantiate(bulletPrefab);             
-        float dmgFromSo = data.damage;
-        b.InitFromMuzzle(shooter, dmgFromSo);
+        float dmg = _attackCompo.GetAttack();
+        b.InitFromMuzzle(shooter, dmg);
     }
 }

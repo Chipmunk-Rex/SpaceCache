@@ -1,23 +1,22 @@
 using UnityEngine;
 using System.Collections;
 using Code.Scripts.Items.Combat;
+using PSB_Lib.StatSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 [DisallowMultipleComponent]
 public class TorpedoBullet : MonoBehaviour
 {
-    
     [SerializeField] private float speed = 5f;
     [SerializeField] private Transform target;        
     [SerializeField] private float turnStart  = 280f;
     [SerializeField] private float turnDuration = 5f; 
     [SerializeField] private float life = 10f;
     
-    private float damage;
-    
     private float steerT; 
     private Rigidbody2D rb;
     private Coroutine lifeCo;
+    private float damage;
 
     void Awake()
     {
@@ -45,7 +44,6 @@ public class TorpedoBullet : MonoBehaviour
         if (lifeCo != null) { StopCoroutine(lifeCo); lifeCo = null; }
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        damage = 0f;
     }
 
     
@@ -53,7 +51,6 @@ public class TorpedoBullet : MonoBehaviour
     {
         transform.position = muzzle.position;
         transform.up = muzzle.up;
-
         damage = damageFromSo;
 
         if (!gameObject.activeSelf) gameObject.SetActive(true);

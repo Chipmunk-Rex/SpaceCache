@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 using Code.Scripts.Entities;
+using PSB_Lib.StatSystem;
 
-public abstract class EnemyBase : Entity
+public abstract class EnemyBase : Entity, IEntityComponent
 {
     [SerializeField] protected EnemySo data;
     public EnemySo Data => data;
@@ -16,12 +17,21 @@ public abstract class EnemyBase : Entity
     protected float attackTimer;
     protected bool  isDead; 
     
-    public float AttackPower { get; set; } 
-    
     public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
     public abstract void IncreaseDefense(float amount);  // 체력 수치 증가
     
     private ObjectPooling pool;
+
+    private Entity _entity;
+    protected EntityStat _statCompo;
+    [field: SerializeField] protected StatSO hpStat;
+    [field: SerializeField] protected StatSO attackStat;
+    
+    public void Initialize(Entity entity)
+    {
+        _entity = entity;
+        _statCompo = entity.GetCompo<EntityStat>();
+    }
     
     protected override void Awake()
     {

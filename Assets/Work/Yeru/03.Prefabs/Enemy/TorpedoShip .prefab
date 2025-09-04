@@ -420,6 +420,7 @@ GameObject:
   - component: {fileID: 247298039688739045}
   - component: {fileID: 7268924969477701493}
   - component: {fileID: 3541718445121116327}
+  - component: {fileID: 7414146348292155553}
   - component: {fileID: -2290230471685533472}
   m_Layer: 16
   m_Name: 'TorpedoShip '
@@ -610,6 +611,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   bulletPrefab: {fileID: 6262687865678848111, guid: 894159a34b0850b4d84a1b3481205cda, type: 3}
   shooter:
   - {fileID: 3137703120968939896}
@@ -655,6 +658,21 @@ MonoBehaviour:
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   maxHealth: 0
   currentHealth: 0
+--- !u!114 &7414146348292155553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1290518c624cada02f2e4fc28dd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  baseAttack: 0
+  currentAttack: 0
 --- !u!114 &-2290230471685533472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +689,9 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
     isUseOverride: 1
     overrideValue: 100
+  - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+    isUseOverride: 1
+    overrideValue: 5
 --- !u!1 &5312126028686396924
 GameObject:
   m_ObjectHideFlags: 0

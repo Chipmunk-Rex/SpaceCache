@@ -1,13 +1,18 @@
+using Code.Scripts.Entities;
+using PSB_Lib.StatSystem;
 using UnityEngine;
 
 public class Muzzle : MonoBehaviour
 {
     [SerializeField] private EnemyBulletPool pool;
+
+    private EntityAttack _attackCompo;
     private EnemyBase owner; 
 
     void Awake()
     {
         owner = GetComponentInParent<EnemyBase>();
+        _attackCompo = owner.GetCompo<EntityAttack>();
     }
 
     
@@ -18,6 +23,8 @@ public class Muzzle : MonoBehaviour
         var b = pool.Get();
         if (b == null) return; 
         b.transform.SetParent(null, true); 
-        b.InitFromMuzzle(transform, owner.Data.damage);
+        
+        float dmg = _attackCompo.GetAttack();
+        b.InitFromMuzzle(transform, dmg);
     }
 }

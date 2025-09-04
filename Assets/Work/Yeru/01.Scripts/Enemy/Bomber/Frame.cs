@@ -4,8 +4,6 @@ using UnityEngine;
 public class Frame : EnemyBase
 {
    [SerializeField] private Muzzle[] muzzles;
-   private float bonusDamage = 0f;
-   private float bonusHealth = 0f;
 
    protected override void Awake()
    {
@@ -22,13 +20,12 @@ public class Frame : EnemyBase
    
    public override void IncreaseAttack(float amount)
    {
-       bonusDamage += amount;
+       _statCompo.IncreaseBaseValue(attackStat, amount);
    }
-       
+            
    public override void IncreaseDefense(float amount)
    {
-       bonusHealth += amount;
-       //currentHealth += amount; 
+       _statCompo.IncreaseBaseValue(hpStat, amount);
    }
    
    public void HandleOnDead()

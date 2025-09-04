@@ -6,17 +6,15 @@ using UnityEngine;
 public class Bomber : EnemyBase
 {
     [SerializeField] private float     explosionRadius = 1.7f;  // 폭발 반경
-    [SerializeField] private float     explosionDamage = 100f;   //폭발 데ㅔ미지
     [SerializeField] private LayerMask damageLayers;
-    
+
+    private EntityAttack _attackCompo;
     private bool exploded;
-    
-    private float bonusDamage = 0f;
-    private float bonusHealth = 0f;
-    
+
     protected override void Awake()
     {
         base.Awake();
+        _attackCompo = GetCompo<EntityAttack>();
     }
 
     protected override void OnInit()
@@ -31,14 +29,14 @@ public class Bomber : EnemyBase
 
     public override void IncreaseAttack(float amount)
     {
-        bonusDamage += amount;
+        _statCompo.IncreaseBaseValue(attackStat, amount);
     }
-        
+            
     public override void IncreaseDefense(float amount)
     {
-        bonusHealth += amount;
+        _statCompo.IncreaseBaseValue(hpStat, amount);
     }
-        
+    
     public void HandleOnHit()
     {
         if (isDead) return;
@@ -50,7 +48,7 @@ public class Bomber : EnemyBase
         {
             exploded = true;
 
-            
+            float dmg = _attackCompo.GetAttack();
             Collider2D[] hits = (damageLayers.value != 0)
                 ? Physics2D.OverlapCircleAll(transform.position, explosionRadius, damageLayers)
                 : Physics2D.OverlapCircleAll(transform.position, explosionRadius);
@@ -59,7 +57,7 @@ public class Bomber : EnemyBase
             {
                 if (!h || h.gameObject == gameObject) continue;
                 if (h.TryGetComponent<EntityHealth>(out var d))
-                    d.SetHp(-explosionDamage);
+                    d.SetHp(-dmg);
             }
             
             if (rb) { rb.linearVelocity = Vector2.zero; rb.angularVelocity = 0f; }

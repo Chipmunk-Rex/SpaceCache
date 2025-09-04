@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 585779627250770258}
   - component: {fileID: -7181012061841225867}
   - component: {fileID: 7263249031701779157}
+  - component: {fileID: 1357725108439376722}
   m_Layer: 16
   m_Name: Fighter
   m_TagString: Untagged
@@ -221,6 +222,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   muzzles: []
 --- !u!114 &-7181012061841225867
 MonoBehaviour:
@@ -253,6 +256,24 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
     isUseOverride: 1
     overrideValue: 100
+  - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+    isUseOverride: 1
+    overrideValue: 10
+--- !u!114 &1357725108439376722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583878187766282213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1290518c624cada02f2e4fc28dd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  baseAttack: 0
+  currentAttack: 0
 --- !u!1 &3523533062487639287
 GameObject:
   m_ObjectHideFlags: 0

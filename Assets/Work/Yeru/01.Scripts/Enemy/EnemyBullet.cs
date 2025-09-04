@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Code.Scripts.Items.Combat;
+using PSB_Lib.StatSystem;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 [DisallowMultipleComponent]
@@ -10,8 +11,8 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private float life  = 5f;
 
     private Rigidbody2D rb;
-    private float damage;
     private Coroutine lifeCo;
+    private float damage;
 
     void Awake()
     {
@@ -34,7 +35,6 @@ public class EnemyBullet : MonoBehaviour
         if (lifeCo != null) { StopCoroutine(lifeCo); lifeCo = null; }
         rb.linearVelocity = Vector2.zero;
         rb.angularVelocity = 0f;
-        damage = 0f;
     }
 
  
