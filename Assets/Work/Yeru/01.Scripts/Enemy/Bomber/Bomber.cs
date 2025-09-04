@@ -1,4 +1,5 @@
 using Code.Scripts.Entities;
+using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -12,7 +13,7 @@ public class Bomber : EnemyBase
     
     private float bonusDamage = 0f;
     private float bonusHealth = 0f;
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -23,27 +24,27 @@ public class Bomber : EnemyBase
         base.OnInit();
         exploded = false;
     }
-    
+
+    protected override void Attack()
+    {
+    }
+
     public override void IncreaseAttack(float amount)
     {
-            bonusDamage += amount;
+        bonusDamage += amount;
     }
         
     public override void IncreaseDefense(float amount)
     {
-            bonusHealth += amount;
-            currentHealth += amount; 
+        bonusHealth += amount;
     }
         
-    protected override void Attack()
+    public void HandleOnHit()
     {
-        if (currentHealth <= 0) return;
-        currentHealth = 0;  
-        Die();
+        if (isDead) return;
     }
 
-   
-    protected override void Die()
+    public void HandleOnDead()
     {
         if (!exploded)
         {
@@ -57,15 +58,20 @@ public class Bomber : EnemyBase
             foreach (var h in hits)
             {
                 if (!h || h.gameObject == gameObject) continue;
-                if (h.TryGetComponent<IDamageable>(out var d))
-                    d.TakeDamage(explosionDamage);
+                if (h.TryGetComponent<EntityHealth>(out var d))
+                    d.SetHp(-explosionDamage);
             }
-
             
             if (rb) { rb.linearVelocity = Vector2.zero; rb.angularVelocity = 0f; }
             var col = GetComponent<Collider2D>(); if (col) col.enabled = false;
         }
 
+        Die();
+    }
+
+   
+    protected override void Die()
+    {
         base.Die(); 
     }
 

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Code.Scripts.Items.Combat;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 [DisallowMultipleComponent]
@@ -89,8 +90,8 @@ public class TorpedoBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        var d = other.GetComponentInParent<IDamageable>();
-        if (d != null) d.TakeDamage(damage);
+        var d = other.GetComponentInParent<EntityHealth>();
+        if (d != null) d.SetHp(-damage);
         gameObject.SetActive(false);
     }
 }

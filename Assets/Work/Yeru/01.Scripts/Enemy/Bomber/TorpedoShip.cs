@@ -27,7 +27,7 @@ public class TorpedoShip : EnemyBase
      public override void IncreaseDefense(float amount)
      {
          bonusHealth += amount;
-         currentHealth += amount; 
+         //currentHealth += amount; 
      }
     
     protected override void Attack()
@@ -36,7 +36,16 @@ public class TorpedoShip : EnemyBase
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("TorpedoWeapon")) return;
         animator.SetTrigger("attack");
     }
-    
+
+    public void HandleOnDead()
+    {
+        Die();
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
     
     public void AE_FireIdx(int i)
     {

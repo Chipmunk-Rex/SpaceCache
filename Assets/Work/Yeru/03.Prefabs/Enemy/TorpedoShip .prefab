@@ -596,7 +596,19 @@ MonoBehaviour:
       m_Calls: []
   OnDeadEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 247298039688739045}
+        m_TargetAssemblyTypeName: TorpedoShip, Assembly-CSharp
+        m_MethodName: HandleOnDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
   bulletPrefab: {fileID: 6262687865678848111, guid: 894159a34b0850b4d84a1b3481205cda, type: 3}
   shooter:

@@ -27,9 +27,19 @@ public class Fighter : EnemyBase
     public override void IncreaseDefense(float amount)
     {
         bonusHealth += amount;
-        currentHealth += amount; 
+        //currentHealth += amount; 
     }
    
+    public void HandleOnDead()
+    {
+        Die();
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
+    
     protected override void Attack()
     {
         for (int i = 0; i < muzzles.Length; i++)

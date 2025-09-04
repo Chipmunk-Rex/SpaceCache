@@ -28,7 +28,17 @@ public class Frame : EnemyBase
    public override void IncreaseDefense(float amount)
    {
        bonusHealth += amount;
-       currentHealth += amount; 
+       //currentHealth += amount; 
+   }
+   
+   public void HandleOnDead()
+   {
+       Die();
+   }
+
+   protected override void Die()
+   {
+       base.Die();
    }
    
    protected override void Attack()

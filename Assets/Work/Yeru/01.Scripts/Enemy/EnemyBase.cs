@@ -2,13 +2,12 @@ using UnityEngine;
 using System.Collections;
 using Code.Scripts.Entities;
 
-public abstract class EnemyBase : Entity, IDamageable
+public abstract class EnemyBase : Entity
 {
     [SerializeField] protected EnemySo data;
     public EnemySo Data => data;
 
     protected Transform     player;
-    protected float           currentHealth;
     protected SpriteRenderer spriteRenderer;
     protected Animator       animator;
     protected Rigidbody2D    rb;
@@ -17,7 +16,6 @@ public abstract class EnemyBase : Entity, IDamageable
     protected float attackTimer;
     protected bool  isDead; 
     
-    public float Health { get; set; }
     public float AttackPower { get; set; } 
     
     public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
@@ -28,7 +26,6 @@ public abstract class EnemyBase : Entity, IDamageable
     protected override void Awake()
     {
         base.Awake();
-        currentHealth   = data.maxHealth;
         player          = GameObject.FindGameObjectWithTag("Player")?.transform;
         spriteRenderer  = GetComponent<SpriteRenderer>();
         animator        = GetComponent<Animator>();
@@ -62,25 +59,6 @@ public abstract class EnemyBase : Entity, IDamageable
     }
     
     protected abstract void Attack();
-    
-    public virtual void TakeDamage(float amount)
-    {
-        if (isDead) return; 
-        currentHealth -= Mathf.RoundToInt(amount);
-        if (currentHealth <= 0)
-            Die();
-    }
-    
-    protected virtual void Die()
-    {
-        if (isDead) return;      
-        isDead = true;
-        
-        if (rb  != null) { rb.linearVelocity = Vector2.zero; rb.simulated = false; }
-        if (col != null) col.enabled = false;
-
-        StartCoroutine(FaidOut());
-    }
 
     private IEnumerator FaidOut()
     {
@@ -93,15 +71,25 @@ public abstract class EnemyBase : Entity, IDamageable
             yield return null; 
         }
         if (pool != null)
-                    pool.ReturnEnemy(data, gameObject);
+            pool.ReturnEnemy(data, gameObject);
+    }
+    
+    protected virtual void Die()
+    {
+        Debug.Log("Dead");
+        if (isDead) return;      
+        isDead = true;
+        
+        if (rb  != null) { rb.linearVelocity = Vector2.zero; rb.simulated = false; }
+        if (col != null) col.enabled = false;
+
+        StartCoroutine(FaidOut());
     }
 
     private void OnEnable()
     {
         isDead = false;
         attackTimer = 0f;
-
-        if (data != null) currentHealth = data.maxHealth;
 
         if (rb != null)
         {
@@ -117,9 +105,10 @@ public abstract class EnemyBase : Entity, IDamageable
             spriteRenderer.color = c;
         }
     }
+    
     private void Update()
     {
-        if (isDead || currentHealth <= 0) return;
+        if (isDead) return;
         {
             Move();
 
@@ -138,4 +127,5 @@ public abstract class EnemyBase : Entity, IDamageable
             }
         }
     }
+    
 }

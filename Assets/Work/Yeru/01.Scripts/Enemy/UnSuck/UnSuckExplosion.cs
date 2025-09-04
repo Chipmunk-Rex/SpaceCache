@@ -1,3 +1,4 @@
+using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 public class UnSuckExplosion : MonoBehaviour
@@ -19,9 +20,9 @@ public class UnSuckExplosion : MonoBehaviour
             if (!hit.CompareTag(playerTag)) continue;
 
             
-            if (hit.TryGetComponent(out IDamageable dmg))
+            if (hit.TryGetComponent(out EntityHealth dmg))
             {
-                dmg.TakeDamage(damege);
+                dmg.SetHp(-damege);
             }
             else
             {
