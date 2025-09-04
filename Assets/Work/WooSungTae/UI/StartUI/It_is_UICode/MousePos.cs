@@ -12,7 +12,7 @@ public class MousePos : MonoBehaviour
         if (range.Contains(mouseWorldPos))
         {
             iInRange = true;
-            range.x = -4.5f;
+            range.x = -5f;
             Debug.Log("µé¾î¿È");
         }
         else

@@ -9,7 +9,6 @@ public class ButtonClick : MonoBehaviour
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject startPanel;
     [SerializeField] private GameObject[] BTN;
-    [SerializeField] private GameObject closePanel2;
     [SerializeField] private float up = 90;
     private UIMover mover;
     private StartMusicSFX startMusic; // 쓸 수도 있음
