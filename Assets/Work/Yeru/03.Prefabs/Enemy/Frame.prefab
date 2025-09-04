@@ -197,6 +197,8 @@ GameObject:
   - component: {fileID: 6374936308180953154}
   - component: {fileID: 4668122650016468823}
   - component: {fileID: 6366721890983812898}
+  - component: {fileID: 6411792921668512936}
+  - component: {fileID: -8013668484234332783}
   m_Layer: 16
   m_Name: Frame
   m_TagString: Untagged
@@ -386,8 +388,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f6b611c123bdf42bed6e14a0de0313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   data: {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
   muzzles: []
+--- !u!114 &6411792921668512936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &-8013668484234332783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71567fb4ca2e45109d8ab0a4ac96a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOverrides:
+  - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+    isUseOverride: 1
+    overrideValue: 100
 --- !u!1 &6017304992378579794
 GameObject:
   m_ObjectHideFlags: 0

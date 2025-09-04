@@ -4712,9 +4712,9 @@ MonoBehaviour:
   enemySpawnMaxCount: 100
   bossSpawnMaxCount: 0
   enemyList:
+  - {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
   - {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
   - {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
-  - {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
   - {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
   bossList: []
 --- !u!114 &2416826486765040121

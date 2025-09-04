@@ -1,7 +1,8 @@
 using UnityEngine;
 using System.Collections;
+using Code.Scripts.Entities;
 
-public abstract class EnemyBase : MonoBehaviour, IDamageable
+public abstract class EnemyBase : Entity, IDamageable
 {
     [SerializeField] protected EnemySo data;
     public EnemySo Data => data;
@@ -24,8 +25,9 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     
     private ObjectPooling pool;
     
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         currentHealth   = data.maxHealth;
         player          = GameObject.FindGameObjectWithTag("Player")?.transform;
         spriteRenderer  = GetComponent<SpriteRenderer>();
