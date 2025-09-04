@@ -31,7 +31,7 @@ public class UnSuckExplosion : MonoBehaviour
             
             if (hit.TryGetComponent(out IDamageable dmg))
             {
-                dmg.SetHp(finalDamage);
+                dmg.TakeDamage(finalDamage);
             }
             else
             {
