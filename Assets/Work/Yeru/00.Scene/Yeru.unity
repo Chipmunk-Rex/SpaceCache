@@ -684,10 +684,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnSuck
       objectReference: {fileID: 0}
-    - target: {fileID: 6097428571700696030, guid: 0ce111eb13ea04247a2fe73284befc0c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

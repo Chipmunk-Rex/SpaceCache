@@ -13,6 +13,9 @@ public class UnSuck : MonoBehaviour, IDamageable
     [SerializeField] private string _playerTag = "Player";
     private Vector2 _movedir;
     
+    private float bonusHealth = 0f;
+    private float bonusSpeed = 0f;
+    
     private Animator _animator;
     private Camera _mainCamera;
     private SpriteRenderer _spriteRenderer;
@@ -29,6 +32,17 @@ public class UnSuck : MonoBehaviour, IDamageable
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _currentHP=_maxHP;
         _mainCamera = Camera.main;
+    }
+    
+    public void IncreaseDefense(float amount)
+    {
+        bonusHealth += amount;
+        _maxHP += amount; 
+    }
+    public void IncreaseSpeed(float amount)
+    {
+        bonusSpeed += amount;
+        _speed += amount; 
     }
 
     private void Start()
@@ -97,13 +111,19 @@ public class UnSuck : MonoBehaviour, IDamageable
     {
         if (_die) return;                          
         if (!other.CompareTag(_playerTag)) return; 
-
+        _animator.SetTrigger("isHp");
         _currentHP = 0f;                           
     }
 
     private void OnEnable()
     {
+        _currentHP=_maxHP;
         _die = false;  
+        
+        if (TryGetComponent(out Collider2D col)) col.enabled = true;
+            if (_spriteRenderer != null) {
+                var c = _spriteRenderer.color; c.a = 1f; _spriteRenderer.color = c;
+            }
         Findplayer();
         _movedir = (_player.position - transform.position).normalized;
         _rb.linearVelocity = _movedir * _speed;  
