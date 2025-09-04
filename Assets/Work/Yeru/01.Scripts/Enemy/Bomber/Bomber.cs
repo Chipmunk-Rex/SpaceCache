@@ -1,3 +1,4 @@
+using Code.Scripts.Entities;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
@@ -5,15 +6,21 @@ public class Bomber : EnemyBase
 {
     [SerializeField] private float     explosionRadius = 1.7f;  // 폭발 반경
     [SerializeField] private float     explosionDamage = 100f;   //폭발 데ㅔ미지
-    [SerializeField] private LayerMask damageLayers;            
-  
+    [SerializeField] private LayerMask damageLayers;
+    
     private bool exploded;
     
     private float bonusDamage = 0f;
     private float bonusHealth = 0f;
-    
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
     protected override void OnInit()
     {
+        base.OnInit();
         exploded = false;
     }
     
@@ -69,4 +76,5 @@ public class Bomber : EnemyBase
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
     }
 #endif
+    
 }

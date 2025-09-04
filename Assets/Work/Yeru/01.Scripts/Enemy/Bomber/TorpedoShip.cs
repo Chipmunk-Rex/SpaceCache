@@ -9,7 +9,15 @@ public class TorpedoShip : EnemyBase
     private float bonusDamage = 0f;
     private float bonusHealth = 0f;
 
-    protected override void OnInit() { }
+    protected override void Awake()
+    {
+        base.Awake();
+    }
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+    }
     
      public override void IncreaseAttack(float amount)
      {

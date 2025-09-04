@@ -6,9 +6,16 @@ public class Frame : EnemyBase
    [SerializeField] private Muzzle[] muzzles;
    private float bonusDamage = 0f;
    private float bonusHealth = 0f;
-   
+
+   protected override void Awake()
+   {
+       base.Awake();
+   }
+
    protected override void OnInit()
    {
+       base.OnInit();
+       
       if (muzzles == null || muzzles.Length == 0)
          muzzles = GetComponentsInChildren<Muzzle>(true);
    }

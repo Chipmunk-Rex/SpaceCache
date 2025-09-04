@@ -419,6 +419,8 @@ GameObject:
   - component: {fileID: 2558274604833099830}
   - component: {fileID: 247298039688739045}
   - component: {fileID: 7268924969477701493}
+  - component: {fileID: 3541718445121116327}
+  - component: {fileID: -2290230471685533472}
   m_Layer: 16
   m_Name: 'TorpedoShip '
   m_TagString: Untagged
@@ -589,6 +591,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c09c279dd861f48886f8d2d68ba9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
   bulletPrefab: {fileID: 6262687865678848111, guid: 894159a34b0850b4d84a1b3481205cda, type: 3}
   shooter:
@@ -620,6 +628,37 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3541718445121116327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &-2290230471685533472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71567fb4ca2e45109d8ab0a4ac96a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOverrides:
+  - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+    isUseOverride: 1
+    overrideValue: 100
 --- !u!1 &5312126028686396924
 GameObject:
   m_ObjectHideFlags: 0
