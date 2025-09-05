@@ -64,6 +64,15 @@ public class CardManager : MonoBehaviour
         }
     }
 
+    public void SetRaycastsAll(bool enabled)
+    {
+        foreach (var go in gameObjectCard)
+        {
+            var cg = go.GetComponent<CanvasGroup>();
+            if (cg) cg.blocksRaycasts = enabled;
+        }
+    }
+
     private void LevelUpUIOpen()
     {
         Time.timeScale = 0;
