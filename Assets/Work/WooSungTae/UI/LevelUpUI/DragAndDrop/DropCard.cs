@@ -13,9 +13,7 @@ public class DropCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnDrop(PointerEventData eventData)
     {
         Card card = eventData.pointerDrag.GetComponent<Card>();
-        DragCard dragCard = eventData.pointerDrag.GetComponent<DragCard>();
         card.OnClickCard();
-        dragCard.Dropped();
         cardManager.StartCardUp();
     }
 
