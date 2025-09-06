@@ -1,3 +1,4 @@
+using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 public class UnSuckExplosion : MonoBehaviour
@@ -29,13 +30,13 @@ public class UnSuckExplosion : MonoBehaviour
             if (!hit.CompareTag(playerTag)) continue;
 
             
-            if (hit.TryGetComponent(out IDamageable dmg))
+            if (hit.TryGetComponent(out EntityHealth dmg))
             {
-                dmg.TakeDamage(finalDamage);
+                dmg.SetHp(-finalDamage);
             }
             else
             {
-                Debug.LogWarning($"Player에 IDamageable이 없음: {hit.name}");
+                Debug.LogWarning($"Player에 EntityHealth가 없음: {hit.name}");
             }
         }
     }

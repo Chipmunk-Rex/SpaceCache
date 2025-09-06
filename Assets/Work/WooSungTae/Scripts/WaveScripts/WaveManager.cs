@@ -96,5 +96,6 @@ public class WaveManager : MonoBehaviour
 
         enemyBase.IncreaseAttack(so.enemyDamageUp * mul);
         enemyBase.IncreaseDefense(so.enemyDefenseUp * mul);
+        //enemyBase.IncreaseSpeed(so.enemyDamageUp);
     }
 }

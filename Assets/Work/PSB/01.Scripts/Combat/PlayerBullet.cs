@@ -66,8 +66,15 @@ namespace Code.Scripts.Items.Combat
                 || other.gameObject.layer == LayerMask.NameToLayer("Boss"))
             {
                 other.gameObject.GetComponent<EntityHealth>().SetHp(-damage); 
-                _myPool.Push(this);
             }
+
+            if (other.gameObject.layer == LayerMask.NameToLayer("Meteor"))
+            {
+                UnSuck meteor = other.gameObject.GetComponentInChildren<UnSuck>();
+                meteor.currentHP -= damage;
+            }
+            
+            _myPool.Push(this);
         }
         
         #endregion
