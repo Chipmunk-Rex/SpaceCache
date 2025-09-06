@@ -1700,9 +1700,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1599619486}
-        m_TargetAssemblyTypeName: StartMusicSFX, Assembly-CSharp
-        m_MethodName: RocketLaunch
+      - m_Target: {fileID: 1599619485}
+        m_TargetAssemblyTypeName: ButtonClick, Assembly-CSharp
+        m_MethodName: StartClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3587,7 +3587,6 @@ MonoBehaviour:
   - {fileID: 687903792}
   - {fileID: 1446935356}
   - {fileID: 322372774}
-  closePanel2: {fileID: 0}
   up: 30
 --- !u!114 &1599619486
 MonoBehaviour:
