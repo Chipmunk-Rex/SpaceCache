@@ -19,6 +19,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     public abstract void IncreaseAttack(float amount);   // 공격력 수치 증가
     public abstract void IncreaseDefense(float amount);  // 체력 수치 증가
+    public abstract void IncreaseSpeed(float amount);
     
     private ObjectPooling pool;
 

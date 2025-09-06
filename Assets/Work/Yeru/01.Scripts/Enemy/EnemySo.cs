@@ -12,4 +12,5 @@ public class EnemySo : ScriptableObject
     public GameObject prefab;
     public float enemyDamageUp;
     public float enemyDefenseUp;
+    public float enemySpeedUp;
 }

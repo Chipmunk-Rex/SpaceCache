@@ -237,6 +237,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b43b50bf57e220447a170c7168eea7c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  data: {fileID: 11400000, guid: 641e31b9b8bec204f8168755a1070822, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   _speed: 1
   currentHP: 0
   _maxHP: 4000

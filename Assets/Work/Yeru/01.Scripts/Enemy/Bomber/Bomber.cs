@@ -36,6 +36,10 @@ public class Bomber : EnemyBase
     {
         _statCompo.IncreaseBaseValue(hpStat, amount);
     }
+
+    public override void IncreaseSpeed(float amount)
+    {
+    }
     
     public void HandleOnHit()
     {

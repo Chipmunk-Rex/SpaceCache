@@ -29,6 +29,10 @@ public class TorpedoShip : EnemyBase
      {
          _statCompo.IncreaseBaseValue(hpStat, amount);
      }
+     
+     public override void IncreaseSpeed(float amount)
+     {
+     }
     
     protected override void Attack()
     {

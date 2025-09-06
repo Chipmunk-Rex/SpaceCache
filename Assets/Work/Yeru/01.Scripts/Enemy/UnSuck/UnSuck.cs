@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class UnSuck : MonoBehaviour, IDamageable
+public class UnSuck : EnemyBase, IDamageable
 {
     private Rigidbody2D _rb;
     [SerializeField]float _speed=1f;
@@ -23,7 +23,7 @@ public class UnSuck : MonoBehaviour, IDamageable
     private bool _Degam;
     private bool _die;
 
-    private void Awake()
+    protected override void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponentInChildren<Animator>();
@@ -32,19 +32,27 @@ public class UnSuck : MonoBehaviour, IDamageable
         currentHP=_maxHP;
         _mainCamera = Camera.main;
     }
-    
-    public void IncreaseDefense(float amount)
+
+    protected override void Attack()
+    {
+    }
+
+    public override void IncreaseAttack(float amount)
+    {
+    }
+
+    public override void IncreaseDefense(float amount)
     {
         bonusHealth += amount;
         _maxHP += amount; 
     }
-    public void IncreaseSpeed(float amount)
+    public override void IncreaseSpeed(float amount)
     {
         bonusSpeed += amount;
         _speed += amount; 
     }
 
-    private void Start()
+    protected override void Start()
     {
         _die=false;
     }
@@ -109,9 +117,7 @@ public class UnSuck : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.layer.ToString());
         if (_die) return;                          
-        
         if (collision.gameObject.layer != playerLayer) return;
         
         _animator.SetTrigger("isHp");
