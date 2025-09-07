@@ -1914,7 +1914,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -4765,7 +4765,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
   - {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
   - {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
-  bossList: []
+  bossList:
+  - {fileID: 11400000, guid: 9c78290baabe83644a2d93220c262c1f, type: 2}
+  - {fileID: 11400000, guid: 978888ea2d7cbd049a94e0bf81bb50fc, type: 2}
+  - {fileID: 11400000, guid: a601e62da61da0641a954adedca4444c, type: 2}
 --- !u!114 &2416826486765040121
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class ExplosionBullet : MonoBehaviour
 {
+    [field: SerializeField] public float damage = 1f;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float explodeTime = 2f;
     [SerializeField] private int fragmentCount = 8;
@@ -12,8 +13,9 @@ public class ExplosionBullet : MonoBehaviour
     private Boss boss;
     private float timeAlive = 0f;
 
-    public void Init(Vector3 dir, float speed, Boss bossRef)
+    public void Init(Vector3 dir, float bulletDamage, float speed, Boss bossRef)
     {
+        damage = bulletDamage;
         moveDir = dir.normalized;
         moveSpeed = speed;
         boss = bossRef;
@@ -27,7 +29,7 @@ public class ExplosionBullet : MonoBehaviour
     {
         timeAlive += Time.deltaTime;
 
-        transform.position += moveDir * moveSpeed * Time.deltaTime;
+        transform.position += moveDir * (moveSpeed * Time.deltaTime);
 
         if (timeAlive >= explodeTime)
         {
@@ -57,7 +59,7 @@ public class ExplosionBullet : MonoBehaviour
             {
                 fragment.transform.position = transform.position;
                 fragment.SetActive(true);
-                fragment.GetComponent<Bullet>().Init(dir, fragmentSpeed);
+                fragment.GetComponent<Bullet>().Init(dir, fragmentSpeed, damage);
             }
         }
 

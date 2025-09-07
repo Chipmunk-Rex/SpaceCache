@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1076298792593466310, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: statOverrides.Array.data[1].overrideValue
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1464212740032195530, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite
       value: 

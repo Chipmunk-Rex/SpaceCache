@@ -87,7 +87,6 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     protected virtual void Die()
     {
-        Debug.Log("Dead");
         if (isDead) return;      
         isDead = true;
         

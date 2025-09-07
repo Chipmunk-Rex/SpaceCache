@@ -103,7 +103,6 @@ public class UnSuck : EnemyBase, IDamageable
         if (isVisible&&!_Degam)
         {
             _Degam = true;
-            Debug.Log("da");
         }
     }
 

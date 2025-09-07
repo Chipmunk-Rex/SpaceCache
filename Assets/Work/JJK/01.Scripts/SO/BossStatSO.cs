@@ -6,8 +6,6 @@ public class BossStatSO : ScriptableObject
 {
     public string bossName;
     public GameObject bossPrefab;
-    public float hp;
-    public float damage;
     public float moveSpeed;
     public float reloadTime;
 
