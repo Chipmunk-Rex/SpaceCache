@@ -269,10 +269,10 @@ MonoBehaviour:
   statOverrides:
   - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
     isUseOverride: 1
-    overrideValue: 50
+    overrideValue: 30
   - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
     isUseOverride: 1
-    overrideValue: 50
+    overrideValue: 15
 --- !u!114 &8142116348276239082
 MonoBehaviour:
   m_ObjectHideFlags: 0
