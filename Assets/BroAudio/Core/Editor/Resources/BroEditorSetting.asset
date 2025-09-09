@@ -24,7 +24,7 @@ MonoBehaviour:
   AddressableDecision: 0
   EditTheNewClipAfterSaveAs: 1
   PingTheNewClipAfterSaveAs: 1
-  HasSetupWizardAutoLaunched: 0
+  HasSetupWizardAutoLaunched: 1
   AudioTypeSettings:
   - AudioType: 1
     Color: {r: 0.003921569, g: 0.18431373, b: 0.5294118, a: 0.29803923}
