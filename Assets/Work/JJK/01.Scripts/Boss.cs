@@ -129,11 +129,11 @@ public class Boss : Entity, IEntityComponent
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
-        hp = hpStat.Value;  // ✅ 첫 번째 코드 반영
+        hp = hpStat.Value;
         currentPatternList = stat.patterns;
     }
 
-    public void TakeDamage()  // ✅ 첫 번째 코드 반영
+    public void TakeDamage()
     {
         hp -= damage;
         StartCoroutine(Die());
@@ -223,7 +223,7 @@ public class Boss : Entity, IEntityComponent
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
             
-            bullet.GetComponent<Bullet>().Init(dir, speed, damage); // ✅ 첫 번째 코드 반영
+            bullet.GetComponent<Bullet>().Init(dir, speed, damage);
             bullet.SetActive(true);
         }
     }
@@ -248,7 +248,7 @@ public class Boss : Entity, IEntityComponent
                 float speed = 8f;
                 damage = _attackCompo.GetAttack();
                 bullet.transform.position = firePoint.position + offset;
-                bullet.GetComponent<Bullet>().Init(transform.up, speed, damage); // ✅ 첫 번째 코드 반영
+                bullet.GetComponent<Bullet>().Init(transform.up, speed, damage);
                 bullet.SetActive(true);
             }
         }
