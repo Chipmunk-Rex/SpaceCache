@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Code.Scripts.Items.UI
+namespace Code.Scripts.Items.UI.Sounds
 {
     public class SoundUIManager : MonoBehaviour
     {
