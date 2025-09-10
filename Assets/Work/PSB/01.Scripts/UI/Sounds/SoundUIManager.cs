@@ -56,7 +56,7 @@ namespace Code.Scripts.Items.UI.Sounds
             BroAudio.SetVolume(BroAudioType.All, volume);
             PlayerPrefs.SetFloat("masterVolume", volume);
             
-            masterText.text = $"볼륨 : {(volume * 10f).ToString("0.0")}";
+            masterText.text = $"마스터 볼륨 : {(volume * 10f).ToString("0.0")}";
 
             if (volume == 0.0001f && !_isMasterMuted)
                 ToggleMasterMute();
@@ -70,7 +70,7 @@ namespace Code.Scripts.Items.UI.Sounds
             BroAudio.SetVolume(BroAudioType.Music, volume);
             PlayerPrefs.SetFloat("musicVolume", volume);
             
-            musicText.text = $"음악 : {(volume * 10f).ToString("0.0")}";
+            musicText.text = $"배경음 : {(volume * 10f).ToString("0.0")}";
 
             if (volume == 0.0001f && !_isMusicMuted)
                 ToggleMusicMute();
