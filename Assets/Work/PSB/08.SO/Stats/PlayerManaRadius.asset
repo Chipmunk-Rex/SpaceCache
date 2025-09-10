@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Player's mana radius stat
   icon: {fileID: -5471238548522414493, guid: 69fbd977f0d9336429090a4cbbaa1ea8, type: 3}
   displayName: ManaRadius
-  baseValue: 1
+  baseValue: 2
   minValue: 1
   maxValue: 30
   <IsPercent>k__BackingField: 0

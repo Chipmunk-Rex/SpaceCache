@@ -2515,6 +2515,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8a741f00600642643bce69156df095ee, type: 2}
   - {fileID: 11400000, guid: 42f6e2fe759f58749867dead3d4b7f9a, type: 2}
   - {fileID: 11400000, guid: 053acc05efde66247ac27ab5e2a490a0, type: 2}
+  - {fileID: 11400000, guid: 0f2255f2106fb7f4c8c4a28a4d4ec07a, type: 2}
 --- !u!1 &1247890015
 GameObject:
   m_ObjectHideFlags: 0
@@ -3726,10 +3727,10 @@ MonoBehaviour:
   statOverrides:
   - stat: {fileID: 11400000, guid: 1be2d418d3d23b64596c15cc47038929, type: 2}
     isUseOverride: 1
-    overrideValue: 100
+    overrideValue: 200
   - stat: {fileID: 11400000, guid: 0c4cf408d17f9b448a504b484d61e1a0, type: 2}
     isUseOverride: 1
-    overrideValue: 1000
+    overrideValue: 10
   - stat: {fileID: 11400000, guid: 33a22be16d70c474c8603a731b09760a, type: 2}
     isUseOverride: 1
     overrideValue: 2
@@ -5087,6 +5088,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42f6e2fe759f58749867dead3d4b7f9a, type: 2}
   - {fileID: 11400000, guid: 053acc05efde66247ac27ab5e2a490a0, type: 2}
   - {fileID: 11400000, guid: f02026e361703414384727ea25538d48, type: 2}
+  - {fileID: 11400000, guid: 0f2255f2106fb7f4c8c4a28a4d4ec07a, type: 2}
   content: {fileID: 1482078625}
   skillUi: {fileID: 444057517309015986, guid: d11186333b015454c8e589518a6a802f, type: 3}
   biHangGi_image: {fileID: 784365347}

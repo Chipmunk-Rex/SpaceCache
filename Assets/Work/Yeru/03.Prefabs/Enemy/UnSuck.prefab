@@ -310,7 +310,7 @@ MonoBehaviour:
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   _speed: 1
   currentHP: 0
-  _maxHP: 200
+  _maxHP: 100
   _RotationSpeed: 2
   _player: {fileID: 0}
   playerLayer: 7
