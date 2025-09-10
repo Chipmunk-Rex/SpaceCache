@@ -4,7 +4,7 @@ using System.Collections;
 [CreateAssetMenu(fileName = "ExplosionShoot", menuName = "SO/ExplosionShoot")]
 public class ExplosionShootSO : BossPatternSO
 {
-    public ExplosionBullet explosionBulletPrefab;
+    public GameObject explosionBulletPrefab;
     public float moveSpeed = 4f;
     public int fireCount = 4;
     public float delay = 2f;
@@ -16,10 +16,11 @@ public class ExplosionShootSO : BossPatternSO
         for (int i = 0; i < fireCount; i++)
         {
             Vector3 dir = boss.transform.up;
-            ExplosionBullet bullet = Instantiate(explosionBulletPrefab);
+            GameObject bullet = Instantiate(explosionBulletPrefab);
             bullet.transform.position = boss.firePoint.position;
-            bullet.gameObject.SetActive(true);
-            bullet.GetComponent<ExplosionBullet>().Init(dir, explosionBulletPrefab.damage ,moveSpeed, boss);
+            bullet.SetActive(true);
+            bullet.GetComponent<ExplosionBullet>().Init(dir, moveSpeed, boss);
+            boss.OnFire.Invoke();
             
             yield return new WaitForSeconds(delay);
         }

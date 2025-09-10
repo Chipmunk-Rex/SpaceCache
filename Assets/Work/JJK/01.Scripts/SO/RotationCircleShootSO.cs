@@ -32,6 +32,16 @@ public class RotationCircleShootSO : BossPatternSO
                     bullet.SetActive(true);
                 }
             }
+            yield return new WaitForSeconds(0.01f);
+            boss.OnFire.Invoke();
+            yield return new WaitForSeconds(0.01f);
+            boss.OnFire.Invoke();
+            yield return new WaitForSeconds(0.01f);
+            boss.OnFire.Invoke();
+            yield return new WaitForSeconds(0.01f);
+            boss.OnFire.Invoke();
+            yield return new WaitForSeconds(0.01f);
+            boss.OnFire.Invoke();
             
             currentRotation += rotationStep;
 

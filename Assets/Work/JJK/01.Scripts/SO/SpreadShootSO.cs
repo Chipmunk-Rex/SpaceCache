@@ -21,12 +21,16 @@ public class SpreadShootSO : BossPatternSO
                 if (j == 0)
                 {
                     boss.ShootBullet1(0, moveSpeed);
+                    boss.OnFire.Invoke();
                 }
                 else
                 {
                     float angle = angleStep * j;
                     boss.ShootBullet1(angle, moveSpeed);
                     boss.ShootBullet1(-angle, moveSpeed);
+                    boss.OnFire.Invoke();
+                    yield return new WaitForSeconds(0.01f);
+                    boss.OnFire.Invoke();
                 }
             }
 
