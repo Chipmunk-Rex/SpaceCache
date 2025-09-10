@@ -8,6 +8,7 @@ namespace Code.Scripts.Entities
         public Vector2 HitNormal { get; set; }
 
         private Entity _entity;
+        public Entity Entity => _entity;
 
         public void Initialize(Entity entity)
         {

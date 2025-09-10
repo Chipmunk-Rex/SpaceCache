@@ -12,8 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8088dde93264541bb56ffd6e7d1579, type: 3}
   m_Name: Wave8
   m_EditorClassIdentifier: 
-  enemyCount: 0
-  enemyType: []
-  enemySpawn: 0
-  waveEndTime: 0
-  bossSpawnTiming: 0
+  waveEndTime: 170
+  bossSpawnTiming: 80
+  boss: {fileID: 0}
+  bossSpawn: 0
+  sequence:
+  - enemy: {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
+    count: 5
+    defaultGap: 1
+  - enemy: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
+    count: 5
+    defaultGap: 2
+  - enemy: {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
+    count: 5
+    defaultGap: 1

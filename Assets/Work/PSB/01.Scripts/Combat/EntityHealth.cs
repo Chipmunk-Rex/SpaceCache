@@ -64,7 +64,7 @@ namespace Code.Scripts.Items.Combat
         {
             currentHealth = Mathf.Clamp(currentHealth + h, 0, maxHealth);
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
-            Debug.Log($"Hp : {currentHealth}");
+            _entity.OnHitEvent?.Invoke();
         }
 
 

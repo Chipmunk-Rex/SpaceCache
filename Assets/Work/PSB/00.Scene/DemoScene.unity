@@ -1897,6 +1897,7 @@ Transform:
   - {fileID: 1535233624}
   - {fileID: 1706602879}
   - {fileID: 1698170455}
+  - {fileID: 1236887950}
   - {fileID: 2033244352}
   - {fileID: 945360792}
   - {fileID: 852148330}
@@ -1914,7 +1915,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 30
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -1979,7 +1980,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1236887951}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.HitImpactFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
@@ -2369,6 +2382,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1837209716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1236887949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1236887950}
+  - component: {fileID: 1236887951}
+  m_Layer: 7
+  m_Name: Feedbacks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1236887950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236887949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1040925495}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1236887951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236887949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dbe2ab2158143ad84c8b37b1d2261f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitImpact: {fileID: 11400000, guid: 08d70747b7488d1429b7b506641fb1c0, type: 2}
+  playDuration: 0.5
+  actionData: {fileID: 1698170456}
 --- !u!1 &1245281942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +3004,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1674106906}
     m_Modifications:
+    - target: {fileID: 2450383870299381231, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6705137639730966035, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3024,9 +3088,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6730569436948413134, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7733362586628164394, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
       propertyPath: m_Name
       value: OutPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7733362586628164394, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8826954988239637099, guid: 98ebae77cde5f754d8c2e878f2496a34, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4765,7 +4841,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
   - {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
   - {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
-  bossList: []
+  bossList:
+  - {fileID: 11400000, guid: 9c78290baabe83644a2d93220c262c1f, type: 2}
+  - {fileID: 11400000, guid: 978888ea2d7cbd049a94e0bf81bb50fc, type: 2}
+  - {fileID: 11400000, guid: a601e62da61da0641a954adedca4444c, type: 2}
 --- !u!114 &2416826486765040121
 MonoBehaviour:
   m_ObjectHideFlags: 0

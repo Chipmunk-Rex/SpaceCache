@@ -4,6 +4,7 @@ using System.Collections;
 [CreateAssetMenu(fileName = "RotationShootSO", menuName = "Scriptable Objects/RotationShootSO")]
 public class RotationShootSO : BossPatternSO
 {
+    public float damage = 1f;
     public float rotationSpeed = 15f;
     public float duration = 5f;
     public float bulletSpeed = 5f;
@@ -24,7 +25,7 @@ public class RotationShootSO : BossPatternSO
                 
                 bullet.transform.position = boss.transform.position + dir.normalized;
 
-                bullet.GetComponent<Bullet>().Init(dir, bulletSpeed);
+                bullet.GetComponent<Bullet>().Init(dir, bulletSpeed, damage);
                 bullet.SetActive(true);
             }
             

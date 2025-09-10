@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8088dde93264541bb56ffd6e7d1579, type: 3}
   m_Name: Wave10
   m_EditorClassIdentifier: 
-  enemyCount: 0
-  enemyType: []
-  enemySpawn: 0
-  waveEndTime: 0
-  bossSpawnTiming: 0
+  waveEndTime: 200
+  bossSpawnTiming: 50
+  boss: {fileID: 11400000, guid: 978888ea2d7cbd049a94e0bf81bb50fc, type: 2}
+  bossSpawn: 1
+  sequence:
+  - enemy: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
+    count: 10
+    defaultGap: 1.5

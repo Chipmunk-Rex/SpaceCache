@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.08946419
       objectReference: {fileID: 0}
+    - target: {fileID: 1717908248158753025, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: statOverrides.Array.data[1].overrideValue
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1860487740275583146, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_Name
       value: Boss3

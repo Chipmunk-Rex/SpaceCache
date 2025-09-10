@@ -47,6 +47,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
         attackTimer     = 0f;
         OnInit();
+        animator.SetBool("isSosang", true);
     }
     
     protected virtual void OnInit() 
@@ -87,7 +88,6 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     protected virtual void Die()
     {
-        Debug.Log("Dead");
         if (isDead) return;      
         isDead = true;
         
