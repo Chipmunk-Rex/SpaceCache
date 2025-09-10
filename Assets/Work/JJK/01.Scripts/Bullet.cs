@@ -36,7 +36,6 @@ public class Bullet : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             collision.GetComponent<EntityHealth>().SetHp(-damage);
-            Debug.Log(collision.gameObject.name);
             gameObject.SetActive(false);
         }
     }
