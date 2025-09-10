@@ -1,11 +1,14 @@
 using Code.Scripts.Entities;
 using UnityEngine;
 
+
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class TorpedoShip : EnemyBase
 {
     [SerializeField] private TorpedoBullet bulletPrefab;
     [SerializeField] private Transform[] shooter;
+    
+    [SerializeField] private TransformEvent onShot = new TransformEvent();
 
     private EntityAttack _attackCompo;
 
@@ -62,5 +65,7 @@ public class TorpedoShip : EnemyBase
         var b = Instantiate(bulletPrefab);             
         float dmg = _attackCompo.GetAttack();
         b.InitFromMuzzle(shooter, dmg);
+        
+        onShot.Invoke(shooter);
     }
 }
