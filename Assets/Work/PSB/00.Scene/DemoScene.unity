@@ -714,6 +714,55 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!1 &602224735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602224737}
+  - component: {fileID: 602224736}
+  m_Layer: 0
+  m_Name: Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &602224736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602224735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: b41ea80391c8b7c4e95312ea4900004c, type: 2}
+--- !u!4 &602224737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602224735}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.3430653, y: 0.05168496, z: 0.03452988}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &636573620
 GameObject:
   m_ObjectHideFlags: 0
@@ -1940,6 +1989,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1040925500}
         m_TargetAssemblyTypeName: Code.Scripts.Entities.Entity, Assembly-CSharp
         m_MethodName: DestroyEntity
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1805705127}
+        m_TargetAssemblyTypeName: ClearUI, Assembly-CSharp
+        m_MethodName: LoseUIOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3254,17 +3315,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46e45b278a1105346a75460bea5b3d15, type: 3}
---- !u!114 &1562416443 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3280669043750326332, guid: 46e45b278a1105346a75460bea5b3d15, type: 3}
-  m_PrefabInstance: {fileID: 1562416442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274f11fe72da9cb46bfafc59df8f2a9e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1674106902
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,6 +3895,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4555968585901353642, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
   m_PrefabInstance: {fileID: 1805705125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1805705127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8205814190730718708, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
+  m_PrefabInstance: {fileID: 1805705125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4091ffa6a8cb4488c57e1e992aad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1837209715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5025,7 +5086,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 42f6e2fe759f58749867dead3d4b7f9a, type: 2}
   - {fileID: 11400000, guid: 053acc05efde66247ac27ab5e2a490a0, type: 2}
   - {fileID: 11400000, guid: f02026e361703414384727ea25538d48, type: 2}
-  cardMusic: {fileID: 1562416443}
   content: {fileID: 1482078625}
   skillUi: {fileID: 444057517309015986, guid: d11186333b015454c8e589518a6a802f, type: 3}
   biHangGi_image: {fileID: 784365347}
@@ -5611,6 +5671,21 @@ MonoBehaviour:
   pooling: {fileID: 2304040475585718912}
   spawnRegionSize: {x: 0, y: 0}
   _text: {fileID: 636573621}
+  onWaveEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1805705127}
+        m_TargetAssemblyTypeName: ClearUI, Assembly-CSharp
+        m_MethodName: WinUIOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &5573040495631711218
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6426,3 +6501,4 @@ SceneRoots:
   - {fileID: 30496692}
   - {fileID: 1562416442}
   - {fileID: 1726073312}
+  - {fileID: 602224737}

@@ -76,7 +76,7 @@ public class ClearUI : MonoBehaviour
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(1.6f);
-        StartCoroutine(TimeCalculate("�� �ð�"));
+        StartCoroutine(TimeCalculate("플레이 시간"));
 
         retryBTN.SetActive(true);
         mainBTN.SetActive(true);
@@ -99,7 +99,7 @@ public class ClearUI : MonoBehaviour
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(1.6f);
-        StartCoroutine(TimeCalculate("������ �ð�"));
+        StartCoroutine(TimeCalculate("플레이 시간"));
         retryBTN.SetActive(true);
         mainBTN.SetActive(true);
     }
@@ -116,9 +116,9 @@ public class ClearUI : MonoBehaviour
             int second = Mathf.FloorToInt(showTime % 60f);
 
             if (showTime < 60)
-                timeTex.text = $"{clear_tex}: {second}��";
+                timeTex.text = $"{clear_tex}: {second}초";
             else
-                timeTex.text = $"{clear_tex}: {minute}�� {second}��";
+                timeTex.text = $"{clear_tex}: {minute}분 {second}초";
 
             yield return null;
         }

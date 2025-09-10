@@ -1,9 +1,15 @@
+using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.PlayerLoop;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Code.Scripts.Entities;
-using Code.Scripts.Players;
+using Microsoft.Win32.SafeHandles;
 using PSB_Lib.StatSystem;
+using UnityEngine.Events;
+using Random = System.Random;
 
 public class Boss : Entity, IEntityComponent
 {
@@ -46,14 +52,16 @@ public class Boss : Entity, IEntityComponent
     bool isSpin;
     
     ObjectPooling objectPooling;
-    
+
+    public UnityEvent OnFire;
+
     public void Initialize(Entity entity)
     {
         _statCompo = entity.GetCompo<EntityStat>();
         _attackCompo = entity.GetCompo<EntityAttack>();
         playerPos = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -127,6 +135,7 @@ public class Boss : Entity, IEntityComponent
 
     public void TakeDamage()
     {
+        hp -= damage;
         StartCoroutine(Die());
     }
 
@@ -210,10 +219,10 @@ public class Boss : Entity, IEntityComponent
             bullet.transform.position = firePoint.position;
 
             Vector3 baseDir = transform.up;
+            damage = _attackCompo.GetAttack();
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
-
-            damage = _attackCompo.GetAttack();
+            
             bullet.GetComponent<Bullet>().Init(dir, speed, damage);
             bullet.SetActive(true);
         }
@@ -300,5 +309,5 @@ public class Boss : Entity, IEntityComponent
             missile.SetActive(true);
         }
     }
-    
+
 }
