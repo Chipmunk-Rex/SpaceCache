@@ -20,6 +20,7 @@ public class ScatterShootSO : BossPatternSO
 
                 float angle = angleStep * j - 45;
                 boss.ShootBullet1(angle, moveSpeed);
+                boss.OnFire.Invoke();
             }
             for (int j = 0; j < bulletPerRound; j++)
             {
@@ -27,6 +28,7 @@ public class ScatterShootSO : BossPatternSO
 
                 float angle = angleStep * (bulletPerRound - j) - 45;
                 boss.ShootBullet1(angle, moveSpeed);
+                boss.OnFire.Invoke();
             }
         }
 
