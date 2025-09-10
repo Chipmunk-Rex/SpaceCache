@@ -20,6 +20,7 @@ public class ExplosionShootSO : BossPatternSO
             bullet.transform.position = boss.firePoint.position;
             bullet.SetActive(true);
             bullet.GetComponent<ExplosionBullet>().Init(dir, moveSpeed, boss);
+            boss.OnFire.Invoke();
             
             yield return new WaitForSeconds(delay);
         }

@@ -6,6 +6,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Microsoft.Win32.SafeHandles;
+using UnityEngine.Events;
 using Random = System.Random;
 
 public class Boss : MonoBehaviour
@@ -46,6 +47,8 @@ public class Boss : MonoBehaviour
     bool isSpin;
     
     ObjectPooling objectPooling;
+
+    public UnityEvent OnFire;
 
     private void Awake()
     {
