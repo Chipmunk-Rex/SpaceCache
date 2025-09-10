@@ -32,6 +32,9 @@ namespace Code.Scripts.Feedbacks
 
         }
 
-
+        public override void CompletePrevFeedback()
+        {
+            
+        }
     }
 }

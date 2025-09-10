@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class WaveManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private ObjectPooling pooling;
     [SerializeField] private Vector2 spawnRegionSize;
     [SerializeField] private TextMeshProUGUI _text;
+    public UnityEvent onWaveEnd;
     private Camera cam;
     private int waveNum = 0;
 
@@ -61,7 +63,7 @@ public class WaveManager : MonoBehaviour
                 {
                     GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
                     if(waveNum >= 3)
-                    UpgradeEnemy(enemy, e.enemy);
+                        UpgradeEnemy(enemy, e.enemy);
                     yield return new WaitForSeconds(e.defaultGap);
                 }
             }
@@ -72,6 +74,7 @@ public class WaveManager : MonoBehaviour
                 yield return null;
             }
         }
+        onWaveEnd?.Invoke();
     }
     IEnumerator BossEnter(WaveSO waveSO)
     {
