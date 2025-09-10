@@ -47,6 +47,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
         attackTimer     = 0f;
         OnInit();
+        animator.SetBool("isSosang", true);
     }
     
     protected virtual void OnInit() 
