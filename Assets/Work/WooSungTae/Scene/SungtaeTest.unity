@@ -740,6 +740,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8205814190730718708, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
+      propertyPath: duration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8259796301834954842, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
       propertyPath: m_Name
       value: EndPanel
