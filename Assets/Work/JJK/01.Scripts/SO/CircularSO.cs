@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -29,7 +30,13 @@ public class CircularSO : BossPatternSO
                 bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
                 bullet.SetActive(true);
                 bullet.GetComponent<Bullet>().Init(dir, bulletSpeed, damage);
+                
+            }
 
+            for (int i = 0; i < bulletCount; i++)
+            {
+                boss.OnFire.Invoke();
+                yield return new WaitForSeconds(0.01f);
             }
 
             yield return new WaitForSeconds(boss.ReloadTime * 2f);

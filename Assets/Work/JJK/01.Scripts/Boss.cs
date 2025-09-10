@@ -1,9 +1,15 @@
+using System;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.PlayerLoop;
+using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using Code.Scripts.Entities;
-using Code.Scripts.Players;
+using Microsoft.Win32.SafeHandles;
 using PSB_Lib.StatSystem;
+using UnityEngine.Events;
+using Random = System.Random;
 
 public class Boss : Entity, IEntityComponent
 {
@@ -46,14 +52,16 @@ public class Boss : Entity, IEntityComponent
     bool isSpin;
     
     ObjectPooling objectPooling;
-    
+
+    public UnityEvent OnFire;
+
     public void Initialize(Entity entity)
     {
         _statCompo = entity.GetCompo<EntityStat>();
         _attackCompo = entity.GetCompo<EntityAttack>();
         playerPos = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
-
+    
     protected override void Awake()
     {
         base.Awake();
@@ -121,12 +129,13 @@ public class Boss : Entity, IEntityComponent
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
-        hp = hpStat.Value;
+        hp = hpStat.Value;  // ✅ 첫 번째 코드 반영
         currentPatternList = stat.patterns;
     }
 
-    public void TakeDamage()
+    public void TakeDamage()  // ✅ 첫 번째 코드 반영
     {
+        hp -= damage;
         StartCoroutine(Die());
     }
 
@@ -210,11 +219,11 @@ public class Boss : Entity, IEntityComponent
             bullet.transform.position = firePoint.position;
 
             Vector3 baseDir = transform.up;
+            damage = _attackCompo.GetAttack();
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
-
-            damage = _attackCompo.GetAttack();
-            bullet.GetComponent<Bullet>().Init(dir, speed, damage);
+            
+            bullet.GetComponent<Bullet>().Init(dir, speed, damage); // ✅ 첫 번째 코드 반영
             bullet.SetActive(true);
         }
     }
@@ -239,7 +248,7 @@ public class Boss : Entity, IEntityComponent
                 float speed = 8f;
                 damage = _attackCompo.GetAttack();
                 bullet.transform.position = firePoint.position + offset;
-                bullet.GetComponent<Bullet>().Init(transform.up, speed, damage);
+                bullet.GetComponent<Bullet>().Init(transform.up, speed, damage); // ✅ 첫 번째 코드 반영
                 bullet.SetActive(true);
             }
         }
@@ -300,5 +309,5 @@ public class Boss : Entity, IEntityComponent
             missile.SetActive(true);
         }
     }
-    
+
 }

@@ -33,6 +33,7 @@ public class RotationShootSO : BossPatternSO
             if (currentAngle >= 360f) currentAngle -= 360f;
 
             elapsed += fireRate;
+            boss.OnFire.Invoke();
             yield return new WaitForSeconds(fireRate);
         }
 
