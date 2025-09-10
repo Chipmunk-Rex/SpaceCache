@@ -2458,8 +2458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4fb32feeda410083bf01b157333566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _muzzleFlash1: {fileID: 824747462}
-  _muzzleFlash2: {fileID: 704966879}
+  _muzzleFlash:
+  - {fileID: 824747462}
+  - {fileID: 704966879}
   _turnOnTime: 0.1
   _defaultState: 0
 --- !u!1 &1245281942
