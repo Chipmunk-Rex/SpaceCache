@@ -1949,6 +1949,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1805705127}
+        m_TargetAssemblyTypeName: ClearUI, Assembly-CSharp
+        m_MethodName: LoseUIOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   <PlayerInput>k__BackingField: {fileID: 11400000, guid: 9a8f6ffdc29d39e4d84e2b8235c2ba75, type: 2}
   states:
   - {fileID: 11400000, guid: 2e9fc06ba26be6849a23d8ef18181af9, type: 2}
@@ -3845,6 +3857,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4555968585901353642, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
   m_PrefabInstance: {fileID: 1805705125}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1805705127 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8205814190730718708, guid: bbf1fc39e4e8cfc488b09637eeedda03, type: 3}
+  m_PrefabInstance: {fileID: 1805705125}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46f4091ffa6a8cb4488c57e1e992aad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1837209715
 GameObject:
   m_ObjectHideFlags: 0
@@ -5611,6 +5634,21 @@ MonoBehaviour:
   pooling: {fileID: 2304040475585718912}
   spawnRegionSize: {x: 0, y: 0}
   _text: {fileID: 636573621}
+  onWaveEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1805705127}
+        m_TargetAssemblyTypeName: ClearUI, Assembly-CSharp
+        m_MethodName: WinUIOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!224 &5573040495631711218
 RectTransform:
   m_ObjectHideFlags: 0
