@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1154514086616019919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2533839072931353940}
+  - component: {fileID: 8786377219519733694}
+  m_Layer: 16
+  m_Name: Drop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2533839072931353940
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154514086616019919}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 384579011094449478}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8786377219519733694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154514086616019919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b4ed7edff149e4916069a06c184189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 11400000, guid: d7b20fccf55fd434787249484adbe260, type: 2}
+  jumpHeight: 2
+  jumpDistance: 1
+  duration: 1
+  dropValue: 1
 --- !u!1 &2577123377668075522
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +60,7 @@ GameObject:
   - component: {fileID: 7141720193446432434}
   - component: {fileID: 5919411027325128721}
   - component: {fileID: 812737897199885643}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +121,7 @@ GameObject:
   - component: {fileID: 601218000172454481}
   - component: {fileID: 641726549310950745}
   - component: {fileID: 3555999015175337251}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +182,7 @@ GameObject:
   - component: {fileID: 9165489683368236032}
   - component: {fileID: 5655030736315206603}
   - component: {fileID: 6540969758097077722}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +246,10 @@ GameObject:
   - component: {fileID: 6374936308180953154}
   - component: {fileID: 4668122650016468823}
   - component: {fileID: 6366721890983812898}
-  m_Layer: 0
+  - component: {fileID: 6411792921668512936}
+  - component: {fileID: -8013668484234332783}
+  - component: {fileID: 1828034898396788808}
+  m_Layer: 16
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,6 +269,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2533839072931353940}
   - {fileID: 7974776286919862335}
   - {fileID: 9165489683368236032}
   - {fileID: 8996946276850726044}
@@ -265,8 +318,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -6806687357194173547, guid: 17b87b8368d0c6046bcd92b92089e36e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -335,17 +388,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0051617622, y: 0.06872547}
+  m_Offset: {x: 0.005202532, y: 0.06872547}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 1.125, y: 1.21875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.2360506, y: 1.3050725}
+  m_Size: {x: 2.2694726, y: 2.5}
   m_EdgeRadius: 0
 --- !u!50 &4668122650016468823
 Rigidbody2D:
@@ -386,8 +439,89 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f6b611c123bdf42bed6e14a0de0313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8786377219519733694}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6366721890983812898}
+        m_TargetAssemblyTypeName: Frame, Assembly-CSharp
+        m_MethodName: HandleOnDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   data: {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   muzzles: []
+--- !u!114 &6411792921668512936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &-8013668484234332783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71567fb4ca2e45109d8ab0a4ac96a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOverrides:
+  - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+    isUseOverride: 1
+    overrideValue: 30
+  - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+    isUseOverride: 1
+    overrideValue: 1
+--- !u!114 &1828034898396788808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1290518c624cada02f2e4fc28dd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  baseAttack: 0
+  currentAttack: 0
 --- !u!1 &6017304992378579794
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +534,7 @@ GameObject:
   - component: {fileID: 4383549229441720447}
   - component: {fileID: 1885873624944176059}
   - component: {fileID: 7288873871653093544}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Engine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -463,8 +597,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -524,7 +658,7 @@ GameObject:
   - component: {fileID: 8996946276850726044}
   - component: {fileID: 8294209498025632358}
   - component: {fileID: 2743039631751740745}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: Muzle (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

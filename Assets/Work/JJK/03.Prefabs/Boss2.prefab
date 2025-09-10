@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 1076298792593466310, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: statOverrides.Array.data[1].overrideValue
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1464212740032195530, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -64,13 +68,17 @@ PrefabInstance:
       propertyPath: 'patternList.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 5a0e6915d9a9ee947ba90033a476183e, type: 2}
+    - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 7380117214071703739, guid: 8a7c74905e824e84f985613b8eb329ac, type: 3}
     - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1579671432381134568, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_SortingOrder
@@ -98,7 +106,7 @@ PrefabInstance:
       objectReference: {fileID: 1336104967557193268, guid: b85506ca0dab6e243b5b4adbe4e690b7, type: 3}
     - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2564997985730309037, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_SortingOrder
@@ -172,6 +180,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 5584361332988802851, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: dropValue
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5635662016958496662, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -186,7 +198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6560895121879736994, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 3.67
       objectReference: {fileID: 0}
     - target: {fileID: 7976822509936044465, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Sprite

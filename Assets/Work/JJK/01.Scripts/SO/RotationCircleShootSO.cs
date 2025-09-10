@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/RotatingCircleShot")]
 public class RotationCircleShootSO : BossPatternSO
 {
+    public float damage = 1f;
     public int bulletCount = 12;
     public float rotationStep = 10f;
     public int roundCount = 10;
@@ -27,7 +28,7 @@ public class RotationCircleShootSO : BossPatternSO
                 if (bullet != null)
                 {
                     bullet.transform.position = boss.transform.position + dir.normalized;
-                    bullet.GetComponent<Bullet>().Init(dir, bulletSpeed);
+                    bullet.GetComponent<Bullet>().Init(dir, bulletSpeed, damage);
                     bullet.SetActive(true);
                 }
             }

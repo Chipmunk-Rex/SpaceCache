@@ -1,25 +1,37 @@
+using Code.Scripts.Entities;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class TorpedoShip : EnemyBase
 {
     [SerializeField] private TorpedoBullet bulletPrefab;
-    [SerializeField] private Transform[] shooter; 
+    [SerializeField] private Transform[] shooter;
 
-    private float bonusDamage = 0f;
-    private float bonusHealth = 0f;
+    private EntityAttack _attackCompo;
 
-    protected override void OnInit() { }
+    protected override void Awake()
+    {
+        base.Awake();
+        _attackCompo = GetCompo<EntityAttack>();
+    }
+
+    protected override void OnInit()
+    {
+        base.OnInit();
+    }
     
      public override void IncreaseAttack(float amount)
      {
-         bonusDamage += amount;
+         _statCompo.IncreaseBaseValue(attackStat, amount);
      }
             
      public override void IncreaseDefense(float amount)
      {
-         bonusHealth += amount;
-         currentHealth += amount; 
+         _statCompo.IncreaseBaseValue(hpStat, amount);
+     }
+     
+     public override void IncreaseSpeed(float amount)
+     {
      }
     
     protected override void Attack()
@@ -28,7 +40,16 @@ public class TorpedoShip : EnemyBase
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("TorpedoWeapon")) return;
         animator.SetTrigger("attack");
     }
-    
+
+    public void HandleOnDead()
+    {
+        Die();
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+    }
     
     public void AE_FireIdx(int i)
     {
@@ -39,7 +60,7 @@ public class TorpedoShip : EnemyBase
     private void FireFrom(Transform shooter)
     {
         var b = Instantiate(bulletPrefab);             
-        float dmgFromSo = data.damage;
-        b.InitFromMuzzle(shooter, dmgFromSo);
+        float dmg = _attackCompo.GetAttack();
+        b.InitFromMuzzle(shooter, dmg);
     }
 }

@@ -2,16 +2,19 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class UnSuck : MonoBehaviour, IDamageable
+public class UnSuck : EnemyBase, IDamageable
 {
     private Rigidbody2D _rb;
     [SerializeField]float _speed=1f;
-    [SerializeField] private float _currentHP=0;
+    public float currentHP = 0;
     [SerializeField] private float _maxHP=5000f;
     [SerializeField] private float _RotationSpeed=2f;
     [SerializeField] private Transform _player;
-    [SerializeField] private string _playerTag = "Player";
+    [SerializeField] private int playerLayer;
     private Vector2 _movedir;
+    
+    private float bonusHealth = 0f;
+    private float bonusSpeed = 0f;
     
     private Animator _animator;
     private Camera _mainCamera;
@@ -20,36 +23,55 @@ public class UnSuck : MonoBehaviour, IDamageable
     private bool _Degam;
     private bool _die;
 
-    void Awake()
+    protected override void Awake()
     {
-        
         _rb = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
-        _audioSource = GetComponent<AudioSource>();
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _currentHP=_maxHP;
+        _animator = GetComponentInChildren<Animator>();
+        _audioSource = GetComponentInChildren<AudioSource>();
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        currentHP=_maxHP;
         _mainCamera = Camera.main;
     }
 
-    private void Start()
+    protected override void Attack()
+    {
+    }
+
+    public override void IncreaseAttack(float amount)
+    {
+    }
+
+    public override void IncreaseDefense(float amount)
+    {
+        bonusHealth += amount;
+        _maxHP += amount; 
+    }
+    public override void IncreaseSpeed(float amount)
+    {
+        bonusSpeed += amount;
+        _speed += amount; 
+    }
+
+    protected override void Start()
     {
         _die=false;
     }
 
     void Update()
     {
-        Checkbang();
+        CheckBang();
         CheckCamera();
-        if (_currentHP>0f)
+        if (currentHP>0f)
         {
             transform.Rotate(0, 0, _RotationSpeed * 4f * Time.deltaTime);
         }
     }
 
-    private void Checkbang()
+    private void CheckBang()
     {
-        if (_currentHP <= 0)
+        if (currentHP <= 0)
         {
+            OnDeadEvent?.Invoke();
             if (_die) return;                     
             _die = true;
 
@@ -59,16 +81,16 @@ public class UnSuck : MonoBehaviour, IDamageable
             if (TryGetComponent(out Collider2D col))
                 col.enabled = false;     
 
-            GetComponent<UnSuckExplosion>()?.Bob();
-            StartCoroutine(Faid());                
+            GetComponentInChildren<UnSuckExplosion>()?.Bob();
+            StartCoroutine(Faid());     
             return;
         }
-        else if (_currentHP < _maxHP * 0.25f)
+        else if (currentHP < _maxHP * 0.25f)
         {
             _animator.SetBool("isLowHP 0", true);
             _rb.linearVelocity = _movedir * (_speed + 0.2f);
         }
-        else if (_currentHP < _maxHP * 0.5f)
+        else if (currentHP < _maxHP * 0.5f)
         {
             _animator.SetTrigger("isLowHP");
             _rb.linearVelocity = _movedir * (_speed + 0.1f);
@@ -82,7 +104,6 @@ public class UnSuck : MonoBehaviour, IDamageable
         if (isVisible&&!_Degam)
         {
             _Degam = true;
-            Debug.Log("da");
         }
     }
 
@@ -93,17 +114,25 @@ public class UnSuck : MonoBehaviour, IDamageable
             _player = GameObject.FindGameObjectWithTag("Player").transform;
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (_die) return;                          
-        if (!other.CompareTag(_playerTag)) return; 
-
-        _currentHP = 0f;                           
+        if (collision.gameObject.layer != playerLayer) return;
+        
+        _animator.SetTrigger("isHp");
+        currentHP = 0f;     
     }
 
     private void OnEnable()
     {
+        currentHP=_maxHP;
         _die = false;  
+        
+        if (TryGetComponent(out Collider2D col)) col.enabled = true;
+            if (_spriteRenderer != null) {
+                var c = _spriteRenderer.color; c.a = 1f; _spriteRenderer.color = c;
+            }
         Findplayer();
         _movedir = (_player.position - transform.position).normalized;
         _rb.linearVelocity = _movedir * _speed;  
@@ -126,7 +155,7 @@ public class UnSuck : MonoBehaviour, IDamageable
     public void TakeDamage(float amount)
     {
         if(_die) return;
-        _currentHP=Mathf.Max(0f,_currentHP-amount);
+        currentHP=Mathf.Max(0f,currentHP-amount);
     }
    
 }    

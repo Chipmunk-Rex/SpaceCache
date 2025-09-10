@@ -23,6 +23,11 @@ public class CardManager : MonoBehaviour
     [SerializeField] private GameObject biHangGi_image;
     [SerializeField] private GameObject airPlane;
 
+    [SerializeField] private float downUiValue = -1400;
+    [SerializeField] private float upUiValue = 770;
+    [SerializeField] private float downPlaneUiValue = -1000;
+    [SerializeField] private float upPlaneUiValue = 1000;
+    
     [Inject] private PlayerLevelSystem playerLevelSystem;
     
     private Dictionary<LevelUpItemSO,GameObject> destroyCopy = new();
@@ -56,6 +61,15 @@ public class CardManager : MonoBehaviour
         {
             ImageChange();
             StartCoroutine(CardDown());
+        }
+    }
+
+    public void SetRaycastsAll(bool enabled)
+    {
+        foreach (var go in gameObjectCard)
+        {
+            var cg = go.GetComponent<CanvasGroup>();
+            if (cg) cg.blocksRaycasts = enabled;
         }
     }
 
@@ -97,7 +111,7 @@ public class CardManager : MonoBehaviour
     IEnumerator CardDown()
     {
         RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
-        bihanggiRect.DOAnchorPosY(-1000, 1).SetUpdate(true);
+        bihanggiRect.DOAnchorPosY(downPlaneUiValue, 1).SetUpdate(true);
         int minusAnchor = 0;
         foreach (var a in gameObjectCard)
         {
@@ -105,8 +119,7 @@ public class CardManager : MonoBehaviour
             cardScaler.CardImageActive();
             cardMusic.SlideCard();
             RectTransform rt = (RectTransform)a.transform;
-            rt.DOAnchorPosY(-1430 + minusAnchor, 1f)    
-              .SetUpdate(true);
+            rt.DOAnchorPosY(downUiValue + minusAnchor, 1f).SetUpdate(true);
             minusAnchor += 350;
             yield return new WaitForSecondsRealtime(0.3f);
         }
@@ -125,8 +138,8 @@ public class CardManager : MonoBehaviour
     public void AirPlaneMove()
     {
         Sequence seq = DOTween.Sequence();
-        seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce));
-        seq.Append(airPlane.transform.DOScale(1, 0.6f));
+        seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce)).SetUpdate(true);
+        seq.Append(airPlane.transform.DOScale(1, 0.6f)).SetUpdate(true);
     }
     
     IEnumerator CardUp()
@@ -172,15 +185,16 @@ public class CardManager : MonoBehaviour
                 Image airPlane_image = airPlane.GetComponent<Image>();
                 airPlane_image.material.SetFloat("_Flash", flash);
                 AirPlaneMove();
+                Time.timeScale = 1;
+                
                 while (flash > 0)
                 {
                     flash -= Time.deltaTime * 2;
                     airPlane_image.material.SetFloat("_Flash", flash);
                     yield return null;
                 }
-                rt.DOAnchorPos(new Vector2(774, 0), 0.1f)
-                .SetUpdate(true);
-                yield return new WaitForSeconds(0.1f);
+                rt.DOAnchorPos(new Vector2(upUiValue, 0), 0.1f).SetUpdate(true);
+                yield return new WaitForSecondsRealtime(0.1f);
                 a.SetActive(true);
             }
         }
@@ -193,8 +207,7 @@ public class CardManager : MonoBehaviour
                 cardMusic.SlideCard();
                 RectTransform rt = (RectTransform)a.transform;
 
-                rt.DOAnchorPos(new Vector2(774, 0),1)
-                  .SetUpdate(true);
+                rt.DOAnchorPos(new Vector2(upUiValue, 0),1).SetUpdate(true);
 
                 yield return new WaitForSecondsRealtime(0.5f);
             }
@@ -203,7 +216,7 @@ public class CardManager : MonoBehaviour
             
         }
         RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
-        bihanggiRect.DOAnchorPosY(1000, 1).SetUpdate(true);
+        bihanggiRect.DOAnchorPosY(upPlaneUiValue, 1).SetUpdate(true);
         yield return new WaitForSecondsRealtime(0.5f);
         Time.timeScale = 1;
         dontClick = false;

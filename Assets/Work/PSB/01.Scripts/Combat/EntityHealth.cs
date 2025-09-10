@@ -9,7 +9,6 @@ namespace Code.Scripts.Items.Combat
     {
         private Entity _entity;
         private EntityStat _statCompo;
-        private EntityAnimatorTrigger _animatorTrigger;
         public event Action<float, float> OnHealthChanged;
         
         [SerializeField] private StatSO hpStat;
@@ -20,7 +19,6 @@ namespace Code.Scripts.Items.Combat
         {
             _entity = entity; 
             _statCompo = entity.GetCompo<EntityStat>();
-            _animatorTrigger = entity.GetCompo<EntityAnimatorTrigger>();
         }
         
         public void AfterInitialize()
@@ -66,6 +64,7 @@ namespace Code.Scripts.Items.Combat
         {
             currentHealth = Mathf.Clamp(currentHealth + h, 0, maxHealth);
             OnHealthChanged?.Invoke(currentHealth, maxHealth);
+            _entity.OnHitEvent?.Invoke();
         }
 
 

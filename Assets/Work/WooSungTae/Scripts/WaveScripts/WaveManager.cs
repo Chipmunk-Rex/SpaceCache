@@ -60,10 +60,17 @@ public class WaveManager : MonoBehaviour
                 for(int i = 0; i < e.count; i++)
                 {
                     GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
+                    if(waveNum >= 3)
+                    UpgradeEnemy(enemy, e.enemy);
                     yield return new WaitForSeconds(e.defaultGap);
                 }
             }
-            yield return new WaitForSeconds(waveList.waveEndTime);
+            float a = 0;
+            while(a < waveList.waveEndTime && pooling.enemyCount > 0)
+            {
+                a += Time.deltaTime;
+                yield return null;
+            }
         }
     }
     IEnumerator BossEnter(WaveSO waveSO)
@@ -77,15 +84,18 @@ public class WaveManager : MonoBehaviour
         pooling.SpawnBoss(waveSO.boss, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
     }
 
-    public void UpgradeEnemy(EnemyBase enemyBase)
+    public void UpgradeEnemy(GameObject enemy, EnemySo so)
     {
-        if (waveNum % 3 == 0)
-        {
+        if (!enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase)) return;
 
-        }
-        else
-        {
+        float mul =
+        (waveNum > 12) ? 4f :
+        (waveNum > 9) ? 3f :
+        (waveNum > 6) ? 2f :
+        (waveNum > 3) ? 1.5f : 1f;
 
-        }
+        enemyBase.IncreaseAttack(so.enemyDamageUp * mul);
+        enemyBase.IncreaseDefense(so.enemyDefenseUp * mul);
+        enemyBase.IncreaseSpeed(so.enemySpeedUp);
     }
 }

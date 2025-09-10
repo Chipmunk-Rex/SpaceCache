@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6772777152207994902}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8607895497911283771}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 5086511687787529668}
   - component: {fileID: 8027408604211550836}
   - component: {fileID: 4705639973942950807}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TorpedoEn2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,8 +137,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: -2182140464356756402, guid: cb83c2f62115f03469c42ce994549c2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 165654100546128782}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 5565866257467434040}
   - component: {fileID: 4298522158305906803}
   - component: {fileID: 4758416558569417467}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: TorpedoEn1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,8 +293,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: -2182140464356756402, guid: cb83c2f62115f03469c42ce994549c2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -352,7 +352,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1818541460979828352}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3137703120968939896}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,10 @@ GameObject:
   - component: {fileID: 2558274604833099830}
   - component: {fileID: 247298039688739045}
   - component: {fileID: 7268924969477701493}
-  m_Layer: 0
+  - component: {fileID: 3541718445121116327}
+  - component: {fileID: 7414146348292155553}
+  - component: {fileID: -2290230471685533472}
+  m_Layer: 16
   m_Name: 'TorpedoShip '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,6 +442,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7383106298979776028}
   - {fileID: 6988917443418783967}
   - {fileID: 3615455674425873227}
   - {fileID: 3137703120968939896}
@@ -490,8 +494,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -108714686370236361, guid: df9b6316b94019342836217cca19f109, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -569,13 +573,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.8125, y: 0.75}
+    oldSize: {x: 3.625, y: 1.5}
     newSize: {x: 1.8125, y: 0.75}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8125, y: 0.75}
+  m_Size: {x: 3.6, y: 1.5}
   m_EdgeRadius: 0
 --- !u!114 &247298039688739045
 MonoBehaviour:
@@ -589,7 +593,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75c09c279dd861f48886f8d2d68ba9ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4590075216649062749}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 247298039688739045}
+        m_TargetAssemblyTypeName: TorpedoShip, Assembly-CSharp
+        m_MethodName: HandleOnDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   bulletPrefab: {fileID: 6262687865678848111, guid: 894159a34b0850b4d84a1b3481205cda, type: 3}
   shooter:
   - {fileID: 3137703120968939896}
@@ -620,6 +656,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3541718445121116327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &7414146348292155553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1290518c624cada02f2e4fc28dd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  baseAttack: 0
+  currentAttack: 0
+--- !u!114 &-2290230471685533472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71567fb4ca2e45109d8ab0a4ac96a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOverrides:
+  - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+    isUseOverride: 1
+    overrideValue: 25
+  - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+    isUseOverride: 1
+    overrideValue: 2
 --- !u!1 &5312126028686396924
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,7 +714,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6728200175982250020}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: shooter4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -651,3 +736,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7429833203692388794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5631198306002556474
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7383106298979776028}
+  - component: {fileID: 4590075216649062749}
+  m_Layer: 16
+  m_Name: Drop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7383106298979776028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631198306002556474}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7429833203692388794}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4590075216649062749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5631198306002556474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b4ed7edff149e4916069a06c184189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 11400000, guid: d7b20fccf55fd434787249484adbe260, type: 2}
+  jumpHeight: 2
+  jumpDistance: 1
+  duration: 1
+  dropValue: 1

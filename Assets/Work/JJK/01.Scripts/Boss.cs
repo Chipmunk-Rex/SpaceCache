@@ -1,14 +1,11 @@
-using System;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using System.Collections;
-using UnityEngine.PlayerLoop;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
-using Microsoft.Win32.SafeHandles;
-using Random = System.Random;
+using Code.Scripts.Entities;
+using Code.Scripts.Players;
+using PSB_Lib.StatSystem;
 
-public class Boss : MonoBehaviour
+public class Boss : Entity, IEntityComponent
 {
     [SerializeField] private BossStatSO stat;
     [SerializeField] GameObject bulletPrefab;
@@ -33,10 +30,13 @@ public class Boss : MonoBehaviour
     int currentPatternIndex = 0;
     private BossPatternSO lastPattern = null;
 
+    [SerializeField] private StatSO hpStat;
+    private EntityAttack _attackCompo;
+    private EntityStat _statCompo;
     float reloadTime;
     float moveSpeed;
     float hp;
-    float damage;
+    private float damage;
     float angle;
     float currentAngle = 0f;
     Vector3 moveDir;
@@ -44,18 +44,53 @@ public class Boss : MonoBehaviour
     GameObject[] bulletPool2;
     int poolSize = 150;
     bool isSpin;
-
-    private void Awake()
+    
+    ObjectPooling objectPooling;
+    
+    public void Initialize(Entity entity)
     {
-        InitBulletPool();
-        InitBulletPool2();
+        _statCompo = entity.GetCompo<EntityStat>();
+        _attackCompo = entity.GetCompo<EntityAttack>();
+        playerPos = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
-    private void Start()
+    protected override void Awake()
     {
+        base.Awake();
+        InitBulletPool();
+        InitBulletPool2();
+        objectPooling = GetComponentInParent<ObjectPooling>();
+    }
+
+    protected override void Start()
+    {
+        base.Start();
         ApplyStat();
         ShufflePatterns();
         NextPattern();
+    }
+    
+    private void Update()
+    {
+        moveDir = playerPos.position - transform.position;
+        if (!isSpin)
+            Direction();
+        else
+        {
+            float angleDelta = spinSpeed * Time.deltaTime;
+            currentAngle += angleDelta;
+            transform.Rotate(Vector3.back, angleDelta);
+        }
+    }
+    
+    private void FixedUpdate()
+    {
+        if (isSpin) return;
+
+        if ((playerPos.position - transform.position).magnitude > 6)
+        {
+            transform.position += moveDir.normalized * (moveSpeed * Time.fixedDeltaTime);
+        }
     }
 
     private void InitBulletPool()
@@ -86,33 +121,13 @@ public class Boss : MonoBehaviour
     {
         reloadTime = stat.reloadTime;
         moveSpeed = stat.moveSpeed;
-        hp = stat.hp;
-        damage = stat.damage;
+        hp = hpStat.Value;
         currentPatternList = stat.patterns;
     }
 
-    private void Update()
+    public void TakeDamage()
     {
-        moveDir = playerPos.position - transform.position;
-        if (!isSpin)
-            Direction();
-        else
-        {
-            float angleDelta = spinSpeed * Time.deltaTime;
-            currentAngle += angleDelta;
-            transform.Rotate(Vector3.back, angleDelta);
-        }
-    }
-
-    public void TakeDamage(float damage)
-    {
-        hp -= damage;
-        
-        if (hp <= 0)
-        {
-            hp = 0;
-            StartCoroutine(Die());
-        }
+        StartCoroutine(Die());
     }
 
     private IEnumerator Die()
@@ -129,7 +144,7 @@ public class Boss : MonoBehaviour
 
         yield return new WaitForSeconds(1.1f);
 
-        Destroy(gameObject);
+        objectPooling.ReturnBoss(stat, gameObject);
     }
 
     private void NextPattern()
@@ -167,8 +182,21 @@ public class Boss : MonoBehaviour
 
     private IEnumerator RunPattern(BossPatternSO pattern)
     {
+        bool isLaserPattern = pattern is LaserSO;
+
+        if (isLaserPattern)
+        {
+            isSpin = true;
+        }
+
         yield return StartCoroutine(pattern.Execute(this));
         yield return new WaitForSeconds(0.5f);
+
+        if (isLaserPattern)
+        {
+            isSpin = false;
+        }
+
         lastPattern = pattern;
         NextPattern();
     }
@@ -184,8 +212,9 @@ public class Boss : MonoBehaviour
             Vector3 baseDir = transform.up;
 
             Vector3 dir = Quaternion.Euler(0, 0, angleOffset) * baseDir;
-            
-            bullet.GetComponent<Bullet>().Init(dir, speed);
+
+            damage = _attackCompo.GetAttack();
+            bullet.GetComponent<Bullet>().Init(dir, speed, damage);
             bullet.SetActive(true);
         }
     }
@@ -208,8 +237,9 @@ public class Boss : MonoBehaviour
             if (bullet != null)
             {
                 float speed = 8f;
+                damage = _attackCompo.GetAttack();
                 bullet.transform.position = firePoint.position + offset;
-                bullet.GetComponent<Bullet>().Init(transform.up, speed);
+                bullet.GetComponent<Bullet>().Init(transform.up, speed, damage);
                 bullet.SetActive(true);
             }
         }
@@ -248,14 +278,6 @@ public class Boss : MonoBehaviour
             laserPrefab.transform.rotation = transform.rotation;
     }
 
-    private void FixedUpdate()
-    {
-        if ((playerPos.position - transform.position).magnitude > 6)
-        {
-            transform.position += moveDir.normalized * moveSpeed * Time.fixedDeltaTime;
-        }
-    }
-
     private void Direction()
     {
         Vector3 dir = playerPos.position - transform.position;
@@ -278,5 +300,5 @@ public class Boss : MonoBehaviour
             missile.SetActive(true);
         }
     }
-
+    
 }

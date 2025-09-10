@@ -1,5 +1,54 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1607735407947459732
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 32006216519759215}
+  - component: {fileID: 6542850270258077277}
+  m_Layer: 16
+  m_Name: Drop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &32006216519759215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607735407947459732}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3223555929347490641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6542850270258077277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607735407947459732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b4ed7edff149e4916069a06c184189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 11400000, guid: d7b20fccf55fd434787249484adbe260, type: 2}
+  jumpHeight: 2
+  jumpDistance: 1
+  duration: 1
+  dropValue: 1
 --- !u!1 &3252333900620965849
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,8 +62,11 @@ GameObject:
   - component: {fileID: 3014516575959379642}
   - component: {fileID: 6204621183595656170}
   - component: {fileID: 5364402422251972702}
-  - component: {fileID: 5005360236720778682}
-  m_Layer: 0
+  - component: {fileID: 4039883459444956573}
+  - component: {fileID: 5126498037397629300}
+  - component: {fileID: 7323577503284955515}
+  - component: {fileID: 8142116348276239082}
+  m_Layer: 16
   m_Name: Bomber
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,6 +87,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6170175498068397151}
+  - {fileID: 32006216519759215}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6567473584701176127
@@ -78,9 +131,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: -1
+  m_SortingLayerID: 2121691203
+  m_SortingLayer: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: -5549919797473692805, guid: 68d2b278e28ad2548a0a334ef98c3f44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -126,9 +179,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d235f2015656ac147a6ac54ecd070ffc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnHitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6204621183595656170}
+        m_TargetAssemblyTypeName: Bomber, Assembly-CSharp
+        m_MethodName: HandleOnHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6542850270258077277}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: Drop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 6204621183595656170}
+        m_TargetAssemblyTypeName: Bomber, Assembly-CSharp
+        m_MethodName: HandleOnDead
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   data: {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   explosionRadius: 1.7
-  explosionDamage: 100
   damageLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -159,8 +255,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &5005360236720778682
-PolygonCollider2D:
+--- !u!61 &4039883459444956573
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -193,36 +289,67 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.22811699, y: 0.3241933}
-      - {x: 0.16627932, y: 0.3410266}
-      - {x: 0.12363052, y: 0.38708842}
-      - {x: -0.15054607, y: 0.38115767}
-      - {x: -0.18306684, y: 0.32072115}
-      - {x: -0.26984215, y: 0.3334846}
-      - {x: -0.38793993, y: 0.3373489}
-      - {x: -0.5077276, y: 0.29318154}
-      - {x: -0.47787285, y: -0.5104922}
-      - {x: -0.15287161, y: -0.48046374}
-      - {x: 0.21185637, y: -0.46914792}
-      - {x: 0.29820728, y: -0.5008426}
-      - {x: 0.43771362, y: -0.49457097}
-      - {x: 0.5002136, y: -0.37217844}
-      - {x: 0.53010035, y: 0.2845354}
-      - {x: 0.5307045, y: 0.28917718}
-      - {x: 0.39017677, y: 0.34353608}
-  m_UseDelaunayMesh: 0
+  m_Size: {x: 1.9, y: 1.7}
+  m_EdgeRadius: 0
+--- !u!114 &5126498037397629300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252333900620965849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f90125c05d047dc84aa56cb4c708ad6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+  maxHealth: 0
+  currentHealth: 0
+--- !u!114 &7323577503284955515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252333900620965849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71567fb4ca2e45109d8ab0a4ac96a9cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOverrides:
+  - stat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
+    isUseOverride: 1
+    overrideValue: 30
+  - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+    isUseOverride: 1
+    overrideValue: 15
+--- !u!114 &8142116348276239082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252333900620965849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b1290518c624cada02f2e4fc28dd5e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  baseAttack: 0
+  currentAttack: 0
 --- !u!1 &8777226444813315981
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,7 +362,7 @@ GameObject:
   - component: {fileID: 2497518949808899295}
   - component: {fileID: 5527717105499854294}
   - component: {fileID: 8729336084387052396}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: BomberEn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

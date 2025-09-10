@@ -10,30 +10,33 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     private Canvas canvas;
     private CanvasGroup cg;
     private Vector3 startPos;
-    public bool wasDropped { get; private set; } = false;
+    private Card card;
+    private CardManager cardManager;
 
     private void Awake()
     {
+        cardManager = GetComponentInParent<CardManager>();
+        card = GetComponent<Card>();
         cg = GetComponent<CanvasGroup>();
         rt = (RectTransform)transform;
         canvas = GetComponentInParent<Canvas>();
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-        startPos = rt.anchoredPosition;
+
+            startPos = rt.anchoredPosition;
+        cardManager.SetRaycastsAll(false);
         cg.blocksRaycasts = false;
-        wasDropped = false;
-        Debug.Log(cg.blocksRaycasts);
+            Debug.Log(cg.blocksRaycasts);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
+            rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        cg.blocksRaycasts = true;
         #region sorry i used gpt.. becauae i don't solve bug
         // ★ 세이프티넷: 수동 레이캐스트로 DropCard 찾기
         var gr = canvas.GetComponent<GraphicRaycaster>();
@@ -54,6 +57,7 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
             }
         }
         #endregion
+        cardManager.SetRaycastsAll(true);
+        cg.blocksRaycasts = true;
     }
-    public void Dropped() => wasDropped = true;
 }

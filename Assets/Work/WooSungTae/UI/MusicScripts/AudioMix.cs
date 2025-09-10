@@ -8,22 +8,6 @@ public class AudioMix : MonoBehaviour
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider BGMSlider;
     [SerializeField] private Slider SFXSlider;
-
-    public static AudioMix instance;
-
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
     private void Start()
     {
         if(PlayerPrefs.HasKey("SFXVolume"))

@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CircularSO", menuName = "SO/CircularSO")]
 public class CircularSO : BossPatternSO
 {
+    public float damage = 1f;
     public int bulletCount = 12;
     public int repeatCount = 4;
     public float bulletSpeed = 5f;
@@ -27,7 +28,7 @@ public class CircularSO : BossPatternSO
                 bullet.transform.position = boss.transform.position + dir.normalized;
                 bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
                 bullet.SetActive(true);
-                bullet.GetComponent<Bullet>().Init(dir, bulletSpeed);
+                bullet.GetComponent<Bullet>().Init(dir, bulletSpeed, damage);
 
             }
 
