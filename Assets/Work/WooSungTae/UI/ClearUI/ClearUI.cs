@@ -30,8 +30,8 @@ public class ClearUI : MonoBehaviour
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI timeTex;
 
-    private float timer = 1000;
-    float duration = 5f; // 연출을 몇 초 동안 보여줄지
+    [SerializeField] private float timer = 0;
+    [SerializeField] float duration = 5f;
     float elapsed = 0f;
     private void Awake()
     {
@@ -72,10 +72,6 @@ public class ClearUI : MonoBehaviour
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(1.6f);
-        float totalTime = 0;
-        float minuteTime = 0;
-        float secondTime = 0;
-
         while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime;
@@ -122,28 +118,21 @@ public class ClearUI : MonoBehaviour
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);
         yield return new WaitForSecondsRealtime(1.6f);
-        float totalTime = 0;
-        float minuteTime = 0;
-        float secondTime = 0;
-
-        while (totalTime < timer)
+        while (elapsed < duration)
         {
-            totalTime++;
-            secondTime++;
-            if (secondTime > 59)
-            {
-                secondTime = 0;
-                minuteTime++;
-            }
-            if (totalTime < 60)
-            {
-                timeTex.text = $"도전한 시간: {secondTime:F0}초";
-            }
+            elapsed += Time.unscaledDeltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            float showTime = Mathf.Lerp(0, timer, t);
+
+            int minute = Mathf.FloorToInt(showTime / 60f);
+            int second = Mathf.FloorToInt(showTime % 60f);
+
+            if (showTime < 60)
+                timeTex.text = $"깬 시간: {second}초";
             else
-            {
-                timeTex.text = $"도전한 시간: {minuteTime:F0}분 {secondTime:F0}초";
-            }
-            yield return new WaitForSecondsRealtime(timeDelay / timer);
+                timeTex.text = $"깬 시간: {minute}분 {second}초";
+
+            yield return null;
         }
         retryBTN.SetActive(true);
         mainBTN.SetActive(true);
