@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 2577123377668075522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.234, y: 0.297, z: 0}
+  m_LocalPosition: {x: -0.934, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -95,6 +95,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 812737897199885643}
+  onShot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &812737897199885643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +140,7 @@ Transform:
   m_GameObject: {fileID: 5154203471188514374}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.228, y: 0.297, z: 0}
+  m_LocalPosition: {x: 0.9317, y: 0.2513, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -156,6 +159,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 3555999015175337251}
+  onShot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &3555999015175337251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +204,7 @@ Transform:
   m_GameObject: {fileID: 5308858139243396708}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47, y: 0.11, z: 0}
+  m_LocalPosition: {x: 0.4384, y: 0.6266, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,6 +223,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 6540969758097077722}
+  onShot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &6540969758097077722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,7 +683,7 @@ Transform:
   m_GameObject: {fileID: 9092895595130805696}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.44, y: 0.11, z: 0}
+  m_LocalPosition: {x: -0.43756, y: 0.62506, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -693,6 +702,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pool: {fileID: 2743039631751740745}
+  onShot:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2743039631751740745
 MonoBehaviour:
   m_ObjectHideFlags: 0
