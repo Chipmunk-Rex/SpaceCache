@@ -15,11 +15,13 @@ namespace Code.Scripts.Players
         [SerializeField] private float destroyDistance = 1f;
         [SerializeField] private float pullSpeed = 10f;
         [SerializeField] private LayerMask itemLayer;
-        
+
+        private Entity _entity;
         private EntityStat _statCompo;
 
         public void Initialize(Entity entity)
         {
+            _entity = entity;
             _statCompo = entity.GetCompo<EntityStat>();
         }
         
@@ -52,8 +54,8 @@ namespace Code.Scripts.Players
 
                 if (Vector3.Distance(transform.position, hit.transform.position) < destroyDistance)
                 {
-                    GetComponent<PlayerLevelSystem>()?.GetManaAtItem();
-                    Destroy(hit.gameObject);
+                    _entity.GetCompo<PlayerLevelSystem>().GetManaAtItem();
+                    item.Push();
                 }
             }
         }

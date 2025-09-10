@@ -33,6 +33,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5522844712436210862}
   - {fileID: 7245665626226667399}
   - {fileID: 4180639636316009737}
   - {fileID: 3954944603542431025}
@@ -63,6 +64,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1503059959410645653}
         m_TargetAssemblyTypeName: Boss, Assembly-CSharp
         m_MethodName: TakeDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5584361332988802851}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: Drop
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -652,6 +665,55 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7517324405421351135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5522844712436210862}
+  - component: {fileID: 5584361332988802851}
+  m_Layer: 16
+  m_Name: Drop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5522844712436210862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517324405421351135}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4422470896466638407}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5584361332988802851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7517324405421351135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68b4ed7edff149e4916069a06c184189, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 2028077592966584480, guid: 55acfd591add484479218860c55d84d9, type: 3}
+  jumpHeight: 1
+  jumpDistance: 1
+  duration: 0.5
+  dropValue: 30
 --- !u!1001 &5582525244872816616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -660,6 +722,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4422470896466638407}
     m_Modifications:
+    - target: {fileID: 1264205890276495394, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2104349193273376222, guid: a152c413f86cbd74b955beed14d4df50, type: 3}
       propertyPath: m_Name
       value: Laser

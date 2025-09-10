@@ -71,6 +71,7 @@ public class UnSuck : EnemyBase, IDamageable
     {
         if (currentHP <= 0)
         {
+            OnDeadEvent?.Invoke();
             if (_die) return;                     
             _die = true;
 
