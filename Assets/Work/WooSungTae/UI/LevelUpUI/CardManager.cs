@@ -17,7 +17,6 @@ public class CardManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] gameObjectCard;
     [SerializeField] private LevelUpItemSO[] levelUpSO;
-    [SerializeField] private CardMusic cardMusic;
     [SerializeField] private GameObject content;
     [SerializeField] private GameObject skillUi;
     [SerializeField] private GameObject biHangGi_image;
@@ -117,7 +116,6 @@ public class CardManager : MonoBehaviour
         {
             CardScaler cardScaler = a.GetComponent<CardScaler>();
             cardScaler.CardImageActive();
-            cardMusic.SlideCard();
             RectTransform rt = (RectTransform)a.transform;
             rt.DOAnchorPosY(downUiValue + minusAnchor, 1f).SetUpdate(true);
             minusAnchor += 350;
@@ -204,7 +202,6 @@ public class CardManager : MonoBehaviour
             Card card = a.GetComponent<Card>();
            if (!card.iClicked)
            {
-                cardMusic.SlideCard();
                 RectTransform rt = (RectTransform)a.transform;
 
                 rt.DOAnchorPos(new Vector2(upUiValue, 0),1).SetUpdate(true);
