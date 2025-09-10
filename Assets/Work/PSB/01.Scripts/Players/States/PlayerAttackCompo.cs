@@ -7,6 +7,7 @@ using PSB_Lib.ObjectPool.RunTime;
 using PSB_Lib.StatSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Code.Scripts.Players.States
 {
@@ -28,6 +29,7 @@ namespace Code.Scripts.Players.States
         
         [Inject] private PoolManagerMono _poolManager;
 
+        public UnityEvent OnAttackEvent;
         public event Action<float> OnAttackCooldownStart;
         public event Action OnAttackCooldownEnd;
         
@@ -84,6 +86,7 @@ namespace Code.Scripts.Players.States
             float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;
             _nextAttackTime = Time.time + delay;
 
+            OnAttackEvent?.Invoke();
             OnAttackCooldownStart?.Invoke(delay);
             _ = ResetAttackCooldown(delay);
         }
