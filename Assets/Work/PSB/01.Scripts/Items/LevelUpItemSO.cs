@@ -15,8 +15,6 @@ namespace Code.Scripts.Items
         RCLICK = 16,
     }
     
-    
-    [CreateAssetMenu(fileName = "LevelUpItem", menuName = "SO/Item", order = 0)]
     public abstract class LevelUpItemSO : ScriptableObject
     {
         public ItemType itemType;

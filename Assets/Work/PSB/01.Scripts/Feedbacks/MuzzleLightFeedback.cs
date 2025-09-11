@@ -5,8 +5,7 @@ namespace Code.Scripts.Feedbacks
 {
     public class MuzzleLightFeedback : Feedback
     {
-        [SerializeField] private GameObject _muzzleFlash1;
-        [SerializeField] private GameObject _muzzleFlash2;
+        [SerializeField] private GameObject[] _muzzleFlash;
         [SerializeField] private float _turnOnTime = 0.08f;
         [SerializeField] private bool _defaultState = false;
         
@@ -23,18 +22,24 @@ namespace Code.Scripts.Feedbacks
 
         private IEnumerator ActiveCoroutine()
         {
-            _muzzleFlash1.SetActive(true);
-            _muzzleFlash2.SetActive(true);
+            for (int i = 0; i < _muzzleFlash.Length; i++)
+            {
+                _muzzleFlash[i].SetActive(true);
+            }
             yield return new WaitForSeconds(_turnOnTime);
-            _muzzleFlash1.SetActive(false);
-            _muzzleFlash2.SetActive(false);
+            for (int i = 0; i < _muzzleFlash.Length; i++)
+            {
+                _muzzleFlash[i].SetActive(false);
+            }
         }
 
         public override void CompletePrevFeedback()
         {
             StopAllCoroutines();
-            _muzzleFlash1.SetActive(_defaultState);
-            _muzzleFlash2.SetActive(_defaultState);
+            for (int i = 0; i < _muzzleFlash.Length; i++)
+            {
+                _muzzleFlash[i].SetActive(_defaultState);
+            }
         }
 
         

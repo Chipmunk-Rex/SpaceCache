@@ -42,7 +42,7 @@ namespace Code.Scripts.Items.UI
             if (_cooldownRoutine != null)
                 StopCoroutine(_cooldownRoutine);
 
-            SetYScale(cooldownBar, 1f);
+            SetXScale(cooldownBar, 1f);
         }
 
         private IEnumerator CooldownRoutine(float duration)
@@ -53,23 +53,25 @@ namespace Code.Scripts.Items.UI
                 float elapsed = Time.time - startTime;
                 float progress = Mathf.Clamp01(elapsed / duration);
 
-                SetYScale(cooldownBar, progress);
+                SetXScale(cooldownBar, progress);
 
                 yield return null;
             }
-            
-            SetYScale(cooldownBar, 1f);
+    
+            SetXScale(cooldownBar, 1f);
 
             _cooldownRoutine = null;
         }
 
-        private void SetYScale(RectTransform rect, float xValue)
+        private void SetXScale(RectTransform rect, float xValue)
         {
             if (rect == null) return;
 
             Vector3 scale = rect.localScale;
-            scale.y = xValue;
+            scale.x = xValue;
             rect.localScale = scale;
         }
+        
+        
     }
 }

@@ -35,7 +35,7 @@ namespace Code.Scripts.Effects
 
             if (animator != null)
             {
-                animator.Play(playStateName, -1, 0f);
+                animator.Play(playStateName, 0, 0f);
             }
         }
 

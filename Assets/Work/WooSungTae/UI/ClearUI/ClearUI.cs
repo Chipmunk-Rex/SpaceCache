@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ClearUI : MonoBehaviour
 {
-    [Header("first paenl")]
+    [Header("First Panel")]
     [SerializeField] private GameObject clearPanel;
     [SerializeField] private Sprite winClear;
     [SerializeField] private Sprite loseClear;
@@ -17,14 +17,14 @@ public class ClearUI : MonoBehaviour
     [SerializeField] private float clearPanelUp;
     [SerializeField] private float endXSize;
 
-    [Header("second paenl")]
+    [Header("Second Panel")]
     [SerializeField] private GameObject clearPanel2;
     [SerializeField] private float clearImageDOFadeSpeed2;
     [SerializeField] private float endXSize2;
     [SerializeField] private float endYSize;
     [SerializeField] private float timeDelay = 1;
 
-    [Header("buttons")]
+    [Header("Buttons")]
     [SerializeField] private GameObject retryBTN;
     [SerializeField] private GameObject mainBTN;
     [Header("Text")]
@@ -40,11 +40,11 @@ public class ClearUI : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.tKey.wasPressedThisFrame)
         {
             StartCoroutine(Win());
         }
-        if(Keyboard.current.rKey.wasPressedThisFrame)
+        if(Keyboard.current.yKey.wasPressedThisFrame)
         {
             StartCoroutine(Lose());
         }
@@ -71,7 +71,6 @@ public class ClearUI : MonoBehaviour
         panelRect = clearPanel2.GetComponent<RectTransform>();
         Image clearImage2 = clearPanel2.GetComponent<Image>();
         clearImage2.DOFade(1, clearImageDOFadeSpeed2).SetUpdate(true);
-        float size = 0;
         Sequence seq = DOTween.Sequence();
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);
@@ -94,7 +93,6 @@ public class ClearUI : MonoBehaviour
         panelRect = clearPanel2.GetComponent<RectTransform>();
         Image clearImage2 = clearPanel2.GetComponent<Image>();
         clearImage2.DOFade(1, clearImageDOFadeSpeed2).SetUpdate(true);
-        float size = 0;
         Sequence seq = DOTween.Sequence();
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, panelRect.sizeDelta.y), 0.7f)).SetUpdate(true);
         seq.Append(panelRect.DOSizeDelta(new Vector2(endXSize2, endYSize), 0.4f)).SetUpdate(true);

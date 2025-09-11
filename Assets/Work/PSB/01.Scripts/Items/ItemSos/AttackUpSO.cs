@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Code.Scripts.Items.ItemSos
 {
     [CreateAssetMenu(fileName = "AttackUpSO", menuName = "SO/Item/AttackUp", order = 0)]
-    public class AttacpUpSO : LevelUpItemSO
+    public class AttackUpSO : LevelUpItemSO
     {
         private PlayerAttackCompo _attackCompo;
         
@@ -16,7 +16,7 @@ namespace Code.Scripts.Items.ItemSos
             if (statCompo == null)
                 Debug.LogError("No have attackCompo");
 
-            statCompo.IncreaseBaseValue(_attackCompo.attackPowerStat, 5f);
+            statCompo.IncreaseBaseValue(_attackCompo.attackPowerStat, 10f);
         }
         
     }

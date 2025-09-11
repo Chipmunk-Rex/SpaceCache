@@ -6,11 +6,19 @@ namespace Code.Scripts.Items.Combat
     public class PlayerShield : MonoBehaviour
     {
         public Action OnDestroyAction;
-        
-        private void OnCollisionEnter2D(Collision2D other)
+        private int cnt = 0;
+
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Test"))
+            cnt++;
+            
+            if (cnt <= 5) return;
+            
+            if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet") 
+                || other.gameObject.layer == LayerMask.NameToLayer("BossBullet")
+                || other.gameObject.layer == LayerMask.NameToLayer("Meteor"))
             {
+                Debug.Log("ShieldTrigger");
                 OnDestroyAction?.Invoke();
                 Destroy(gameObject);
             }

@@ -23,9 +23,6 @@ namespace Code.Scripts.Players.States
         [Header("Value")]
         [SerializeField] private float attackPower = 10f;
         [field: SerializeField] public float attackCooldown = 2f;
-
-        [Header("UI")] 
-        [SerializeField] private TextMeshProUGUI attackPowerTxt;
         
         [Inject] private PoolManagerMono _poolManager;
 
@@ -58,11 +55,6 @@ namespace Code.Scripts.Players.States
             _player.PlayerInput.OnAttackPressed += FireBullet;
             _player.PlayerInput.OnAttackStart += StartAutoFire;
             _player.PlayerInput.OnAttackStop += StopAutoFire;
-        }
-        
-        private void Update()
-        {
-            attackPowerTxt.text = "총알 한 발당 데미지 : " + attackPower;
         }
 
         private void OnDestroy()

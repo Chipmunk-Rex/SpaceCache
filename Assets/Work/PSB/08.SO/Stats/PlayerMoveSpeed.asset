@@ -18,5 +18,5 @@ MonoBehaviour:
   displayName: MoveSpeed
   baseValue: 10
   minValue: 1
-  maxValue: 30
+  maxValue: 20
   <IsPercent>k__BackingField: 0

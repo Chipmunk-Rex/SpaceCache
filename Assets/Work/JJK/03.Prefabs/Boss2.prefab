@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 6451283733897497935, guid: baa6e4ec8bf4b694fbf1c1b594fde8f4, type: 3}
     - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: engine.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1503059959410645653, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: 'engine.Array.data[0]'
@@ -179,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 5163201406566268086, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443637770487624323, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
+      propertyPath: m_PointLightInnerAngle
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 5584361332988802851, guid: a479840d471ee4840a8ac5e44a5afa45, type: 3}
       propertyPath: dropValue

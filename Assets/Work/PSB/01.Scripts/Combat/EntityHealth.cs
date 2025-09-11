@@ -11,9 +11,9 @@ namespace Code.Scripts.Items.Combat
         private EntityStat _statCompo;
         public event Action<float, float> OnHealthChanged;
         
-        [SerializeField] private StatSO hpStat;
-        [SerializeField] private float maxHealth;
-        [SerializeField] private float currentHealth;
+        [field: SerializeField] public StatSO hpStat;
+        [field: SerializeField] public float maxHealth;
+        [field: SerializeField] public float currentHealth;
         
         public void Initialize(Entity entity)
         {
@@ -43,6 +43,12 @@ namespace Code.Scripts.Items.Combat
             {
                 currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
             }
+        }
+        
+        public void SetFullHp()
+        {
+            currentHealth = maxHealth;
+            OnHealthChanged?.Invoke(currentHealth, maxHealth);
         }
         
         #region Temp
