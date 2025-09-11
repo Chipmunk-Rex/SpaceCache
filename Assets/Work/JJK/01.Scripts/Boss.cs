@@ -20,6 +20,7 @@ public class Boss : Entity, IEntityComponent
     [SerializeField] private float turnSpeed = 5f;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] float spinSpeed = 90f;
+    [SerializeField] private GameObject objectPool;
 
     public Transform firePoint;
 
@@ -108,6 +109,7 @@ public class Boss : Entity, IEntityComponent
         for (int i = 0; i < poolSize; i++)
         {
             GameObject bullet = Instantiate(bulletPrefab);
+            bullet.transform.SetParent(objectPool.transform);
             bulletPool[i] = bullet;
             bullet.SetActive(false);
         }
@@ -120,6 +122,7 @@ public class Boss : Entity, IEntityComponent
         for (int i = 0; i < poolSize; i++)
         {
             GameObject missile = Instantiate(bulletPrefab2);
+            missile.transform.SetParent(objectPool.transform);
             bulletPool2[i] = missile;
             missile.SetActive(false);
         }
