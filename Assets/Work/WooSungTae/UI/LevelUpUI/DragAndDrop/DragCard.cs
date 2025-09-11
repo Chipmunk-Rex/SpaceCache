@@ -23,22 +23,20 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
     }
     public void OnBeginDrag(PointerEventData eventData)
     {
-
-            startPos = rt.anchoredPosition;
+        startPos = rt.anchoredPosition;
         cardManager.SetRaycastsAll(false);
         cg.blocksRaycasts = false;
-            Debug.Log(cg.blocksRaycasts);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-            rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        rt.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         #region sorry i used gpt.. becauae i don't solve bug
-        // ¡Ú ¼¼ÀÌÇÁÆ¼³Ý: ¼öµ¿ ·¹ÀÌÄ³½ºÆ®·Î DropCard Ã£±â
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Æ®ï¿½ï¿½ DropCard Ã£ï¿½ï¿½
         var gr = canvas.GetComponent<GraphicRaycaster>();
         if (gr)
         {
@@ -48,7 +46,7 @@ public class DragCard : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDrag
                               .FirstOrDefault(d => d != null);
             if (drop)
             {
-                // OnDropÀÌ ¾ÃÇû¾îµµ °­Á¦·Î È£Ãâ
+                // OnDropï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½îµµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
                 ExecuteEvents.Execute<IDropHandler>(drop.gameObject, eventData, ExecuteEvents.dropHandler);
             }
             else

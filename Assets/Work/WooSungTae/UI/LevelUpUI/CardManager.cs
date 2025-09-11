@@ -126,7 +126,6 @@ public class CardManager : MonoBehaviour
 
     public void StartCardUp()
     {
-        Debug.Log("ed");
         if(!dontClick)
         {
             dontClick = true;
@@ -147,7 +146,6 @@ public class CardManager : MonoBehaviour
         foreach (var a in gameObjectCard)
         {
             Card card = a.GetComponent<Card>();
-            Debug.Log(card.iClicked);
             
             if (card.iClicked)
             {

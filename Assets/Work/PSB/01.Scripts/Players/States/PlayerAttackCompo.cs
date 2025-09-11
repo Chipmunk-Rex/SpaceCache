@@ -5,7 +5,6 @@ using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
 using PSB_Lib.ObjectPool.RunTime;
 using PSB_Lib.StatSystem;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,7 +20,7 @@ namespace Code.Scripts.Players.States
         [SerializeField] private Transform spawnPoint2;
         
         [Header("Value")]
-        [SerializeField] private float attackPower = 10f;
+        [field: SerializeField] public float attackPower = 10f;
         [field: SerializeField] public float attackCooldown = 2f;
         
         [Inject] private PoolManagerMono _poolManager;
