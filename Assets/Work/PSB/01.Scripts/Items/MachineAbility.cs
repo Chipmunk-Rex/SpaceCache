@@ -14,6 +14,8 @@ namespace Code.Scripts.Items
         public float _cooldownTimer = 0f;
         private bool _isActive = false;
 
+        public event Action OnClickSkill;
+
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
@@ -53,6 +55,7 @@ namespace Code.Scripts.Items
                 Debug.Log("머신건 스킬을 사용할 수 없습니다.");
                 return;
             }
+            OnClickSkill?.Invoke();
 
             Debug.Log("머신건 발동");
             _isActive = true;

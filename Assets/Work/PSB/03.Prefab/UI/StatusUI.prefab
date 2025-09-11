@@ -358,7 +358,6 @@ GameObject:
   - component: {fileID: 7478033310241598688}
   - component: {fileID: 5674251321684169757}
   - component: {fileID: 2783522495166233838}
-  - component: {fileID: 1538698485873968852}
   - component: {fileID: 8361906610602799585}
   m_Layer: 5
   m_Name: StatusUI
@@ -427,21 +426,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1538698485873968852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3725562861995593188}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89c85af1c0074702b14cc84463e599e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconImage: {fileID: 2249557409864928761}
-  nameText: {fileID: 5543277488328970744}
-  valueText: {fileID: 7682630426245656764}
 --- !u!114 &8361906610602799585
 MonoBehaviour:
   m_ObjectHideFlags: 0
