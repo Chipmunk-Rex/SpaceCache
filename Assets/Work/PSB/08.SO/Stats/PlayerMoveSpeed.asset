@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
   m_Name: PlayerMoveSpeed
   m_EditorClassIdentifier: 
-  statName: MoveSpeed
+  statName: "\uC774\uB3D9\uC18D\uB3C4"
   description: Player's move speed stat
-  icon: {fileID: 8668851699546659915, guid: 392f743fd8705f34f9ab8f2447dfdd0e, type: 3}
+  icon: {fileID: -2907186346581270159, guid: bf4c3c9fa57729c4d99adc71bb13bad0, type: 3}
   displayName: MoveSpeed
   baseValue: 10
   minValue: 1

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
   m_Name: PlayerAttackPower
   m_EditorClassIdentifier: 
-  statName: AttackPower
+  statName: "\uACF5\uACA9\uB825"
   description: Player's attack power stat
   icon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
   displayName: AttackPower
