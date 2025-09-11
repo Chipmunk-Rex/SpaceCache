@@ -40,11 +40,11 @@ public class ClearUI : MonoBehaviour
     private void Update()
     {
         timer += Time.deltaTime;
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (Keyboard.current.tKey.wasPressedThisFrame)
         {
             StartCoroutine(Win());
         }
-        if(Keyboard.current.rKey.wasPressedThisFrame)
+        if(Keyboard.current.yKey.wasPressedThisFrame)
         {
             StartCoroutine(Lose());
         }

@@ -15,7 +15,7 @@ MonoBehaviour:
   waveEndTime: 150
   bossSpawnTiming: 2
   boss: {fileID: 11400000, guid: 978888ea2d7cbd049a94e0bf81bb50fc, type: 2}
-  bossSpawn: 1
+  bossSpawn: 0
   sequence:
   - enemy: {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
     count: 5
