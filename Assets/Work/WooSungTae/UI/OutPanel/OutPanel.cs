@@ -44,8 +44,11 @@ public class OutPanel : MonoBehaviour
             }
             else
             {
+                volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f);
+                outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f);
                 _outPanel.SetActive(false);
                 _greyPanel.SetActive(false);
+                _soundPanel.SetActive(false);
                 _isClicked = false;
             }
         }
@@ -63,15 +66,15 @@ public class OutPanel : MonoBehaviour
     {
         if (!_soundBTNClicked)
         {
-            volume_rectTransform.DOAnchorPosX(volume_moveXPos, 0.7f);
-            outPanelEsc_rectTransform.DOAnchorPosX(outPanelEsc_moveXPos, 0.7f);
+            volume_rectTransform.DOAnchorPosX(volume_moveXPos, 0.3f);
+            outPanelEsc_rectTransform.DOAnchorPosX(outPanelEsc_moveXPos, 0.3f);
             _soundBTNClicked = true;
             _soundPanel.SetActive(true);
         }
         else
         {
-            volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.7f);
-            outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.7f);
+            volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f);
+            outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f);
             _soundPanel.SetActive(false);
             _soundBTNClicked = false;
         }
