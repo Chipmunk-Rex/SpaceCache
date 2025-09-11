@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53809b9b0f299f54184699b97f6d8254, type: 3}
   m_Name: ExplosionShoot
   m_EditorClassIdentifier: 
-  explosionBulletPrefab: {fileID: 1228868271324526155, guid: 2717bdbc0a150e94ea8be00ddd5c7503, type: 3}
+  explosionBulletPrefab: {fileID: 7995340422643829589, guid: 2717bdbc0a150e94ea8be00ddd5c7503, type: 3}
   moveSpeed: 4
   fireCount: 5
   delay: 1.5
