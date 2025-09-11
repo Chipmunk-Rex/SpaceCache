@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HpUpSO
   m_EditorClassIdentifier: 
   itemType: 1
-  SkillIcon: {fileID: 5155163167032735316, guid: 0c09d26523976b3459c4feea5c31a834, type: 3}
+  SkillIcon: {fileID: -421199687131385714, guid: 28b526f84190d0f48a80cad2b05facbb, type: 3}
   Name: "\uCCB4\uB825 \uC99D\uAC00"
   Description: "\uCD5C\uB300 \uCCB4\uB825\uC744 \uC99D\uAC00\uC2DC\uCF1C\uC90D\uB2C8\uB2E4."
   cardUiSpawn: 0
