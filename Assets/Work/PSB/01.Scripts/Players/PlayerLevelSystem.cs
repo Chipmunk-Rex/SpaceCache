@@ -2,6 +2,7 @@
 using Code.Scripts.Entities;
 using PSB_Lib.Dependencies;
 using PSB_Lib.StatSystem;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,7 @@ namespace Code.Scripts.Players
     public class PlayerLevelSystem : MonoBehaviour, IEntityComponent, IAfterInitialize, IDependencyProvider
     {
         [SerializeField] private Slider manaSlider;
+        [SerializeField] private TextMeshProUGUI levelText;
         [SerializeField] private float maxManaPoint = 100f;
         [SerializeField] private int maxLevel = 15;
 
@@ -61,6 +63,7 @@ namespace Code.Scripts.Players
             {
                 _currentMana += 100f;
             }
+            levelText.text = _currentLevel.ToString();
         }
         
         #endregion
