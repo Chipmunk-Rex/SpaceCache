@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
   m_Name: PlayerHP
   m_EditorClassIdentifier: 
-  statName: PlayerHealth
+  statName: "\uCCB4\uB825"
   description: Player's hp stat
-  icon: {fileID: 8668851699546659915, guid: 392f743fd8705f34f9ab8f2447dfdd0e, type: 3}
+  icon: {fileID: -421199687131385714, guid: 28b526f84190d0f48a80cad2b05facbb, type: 3}
   displayName: HP
   baseValue: 100
   minValue: 0

@@ -8,7 +8,7 @@ namespace Code.Scripts.Players
 {
     public class PlayerMovement : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
-        [SerializeField] private StatSO moveSpeedStat;
+        [field: SerializeField] public StatSO moveSpeedStat;
         [SerializeField] private Rigidbody2D rigid2D;
         [SerializeField] private PlayerLookCam lookCam;
         

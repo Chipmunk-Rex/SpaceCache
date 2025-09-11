@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
   m_Name: PlayerAttackSpeed
   m_EditorClassIdentifier: 
-  statName: AttackSpeed
+  statName: "\uACF5\uACA9\uC8FC\uAE30"
   description: Player's attack speed stat
-  icon: {fileID: 8668851699546659915, guid: 392f743fd8705f34f9ab8f2447dfdd0e, type: 3}
+  icon: {fileID: -2520797534076920382, guid: 8dcb640bcabe405478e3512c675d4a43, type: 3}
   displayName: AttackSpeed
   baseValue: 2
   minValue: 0.5
