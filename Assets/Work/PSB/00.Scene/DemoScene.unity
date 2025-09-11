@@ -7612,6 +7612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1905766125}
   - component: {fileID: 1905766126}
+  - component: {fileID: 1905766127}
   m_Layer: 0
   m_Name: MapSystem
   m_TagString: Untagged
@@ -7650,6 +7651,25 @@ MonoBehaviour:
   player: {fileID: 1040925495}
   spriteSize: 32
   viewRange: 2
+--- !u!114 &1905766127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905766124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c3ba3f26394b689cd6cbc3498536c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1040925495}
+  itemPrefab: {fileID: 2028077592966584480, guid: 55acfd591add484479218860c55d84d9, type: 3}
+  maxItems: 30
+  spawnRadius: 10
+  minDistanceFromPlayer: 1
+  minSpawnDelay: 0.5
+  maxSpawnDelay: 2
 --- !u!1 &1968777921
 GameObject:
   m_ObjectHideFlags: 0
