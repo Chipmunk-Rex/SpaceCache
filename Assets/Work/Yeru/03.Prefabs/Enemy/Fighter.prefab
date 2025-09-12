@@ -107,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &81096280495397582
 Transform:
   m_ObjectHideFlags: 0
@@ -323,7 +323,8 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
-  muzzles: []
+  muzzles:
+  - {fileID: 8603339351633952523}
 --- !u!114 &-7181012061841225867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -556,7 +557,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2183775738966583230}
-  - component: {fileID: 3790237312657668464}
   - component: {fileID: 8603339351633952523}
   m_Layer: 16
   m_Name: Muzle
@@ -580,21 +580,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 81096280495397582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3790237312657668464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6427032839907784047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 1374434642276698987, guid: f4e5c6a63fe1b9c4997818909167af2a, type: 3}
-  initialSize: 32
-  allowExpand: 1
 --- !u!114 &8603339351633952523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -607,13 +592,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 3790237312657668464}
+  pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4894683302607151461}
-        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.MuzzleLightFeedback, Assembly-CSharp
-        m_MethodName: CreateFeedback
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Muzzle, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
