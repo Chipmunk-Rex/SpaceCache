@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class EnemyBulletPool : MonoBehaviour
 {
+    [SerializeField] private string poolId = "Enemy";
+    public string PoolId => poolId;   
+    
+    
     [SerializeField] private EnemyBullet prefab;
     [SerializeField] private int initialSize = 32;
     [SerializeField] private bool allowExpand = true;
@@ -33,9 +37,15 @@ public class EnemyBulletPool : MonoBehaviour
         {
             next = (next + 1) % count;
             var b = pool[next];
-            if (!b.gameObject.activeSelf) return b;
+            if (!b.gameObject.activeSelf)
+            {
+                if (b.transform.parent != bulletParent)
+                    b.transform.SetParent(bulletParent, false);
+                return b;
+            }
         }
         return allowExpand ? CreateOne() : null;
+        
     }
 
     public void Return(EnemyBullet b)

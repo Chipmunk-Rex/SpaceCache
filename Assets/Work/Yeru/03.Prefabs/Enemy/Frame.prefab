@@ -261,6 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolId: EnemyBullet
   pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolId: EnemyBullet
   pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
@@ -465,6 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolId: EnemyBullet
   pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
@@ -1084,6 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PoolId: EnemyBullet
   pool: {fileID: 0}
   onShot:
     m_PersistentCalls:

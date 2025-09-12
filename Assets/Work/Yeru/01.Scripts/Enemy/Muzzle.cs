@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class Muzzle : MonoBehaviour
 {
+    [SerializeField] private string PoolId = "Enemy"; 
+    
     [SerializeField] private EnemyBulletPool pool;
     
     [SerializeField] private TransformEvent onShot = new TransformEvent();
@@ -16,6 +18,21 @@ public class Muzzle : MonoBehaviour
     {
         owner = GetComponentInParent<EnemyBase>();
         _attackCompo = owner.GetCompo<EntityAttack>();
+        if (!pool || !pool.gameObject.scene.IsValid())
+        {
+            var pools = FindObjectsOfType<EnemyBulletPool>(true);
+            foreach (var p in pools)
+            {
+                if (p != null && p.PoolId == PoolId) 
+                {
+                    pool = p; break;
+                }
+            } 
+            if (!pool)
+            { 
+                if (pools.Length == 1) pool = pools[0];
+            }
+        }
     }
 
     

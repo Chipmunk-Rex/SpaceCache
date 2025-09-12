@@ -33,9 +33,16 @@ public class TorpedoBulletPool : MonoBehaviour
         {
             next = (next + 1) % count;
             var b = pool[next];
-            if (!b.gameObject.activeSelf) return b;
+            if (!b.gameObject.activeSelf)
+            {
+                if (b.transform.parent != bulletParent)
+                    b.transform.SetParent(bulletParent, false);
+                return b;
+            }
+            
         }
         return allowExpand ? CreateOne() : null;
+        
     }
 
     public void Return(TorpedoBullet b)

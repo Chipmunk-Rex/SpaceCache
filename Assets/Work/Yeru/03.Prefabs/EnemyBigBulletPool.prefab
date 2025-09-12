@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolId: EnemyBigBullet
   prefab: {fileID: 1374434642276698987, guid: f4e5c6a63fe1b9c4997818909167af2a, type: 3}
   initialSize: 32
   allowExpand: 1

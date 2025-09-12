@@ -15,6 +15,10 @@ public class TorpedoShip : EnemyBase
     {
         base.Awake();
         _attackCompo = GetCompo<EntityAttack>();
+        if (!bulletPool || !bulletPool.gameObject.scene.IsValid())
+            {
+                bulletPool = FindObjectOfType<TorpedoBulletPool>(true);
+            }
     }
 
     protected override void OnInit()
