@@ -13,7 +13,6 @@ public class MousePos : MonoBehaviour
         {
             iInRange = true;
             range.x = -5f;
-            Debug.Log("µé¾î¿È");
         }
         else
         {
