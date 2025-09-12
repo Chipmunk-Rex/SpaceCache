@@ -1,6 +1,7 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class PlayerStatus : MonoBehaviour
@@ -18,9 +19,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float circle3Speed;
     [SerializeField] private Vector2 circle3Scale;
 
-    float rotate = 0;
-    float time = 0;
-    
+    private float _rotate = 0;
 
     private void Start()
     {
@@ -34,9 +33,9 @@ public class PlayerStatus : MonoBehaviour
     {
         while (true)
         {
-            rotate++;
-            circle1.transform.localRotation = Quaternion.Euler(0, 0, -circle1Speed * rotate);
-            circle3.transform.localRotation = Quaternion.Euler(0, 0, circle3Speed * rotate);
+            _rotate++;
+            circle1.transform.localRotation = Quaternion.Euler(0, 0, -circle1Speed * _rotate);
+            circle3.transform.localRotation = Quaternion.Euler(0, 0, circle3Speed * _rotate);
             yield return new WaitForSeconds(0.04f);
         }
     }
