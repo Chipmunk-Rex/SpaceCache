@@ -1,3 +1,4 @@
+using Ami.BroAudio;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -5,6 +6,8 @@ public class DropCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Vector3 baseScale;
     private CardManager cardManager;
+
+    [SerializeField] private SoundID skillSelectSound;
 
     private void Awake()
     {
@@ -14,6 +17,7 @@ public class DropCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         Card card = eventData.pointerDrag.GetComponent<Card>();
         card.OnClickCard();
+        BroAudio.Play(skillSelectSound);
         cardManager.StartCardUp();
     }
 

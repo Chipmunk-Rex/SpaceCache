@@ -1,4 +1,5 @@
 ﻿using System;
+using Ami.BroAudio;
 using Code.Scripts.Entities;
 using PSB_Lib.Dependencies;
 using PSB_Lib.StatSystem;
@@ -20,6 +21,8 @@ namespace Code.Scripts.Players
         [field : SerializeField] public float manaPerGetPercent = 1f;
         [field: SerializeField] public StatSO manaValueStat;
 
+        [SerializeField] private SoundID levelUpSound;
+        
         private float _currentMana = 0f;
         private int _currentLevel = 0;
         
@@ -82,6 +85,7 @@ namespace Code.Scripts.Players
             {
                 _currentMana = 0f;
                 _currentLevel++;
+                BroAudio.Play(levelUpSound);
                 OnLevelUp?.Invoke();
             }
             
@@ -98,6 +102,7 @@ namespace Code.Scripts.Players
             {
                 _currentMana = 0f;
                 _currentLevel++;
+                BroAudio.Play(levelUpSound);
                 OnLevelUp?.Invoke();
             }
             
