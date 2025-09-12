@@ -227,7 +227,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7141720193446432434}
   - component: {fileID: 5919411027325128721}
-  - component: {fileID: 812737897199885643}
   m_Layer: 16
   m_Name: Muzle (2)
   m_TagString: Untagged
@@ -262,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 812737897199885643}
+  pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
       m_Calls:
@@ -278,21 +277,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &812737897199885643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2577123377668075522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 483593091266251443, guid: 0c0a1833d46270849921543cc99e4d0a, type: 3}
-  initialSize: 32
-  allowExpand: 1
 --- !u!1 &2835743383988831054
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +371,6 @@ GameObject:
   m_Component:
   - component: {fileID: 601218000172454481}
   - component: {fileID: 641726549310950745}
-  - component: {fileID: 3555999015175337251}
   m_Layer: 16
   m_Name: Muzle (3)
   m_TagString: Untagged
@@ -422,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 3555999015175337251}
+  pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
       m_Calls:
@@ -438,21 +421,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3555999015175337251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5154203471188514374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 483593091266251443, guid: 0c0a1833d46270849921543cc99e4d0a, type: 3}
-  initialSize: 32
-  allowExpand: 1
 --- !u!1 &5308858139243396708
 GameObject:
   m_ObjectHideFlags: 0
@@ -463,7 +431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9165489683368236032}
   - component: {fileID: 5655030736315206603}
-  - component: {fileID: 6540969758097077722}
   m_Layer: 16
   m_Name: Muzle
   m_TagString: Untagged
@@ -498,7 +465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 6540969758097077722}
+  pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
       m_Calls:
@@ -514,21 +481,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6540969758097077722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5308858139243396708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 483593091266251443, guid: 0c0a1833d46270849921543cc99e4d0a, type: 3}
-  initialSize: 32
-  allowExpand: 1
 --- !u!1 &5589944861685151778
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,7 +504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &384579011094449478
 Transform:
   m_ObjectHideFlags: 0
@@ -774,7 +726,11 @@ MonoBehaviour:
   data: {fileID: 11400000, guid: ab54c182882b48a43a3f5f699b8d472f, type: 2}
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
-  muzzles: []
+  muzzles:
+  - {fileID: 5655030736315206603}
+  - {fileID: 8294209498025632358}
+  - {fileID: 5919411027325128721}
+  - {fileID: 641726549310950745}
 --- !u!114 &6411792921668512936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1094,7 +1050,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8996946276850726044}
   - component: {fileID: 8294209498025632358}
-  - component: {fileID: 2743039631751740745}
   m_Layer: 16
   m_Name: Muzle (1)
   m_TagString: Untagged
@@ -1129,7 +1084,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cfea6ca0fa31fa4581dea4f81138900, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pool: {fileID: 2743039631751740745}
+  pool: {fileID: 0}
   onShot:
     m_PersistentCalls:
       m_Calls:
@@ -1145,18 +1100,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2743039631751740745
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9092895595130805696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa8644bef907fa41a2c50e8e6eb6af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 483593091266251443, guid: 0c0a1833d46270849921543cc99e4d0a, type: 3}
-  initialSize: 32
-  allowExpand: 1

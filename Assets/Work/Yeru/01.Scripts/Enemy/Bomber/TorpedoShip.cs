@@ -5,7 +5,6 @@ using UnityEngine;
 public class TorpedoShip : EnemyBase
 {
     [SerializeField] private TorpedoBulletPool bulletPool;
-    [SerializeField] private TorpedoBullet bulletPrefab;
     [SerializeField] private Transform[] shooter;
     
     [SerializeField] private TransformEvent onShot = new TransformEvent();
@@ -62,11 +61,12 @@ public class TorpedoShip : EnemyBase
 
     private void FireFrom(Transform muzzle)
     {
-        TorpedoBullet b = null;
+        if (bulletPool == null) return;
+        
     
-        if (bulletPool != null) b = bulletPool.Get();
-        else if (bulletPrefab != null) b = Instantiate(bulletPrefab);
+        var b = bulletPool.Get();
         if (b == null) return;
+        
     
         b.InitFromMuzzle(muzzle, _attackCompo.GetAttack());
         onShot.Invoke(muzzle);

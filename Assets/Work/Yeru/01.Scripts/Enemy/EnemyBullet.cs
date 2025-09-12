@@ -13,7 +13,11 @@ public class EnemyBullet : MonoBehaviour
     private Rigidbody2D rb;
     private Coroutine lifeCo;
     private float damage;
-
+    
+    private EnemyBulletPool _pool;   
+    
+    public void SetPool(EnemyBulletPool p) => _pool = p;
+    
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -53,7 +57,7 @@ public class EnemyBullet : MonoBehaviour
     IEnumerator LifeTimer()
     {
         yield return new WaitForSeconds(life);
-        gameObject.SetActive(false);
+        ReturnToPool();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -61,6 +65,11 @@ public class EnemyBullet : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         var d = other.GetComponentInParent<EntityHealth>();
         if (d != null) d.SetHp(-damage);
-        gameObject.SetActive(false);
+        ReturnToPool();
+    }
+    public void ReturnToPool()
+    {
+        if (_pool != null) _pool.Return(this);
+        else gameObject.SetActive(false);
     }
 }
