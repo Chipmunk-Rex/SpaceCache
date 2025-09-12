@@ -334,7 +334,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7407055061735251249}
         m_TargetAssemblyTypeName: ClearBTN, Assembly-CSharp
-        m_MethodName: ClickHomeBTN
+        m_MethodName: ClickHomeBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -466,7 +466,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7407055061735251249}
         m_TargetAssemblyTypeName: ClearBTN, Assembly-CSharp
-        m_MethodName: ClickResetBTN
+        m_MethodName: ClickResetBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

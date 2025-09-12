@@ -16,15 +16,6 @@ namespace Code.Scripts.Items.UI.Sounds
         [SerializeField] private TextMeshProUGUI masterText;
         [SerializeField] private TextMeshProUGUI musicText;
         [SerializeField] private TextMeshProUGUI sfxText;
-        
-        [Header("MuteBtn")]
-        [SerializeField] private Button masterMuteBtn;
-        [SerializeField] private Button musicMuteBtn;
-        [SerializeField] private Button sfxMuteBtn;
-        
-        [Header("Value")]
-        [SerializeField] private Sprite sound;
-        [SerializeField] private Sprite mute;
 
         [Header("ButtonSound")] 
         [SerializeField] private SoundID buttonClickSound;
@@ -37,11 +28,6 @@ namespace Code.Scripts.Items.UI.Sounds
         {
             LoadVolume();
             LoadMuteStates();
-            UpdateButtonIcons();
-        
-            masterMuteBtn.onClick.AddListener(ToggleMasterMute);
-            musicMuteBtn.onClick.AddListener(ToggleMusicMute);
-            sfxMuteBtn.onClick.AddListener(ToggleSfxMute);
         }
         
         public void ButtonSound()
@@ -110,7 +96,6 @@ namespace Code.Scripts.Items.UI.Sounds
             float volume = _isMasterMuted ? 0f : masterSlider.value;
             BroAudio.SetVolume(BroAudioType.All, volume);
             SaveMuteState("masterMute", _isMasterMuted);
-            UpdateButtonIcons();
         }
         
         private void ToggleMusicMute()
@@ -119,7 +104,6 @@ namespace Code.Scripts.Items.UI.Sounds
             float volume = _isMusicMuted ? 0f : musicSlider.value;
             BroAudio.SetVolume(BroAudioType.Music, volume);
             SaveMuteState("musicMute", _isMusicMuted);
-            UpdateButtonIcons();
         }
 
         private void ToggleSfxMute()
@@ -128,7 +112,6 @@ namespace Code.Scripts.Items.UI.Sounds
             float volume = _isSfxMuted ? 0f : sfxSlider.value;
             BroAudio.SetVolume(BroAudioType.SFX, volume);
             SaveMuteState("sfxMute", _isSfxMuted);
-            UpdateButtonIcons();
         }
         
         private void SaveMuteState(string key, bool state)
@@ -146,13 +129,6 @@ namespace Code.Scripts.Items.UI.Sounds
             BroAudio.SetVolume(BroAudioType.All, _isMasterMuted ? 0f : masterSlider.value);
             BroAudio.SetVolume(BroAudioType.Music, _isMusicMuted ? 0f : musicSlider.value);
             BroAudio.SetVolume(BroAudioType.SFX, _isSfxMuted ? 0f : sfxSlider.value);
-        }
-
-        private void UpdateButtonIcons()
-        {
-            masterMuteBtn.GetComponentInChildren<Image>().sprite = _isMasterMuted ? mute : sound;
-            musicMuteBtn.GetComponentInChildren<Image>().sprite = _isMusicMuted ? mute : sound;
-            sfxMuteBtn.GetComponentInChildren<Image>().sprite = _isSfxMuted ? mute : sound;
         }
         
         

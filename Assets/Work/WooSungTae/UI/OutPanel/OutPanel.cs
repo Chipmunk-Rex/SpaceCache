@@ -11,7 +11,6 @@ public class OutPanel : MonoBehaviour
     [SerializeField] private GameObject mainBTN;
 
     [Header("BTN, _soundPanel")]
-    [SerializeField] private GameObject restartBTN;
     [SerializeField] private GameObject _soundPanel;
 
     [Header("Rects")]
@@ -32,20 +31,23 @@ public class OutPanel : MonoBehaviour
         _volumeBaseX = volume_rectTransform.anchoredPosition.x;
         _escBaseX = outPanelEsc_rectTransform.anchoredPosition.x;
     }
+    
     private void Update()
     {
         if(Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             if(!_isClicked)
             {
-            _outPanel.SetActive(true);
-            _greyPanel.SetActive(true);
-            _isClicked = true;
+                Time.timeScale = 0;
+                _outPanel.SetActive(true);
+                _greyPanel.SetActive(true);
+                _isClicked = true;
             }
             else
             {
-                volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f);
-                outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f);
+                Time.timeScale = 1;
+                volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f).SetUpdate(true);
+                outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f).SetUpdate(true);
                 _outPanel.SetActive(false);
                 _greyPanel.SetActive(false);
                 _soundPanel.SetActive(false);
@@ -54,27 +56,24 @@ public class OutPanel : MonoBehaviour
         }
     }
 
-    public void MainBTNClick()
+    public void MainBtnClick()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("StartScene");
     }
-    public void RestartBTNClick()
-    {
-        //SceneManager.LoadScene();
-    }
-    public void MusicBTNClick()
+
+    public void MusicBtnClick()
     {
         if (!_soundBTNClicked)
         {
-            volume_rectTransform.DOAnchorPosX(volume_moveXPos, 0.3f);
-            outPanelEsc_rectTransform.DOAnchorPosX(outPanelEsc_moveXPos, 0.3f);
+            volume_rectTransform.DOAnchorPosX(volume_moveXPos, 0.3f).SetUpdate(true);
+            outPanelEsc_rectTransform.DOAnchorPosX(outPanelEsc_moveXPos, 0.3f).SetUpdate(true);
             _soundBTNClicked = true;
             _soundPanel.SetActive(true);
         }
         else
         {
-            volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f);
-            outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f);
+            volume_rectTransform.DOAnchorPosX(_volumeBaseX, 0.3f).SetUpdate(true);
+            outPanelEsc_rectTransform.DOAnchorPosX(_escBaseX, 0.3f).SetUpdate(true);
             _soundPanel.SetActive(false);
             _soundBTNClicked = false;
         }

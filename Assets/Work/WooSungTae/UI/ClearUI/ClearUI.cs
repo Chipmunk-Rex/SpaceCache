@@ -34,6 +34,7 @@ public class ClearUI : MonoBehaviour
     float elapsed = 0f;
     private void Awake()
     {
+        Time.timeScale = 1;
         panelRect = clearPanel.GetComponent<RectTransform>();
     }
     private void Update()
