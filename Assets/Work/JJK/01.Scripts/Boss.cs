@@ -20,7 +20,8 @@ public class Boss : Entity, IEntityComponent
     [SerializeField] private float turnSpeed = 5f;
     [SerializeField] private GameObject laserPrefab;
     [SerializeField] float spinSpeed = 90f;
-    [SerializeField] private GameObject objectPool;
+    
+    private GameObject objectPool;
 
     public Transform firePoint;
 
@@ -61,6 +62,7 @@ public class Boss : Entity, IEntityComponent
         _statCompo = entity.GetCompo<EntityStat>();
         _attackCompo = entity.GetCompo<EntityAttack>();
         playerPos = GameObject.FindGameObjectWithTag("Player")?.transform;
+        objectPool = GameObject.Find("ObjectPool");
     }
     
     protected override void Awake()
@@ -77,6 +79,7 @@ public class Boss : Entity, IEntityComponent
         ApplyStat();
         ShufflePatterns();
         NextPattern();
+        //objectPool = new GameObject("ObjectPool");
     }
     
     private void Update()
