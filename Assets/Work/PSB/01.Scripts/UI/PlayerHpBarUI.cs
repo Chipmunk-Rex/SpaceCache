@@ -3,12 +3,13 @@ using System.Collections;
 using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Code.Scripts.Items.UI
 {
     public class PlayerHpBarUI : MonoBehaviour, IEntityComponent
     {
-        [SerializeField] private RectTransform hpBar;
+        [SerializeField] private Slider hpSlider;
 
         private EntityHealth _healthCompo;
 
@@ -19,7 +20,7 @@ namespace Code.Scripts.Items.UI
 
         private void Start()
         {
-            _healthCompo.OnHealthChanged += UpdateHpBar; 
+            _healthCompo.OnHealthChanged += UpdateHpBar;
             UpdateHpBar(_healthCompo.currentHealth, _healthCompo.maxHealth);
         }
 
@@ -31,23 +32,16 @@ namespace Code.Scripts.Items.UI
 
         private void UpdateHpBar(float current, float max)
         {
+            if (hpSlider == null) return;
+
             if (max <= 0f)
             {
-                SetXScale(hpBar, 0f);
+                hpSlider.value = 0f;
                 return;
             }
 
-            float ratio = Mathf.Clamp01(current / max);
-            SetXScale(hpBar, ratio);
-        }
-
-        private void SetXScale(RectTransform rect, float xValue)
-        {
-            if (rect == null) return;
-
-            Vector3 scale = rect.localScale;
-            scale.x = xValue;
-            rect.localScale = scale;
+            hpSlider.maxValue = max;
+            hpSlider.value = Mathf.Clamp(current, 0f, max);
         }
         
     }
