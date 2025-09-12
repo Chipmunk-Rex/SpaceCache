@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ClearBTN : MonoBehaviour
+public class ClearBtn : MonoBehaviour
 {
     public void ClickHomeBtn()
     {
