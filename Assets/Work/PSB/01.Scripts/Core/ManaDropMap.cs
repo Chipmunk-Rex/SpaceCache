@@ -36,13 +36,18 @@ namespace Code.Scripts.Items.Core
                 float delay = Random.Range(minSpawnDelay, maxSpawnDelay);
                 yield return new WaitForSeconds(delay);
 
-                Vector2 pos = (Vector2)player.position + Random.insideUnitCircle * spawnRadius;
-                if (Vector2.Distance(pos, player.position) < minDistanceFromPlayer) continue;
-                
-                var dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
-                dropItem.transform.position = pos;
+                int spawnBatch = Random.Range(1, 6);
 
-                spawnedCount++;
+                for (int i = 0; i < spawnBatch && spawnedCount < maxItems; i++)
+                {
+                    Vector2 pos = (Vector2)player.position + Random.insideUnitCircle * spawnRadius;
+                    if (Vector2.Distance(pos, player.position) < minDistanceFromPlayer) continue;
+
+                    var dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
+                    dropItem.transform.position = pos;
+
+                    spawnedCount++;
+                }
             }
         }
         

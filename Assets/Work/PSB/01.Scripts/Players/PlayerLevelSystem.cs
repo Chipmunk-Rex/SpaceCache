@@ -63,7 +63,7 @@ namespace Code.Scripts.Players
             {
                 _currentMana += 100f;
             }
-            levelText.text = _currentLevel.ToString();
+            levelText.text = $"{_currentLevel + 1}";
         }
         
         #endregion

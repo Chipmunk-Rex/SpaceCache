@@ -7011,7 +7011,7 @@ MonoBehaviour:
     overrideValue: 10
   - stat: {fileID: 11400000, guid: ec257fe96baac0143b9e7bb7f2e7c558, type: 2}
     isUseOverride: 1
-    overrideValue: 2
+    overrideValue: 3
   - stat: {fileID: 11400000, guid: cedf8a76b37b75840a27bd992bbdea25, type: 2}
     isUseOverride: 1
     overrideValue: 2
@@ -7664,12 +7664,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1040925495}
-  itemPrefab: {fileID: 2028077592966584480, guid: 55acfd591add484479218860c55d84d9, type: 3}
-  maxItems: 30
+  maxItems: 150
   spawnRadius: 10
   minDistanceFromPlayer: 1
   minSpawnDelay: 0.5
-  maxSpawnDelay: 2
+  maxSpawnDelay: 3
+  dropItemPrefab: {fileID: 11400000, guid: d7b20fccf55fd434787249484adbe260, type: 2}
 --- !u!1 &1968777921
 GameObject:
   m_ObjectHideFlags: 0
