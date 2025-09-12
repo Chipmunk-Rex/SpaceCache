@@ -11,45 +11,68 @@ public class ButtonClick : MonoBehaviour
     [SerializeField] private GameObject[] BTN;
     [SerializeField] private float up = 90;
     private UIMover mover;
-    private StartMusicSFX startMusic; // 쓸 수도 있음
 
 
     private void Awake()
     {
-        startMusic = GetComponent<StartMusicSFX>();
+        Time.timeScale = 1;
         mover = GetComponent<UIMover>();
     }
+    
     public void OptionClick()
     {
         if(!mover.startStop)
         {
             mover.SetStartStop(true);
-            optionPanel.transform.DOLocalMove(new Vector3(0, up, 0), 1);
-            startPanel.transform.DOLocalMove(new Vector3(0, 1300, 0), 1);
+            optionPanel.transform.DOLocalMove(new Vector3(0, up, 0), 1).SetUpdate(true);
+            startPanel.transform.DOLocalMove(new Vector3(0, 1300, 0), 1).SetUpdate(true);
         }
     }
+    
     public void OptionExit()
     {
-        startPanel.transform.DOLocalMove(new Vector3(0, 0, 0), 1);
-        optionPanel.transform.DOLocalMove(new Vector3(0, -1300, 0), 1);
+        startPanel.transform.DOLocalMove(new Vector3(0, 0, 0), 1).SetUpdate(true);
+        optionPanel.transform.DOLocalMove(new Vector3(0, -1300, 0), 1).SetUpdate(true);
         StartCoroutine(StartStopFalse());
     }
 
     private IEnumerator StartStopFalse()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSecondsRealtime(1f);
         mover.SetStartStop(false);
     }
 
-    public void ExitBTNClick()
+    public void ExitBtnClick()
     {
-        Application.Quit();
+        if (!mover.startStop)
+            StartCoroutine(ExitClickCoroutine());
     }
+
+    private IEnumerator ExitClickCoroutine()
+    {
+        mover.SetStartStop(true);
+        for (int i = 0; i < BTN.Length; i++)
+        {
+            Sequence sequence = DOTween.Sequence();
+            sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
+            sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(0.15f);
+        }
+        yield return new WaitForSecondsRealtime(1);
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+    }
+    
     public void StartClick()
     {
         StartCoroutine(StartClickCoroutine());
     }
-    IEnumerator StartClickCoroutine()
+    
+    private IEnumerator StartClickCoroutine()
     {
         if (!mover.startStop)
         {
@@ -57,13 +80,14 @@ public class ButtonClick : MonoBehaviour
             for(int i = 0; i< BTN.Length; i++)
             {
                 Sequence sequence = DOTween.Sequence();
-                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f));
-                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f));
-                yield return new WaitForSeconds(0.15f);
+                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
+                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
+                yield return new WaitForSecondsRealtime(0.15f);
             }
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSecondsRealtime(1);
 
-            //SceneManager.LoadScene("DemoScene");
+            SceneManager.LoadScene("GameScene");
         }
     }
+    
 }

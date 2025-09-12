@@ -3,13 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class ClearBTN : MonoBehaviour
 {
-    public void ClickHomeBTN()
+    public void ClickHomeBtn()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene("StartScene");
     }
 
-    public void ClickResetBTN()
+    public void ClickResetBtn()
     {
-        //SceneManager.LoadScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    
 }

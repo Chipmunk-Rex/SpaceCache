@@ -1387,7 +1387,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 483704092324003313}
         m_TargetAssemblyTypeName: OutPanel, Assembly-CSharp
-        m_MethodName: MusicBTNClick
+        m_MethodName: MusicBtnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
