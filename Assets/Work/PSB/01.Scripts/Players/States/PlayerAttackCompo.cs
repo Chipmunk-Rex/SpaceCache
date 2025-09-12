@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Ami.BroAudio;
 using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using PSB_Lib.Dependencies;
@@ -22,6 +23,9 @@ namespace Code.Scripts.Players.States
         [Header("Value")]
         [field: SerializeField] public float attackPower = 10f;
         [field: SerializeField] public float attackCooldown = 2f;
+
+        [Header("Sound")] 
+        [SerializeField] private SoundID shotSound;
         
         [Inject] private PoolManagerMono _poolManager;
 
@@ -77,6 +81,7 @@ namespace Code.Scripts.Players.States
             float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;
             _nextAttackTime = Time.time + delay;
 
+            BroAudio.Play(shotSound);
             OnAttackEvent?.Invoke();
             OnAttackCooldownStart?.Invoke(delay);
             _ = ResetAttackCooldown(delay);
