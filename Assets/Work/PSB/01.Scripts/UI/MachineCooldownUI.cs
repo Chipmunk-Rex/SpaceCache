@@ -7,25 +7,33 @@ namespace Code.Scripts.Items.UI
 {
     public class MachineCooldownUI : MonoBehaviour, IEntityComponent
     {
+        [SerializeField] private Image canUseSkill;
         [SerializeField] private Image cooldownFill;
         [SerializeField] private TextMeshProUGUI cooldownText;  
 
         private MachineAbility _machineAbility;
+        private bool _forcedGray;
 
         public void Initialize(Entity entity)
         {
             _machineAbility = entity.GetCompo<MachineAbility>();
+            _machineAbility.OnClickSkill += ReturnIcon;
+        }
+
+        private void OnDestroy()
+        {
+            _machineAbility.OnClickSkill -= ReturnIcon;
         }
 
         private void Update()
         {
             if (_machineAbility == null || !_machineAbility.enabled)
             {
-                Debug.Log("스킬이 없습니다.");
                 if (cooldownText != null)
                     cooldownText.text = "스킬이 없습니다.";
                 if (cooldownFill != null)
                     cooldownFill.fillAmount = 0f;
+                canUseSkill.color = Color.gray;
                 return;
             }
 
@@ -33,16 +41,21 @@ namespace Code.Scripts.Items.UI
             float max = GetCooldownValue();
 
             if (cooldownFill != null)
-            {
                 cooldownFill.fillAmount = 1f - (current / max);
-            }
 
             if (cooldownText != null)
             {
-                if (current > 0)
+                if (current > 0) 
+                {
                     cooldownText.text = Mathf.Ceil(current).ToString();
+                    canUseSkill.color = Color.gray;
+                    _forcedGray = false;
+                }
                 else
-                    cooldownText.text = "";
+                {
+                    cooldownText.text = "E";
+                    canUseSkill.color = _forcedGray ? Color.gray : Color.yellow;
+                }
             }
         }
 
@@ -54,6 +67,13 @@ namespace Code.Scripts.Items.UI
                 ?.GetValue(_machineAbility) as float? ?? 0f;
         }
 
+        private void ReturnIcon()
+        {
+            cooldownFill.fillAmount = 0f;
+            _forcedGray = true;
+            canUseSkill.color = Color.gray;
+            Debug.Log("Use Skill");
+        }
         
     }
 }

@@ -1,10 +1,10 @@
 using Code.Scripts.Entities;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class TorpedoShip : EnemyBase
 {
+    [SerializeField] private TorpedoBulletPool bulletPool;
     [SerializeField] private TorpedoBullet bulletPrefab;
     [SerializeField] private Transform[] shooter;
     
@@ -56,16 +56,19 @@ public class TorpedoShip : EnemyBase
     
     public void AE_FireIdx(int i)
     {
-        if (!bulletPrefab || shooter == null || i < 0 || i >= shooter.Length || !shooter[i]) return;
+        if (shooter == null || i < 0 || i >= shooter.Length || !shooter[i]) return;
         FireFrom(shooter[i]);
     }
 
-    private void FireFrom(Transform shooter)
+    private void FireFrom(Transform muzzle)
     {
-        var b = Instantiate(bulletPrefab);             
-        float dmg = _attackCompo.GetAttack();
-        b.InitFromMuzzle(shooter, dmg);
-        
-        onShot.Invoke(shooter);
+        TorpedoBullet b = null;
+    
+        if (bulletPool != null) b = bulletPool.Get();
+        else if (bulletPrefab != null) b = Instantiate(bulletPrefab);
+        if (b == null) return;
+    
+        b.InitFromMuzzle(muzzle, _attackCompo.GetAttack());
+        onShot.Invoke(muzzle);
     }
 }

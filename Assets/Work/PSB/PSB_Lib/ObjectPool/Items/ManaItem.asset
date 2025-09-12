@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poolingName: ManaItem
   prefab: {fileID: 2028077592966584480, guid: 55acfd591add484479218860c55d84d9, type: 3}
-  initCount: 50
+  initCount: 500

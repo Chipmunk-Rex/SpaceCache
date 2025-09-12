@@ -11,10 +11,11 @@ namespace Code.Scripts.Items
         [SerializeField] private PlayerShield shieldPrefab;
         [SerializeField] private float cooldown = 30f;
         
+        private Player _player;
         public float _cooldownTimer = 0f;
         private bool _shieldActive = false;
         
-        private Player _player;
+        public event Action OnClickSkill;
         
         public void Initialize(Entity entity)
         {
@@ -55,6 +56,7 @@ namespace Code.Scripts.Items
             {
                 return;
             }
+            OnClickSkill?.Invoke();
             
             PlayerShield shieldInstance = Instantiate(shieldPrefab, transform);
             
