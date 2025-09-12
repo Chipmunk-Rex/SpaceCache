@@ -13,6 +13,9 @@ public class TorpedoBullet : MonoBehaviour
     [SerializeField] private float turnDuration = 5f; 
     [SerializeField] private float life = 10f;
     
+     private TorpedoBulletPool _pool;
+     public void SetPool(TorpedoBulletPool pool) => _pool = pool;
+    
     private float steerT; 
     private Rigidbody2D rb;
     private Coroutine lifeCo;
@@ -61,7 +64,7 @@ public class TorpedoBullet : MonoBehaviour
     IEnumerator LifeTimer()
     {
         yield return new WaitForSeconds(life);
-        gameObject.SetActive(false);
+        ReturnToPool();
     }
 
     void FixedUpdate()
@@ -83,12 +86,16 @@ public class TorpedoBullet : MonoBehaviour
             rb.MoveRotation(newAngle);
         }
     }
-
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
         var d = other.GetComponentInParent<EntityHealth>();
         if (d != null) d.SetHp(-damage);
-        gameObject.SetActive(false);
+        ReturnToPool();
+    }
+    public void ReturnToPool()
+    {
+        if (_pool != null) _pool.Return(this);
+        else gameObject.SetActive(false);
     }
 }

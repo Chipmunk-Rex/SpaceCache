@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a37c2e8204492c9003c43fe4cf9604, type: 3}
   m_Name: PlayerManaValue
   m_EditorClassIdentifier: 
-  statName: ManaValue
+  statName: "\uB9C8\uB098 \uD68D\uB4DD\uC591"
   description: Player's mana value stat
-  icon: {fileID: -5471238548522414493, guid: 69fbd977f0d9336429090a4cbbaa1ea8, type: 3}
+  icon: {fileID: 2784468965456250579, guid: 35855c5eb74c3a94382d1e6a334ed186, type: 3}
   displayName: ManaValue
   baseValue: 1
   minValue: 0.1

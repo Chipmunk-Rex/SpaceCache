@@ -27,35 +27,35 @@ namespace Code.Scripts.Items
          }
 
          public void Drop()
-        {
-            if (_hasDropped) return;
-            _hasDropped = true;
+         {
+             if (_hasDropped) return;
+             _hasDropped = true;
             
-            if (_poolManager == null)
-            {
-                Debug.LogError("PoolManager is NULL! DropItem cannot spawn items.");
-                return;
-            }
-            if (dropItemPrefab == null)
-            {
-                Debug.LogError("dropItemPrefab is NULL! Assign it in the inspector.");
-                return;
-            }
+             if (_poolManager == null)
+             {
+                 Debug.LogError("PoolManager is NULL! DropItem cannot spawn items.");
+                 return;
+             }
+             if (dropItemPrefab == null)
+             {
+                 Debug.LogError("dropItemPrefab is NULL! Assign it in the inspector.");
+                 return;
+             }
             
-            for (int i = 0; i < dropValue; i++)
-            {
-                //GameObject dropItem = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
-                dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
-                dropItem.transform.position = transform.position;
+             for (int i = 0; i < dropValue; i++)
+             {
+                 //GameObject dropItem = Instantiate(dropItemPrefab, transform.position, Quaternion.identity);
+                 dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
+                 dropItem.transform.position = transform.position;
             
-                Vector3 targetPos = transform.position + new Vector3(
-                    Random.Range(-jumpDistance, jumpDistance), 
-                    Random.Range(jumpHeight * 0.8f, jumpHeight * 1.2f), 
-                    0f);
+                 Vector3 targetPos = transform.position + new Vector3(
+                     Random.Range(-jumpDistance, jumpDistance), 
+                     Random.Range(jumpHeight * 0.8f, jumpHeight * 1.2f), 
+                     0f);
 
-                dropItem.transform.DOMove(targetPos, duration)
+                 dropItem.transform.DOMove(targetPos, duration)
                     .SetEase(Ease.OutQuad); 
-            }
+             }
         }
         
     }

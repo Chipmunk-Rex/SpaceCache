@@ -15,6 +15,6 @@ MonoBehaviour:
   itemType: 1
   SkillIcon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
   Name: "\uACF5\uACA9\uB825 \uC99D\uAC00"
-  Description: "\uD50C\uB808\uC774\uC5B4\uC758 \uACF5\uACA9\uB825\uC774 5 \uC99D\uAC00\uD569\uB2C8\uB2E4."
-  cardUiSpawn: 0
+  Description: "\uACF5\uACA9\uB825\uC774 \uC99D\uAC00\uD569\uB2C8\uB2E4."
+  cardUiSpawn: 1
   maxCount: 5

@@ -17,7 +17,7 @@ namespace Code.Scripts.Players
         [SerializeField] private int maxLevel = 15;
 
         [SerializeField] private float manaTimeGetPercent = 0.01f;
-        [SerializeField] private float manaPerGetPercent = 1f;
+        [field : SerializeField] public float manaPerGetPercent = 1f;
         [field: SerializeField] public StatSO manaValueStat;
 
         private float _currentMana = 0f;
@@ -63,7 +63,7 @@ namespace Code.Scripts.Players
             {
                 _currentMana += 100f;
             }
-            levelText.text = _currentLevel.ToString();
+            levelText.text = $"{_currentLevel + 1}";
         }
         
         #endregion

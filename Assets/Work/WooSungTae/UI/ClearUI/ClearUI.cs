@@ -22,7 +22,6 @@ public class ClearUI : MonoBehaviour
     [SerializeField] private float clearImageDOFadeSpeed2;
     [SerializeField] private float endXSize2;
     [SerializeField] private float endYSize;
-    [SerializeField] private float timeDelay = 1;
 
     [Header("Buttons")]
     [SerializeField] private GameObject retryBTN;
