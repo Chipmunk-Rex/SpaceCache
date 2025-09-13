@@ -84,7 +84,7 @@ public class ButtonClick : MonoBehaviour
                 sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
                 yield return new WaitForSecondsRealtime(0.15f);
             }
-            yield return new WaitForSecondsRealtime(1);
+            yield return new WaitForSecondsRealtime(0.6f);
 
             SceneManager.LoadScene("GameScene");
         }

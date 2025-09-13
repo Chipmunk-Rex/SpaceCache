@@ -1,11 +1,13 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     private Vector3 originalScale;
+    [SerializeField] private TextMeshProUGUI txt;
     public float scaleMultiplier = 1.2f;
     public float duration = 1;
 
@@ -16,11 +18,12 @@ public class ButtonScaler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-     
-            transform.DOScale(originalScale * scaleMultiplier, duration);
+        txt.color = Color.red;
+        transform.DOScale(originalScale * scaleMultiplier, duration);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
+        txt.color = Color.white;
         transform.DOScale(originalScale, duration);
     }
 }
