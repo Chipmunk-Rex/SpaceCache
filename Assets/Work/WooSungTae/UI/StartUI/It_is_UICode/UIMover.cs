@@ -1,6 +1,7 @@
 using System.Collections;
 using Ami.BroAudio;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class UIMover : MonoBehaviour
@@ -11,7 +12,9 @@ public class UIMover : MonoBehaviour
     public bool startStop { get; private set; } = false;
     
     [SerializeField] private SoundID slideSound;
-    private bool isCachePanelVisible;
+    private bool _isCachePanelVisible;
+    
+    [SerializeField] private TextMeshProUGUI titleText;
     
     private void Start()
     {
@@ -25,20 +28,20 @@ public class UIMover : MonoBehaviour
 
         if (mousePos.OnRangeEnter())
         {
-            if (!isCachePanelVisible)
+            if (!_isCachePanelVisible)
             {
                 EnterCachePanel();
                 EnterStartPanel();
-                isCachePanelVisible = true;
+                _isCachePanelVisible = true;
             }
         }
         else
         {
-            if (isCachePanelVisible)
+            if (_isCachePanelVisible)
             {
                 ExitCachePanel();
                 ExitStartPanel();
-                isCachePanelVisible = false;
+                _isCachePanelVisible = false;
             }
         }
     }
@@ -50,19 +53,25 @@ public class UIMover : MonoBehaviour
 
     private void StartPanelMove()
     {
-        startPanel.transform.DOLocalMove(new Vector3(0, -90, 0), 1);
+        //startPanel.transform.DOLocalMove(new Vector3(0, -90, 0), 1);
+        RectTransform rect = startPanel.GetComponent<RectTransform>();
+        rect.DOAnchorPos(Vector2.zero, 1f).SetEase(Ease.OutCubic);
     }
 
     private void EnterCachePanel()
     {
         BroAudio.Play(slideSound);
         cachePanel.transform.DOLocalMove(new Vector3(-30, 0, 0), 1);
+        
+        if (titleText != null) titleText.enabled = false;
     }
     
     private void ExitCachePanel()
     {
         BroAudio.Play(slideSound);
         cachePanel.transform.DOLocalMove(new Vector3(2000, 0, 0), 1);
+        
+        if (titleText != null) titleText.enabled = true;
     }
 
     public void EnterStartPanel()
