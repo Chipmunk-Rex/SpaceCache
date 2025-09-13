@@ -44,7 +44,6 @@ public class StartMusicSFX : MonoBehaviour
         if(mousePos.OnRangeEnter() && !oneTime && !mover.startStop)
         {
             oneTime = true;
-            Debug.Log("½ÇÇàµÊ");
             audioSource.clip = pageChange;
             audioSource.time = 0.1f;
             audioSource.Play();

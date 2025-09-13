@@ -35,11 +35,8 @@ namespace Code.Scripts.Players.States
         
         private Player _player;
         private EntityStat _statCompo;
-        private bool _canAttack1 = true;
-        private bool _canAttack2 = true;
         private bool _isAutoFiring;
         
-        private float _lastAttackTime;
         private float _nextAttackTime;
 
         public void Initialize(Entity entity)
@@ -73,11 +70,10 @@ namespace Code.Scripts.Players.States
         public void FireBullet()
         {
             if (Time.time < _nextAttackTime) return;
+            
+            SpawnBullet(spawnPoint);
+            SpawnBullet(spawnPoint2);
 
-            InitialCompo();
-            InitialCompo2();
-
-            _lastAttackTime = Time.time;
             float delay = _player.PlayerInput.IsMachineGun ? 0.05f : attackCooldown;
             _nextAttackTime = Time.time + delay;
 
@@ -102,36 +98,19 @@ namespace Code.Scripts.Players.States
 
         private void StopAutoFire()
         {
-            Debug.Log("StopAutoFire");
             _isAutoFiring = false;
         }
         
-        private void InitialCompo()
+        private void SpawnBullet(Transform point)
         {
-            if (!_canAttack1) return;
-            _canAttack1 = false;
-
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
             playerBullet.SetDamage(attackPower);
-            playerBullet.transform.SetPositionAndRotation(spawnPoint.position, spawnPoint.rotation);
-        }
-
-        private void InitialCompo2()
-        {
-            if (!_canAttack2) return;
-            _canAttack2 = false;
-            
-            PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
-            playerBullet.SetDamage(attackPower);
-            playerBullet.transform.SetPositionAndRotation(spawnPoint2.position, spawnPoint2.rotation);
+            playerBullet.transform.SetPositionAndRotation(point.position, point.rotation);
         }
 
         private async Task ResetAttackCooldown(float delay)
         {
             await Awaitable.WaitForSecondsAsync(delay);
-            _canAttack1 = true;
-            _canAttack2 = true;
-
             OnAttackCooldownEnd?.Invoke();
         }
 

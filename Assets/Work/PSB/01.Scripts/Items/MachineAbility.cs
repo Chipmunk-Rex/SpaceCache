@@ -52,12 +52,10 @@ namespace Code.Scripts.Items
         {
             if (_cooldownTimer > 0 || _isActive || !_player.PlayerInput.IsCanMachine)
             {
-                Debug.Log("머신건 스킬을 사용할 수 없습니다.");
                 return;
             }
             OnClickSkill?.Invoke();
-
-            Debug.Log("머신건 발동");
+            
             _isActive = true;
             _player.PlayerInput.IsCanMachine = false;
             _player.PlayerInput.IsMachineGun = true;
@@ -67,7 +65,6 @@ namespace Code.Scripts.Items
 
         private void StopMachineGun()
         {
-            Debug.Log("머신건 종료");
             _isActive = false;
             _player.PlayerInput.IsMachineGun = false;
             _cooldownTimer = cooldown;

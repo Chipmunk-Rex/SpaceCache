@@ -159,7 +159,7 @@ public class Boss : Entity, IEntityComponent
     private void NextPattern()
     {
         if (currentPatternList == null || currentPatternList.Count <= 0)
-            Debug.Log("덱이 비었습니다.");
+            Debug.LogError("덱이 비었습니다.");
         
         if (currentPatternIndex >= currentPatternList.Count)
         {

@@ -92,7 +92,6 @@ public class CardManager : MonoBehaviour
             
             if (candidates.Count == 0)
             {
-                Debug.Log("������ ����");
                 continue;
             }
 
