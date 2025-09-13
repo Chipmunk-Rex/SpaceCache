@@ -62,6 +62,10 @@ namespace Code.Scripts.Players
         
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _currentMana += 100f;
+            }
             levelText.text = $"{_currentLevel + 1}";
         }
         

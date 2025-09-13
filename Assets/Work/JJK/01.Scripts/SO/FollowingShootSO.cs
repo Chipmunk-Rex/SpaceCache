@@ -13,7 +13,7 @@ public class FollowingShootSO : BossPatternSO
         for (int i = 0; i < missileCount; i++)
         {
             boss.FireHomingMissile();
-            boss.OnFire.Invoke();
+            boss.OnHomingFire?.Invoke();
             yield return new WaitForSeconds(delayBetween);
         }
 

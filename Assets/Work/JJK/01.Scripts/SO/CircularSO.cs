@@ -35,7 +35,7 @@ public class CircularSO : BossPatternSO
 
             for (int i = 0; i < bulletCount; i++)
             {
-                boss.OnFire.Invoke();
+                boss.OnFire?.Invoke();
                 yield return new WaitForSeconds(0.01f);
             }
 

@@ -50,6 +50,10 @@ public class Boss : Entity, IEntityComponent
     ObjectPooling objectPooling;
 
     public UnityEvent OnFire;
+    public UnityEvent OnHomingFire;
+    public UnityEvent OnBoomFire;
+    public UnityEvent OnLaserStart;
+    public UnityEvent OnLaserEnd;
 
     public void Initialize(Entity entity)
     {

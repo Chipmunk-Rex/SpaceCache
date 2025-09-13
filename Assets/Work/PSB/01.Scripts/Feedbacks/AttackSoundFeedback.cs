@@ -21,7 +21,7 @@ namespace Code.Scripts.Feedbacks
 
         public override void StopFeedback()
         {
-            BroAudio.Stop(BroAudioType.SFX);
+            BroAudio.Stop(attackSound);
         }
 
         public override void CompletePrevFeedback()

@@ -104,9 +104,57 @@ MonoBehaviour:
   OnFire:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1467030361159864578}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 8588763868690837968}
         m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.MuzzleLightFeedback, Assembly-CSharp
         m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHomingFire:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBoomFire:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLaserStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2087539538783720585}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnLaserEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2087539538783720585}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+        m_MethodName: StopFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -303,6 +351,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2896386883047007081}
   - component: {fileID: 8588763868690837968}
+  - component: {fileID: 1467030361159864578}
+  - component: {fileID: 2087539538783720585}
   m_Layer: 7
   m_Name: Feedbacks
   m_TagString: Untagged
@@ -341,6 +391,40 @@ MonoBehaviour:
   - {fileID: 6873258633505828712}
   _turnOnTime: 0.1
   _defaultState: 0
+--- !u!114 &1467030361159864578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549995594541104878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e054923af30b421c8234deeac43816a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound:
+    ID: 1073741847
+    _sourceAsset: {fileID: 11400000, guid: 9b966a3923c80ee41bc36f591b70c7e9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 3549995594541104878}
+  playInterval: 1
+--- !u!114 &2087539538783720585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549995594541104878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e054923af30b421c8234deeac43816a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound:
+    ID: 1073741851
+    _sourceAsset: {fileID: 11400000, guid: 9b966a3923c80ee41bc36f591b70c7e9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 3549995594541104878}
+  playInterval: 1
 --- !u!1 &3766630437826574850
 GameObject:
   m_ObjectHideFlags: 0

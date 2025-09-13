@@ -10996,6 +10996,7 @@ MonoBehaviour:
   upUiValue: 770
   downPlaneUiValue: -1000
   upPlaneUiValue: 1000
+  currentState: 2
 --- !u!1 &2001640600779393208
 GameObject:
   m_ObjectHideFlags: 0
