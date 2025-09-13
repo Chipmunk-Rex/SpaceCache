@@ -21,6 +21,22 @@ namespace Code.Scripts.Items
             _player = entity as Player;
             _cooldownTimer = cooldown;
             gameObject.SetActive(false);
+            
+            if (_player != null)
+            {
+                _player.PlayerInput.IsMachineGun = false;
+            }
+        }
+        
+        private void OnEnable()
+        {
+            _isActive = false;
+            _cooldownTimer = cooldown;
+
+            if (_player != null)
+            {
+                _player.PlayerInput.IsMachineGun = false;
+            }
         }
 
         private void Start()

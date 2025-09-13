@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df8088dde93264541bb56ffd6e7d1579, type: 3}
   m_Name: Wave10
   m_EditorClassIdentifier: 
-  waveEndTime: 200
-  bossSpawnTiming: 50
+  waveEndTime: 1000
+  bossSpawnTiming: 10
   boss: {fileID: 11400000, guid: 978888ea2d7cbd049a94e0bf81bb50fc, type: 2}
   bossSpawn: 1
   sequence:
