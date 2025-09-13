@@ -63,6 +63,18 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8762043718309207198}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.DeathSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1503059959410645653}
         m_TargetAssemblyTypeName: Boss, Assembly-CSharp
         m_MethodName: TakeDamage
@@ -353,6 +365,7 @@ GameObject:
   - component: {fileID: 8588763868690837968}
   - component: {fileID: 1467030361159864578}
   - component: {fileID: 2087539538783720585}
+  - component: {fileID: 8762043718309207198}
   m_Layer: 7
   m_Name: Feedbacks
   m_TagString: Untagged
@@ -425,6 +438,23 @@ MonoBehaviour:
     _sourceAsset: {fileID: 11400000, guid: 9b966a3923c80ee41bc36f591b70c7e9, type: 2}
     <DebugObject>k__BackingField: {fileID: 3549995594541104878}
   playInterval: 1
+--- !u!114 &8762043718309207198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3549995594541104878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4249c3ef45e441d2a6c2f05c7cc6b8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound:
+    ID: 1073741853
+    _sourceAsset: {fileID: 11400000, guid: 9b966a3923c80ee41bc36f591b70c7e9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 3549995594541104878}
+  isEndGame: 0
 --- !u!1 &3766630437826574850
 GameObject:
   m_ObjectHideFlags: 0
