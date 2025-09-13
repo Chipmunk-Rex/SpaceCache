@@ -3,12 +3,13 @@ using System.Collections;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonClick : MonoBehaviour
 {
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject startPanel;
-    [SerializeField] private GameObject[] BTN;
+    [SerializeField] private Button[] buttons;
     [SerializeField] private float up = 90;
     private UIMover mover;
 
@@ -17,6 +18,11 @@ public class ButtonClick : MonoBehaviour
     {
         Time.timeScale = 1;
         mover = GetComponent<UIMover>();
+
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].interactable = true;
+        }
     }
     
     public void OptionClick()
@@ -51,11 +57,12 @@ public class ButtonClick : MonoBehaviour
     private IEnumerator ExitClickCoroutine()
     {
         mover.SetStartStop(true);
-        for (int i = 0; i < BTN.Length; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             Sequence sequence = DOTween.Sequence();
-            sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
-            sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
+            buttons[i].interactable = false;
+            sequence.Append(buttons[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
+            sequence.Append(buttons[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
             yield return new WaitForSecondsRealtime(0.15f);
         }
         yield return new WaitForSecondsRealtime(1);
@@ -77,11 +84,12 @@ public class ButtonClick : MonoBehaviour
         if (!mover.startStop)
         {
             mover.SetStartStop(true);
-            for(int i = 0; i< BTN.Length; i++)
+            for(int i = 0; i< buttons.Length; i++)
             {
                 Sequence sequence = DOTween.Sequence();
-                sequence.Append(BTN[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
-                sequence.Append(BTN[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
+                buttons[i].interactable = false;
+                sequence.Append(buttons[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
+                sequence.Append(buttons[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
                 yield return new WaitForSecondsRealtime(0.15f);
             }
             yield return new WaitForSecondsRealtime(0.6f);
