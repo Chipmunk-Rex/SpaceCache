@@ -953,6 +953,18 @@ MonoBehaviour:
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3910701897866774501}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.DeathSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4590075216649062749}
         m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
         m_MethodName: Drop
@@ -991,6 +1003,18 @@ MonoBehaviour:
   onShot:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3175827415490807256}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 871947755283906336}
         m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.MuzzleLightFeedback, Assembly-CSharp
         m_MethodName: CreateFeedback
@@ -1165,6 +1189,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9159642868866623283}
   - component: {fileID: 871947755283906336}
+  - component: {fileID: 3175827415490807256}
+  - component: {fileID: 3910701897866774501}
   m_Layer: 7
   m_Name: Feedbacks
   m_TagString: Untagged
@@ -1203,6 +1229,38 @@ MonoBehaviour:
   - {fileID: 6462662268368147849}
   _turnOnTime: 0.1
   _defaultState: 0
+--- !u!114 &3175827415490807256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891329491994786111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e054923af30b421c8234deeac43816a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound:
+    ID: 1073741845
+    _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
+    <DebugObject>k__BackingField: {fileID: 5891329491994786111}
+--- !u!114 &3910701897866774501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891329491994786111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4249c3ef45e441d2a6c2f05c7cc6b8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound:
+    ID: 1073741843
+    _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
+    <DebugObject>k__BackingField: {fileID: 5891329491994786111}
 --- !u!1 &6462662268368147849
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,11 +6,25 @@ namespace Code.Scripts.Feedbacks
     public class DeathSoundFeedback : Feedback
     {
         [SerializeField] private SoundID deathSound;
+        [SerializeField] private bool isEndGame = false;
+        
+        private bool hasPlayed;
         
         public override void CreateFeedback()
         {
-            BroAudio.Stop(BroAudioType.All);
-            BroAudio.Play(deathSound);
+            if (isEndGame)
+            {
+                BroAudio.Stop(BroAudioType.All);
+                BroAudio.Play(deathSound);
+            }
+            else
+            {
+                if (!hasPlayed)
+                {
+                    BroAudio.Play(deathSound);
+                    hasPlayed = true;
+                }
+            }
         }
 
         public override void StopFeedback()
@@ -20,7 +34,7 @@ namespace Code.Scripts.Feedbacks
 
         public override void CompletePrevFeedback()
         {
-            
+            hasPlayed = false;
         }
         
         

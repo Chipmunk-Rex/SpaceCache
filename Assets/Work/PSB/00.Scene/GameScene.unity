@@ -5533,6 +5533,7 @@ MonoBehaviour:
     ID: 1073741841
     _sourceAsset: {fileID: 11400000, guid: 7fe726cff716a0a438965668d6b7fc52, type: 2}
     <DebugObject>k__BackingField: {fileID: 1236887949}
+  isEndGame: 1
 --- !u!1 &1245281942
 GameObject:
   m_ObjectHideFlags: 0
