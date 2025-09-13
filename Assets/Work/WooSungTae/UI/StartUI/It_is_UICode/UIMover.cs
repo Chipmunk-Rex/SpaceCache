@@ -1,4 +1,5 @@
 using System.Collections;
+using Ami.BroAudio;
 using DG.Tweening;
 using UnityEngine;
 
@@ -8,27 +9,40 @@ public class UIMover : MonoBehaviour
     [SerializeField] private GameObject cachePanel;
     [SerializeField] private MousePos mousePos;
     public bool startStop { get; private set; } = false;
+    
+    [SerializeField] private SoundID slideSound;
+    private bool isCachePanelVisible;
+    
     private void Start()
     {
         StartPanelMove();
         StartCoroutine(StartStop());
     }
+    
     private void Update()
     {
-        if(!startStop)
+        if (startStop) return;
+
+        if (mousePos.OnRangeEnter())
         {
-            if (mousePos.OnRangeEnter())
+            if (!isCachePanelVisible)
             {
                 EnterCachePanel();
                 EnterStartPanel();
+                isCachePanelVisible = true;
             }
-            else
+        }
+        else
+        {
+            if (isCachePanelVisible)
             {
                 ExitCachePanel();
                 ExitStartPanel();
+                isCachePanelVisible = false;
             }
         }
     }
+    
     public void SetStartStop(bool startStop)
     {
         this.startStop = startStop;
@@ -41,10 +55,13 @@ public class UIMover : MonoBehaviour
 
     private void EnterCachePanel()
     {
+        BroAudio.Play(slideSound);
         cachePanel.transform.DOLocalMove(new Vector3(-30, 0, 0), 1);
     }
+    
     private void ExitCachePanel()
     {
+        BroAudio.Play(slideSound);
         cachePanel.transform.DOLocalMove(new Vector3(2000, 0, 0), 1);
     }
 

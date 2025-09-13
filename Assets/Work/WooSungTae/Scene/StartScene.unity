@@ -4448,10 +4448,6 @@ MonoBehaviour:
   masterText: {fileID: 1392492254}
   musicText: {fileID: 441994533}
   sfxText: {fileID: 1365199774}
-  buttonClickSound:
-    ID: 0
-    _sourceAsset: {fileID: 0}
-    <DebugObject>k__BackingField: {fileID: 1501089268}
 --- !u!1 &1509709257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4608,6 +4604,10 @@ MonoBehaviour:
   startPanel: {fileID: 1971852180}
   cachePanel: {fileID: 1816593104}
   mousePos: {fileID: 1640964329}
+  slideSound:
+    ID: 1073741846
+    _sourceAsset: {fileID: 11400000, guid: 7fe726cff716a0a438965668d6b7fc52, type: 2}
+    <DebugObject>k__BackingField: {fileID: 1599619482}
 --- !u!4 &1599619484
 Transform:
   m_ObjectHideFlags: 0
