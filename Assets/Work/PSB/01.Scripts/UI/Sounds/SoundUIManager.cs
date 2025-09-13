@@ -17,9 +17,6 @@ namespace Code.Scripts.Items.UI.Sounds
         [SerializeField] private TextMeshProUGUI musicText;
         [SerializeField] private TextMeshProUGUI sfxText;
 
-        [Header("ButtonSound")] 
-        [SerializeField] private SoundID buttonClickSound;
-
         private bool _isMasterMuted = false;
         private bool _isMusicMuted = false;
         private bool _isSfxMuted = false;
@@ -29,12 +26,6 @@ namespace Code.Scripts.Items.UI.Sounds
             LoadVolume();
             LoadMuteStates();
         }
-        
-        public void ButtonSound()
-        {
-            BroAudio.Play(buttonClickSound);
-        }
-        
         
         public void SetMasterVolume()
         {
