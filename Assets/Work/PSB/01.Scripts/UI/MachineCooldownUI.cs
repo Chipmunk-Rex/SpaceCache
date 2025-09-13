@@ -53,7 +53,7 @@ namespace Code.Scripts.Items.UI
                 }
                 else
                 {
-                    cooldownText.text = "E";
+                    cooldownText.text = "Q";
                     canUseSkill.color = _forcedGray ? Color.gray : Color.yellow;
                 }
             }
