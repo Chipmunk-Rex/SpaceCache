@@ -1,7 +1,4 @@
-﻿using System;
-using Ami.BroAudio;
-using Code.Scripts.Items.Combat;
-using Code.Scripts.Players;
+﻿using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 namespace Work.JJK._01.Scripts

@@ -1,6 +1,4 @@
-﻿using System;
-using Code.Scripts.Items;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 

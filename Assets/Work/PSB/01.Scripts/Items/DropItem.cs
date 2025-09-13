@@ -1,5 +1,4 @@
-﻿using System;
-using DG.Tweening;
+﻿using DG.Tweening;
 using PSB_Lib.Dependencies;
 using PSB_Lib.ObjectPool.RunTime;
 using UnityEngine;

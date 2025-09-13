@@ -21,12 +21,13 @@ public class WaveManager : MonoBehaviour
 
         spawnRegionSize = new Vector2(halfWidth, halfHeight);
     }
+
     private void Start()
     {
-        StartCoroutine(Wave());
-        _text.text = $"wave : {waveNum}";
+        StartCoroutine(WaveRoutine());
     }
-    public Vector2 GetRandonSpawnPosition()
+
+    private Vector2 GetRandonSpawnPosition()
     {
         float xOffset = 2f;
         float yOffset = 2f;
@@ -46,37 +47,62 @@ public class WaveManager : MonoBehaviour
         return new Vector2(x, y);
     }
 
-    IEnumerator Wave()
+    private IEnumerator WaveRoutine()
     {
-        foreach(var waveList in waveListSO.waves)
+        foreach (var waveList in waveListSO.waves)
         {
-            waveNum++;
-            _text.text = $"wave : {waveNum}";
+            // 1. 웨이브 시작 전 대기 3초 (3,2,1 카운트)
+            yield return StartCoroutine(PreWaveCountdown());
 
-            if(waveList.bossSpawn)
+            // 2. 웨이브 번호 표시
+            waveNum++;
+            _text.text = $"Wave : {waveNum}";
+            _text.gameObject.SetActive(true);
+            yield return new WaitForSeconds(3f); // 3초 동안 텍스트 표시
+            _text.gameObject.SetActive(false);
+
+            // 3. 보스 스폰 코루틴 시작
+            if (waveList.bossSpawn)
             {
                 StartCoroutine(BossEnter(waveList));
             }
-            foreach(var e in waveList.sequence)
+
+            // 4. 일반 적 스폰
+            foreach (var e in waveList.sequence)
             {
-                for(int i = 0; i < e.count; i++)
+                for (int i = 0; i < e.count; i++)
                 {
                     GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
-                    if(waveNum >= 3)
+                    if (waveNum >= 3)
                         UpgradeEnemy(enemy, e.enemy);
                     yield return new WaitForSeconds(e.defaultGap);
                 }
             }
+
+            // 5. 웨이브 종료 대기
             float a = 0;
-            while(a < waveList.waveEndTime && pooling.enemyCount > 0)
+            while (a < waveList.waveEndTime && pooling.enemyCount > 0)
             {
                 a += Time.deltaTime;
                 yield return null;
             }
         }
+
         onWaveEnd?.Invoke();
     }
-    IEnumerator BossEnter(WaveSO waveSO)
+
+    private IEnumerator PreWaveCountdown()
+    {
+        _text.gameObject.SetActive(true);
+        for (int i = 3; i > 0; i--)
+        {
+            _text.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        _text.gameObject.SetActive(false);
+    }
+
+    private IEnumerator BossEnter(WaveSO waveSO)
     {
         float time = 0;
         while (waveSO.bossSpawnTiming > time)
@@ -92,13 +118,15 @@ public class WaveManager : MonoBehaviour
         if (!enemy.TryGetComponent<EnemyBase>(out EnemyBase enemyBase)) return;
 
         float mul =
-        (waveNum > 12) ? 4f :
-        (waveNum > 9) ? 3f :
-        (waveNum > 6) ? 2f :
-        (waveNum > 3) ? 1.5f : 1f;
+            (waveNum > 12) ? 4f :
+            (waveNum > 9) ? 3f :
+            (waveNum > 6) ? 2f :
+            (waveNum > 3) ? 1.5f : 1f;
 
         enemyBase.IncreaseAttack(so.enemyDamageUp * mul);
         enemyBase.IncreaseDefense(so.enemyDefenseUp * mul);
         enemyBase.IncreaseSpeed(so.enemySpeedUp);
     }
+    
+    
 }

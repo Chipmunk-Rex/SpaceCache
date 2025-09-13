@@ -1,5 +1,4 @@
-﻿using System;
-using Ami.BroAudio;
+﻿using Ami.BroAudio;
 using UnityEngine;
 
 namespace Code.Scripts.Items.UI.Sounds

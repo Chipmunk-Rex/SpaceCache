@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using Code.Scripts.Entities;
+using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 public class ObjectPooling : MonoBehaviour
 {
-    [SerializeField] private int enemySpawnMaxCount; // ¿¡³Ê¹Ì ÃÑ ¼ÒÈ¯ ÇÑµµ È½¼ö
-    [SerializeField] private int bossSpawnMaxCount; // º¸½º ÃÑ ¼ÒÈ¯ ÇÑµµ È½¼ö
+    [SerializeField] private int enemySpawnMaxCount; // ï¿½ï¿½ï¿½Ê¹ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ñµï¿½ È½ï¿½ï¿½
+    [SerializeField] private int bossSpawnMaxCount; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È¯ ï¿½Ñµï¿½ È½ï¿½ï¿½
     public int enemyCount { get; private set; } = 0;
 
     private Dictionary<EnemySo,Stack<GameObject>> enemyDic = new();
@@ -46,8 +48,16 @@ public class ObjectPooling : MonoBehaviour
             boss = Instantiate(so.bossPrefab, transform);
             enemyCount++;
         }
-        boss.transform.position = new Vector2(spawnPosition.x, spawnPosition.y);
+        boss.transform.position = spawnPosition;
         boss.SetActive(true);
+        
+        EntityHealth entityHealth = boss.GetComponent<EntityHealth>();
+        Entity entity = boss.GetComponent<Entity>();
+
+        if (entityHealth != null && entity != null && BossUI.Instance != null)
+        {
+            BossUI.Instance.Show(entityHealth, entity);
+        }
 
         return boss;
     }

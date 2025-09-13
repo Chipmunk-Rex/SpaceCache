@@ -1,6 +1,4 @@
-﻿using System;
-using Code.Scripts.Entities;
-using Code.Scripts.Players;
+﻿using Code.Scripts.Entities;
 using UnityEngine;
 
 namespace Code.Scripts.Items.Combat

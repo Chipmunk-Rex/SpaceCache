@@ -1,5 +1,4 @@
 ﻿using Code.Scripts.Entities;
-using UnityEngine;
 
 namespace Code.Scripts.Players.States
 {

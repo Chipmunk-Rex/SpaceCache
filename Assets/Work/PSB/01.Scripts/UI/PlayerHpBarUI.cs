@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using Code.Scripts.Entities;
+﻿using Code.Scripts.Entities;
 using Code.Scripts.Items.Combat;
 using UnityEngine;
 using UnityEngine.UI;

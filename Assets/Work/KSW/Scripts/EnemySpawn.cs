@@ -1,7 +1,6 @@
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
-public class EnemySpown : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float _spawnInterval = 2f;

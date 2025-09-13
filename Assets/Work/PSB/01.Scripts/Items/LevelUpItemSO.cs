@@ -1,7 +1,6 @@
 ﻿using System;
 using Code.Scripts.Entities;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Code.Scripts.Items
 {
