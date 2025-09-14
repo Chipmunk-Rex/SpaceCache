@@ -235,9 +235,11 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
+  fadeDelaySeconds: 0.75
+  fadeOutSpeed: 7
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
-  explosionRadius: 1.7
+  explosionRadius: 2.3
   damageLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -411,6 +413,7 @@ MonoBehaviour:
     ID: 1073741842
     _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
     <DebugObject>k__BackingField: {fileID: 6500927896794116307}
+  isEndGame: 0
 --- !u!1 &8777226444813315981
 GameObject:
   m_ObjectHideFlags: 0

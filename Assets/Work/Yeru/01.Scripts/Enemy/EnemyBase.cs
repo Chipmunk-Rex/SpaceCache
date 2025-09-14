@@ -25,6 +25,10 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
     private Entity _entity;
     protected EntityStat _statCompo;
+    
+    [SerializeField] protected float fadeDelaySeconds = 0f;
+    [SerializeField] protected float fadeOutSpeed = 1.5f;
+    
     [field: SerializeField] protected StatSO hpStat;
     [field: SerializeField] protected StatSO attackStat;
     
@@ -74,9 +78,10 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
     private IEnumerator FaidOut()
     {
-        animator.SetTrigger("isdead");
+        if (fadeDelaySeconds > 0f)
+            yield return new WaitForSeconds(fadeDelaySeconds);
         Color color = spriteRenderer.color;
-        for (float a = 1f; a > 0f; a -= Time.deltaTime * 1.5f)
+        for (float a = 1f; a > 0f; a -= Time.deltaTime * fadeOutSpeed)
         {
             color.a = a;
             spriteRenderer.color = color;
@@ -93,6 +98,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
         
         if (rb  != null) { rb.linearVelocity = Vector2.zero; rb.simulated = false; }
         if (col != null) col.enabled = false;
+        animator.SetTrigger("isdead");
 
         StartCoroutine(FaidOut());
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class Bomber : EnemyBase
 {
-    [SerializeField] private float     explosionRadius = 1.7f;  // 폭발 반경
+    [SerializeField] private float     explosionRadius = 1.7f;  
     [SerializeField] private LayerMask damageLayers;
 
     private EntityAttack _attackCompo;
@@ -25,6 +25,8 @@ public class Bomber : EnemyBase
 
     protected override void Attack()
     {
+        if (isDead || exploded) return;
+        Die();
     }
 
     public override void IncreaseAttack(float amount)
@@ -74,7 +76,16 @@ public class Bomber : EnemyBase
    
     protected override void Die()
     {
-        base.Die(); 
+        if (!exploded)
+        {
+            HandleOnDead();             // 먼저 폭발 + 내부에서 Die() 재호출
+            return;
+        }
+        base.Die();
+    }
+    private void OnEnable()
+    {
+        exploded = false; 
     }
 
 #if UNITY_EDITOR
