@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 5126498037397629300}
   - component: {fileID: 7323577503284955515}
   - component: {fileID: 8142116348276239082}
+  - component: {fileID: 2100920206054698562}
   m_Layer: 16
   m_Name: Bomber
   m_TagString: Untagged
@@ -114,7 +115,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 880e5576962e2cc4ab29fae70274ed52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -186,6 +187,18 @@ MonoBehaviour:
       - m_Target: {fileID: 6204621183595656170}
         m_TargetAssemblyTypeName: Bomber, Assembly-CSharp
         m_MethodName: HandleOnHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2100920206054698562}
+        m_TargetAssemblyTypeName: EnemyWhite, Assembly-CSharp
+        m_MethodName: HitEnemy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -365,6 +378,20 @@ MonoBehaviour:
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   baseAttack: 0
   currentAttack: 0
+--- !u!114 &2100920206054698562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252333900620965849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598921e8ac8995c4e9cd53b52e38becf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSprite: {fileID: 6567473584701176127}
+  flashSpeed: 3
 --- !u!1 &6500927896794116307
 GameObject:
   m_ObjectHideFlags: 0

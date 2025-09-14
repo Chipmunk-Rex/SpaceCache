@@ -25,7 +25,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Flash: -0.015276622
+    - _Flash: -0.015735175
     m_Colors:
     - _Flash_Color: {r: 0.99999994, g: 0.99999994, b: 0.99999994, a: 0}
   m_BuildTextureStacks: []
