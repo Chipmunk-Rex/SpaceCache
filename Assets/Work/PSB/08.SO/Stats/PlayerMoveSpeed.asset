@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Player's move speed stat
   icon: {fileID: -2907186346581270159, guid: bf4c3c9fa57729c4d99adc71bb13bad0, type: 3}
   displayName: MoveSpeed
-  baseValue: 10
+  baseValue: 15
   minValue: 1
-  maxValue: 20
+  maxValue: 50
   <IsPercent>k__BackingField: 0

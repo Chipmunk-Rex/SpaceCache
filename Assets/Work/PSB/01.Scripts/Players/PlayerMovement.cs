@@ -11,17 +11,16 @@ namespace Code.Scripts.Players
         [field: SerializeField] public StatSO moveSpeedStat;
         [SerializeField] private Rigidbody2D rigid2D;
         [SerializeField] private PlayerLookCam lookCam;
-        
-        [SerializeField] private float increaseSpeedValue = 5f;
-        [SerializeField] private float decreaseSpeedValue = -5f;
-        
+
         public float moveSpeed = 10f;
+        public float acceleration = 20f; // 가속도
+        public float deceleration = 25f; // 감속도
         public bool isRunning = true;
-        
+
         private Player _player;
         private EntityStat _statCompo;
-        private Vector2 _velocity;
-        
+        // private Vector2 _velocity;
+
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
@@ -31,17 +30,13 @@ namespace Code.Scripts.Players
         public void AfterInitialize()
         {
             moveSpeed = _statCompo.SubscribeStat(moveSpeedStat, HandleMoveSpeedChange, 8f);
-            _player.PlayerInput.OnSpeedUpPressed += HandleSpeedUp;
-            _player.PlayerInput.OnSpeedDownPressed += HandleSpeedDown;
         }
 
         private void OnDestroy()
         {
             _statCompo.UnSubscribeStat(moveSpeedStat, HandleMoveSpeedChange);
-            _player.PlayerInput.OnSpeedUpPressed -= HandleSpeedUp;
-            _player.PlayerInput.OnSpeedDownPressed -= HandleSpeedDown;
         }
-        
+
         private void FixedUpdate()
         {
             CalculateMovement();
@@ -53,44 +48,49 @@ namespace Code.Scripts.Players
             moveSpeed = currentValue;
         }
 
-        private void HandleSpeedUp()
-        {
-            if (moveSpeed > 30) return;
-            
-            _statCompo.IncreaseBaseValue(moveSpeedStat, increaseSpeedValue);
-        }
-
-        private void HandleSpeedDown()
-        {
-            if (moveSpeed <= 0) return;
-            
-            _statCompo.IncreaseBaseValue(moveSpeedStat, decreaseSpeedValue);
-        }
-
         private void CalculateMovement()
         {
-            _velocity = lookCam.transform.up * moveSpeed;
-
-            if (_velocity.sqrMagnitude > 0.001f)
-            {
-                transform.up = _velocity;
-            }
+            // _velocity = lookCam.transform.up * moveSpeed;
+            //
+            // if (_velocity.sqrMagnitude > 0.001f)
+            // {
+            //     transform.up = _velocity;
+            // }
         }
 
         private void Move()
         {
             if (!isRunning) return;
-            
-            Vector2 move = _velocity * Time.fixedDeltaTime;
-            rigid2D.MovePosition(rigid2D.position + move);
+            Vector2 currentVelocity = rigid2D.linearVelocity;
+            Vector2 targetDirection = lookCam.transform.up;
+            float currentSpeed = Vector2.Dot(currentVelocity, targetDirection);
+
+            if (_player.PlayerInput.speedUp)
+            {
+                currentSpeed += acceleration * Time.fixedDeltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
+            }
+            else if (_player.PlayerInput.speedDown)
+            {
+                currentSpeed -= deceleration * Time.fixedDeltaTime;
+                currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
+            }
+            else
+            {
+                if (currentSpeed > 0)
+                {
+                    currentSpeed -= deceleration * Time.fixedDeltaTime;
+                    currentSpeed = Mathf.Max(currentSpeed, 0);
+                }
+            }
+
+            rigid2D.linearVelocity = targetDirection * currentSpeed;
         }
 
         public void StopImmediately()
         {
             isRunning = false;
-            _velocity = Vector2.zero;
+            rigid2D.linearVelocity = Vector2.zero;
         }
-        
-        
     }
 }

@@ -9,37 +9,56 @@ namespace Code.Scripts.Players
     public class Player : Entity, IDependencyProvider
     {
         [field: SerializeField] public PlayerInputSO PlayerInput { get; private set; }
-        
+
         [SerializeField] private StateDataSO[] states;
 
         private EntityStateMachine _stateMachine;
-        
+        private EntityAnimator _animator;
+
+        int _rotateHash = Animator.StringToHash("Rotate");
+
         protected override void Awake()
         {
             base.Awake();
-            _stateMachine = new EntityStateMachine(this, states);
+            _animator = this.GetCompo<EntityAnimator>();
+            // _stateMachine = new EntityStateMachine(this, states);
+        }
+
+        private void OnEnable()
+        {
+            PlayerInput.OnAngleChangeLPressed += HandleRotateLeft;
+            PlayerInput.OnAngleChangeRPressed += HandleRotateRight;
+            PlayerInput.OnAngleChangeStop += HandleRotateStop;
+        }
+
+        private void HandleRotateStop() => _animator.SetParam(_rotateHash, 0);
+
+        private void HandleRotateRight() => _animator.SetParam(_rotateHash, 1);
+
+        private void HandleRotateLeft() => _animator.SetParam(_rotateHash, -1);
+
+        private void OnDisable()
+        {
+            PlayerInput.OnAngleChangeLPressed -= HandleRotateLeft;
+            PlayerInput.OnAngleChangeRPressed -= HandleRotateRight;
         }
 
         private void OnDestroy()
         {
-            
         }
 
         protected override void Start()
         {
-            _stateMachine.ChangeState("IDLE");
+            // _stateMachine.ChangeState("IDLE");
         }
 
         private void Update()
         {
-            _stateMachine.UpdateStateMachine();
+            // _stateMachine.UpdateStateMachine();
             PlayerInput.CalcHoldingKey();
         }
-        
-        
+
+
         public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
-
-
-        
     }
 }

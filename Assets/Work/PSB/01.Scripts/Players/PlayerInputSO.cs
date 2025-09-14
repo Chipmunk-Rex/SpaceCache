@@ -11,22 +11,26 @@ namespace Code.Scripts.Players
         public event Action OnSpeedDownPressed;
         public event Action OnAngleChangeLPressed;
         public event Action OnAngleChangeRPressed;
+        public event Action OnAngleChangeStop;
         public event Action OnAttackPressed;
         public event Action OnAttackStart;
         public event Action OnAttackStop;
         public event Action OnShieldPressed;
         public event Action OnMachinePressed;
-        
+
         private Controls _controls;
 
         public bool IsCanAttack { get; set; } = true;
         public bool IsCanShield { get; set; } = false;
         public bool IsCanMachine { get; set; } = false;
-        [field:SerializeField] public bool IsMachineGun { get; set; } = false;
+        [field: SerializeField] public bool IsMachineGun { get; set; } = false;
 
         public bool isLHolding = false;
         public bool isRHolding = false;
-        
+
+        public bool speedUp { get; private set; } = false;
+        public bool speedDown { get; private set; } = false;
+
         private string _lastKey = null;
 
         private void OnEnable()
@@ -36,6 +40,7 @@ namespace Code.Scripts.Players
                 _controls = new Controls();
                 _controls.Player.SetCallbacks(this);
             }
+
             _controls.Player.Enable();
             IsCanAttack = true;
         }
@@ -70,13 +75,27 @@ namespace Code.Scripts.Players
         public void OnSpeedUp(InputAction.CallbackContext context)
         {
             if (context.performed)
+            {
+                speedUp = true;
                 OnSpeedUpPressed?.Invoke();
+            }
+            else
+            {
+                speedUp = false;
+            }
         }
 
         public void OnSpeedDown(InputAction.CallbackContext context)
         {
             if (context.performed)
+            {
+                speedDown = true;
                 OnSpeedDownPressed?.Invoke();
+            }
+            else
+            {
+                speedDown = false;
+            }
         }
 
         public void OnAngleChangeLeft(InputAction.CallbackContext context)
@@ -85,9 +104,10 @@ namespace Code.Scripts.Players
             {
                 isLHolding = true;
                 _lastKey = "L";
-                
+
                 isRHolding = false;
             }
+
             if (context.canceled)
             {
                 isLHolding = false;
@@ -102,9 +122,10 @@ namespace Code.Scripts.Players
             {
                 isRHolding = true;
                 _lastKey = "R";
-                
+
                 isLHolding = false;
             }
+
             if (context.canceled)
             {
                 isRHolding = false;
@@ -132,12 +153,13 @@ namespace Code.Scripts.Players
                 OnAngleChangeLPressed?.Invoke();
             else if (_lastKey == "R" && isRHolding)
                 OnAngleChangeRPressed?.Invoke();
+            else 
+                OnAngleChangeStop?.Invoke();
         }
-        
+
         public void ForceStopAttack()
         {
             OnAttackStop?.Invoke();
         }
-        
     }
 }
