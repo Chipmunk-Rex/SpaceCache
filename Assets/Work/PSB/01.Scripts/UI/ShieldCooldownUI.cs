@@ -72,7 +72,6 @@ namespace Code.Scripts.Items.UI
             cooldownFill.fillAmount = 0f;
             _forcedGray = true;
             canUseSkill.color = Color.gray;
-            Debug.Log("Use Skill");
         }
         
         
