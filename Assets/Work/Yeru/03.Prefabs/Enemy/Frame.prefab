@@ -1109,6 +1109,7 @@ MonoBehaviour:
     ID: 1073741844
     _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
     <DebugObject>k__BackingField: {fileID: 7368193734698949703}
+  playInterval: 1
 --- !u!114 &5572988803312867477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1125,6 +1126,7 @@ MonoBehaviour:
     ID: 1073741843
     _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
     <DebugObject>k__BackingField: {fileID: 7368193734698949703}
+  isEndGame: 0
 --- !u!1 &9092895595130805696
 GameObject:
   m_ObjectHideFlags: 0
