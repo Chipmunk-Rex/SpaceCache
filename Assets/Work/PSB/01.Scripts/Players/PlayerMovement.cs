@@ -61,30 +61,26 @@ namespace Code.Scripts.Players
         private void Move()
         {
             if (!isRunning) return;
-            Vector2 currentVelocity = rigid2D.linearVelocity;
-            Vector2 targetDirection = lookCam.transform.up;
-            float currentSpeed = Vector2.Dot(currentVelocity, targetDirection);
-
+            Vector2 velocity = rigid2D.linearVelocity;
+            // 가속
             if (_player.PlayerInput.speedUp)
             {
-                currentSpeed += acceleration * Time.fixedDeltaTime;
-                currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
+                velocity += (Vector2)lookCam.transform.up * acceleration * Time.fixedDeltaTime;
+                if (velocity.magnitude > moveSpeed)
+                    velocity = velocity.normalized * moveSpeed;
             }
+            // 감속
             else if (_player.PlayerInput.speedDown)
             {
-                currentSpeed -= deceleration * Time.fixedDeltaTime;
-                currentSpeed = Mathf.Clamp(currentSpeed, 0, moveSpeed);
-            }
-            else
-            {
-                if (currentSpeed > 0)
+                if (velocity.magnitude > 0)
                 {
-                    currentSpeed -= deceleration * Time.fixedDeltaTime;
-                    currentSpeed = Mathf.Max(currentSpeed, 0);
+                    velocity -= velocity.normalized * deceleration * Time.fixedDeltaTime;
+                    if (Vector2.Dot(velocity, velocity) < 0.01f) // 너무 느려지면 정지
+                        velocity = Vector2.zero;
                 }
             }
-
-            rigid2D.linearVelocity = targetDirection * currentSpeed;
+            // 입력 없을 때 자연 감속(관성 유지)
+            rigid2D.linearVelocity = velocity;
         }
 
         public void StopImmediately()

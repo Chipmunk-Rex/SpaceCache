@@ -33,6 +33,8 @@ namespace Code.Scripts.Players
 
         private string _lastKey = null;
 
+        public Vector2 mousePosition { get; private set; }
+
         private void OnEnable()
         {
             if (_controls == null)
@@ -146,6 +148,11 @@ namespace Code.Scripts.Players
                 OnMachinePressed?.Invoke();
         }
 
+        public void OnMouse(InputAction.CallbackContext context)
+        {
+            mousePosition = context.ReadValue<Vector2>();
+        }
+
 
         public void CalcHoldingKey()
         {
@@ -153,7 +160,7 @@ namespace Code.Scripts.Players
                 OnAngleChangeLPressed?.Invoke();
             else if (_lastKey == "R" && isRHolding)
                 OnAngleChangeRPressed?.Invoke();
-            else 
+            else
                 OnAngleChangeStop?.Invoke();
         }
 

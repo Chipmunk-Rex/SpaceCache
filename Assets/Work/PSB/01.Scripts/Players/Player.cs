@@ -24,28 +24,6 @@ namespace Code.Scripts.Players
             // _stateMachine = new EntityStateMachine(this, states);
         }
 
-        private void OnEnable()
-        {
-            PlayerInput.OnAngleChangeLPressed += HandleRotateLeft;
-            PlayerInput.OnAngleChangeRPressed += HandleRotateRight;
-            PlayerInput.OnAngleChangeStop += HandleRotateStop;
-        }
-
-        private void HandleRotateStop() => _animator.SetParam(_rotateHash, 0);
-
-        private void HandleRotateRight() => _animator.SetParam(_rotateHash, 1);
-
-        private void HandleRotateLeft() => _animator.SetParam(_rotateHash, -1);
-
-        private void OnDisable()
-        {
-            PlayerInput.OnAngleChangeLPressed -= HandleRotateLeft;
-            PlayerInput.OnAngleChangeRPressed -= HandleRotateRight;
-        }
-
-        private void OnDestroy()
-        {
-        }
 
         protected override void Start()
         {
