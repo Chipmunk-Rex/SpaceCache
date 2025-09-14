@@ -9,9 +9,14 @@ public class ButtonClick : MonoBehaviour
 {
     [SerializeField] private GameObject optionPanel;
     [SerializeField] private GameObject startPanel;
+    [SerializeField] private GameObject airPlane;
     [SerializeField] private Button[] buttons;
     [SerializeField] private float up = 90;
     private UIMover mover;
+
+    [Header("airPlane move")]
+    [SerializeField] private float airPlaneUp;
+    [SerializeField] private float airPanleUptime;
 
 
     private void Awake()
@@ -84,15 +89,8 @@ public class ButtonClick : MonoBehaviour
         if (!mover.startStop)
         {
             mover.SetStartStop(true);
-            for(int i = 0; i< buttons.Length; i++)
-            {
-                Sequence sequence = DOTween.Sequence();
-                buttons[i].interactable = false;
-                sequence.Append(buttons[i].transform.DOLocalMoveX(-900, 0.3f)).SetUpdate(true);
-                sequence.Append(buttons[i].transform.DOLocalMoveX(1500, 0.6f)).SetUpdate(true);
-                yield return new WaitForSecondsRealtime(0.15f);
-            }
-            yield return new WaitForSecondsRealtime(0.6f);
+            airPlane.transform.DOMoveY(airPlaneUp, airPanleUptime);
+            yield return new WaitForSecondsRealtime(airPanleUptime + 0.3f);
 
             SceneManager.LoadScene("GameScene");
         }
