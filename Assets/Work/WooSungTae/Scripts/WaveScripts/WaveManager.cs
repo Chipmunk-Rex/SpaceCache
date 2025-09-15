@@ -74,7 +74,10 @@ public class WaveManager : MonoBehaviour
                 {
                     GameObject enemy = pooling.SpawnEnemy(e.enemy, GetRandonSpawnPosition() + (Vector2)cam.transform.position);
                     if (waveNum >= 3)
+                    {
+                        Debug.Log("UpgradeEnemy");
                         UpgradeEnemy(enemy, e.enemy);
+                    }
                     yield return new WaitForSeconds(e.defaultGap);
                 }
             }
