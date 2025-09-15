@@ -132,7 +132,7 @@ MonoBehaviour:
   jumpHeight: 2
   jumpDistance: 1
   duration: 1
-  dropValue: 1
+  dropValue: 2
 --- !u!1 &2377198530985374819
 GameObject:
   m_ObjectHideFlags: 0

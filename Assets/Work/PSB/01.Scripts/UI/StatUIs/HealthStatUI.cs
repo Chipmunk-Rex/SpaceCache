@@ -9,7 +9,7 @@ namespace Code.Scripts.Items.UI
 
         private void Update()
         {
-            UpdateValue($"{health.currentHealth} / {health.maxHealth}");    
+            UpdateValue($"{(int)health.currentHealth} / {(int)health.maxHealth}");
         }
         
     }
