@@ -18,6 +18,8 @@ MonoBehaviour:
   engageRange: 15
   rotationSpeed: 85
   prefab: {fileID: 5589944861685151778, guid: 5cde3f573a2c5084b973689305304402, type: 3}
+  teleportDistance: 50
+  teleportRange: 30
   enemyDefenseUp: 1
   enemyDamageUp: 0.25
   enemySpeedUp: 0.25

@@ -58,6 +58,41 @@ public abstract class EnemyBase : Entity, IEntityComponent
     {
     }
     
+    private void Update()
+    {
+        if (isDead) return;
+
+        Move();
+
+        if (player != null)
+        {
+            float distance = Vector2.Distance(transform.position, player.position);
+            
+            if (data.teleportDistance != 0)
+            {
+                if (distance > data.teleportDistance)
+                {
+                    Vector2 randomOffset = Random.insideUnitCircle * data.teleportRange;
+                    Vector2 targetPos = (Vector2)player.position + randomOffset;
+
+                    if (rb != null)
+                        rb.position = targetPos;
+                    else
+                        transform.position = targetPos;
+                }
+            }
+
+            if (attackTimer > 0f)
+                attackTimer -= Time.deltaTime;
+
+            if (distance <= data.engageRange && attackTimer <= 0f)
+            {
+                Attack();
+                attackTimer = Mathf.Max(0.01f, data.attackCooldown);
+            }
+        }
+    }
+    
     protected virtual void Move()
     {
         if (player == null || rb == null) return;
@@ -118,26 +153,5 @@ public abstract class EnemyBase : Entity, IEntityComponent
         }
     }
     
-    private void Update()
-    {
-        if (isDead) return;
-        {
-            Move();
-
-            if (player != null)
-            {
-                float distance = Vector2.Distance(transform.position, player.position);
-                
-                if (attackTimer > 0f)
-                    attackTimer -= Time.deltaTime;
-                
-                if (distance <= data.engageRange && attackTimer <= 0f)
-                {
-                    Attack();
-                    attackTimer = Mathf.Max(0.01f, data.attackCooldown);
-                }
-            }
-        }
-    }
     
 }
