@@ -58,7 +58,6 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     protected virtual void OnInit() 
     {
-        Debug.Log($"{gameObject.name} : Init");
         OnInitEvent?.Invoke();
     }
     

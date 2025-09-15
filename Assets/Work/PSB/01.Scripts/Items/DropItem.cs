@@ -17,7 +17,7 @@ namespace Code.Scripts.Items
         private bool _hasDropped = false;
 
         [Inject] private PoolManagerMono _poolManager;
-        private PickUpItem dropItem;
+        private PickUpItem _dropItem;
 
         private void Start()
         {
@@ -43,15 +43,15 @@ namespace Code.Scripts.Items
             
             for (int i = 0; i < dropValue; i++)
             {
-                dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
-                dropItem.transform.position = transform.position;
+                _dropItem = _poolManager.Pop<PickUpItem>(dropItemPrefab);
+                _dropItem.transform.position = transform.position;
             
                 Vector3 targetPos = transform.position + new Vector3(
                     Random.Range(-jumpDistance, jumpDistance), 
                     Random.Range(jumpHeight * 0.8f, jumpHeight * 1.2f), 
                     0f);
 
-                dropItem.transform.DOMove(targetPos, duration)
+                _dropItem.transform.DOMove(targetPos, duration)
                     .SetEase(Ease.OutQuad); 
             }
         }
