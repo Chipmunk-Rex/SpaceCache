@@ -12,7 +12,7 @@ namespace Code.Scripts.Items.Combat
         {
             cnt++;
             
-            if (cnt <= 5) return;
+            if (cnt <= 20) return;
             
             if (other.gameObject.layer == LayerMask.NameToLayer("EnemyBullet") 
                 || other.gameObject.layer == LayerMask.NameToLayer("BossBullet")
