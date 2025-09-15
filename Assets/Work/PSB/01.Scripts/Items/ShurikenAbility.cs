@@ -13,7 +13,7 @@ namespace Code.Scripts.Items
         [field: SerializeField] public int maxCount = 5;
         
         [Header("Value")]
-        [SerializeField] private float radius = 2f;
+        [SerializeField] private float radius = 3f;
         [SerializeField] private float orbitSpeed = 100f;   
         [SerializeField] private float selfRotateSpeed = 360f;
         [SerializeField] private float increaseRadius = 0.5f;
@@ -44,7 +44,7 @@ namespace Code.Scripts.Items
             float scaleFactor = 1f + (currentCount - 1) * 0.4f;
             foreach (var shuriken in _shurikenList)
             {
-                shuriken.localScale = Vector3.one * scaleFactor;
+                shuriken.localScale *= scaleFactor;
             }
             
             ArrangeShurikens();
