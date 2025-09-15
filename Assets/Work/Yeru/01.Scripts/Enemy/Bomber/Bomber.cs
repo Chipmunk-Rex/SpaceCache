@@ -83,15 +83,15 @@ public class Bomber : EnemyBase
     {
         if (!exploded)
         {
-            HandleOnDead();             // 먼저 폭발 + 내부에서 Die() 재호출
+            HandleOnDead();            
             return;
         }
         base.Die();
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         exploded = false; 
-        StopAllCoroutines();
         _forceOpaqueFrames = 3;       
         SetAlpha(1f); 
     }
