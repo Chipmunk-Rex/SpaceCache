@@ -86,6 +86,7 @@ public class Bomber : EnemyBase
     private void OnEnable()
     {
         exploded = false; 
+        StopAllCoroutines();
     }
 
 #if UNITY_EDITOR
