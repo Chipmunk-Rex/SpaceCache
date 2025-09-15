@@ -7,6 +7,7 @@ public class Bomber : EnemyBase
 {
     [SerializeField] private float     explosionRadius = 1.7f;  
     [SerializeField] private LayerMask damageLayers;
+    private int _forceOpaqueFrames = 0;
 
     private EntityAttack _attackCompo;
     private bool exploded;
@@ -91,6 +92,16 @@ public class Bomber : EnemyBase
     {
         exploded = false; 
         StopAllCoroutines();
+        _forceOpaqueFrames = 3;       
+        SetAlpha(1f); 
+    }
+    private void SetAlpha(float a)
+    {
+        if (!spriteRenderer) return;
+        var c = spriteRenderer.color;
+        if (Mathf.Approximately(c.a, a)) return;
+        c.a = a;
+        spriteRenderer.color = c;
     }
 
 #if UNITY_EDITOR
