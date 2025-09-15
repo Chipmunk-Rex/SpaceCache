@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: TorpedoShip
   m_EditorClassIdentifier: 
   enemyName: TorpedoShip
-  moveSpeed: 6
   attackCooldown: 4
   range: 16
   engageRange: 16
   rotationSpeed: 444
   prefab: {fileID: 4998605848131002836, guid: ff86fdd1e350d0b41a306bef1aaf137c, type: 3}
-  enemyDamageUp: 4
-  enemyDefenseUp: 4
-  enemySpeedUp: 0
+  enemyDefenseUp: 0.5
+  enemyDamageUp: 0.25
+  enemySpeedUp: 0.5

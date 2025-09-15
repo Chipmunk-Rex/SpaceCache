@@ -32,6 +32,8 @@ public class Frame : EnemyBase
    
    public override void IncreaseSpeed(float amount)
    {
+       _statCompo.IncreaseBaseValue(speedStat, amount);
+       Debug.Log($"{gameObject.name} : {speedStat.BaseValue}");
    }
    
    public void HandleOnDead()

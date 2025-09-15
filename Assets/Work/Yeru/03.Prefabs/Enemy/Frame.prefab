@@ -538,6 +538,7 @@ GameObject:
   - component: {fileID: -8013668484234332783}
   - component: {fileID: 1828034898396788808}
   - component: {fileID: 5059925158185995754}
+  - component: {fileID: -2251166448468239385}
   m_Layer: 16
   m_Name: Frame
   m_TagString: Untagged
@@ -792,6 +793,7 @@ MonoBehaviour:
   fadeOutSpeed: 1.5
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
   muzzles:
   - {fileID: 5655030736315206603}
   - {fileID: 8294209498025632358}
@@ -831,6 +833,9 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
     isUseOverride: 1
     overrideValue: 1
+  - stat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+    isUseOverride: 1
+    overrideValue: 7
 --- !u!114 &1828034898396788808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,6 +865,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSprite: {fileID: 7374601409534930536}
   flashSpeed: 3
+--- !u!114 &-2251166448468239385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589944861685151778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32fe0d87614d78ba93c8eec18f2d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+  baseSpeed: 0
+  currentSpeed: 0
 --- !u!1 &5882865290894980470
 GameObject:
   m_ObjectHideFlags: 0

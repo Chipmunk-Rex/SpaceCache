@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Bomber
   m_EditorClassIdentifier: 
   enemyName: Bomber
-  moveSpeed: 7
   attackCooldown: 0
   range: 1.8
   engageRange: 1.8
   rotationSpeed: 170
   prefab: {fileID: 3252333900620965849, guid: d4b30ea4204501f4eb03b5cd84bdde8c, type: 3}
-  enemyDamageUp: 0
-  enemyDefenseUp: 0
-  enemySpeedUp: 0.5
+  enemyDefenseUp: 0.6
+  enemyDamageUp: 0.3
+  enemySpeedUp: 0.25

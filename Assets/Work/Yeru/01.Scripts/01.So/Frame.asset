@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: Frame
   m_EditorClassIdentifier: 
   enemyName: Frame
-  moveSpeed: 6
   attackCooldown: 0.5
   range: 13
   engageRange: 15
   rotationSpeed: 85
   prefab: {fileID: 5589944861685151778, guid: 5cde3f573a2c5084b973689305304402, type: 3}
-  enemyDamageUp: 15
-  enemyDefenseUp: 15
-  enemySpeedUp: 0
+  enemyDefenseUp: 1
+  enemyDamageUp: 0.25
+  enemySpeedUp: 0.25

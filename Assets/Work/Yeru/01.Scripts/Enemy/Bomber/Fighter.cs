@@ -28,9 +28,11 @@ public class Fighter : EnemyBase
         _statCompo.IncreaseBaseValue(hpStat, amount);
         Debug.Log($"{gameObject.name} : {hpStat.BaseValue}");
     }
-    
+   
     public override void IncreaseSpeed(float amount)
     {
+        _statCompo.IncreaseBaseValue(speedStat, amount);
+        Debug.Log($"{gameObject.name} : {speedStat.BaseValue}");
     }
    
     public void HandleOnDead()

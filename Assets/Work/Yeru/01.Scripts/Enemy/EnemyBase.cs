@@ -31,6 +31,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     [field: SerializeField] protected StatSO hpStat;
     [field: SerializeField] protected StatSO attackStat;
+    [field: SerializeField] protected StatSO speedStat;
     
     public void Initialize(Entity entity)
     {
@@ -50,17 +51,11 @@ public abstract class EnemyBase : Entity, IEntityComponent
         pool = GetComponentInParent<ObjectPooling>();
 
         attackTimer     = 0f;
-        OnInit();
         animator.SetBool("isSosang", true);
     }
     
     protected virtual void OnInit() 
     {
-         if (data != null)
-         {
-             if (data.enemyDamageUp  != 0f) IncreaseAttack ((int)data.enemyDamageUp);
-             if (data.enemyDefenseUp != 0f) IncreaseDefense((int)data.enemyDefenseUp);
-         }
     }
     
     protected virtual void Move()
@@ -71,7 +66,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
         float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, data.rotationSpeed * Time.deltaTime * 8);
         rb.MoveRotation(newAngle);
         float distance = Vector2.Distance(transform.position, player.position);
-        rb.linearVelocity  = distance > data.range ? dir * data.moveSpeed : Vector2.zero;
+        rb.linearVelocity  = distance > data.range ? dir * speedStat.BaseValue : Vector2.zero;
     }
     
     protected abstract void Attack();
