@@ -133,7 +133,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
         StartCoroutine(FaidOut());
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         isDead = false;
         attackTimer = 0f;
