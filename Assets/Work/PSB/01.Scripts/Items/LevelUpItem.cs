@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Scripts.Entities;
+﻿using Code.Scripts.Entities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

@@ -18,7 +18,6 @@ namespace Code.Scripts.Items.Combat
                 || other.gameObject.layer == LayerMask.NameToLayer("BossBullet")
                 || other.gameObject.layer == LayerMask.NameToLayer("Meteor"))
             {
-                Debug.Log("ShieldTrigger");
                 OnDestroyAction?.Invoke();
                 Destroy(gameObject);
             }

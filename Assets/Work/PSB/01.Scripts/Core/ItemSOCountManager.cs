@@ -3,7 +3,6 @@ using Code.Scripts.Items.UI;
 using PSB_Lib.Dependencies;
 using UnityEngine;
 using System;
-using UnityEngine.Serialization;
 
 namespace Code.Scripts.Items.Core
 {

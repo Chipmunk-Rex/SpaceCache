@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Scripts.Players;
+﻿using Code.Scripts.Players;
 using UnityEngine;
 
 namespace Code.Scripts.Items.UI

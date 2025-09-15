@@ -1,5 +1,4 @@
-﻿using Code.Scripts.Items;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Code.Scripts.Items.Core
 {

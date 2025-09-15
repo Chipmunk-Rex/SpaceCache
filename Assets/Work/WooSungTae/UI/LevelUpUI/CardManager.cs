@@ -5,11 +5,11 @@ using System.Linq;
 using Code.Scripts.Items;
 using Code.Scripts.Players;
 using DG.Tweening;
-using DG.Tweening.Core.Easing;
 using JetBrains.Annotations;
 using PSB_Lib.Dependencies;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
@@ -27,13 +27,20 @@ public class CardManager : MonoBehaviour
     [SerializeField] private float downPlaneUiValue = -1000;
     [SerializeField] private float upPlaneUiValue = 1000;
     
-    [Inject] private PlayerLevelSystem playerLevelSystem;
+    [Inject] private PlayerLevelSystem _playerLevelSystem;
     
-    private Dictionary<LevelUpItemSO,GameObject> destroyCopy = new();
-    private HashSet<ItemType> selectedSlots = new();
+    private Dictionary<LevelUpItemSO,GameObject> _destroyCopy = new();
+    private HashSet<ItemType> _selectedSlots = new();
     
-    public bool dontClick { get; private set; } = false;
-    private int rand;
+    public bool DontClick { get; private set; } = false;
+    private int _rand;
+
+    public enum UIState { Idle, Down, Up, Moving }
+
+    public UIState currentState = UIState.Up;
+    private Coroutine _currentCoroutine = null;
+
+    private int pauseRef = 0;
 
     private void Awake()
     {
@@ -46,21 +53,12 @@ public class CardManager : MonoBehaviour
 
     private void OnEnable()
     {
-        playerLevelSystem.OnLevelUp += LevelUpUIOpen;
+        _playerLevelSystem.OnLevelUp += LevelUpUIOpen;
     }
 
     private void OnDestroy()
     {
-        playerLevelSystem.OnLevelUp -= LevelUpUIOpen;
-    }
-
-    private void Update()
-    {
-        if(Keyboard.current.leftAltKey.wasPressedThisFrame)
-        {
-            ImageChange();
-            StartCoroutine(CardDown());
-        }
+        _playerLevelSystem.OnLevelUp -= LevelUpUIOpen;
     }
 
     public void SetRaycastsAll(bool enabled)
@@ -74,11 +72,11 @@ public class CardManager : MonoBehaviour
 
     private void LevelUpUIOpen()
     {
-        Time.timeScale = 0;
+        SetPaused(true);
         ImageChange();
-        StartCoroutine(CardDown());
+        RequestCardDown();
     }
-    
+
     public void ImageChange()
     {
         HashSet<LevelUpItemSO> usedThisDraw = new HashSet<LevelUpItemSO>();
@@ -92,12 +90,11 @@ public class CardManager : MonoBehaviour
             
             if (candidates.Count == 0)
             {
-                Debug.Log("������ ����");
                 continue;
             }
 
-            rand = Random.Range(0, candidates.Count);
-            LevelUpItemSO chosen = candidates[rand];
+            _rand = Random.Range(0, candidates.Count);
+            LevelUpItemSO chosen = candidates[_rand];
 
             Card card = gameObjectCard[i].GetComponent<Card>();
             card.CardGetBasic(chosen);
@@ -105,51 +102,106 @@ public class CardManager : MonoBehaviour
             usedThisDraw.Add(chosen);
         }
     }
-    
-    #region Card Mover
-    IEnumerator CardDown()
+
+    #region Request / Wrappers
+    public void RequestCardDown()
     {
+        if (_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+            _currentCoroutine = null;
+        }
+
+        _currentCoroutine = StartCoroutine(CardDownWrapper());
+    }
+
+    public void RequestCardUp()
+    {
+        if (_currentCoroutine != null)
+        {
+            StopCoroutine(_currentCoroutine);
+            _currentCoroutine = null;
+        }
+
+        _currentCoroutine = StartCoroutine(CardUpWrapper());
+    }
+
+    private void SetPaused(bool paused)
+    {
+        if (paused)
+        {
+            pauseRef++;
+            if (pauseRef == 1)
+            {
+                Time.timeScale = 0f;
+            }
+        }
+        else
+        {
+            pauseRef = Mathf.Max(0, pauseRef - 1);
+            if (pauseRef == 0)
+            {
+                Time.timeScale = 1f;
+            }
+        }
+    }
+    #endregion
+
+    #region Card Mover
+    private IEnumerator CardDownWrapper()
+    {
+        currentState = UIState.Moving;
+        SetPaused(true);
+
         RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
-        bihanggiRect.DOAnchorPosY(downPlaneUiValue, 1).SetUpdate(true);
+        Sequence seq = DOTween.Sequence();
+        seq.SetUpdate(true);
+        seq.Append(bihanggiRect.DOAnchorPosY(downPlaneUiValue, 1f).SetUpdate(true));
+
         int minusAnchor = 0;
         foreach (var a in gameObjectCard)
         {
             CardScaler cardScaler = a.GetComponent<CardScaler>();
             cardScaler.CardImageActive();
             RectTransform rt = (RectTransform)a.transform;
-            rt.DOAnchorPosY(downUiValue + minusAnchor, 1f).SetUpdate(true);
+            seq.Join(rt.DOAnchorPosY(downUiValue + minusAnchor, 1f).SetUpdate(true));
             minusAnchor += 350;
-            yield return new WaitForSecondsRealtime(0.3f);
         }
-        yield return new WaitForSecondsRealtime(1);
+        yield return seq.WaitForCompletion();
+
+        currentState = UIState.Down;
+        _currentCoroutine = null;
     }
 
     public void StartCardUp()
     {
-        if(!dontClick)
+        if(!DontClick)
         {
-            dontClick = true;
-            StartCoroutine(CardUp());
+            DontClick = true;
+            RequestCardUp();
         }
     }
+
     public void AirPlaneMove()
     {
         Sequence seq = DOTween.Sequence();
+        seq.SetUpdate(true);
         seq.Append(airPlane.transform.DOScale(1.4f, 0.5f).SetEase(Ease.InBounce)).SetUpdate(true);
         seq.Append(airPlane.transform.DOScale(1, 0.6f)).SetUpdate(true);
     }
     
-    IEnumerator CardUp()
+    private IEnumerator CardUpWrapper()
     {
+        currentState = UIState.Moving;
+
         yield return new WaitForSecondsRealtime(0.1f);
-        
+
         foreach (var a in gameObjectCard)
         {
             Card card = a.GetComponent<Card>();
             
             if (card.iClicked)
             {
-                #region ESC button image spawn
                 GameObject obj = null;
                 if(!card._levelUpSO.cardUiSpawn)
                 {
@@ -158,7 +210,7 @@ public class CardManager : MonoBehaviour
                     card._levelUpSO.cardUiSpawn = true;
                     SkillUiStar skillUiStar = obj.GetComponent<SkillUiStar>();
                     skillUiStar.StarInstantiate(card._levelUpSO);
-                    destroyCopy.Add(card._levelUpSO, obj);
+                    _destroyCopy.Add(card._levelUpSO, obj);
                 }
                 else
                 {
@@ -166,55 +218,59 @@ public class CardManager : MonoBehaviour
                     obj.GetComponent<Image>().sprite = card._levelUpSO.SkillIcon;
                     SkillUiStar skillUiStar = obj.GetComponent<SkillUiStar>();
                     skillUiStar.StarInstantiate(card._levelUpSO);
-                    if (destroyCopy.ContainsKey(card._levelUpSO))
+                    if (_destroyCopy.ContainsKey(card._levelUpSO))
                     {
-                        Destroy(destroyCopy[card._levelUpSO]);
+                        Destroy(_destroyCopy[card._levelUpSO]);
                     }
-                    destroyCopy[card._levelUpSO] = obj;
+                    _destroyCopy[card._levelUpSO] = obj;
                 }
-                #endregion
 
                 a.SetActive(false);
                 RectTransform rt = (RectTransform)a.transform;
 
-                float flash = 1;
+                float flash = 1f;
                 Image airPlane_image = airPlane.GetComponent<Image>();
                 airPlane_image.material.SetFloat("_Flash", flash);
+
                 AirPlaneMove();
-                Time.timeScale = 1;
-                
-                while (flash > 0)
+                SetPaused(false);
+
+                while (flash > 0f)
                 {
-                    flash -= Time.deltaTime * 2;
+                    flash -= Time.unscaledDeltaTime * 2f;
                     airPlane_image.material.SetFloat("_Flash", flash);
                     yield return null;
                 }
+
                 rt.DOAnchorPos(new Vector2(upUiValue, 0), 0.1f).SetUpdate(true);
                 yield return new WaitForSecondsRealtime(0.1f);
                 a.SetActive(true);
             }
         }
-
+        
         foreach (var a in gameObjectCard)
         {
             Card card = a.GetComponent<Card>();
-           if (!card.iClicked)
-           {
+            if (!card.iClicked)
+            {
                 RectTransform rt = (RectTransform)a.transform;
-
-                rt.DOAnchorPos(new Vector2(upUiValue, 0),1).SetUpdate(true);
-
+                rt.DOAnchorPos(new Vector2(upUiValue, 0),1f).SetUpdate(true);
                 yield return new WaitForSecondsRealtime(0.5f);
             }
             Card.SetClicked(false);
             card.SetIClicked(false);
             
         }
+
         RectTransform bihanggiRect = (RectTransform)biHangGi_image.transform;
-        bihanggiRect.DOAnchorPosY(upPlaneUiValue, 1).SetUpdate(true);
+        bihanggiRect.DOAnchorPosY(upPlaneUiValue, 1f).SetUpdate(true);
         yield return new WaitForSecondsRealtime(0.5f);
-        Time.timeScale = 1;
-        dontClick = false;
+        
+        SetPaused(false);
+
+        DontClick = false;
+        currentState = UIState.Up;
+        _currentCoroutine = null;
     }
     #endregion
     

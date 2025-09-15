@@ -55,11 +55,6 @@ namespace Code.Scripts.Items.Combat
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                SetHp(-10);
-            }
-            
             if (currentHealth <= 0)
                 _entity.OnDeadEvent?.Invoke();
         }

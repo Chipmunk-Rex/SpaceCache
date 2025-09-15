@@ -175,8 +175,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3064938204470275843}
     - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 860814981333424241}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CreateFeedback
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: OnDeadEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_FloatArgument
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000649513289427026, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      propertyPath: OnBoomFire.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 1639956396891800873, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       propertyPath: m_Size.x
@@ -346,7 +374,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2623119900522431616, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
       insertIndex: 2
       addedObject: {fileID: 6550557275069316951}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2917464290939276329, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 860814981333424241}
   m_SourcePrefab: {fileID: 100100000, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
 --- !u!1 &828844342206068791 stripped
 GameObject:
@@ -358,3 +389,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2623119900522431616, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
   m_PrefabInstance: {fileID: 6133675801937540678}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &9035307120059742831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2917464290939276329, guid: ec0a66ae8042b78449d7cdabf231e9c9, type: 3}
+  m_PrefabInstance: {fileID: 6133675801937540678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &860814981333424241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9035307120059742831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e054923af30b421c8234deeac43816a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound:
+    ID: 1073741852
+    _sourceAsset: {fileID: 11400000, guid: 9b966a3923c80ee41bc36f591b70c7e9, type: 2}
+    <DebugObject>k__BackingField: {fileID: 9035307120059742831}
+  playInterval: 1

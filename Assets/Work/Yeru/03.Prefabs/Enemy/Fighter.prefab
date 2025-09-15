@@ -101,6 +101,7 @@ GameObject:
   - component: {fileID: -7181012061841225867}
   - component: {fileID: 7263249031701779157}
   - component: {fileID: 1357725108439376722}
+  - component: {fileID: 7227529935002366017}
   m_Layer: 16
   m_Name: Fighter
   m_TagString: Untagged
@@ -151,7 +152,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 880e5576962e2cc4ab29fae70274ed52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -292,10 +293,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnHitEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7227529935002366017}
+        m_TargetAssemblyTypeName: EnemyWhite, Assembly-CSharp
+        m_MethodName: HitEnemy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnDeadEvent:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 566965991631082725}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.DeathSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 2512886431424307197}
         m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
         m_MethodName: Drop
@@ -321,6 +346,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: f02434cf5000dda4ea3553b269876058, type: 2}
+  fadeDelaySeconds: 0
+  fadeOutSpeed: 1.5
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   muzzles:
@@ -374,6 +401,20 @@ MonoBehaviour:
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   baseAttack: 0
   currentAttack: 0
+--- !u!114 &7227529935002366017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583878187766282213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 598921e8ac8995c4e9cd53b52e38becf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitSprite: {fileID: 8473803675453221250}
+  flashSpeed: 3
 --- !u!1 &2087948044975423189
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,9 +638,9 @@ MonoBehaviour:
   onShot:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Muzzle, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 5182820308964697108}
+        m_TargetAssemblyTypeName: Code.Scripts.Feedbacks.AttackSoundFeedback, Assembly-CSharp
+        m_MethodName: CreateFeedback
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -619,6 +660,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7888076090560981054}
   - component: {fileID: 4894683302607151461}
+  - component: {fileID: 566965991631082725}
+  - component: {fileID: 5182820308964697108}
   m_Layer: 7
   m_Name: Feedbacks
   m_TagString: Untagged
@@ -657,3 +700,37 @@ MonoBehaviour:
   - {fileID: 366159453760092696}
   _turnOnTime: 0.1
   _defaultState: 0
+--- !u!114 &566965991631082725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279615755971701015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4249c3ef45e441d2a6c2f05c7cc6b8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSound:
+    ID: 1073741843
+    _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8279615755971701015}
+  isEndGame: 0
+--- !u!114 &5182820308964697108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8279615755971701015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e054923af30b421c8234deeac43816a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSound:
+    ID: 1073741844
+    _sourceAsset: {fileID: 11400000, guid: 4d05bddaa5aef1440b081b4cc1d5a483, type: 2}
+    <DebugObject>k__BackingField: {fileID: 8279615755971701015}
+  playInterval: 1

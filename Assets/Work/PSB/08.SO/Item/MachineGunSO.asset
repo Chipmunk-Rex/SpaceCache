@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e962f81f6c454ce68dbba67034e2f2c9, type: 3}
   m_Name: MachineGunSO
   m_EditorClassIdentifier: 
-  itemType: 10
+  itemType: 6
   SkillIcon: {fileID: 7472042081794340552, guid: 68240a26dea69f94194828d95d4a6ca5, type: 3}
   Name: "\uBA38\uC2E0\uAC74"
   Description: "\uCD1D\uC54C\uC758 \uCFE8\uD0C0\uC784\uC774 \uC0AC\uB77C\uC9C0\uB294

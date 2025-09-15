@@ -37,17 +37,10 @@ public class ClearUI : MonoBehaviour
         Time.timeScale = 1;
         panelRect = clearPanel.GetComponent<RectTransform>();
     }
+    
     private void Update()
     {
         timer += Time.deltaTime;
-        if (Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            StartCoroutine(Win());
-        }
-        if(Keyboard.current.yKey.wasPressedThisFrame)
-        {
-            StartCoroutine(Lose());
-        }
     }
 
     public void WinUIOpen()

@@ -9,11 +9,13 @@ public class LaserSO : BossPatternSO
 
     public override IEnumerator Execute(Boss boss)
     {
+        boss.OnLaserStart?.Invoke();
         boss.IsSpin = true;
         boss.ActivateLaser(true);
 
         yield return new WaitForSeconds(laserActiveTime);
 
+        boss.OnLaserEnd?.Invoke();
         boss.IsSpin = false;
         boss.ActivateLaser(false);
 

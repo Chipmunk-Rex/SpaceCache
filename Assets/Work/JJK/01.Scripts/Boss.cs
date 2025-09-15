@@ -50,6 +50,10 @@ public class Boss : Entity, IEntityComponent
     ObjectPooling objectPooling;
 
     public UnityEvent OnFire;
+    public UnityEvent OnHomingFire;
+    public UnityEvent OnBoomFire;
+    public UnityEvent OnLaserStart;
+    public UnityEvent OnLaserEnd;
 
     public void Initialize(Entity entity)
     {
@@ -159,7 +163,7 @@ public class Boss : Entity, IEntityComponent
     private void NextPattern()
     {
         if (currentPatternList == null || currentPatternList.Count <= 0)
-            Debug.Log("덱이 비었습니다.");
+            Debug.LogError("덱이 비었습니다.");
         
         if (currentPatternIndex >= currentPatternList.Count)
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using Code.Scripts.Items.Combat;
+﻿using Code.Scripts.Items.Combat;
 using UnityEngine;
 
 namespace Code.Scripts.Items.UI
