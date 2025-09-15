@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Code.Scripts.Entities;
 using PSB_Lib.StatSystem;
+using UnityEngine.Events;
 
 public abstract class EnemyBase : Entity, IEntityComponent
 {
@@ -25,6 +26,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
     private Entity _entity;
     protected EntityStat _statCompo;
+    public UnityEvent OnInitEvent;
     
     [SerializeField] protected float fadeDelaySeconds = 0f;
     [SerializeField] protected float fadeOutSpeed = 1.5f;
@@ -56,7 +58,32 @@ public abstract class EnemyBase : Entity, IEntityComponent
     
     protected virtual void OnInit() 
     {
+        Debug.Log($"{gameObject.name} : Init");
+        OnInitEvent?.Invoke();
     }
+    
+    protected virtual void OnEnable()
+    {
+        isDead = false;
+        attackTimer = 0f;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.simulated = true;
+        }
+        if (col != null) col.enabled = true;
+
+        if (spriteRenderer != null)
+        {
+            var c = spriteRenderer.color;
+            c.a = 1f;            
+            spriteRenderer.color = c;
+        }
+
+        OnInit();
+    }
+
     
     private void Update()
     {
@@ -132,26 +159,5 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
         StartCoroutine(FaidOut());
     }
-
-    protected virtual void OnEnable()
-    {
-        isDead = false;
-        attackTimer = 0f;
-
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.simulated = true;
-        }
-        if (col != null) col.enabled = true;
-
-        if (spriteRenderer != null)
-        {
-            var c = spriteRenderer.color;
-            c.a = 1f;            
-            spriteRenderer.color = c;
-        }
-    }
-    
     
 }

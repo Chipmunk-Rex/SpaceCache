@@ -1004,6 +1004,21 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
+  OnInitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4590075216649062749}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: DropFlagReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fadeDelaySeconds: 0
   fadeOutSpeed: 1.5
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
