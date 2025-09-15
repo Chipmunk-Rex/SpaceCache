@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Move",
+                    "type": "Button",
+                    "id": "6969ec94-e5d7-477d-886c-68c73f9f8b0d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SpeedUp",
                     "type": "Button",
                     "id": "559b46da-67e4-481b-af55-104ce6baf32e",
@@ -219,6 +228,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Mouse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b15d14ae-fa79-4857-ac56-201e9aa22560",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

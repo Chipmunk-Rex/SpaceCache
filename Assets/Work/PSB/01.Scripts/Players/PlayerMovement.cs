@@ -63,14 +63,15 @@ namespace Code.Scripts.Players
             if (!isRunning) return;
             Vector2 velocity = rigid2D.linearVelocity;
             // 가속
-            if (_player.PlayerInput.speedUp)
+            if (_player.PlayerInput.IsMoving)
             {
                 velocity += (Vector2)lookCam.transform.up * acceleration * Time.fixedDeltaTime;
                 if (velocity.magnitude > moveSpeed)
                     velocity = velocity.normalized * moveSpeed;
             }
             // 감속
-            else if (_player.PlayerInput.speedDown)
+            // else if (_player.PlayerInput.speedDown)
+            else
             {
                 if (velocity.magnitude > 0)
                 {
@@ -79,6 +80,7 @@ namespace Code.Scripts.Players
                         velocity = Vector2.zero;
                 }
             }
+
             // 입력 없을 때 자연 감속(관성 유지)
             rigid2D.linearVelocity = velocity;
         }

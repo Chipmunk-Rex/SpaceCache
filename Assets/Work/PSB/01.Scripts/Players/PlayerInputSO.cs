@@ -25,6 +25,8 @@ namespace Code.Scripts.Players
         public bool IsCanMachine { get; set; } = false;
         [field: SerializeField] public bool IsMachineGun { get; set; } = false;
 
+        public bool IsMoving { get; set; } = false;
+
         public bool isLHolding = false;
         public bool isRHolding = false;
 
@@ -72,6 +74,14 @@ namespace Code.Scripts.Players
                 if (context.performed)
                     OnAttackPressed?.Invoke();
             }
+        }
+
+        public void OnMove(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                IsMoving = true;
+            else if (context.canceled)
+                IsMoving = false;
         }
 
         public void OnSpeedUp(InputAction.CallbackContext context)

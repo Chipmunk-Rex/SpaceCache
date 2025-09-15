@@ -1,4 +1,5 @@
-﻿using Code.Scripts.Entities;
+﻿using System;
+using Code.Scripts.Entities;
 using Code.Scripts.FSM;
 using PSB_Lib.Dependencies;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Code.Scripts.Players
         private EntityAnimator _animator;
 
         int _rotateHash = Animator.StringToHash("Rotate");
+
+        [SerializeField] private ParticleSystem collisionEffect;
 
         protected override void Awake()
         {
@@ -36,6 +39,15 @@ namespace Code.Scripts.Players
             PlayerInput.CalcHoldingKey();
         }
 
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            Debug.Log(other.gameObject.name);
+            Vector2 position = other.contacts[0].point;
+            float rotationOffset = 180;
+            Quaternion rotation = Quaternion.LookRotation(Vector3.forward,
+                Quaternion.AngleAxis(rotationOffset, Vector3.forward) * other.contacts[0].normal);
+            Instantiate(collisionEffect, position, rotation).gameObject.SetActive(true);
+        }
 
         public void ChangeState(string newStateName) => _stateMachine.ChangeState(newStateName);
     }
