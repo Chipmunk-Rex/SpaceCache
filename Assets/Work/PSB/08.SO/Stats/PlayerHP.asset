@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statName: "\uCCB4\uB825"
   description: Player's hp stat
-  icon: {fileID: 4572084873469147798, guid: ba0fe0742cf583a4598675673e907827, type: 3}
+  icon: {fileID: 21300000, guid: ba0fe0742cf583a4598675673e907827, type: 3}
   displayName: HP
   baseValue: 100
   minValue: 0
