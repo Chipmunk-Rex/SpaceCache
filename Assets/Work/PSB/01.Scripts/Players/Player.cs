@@ -41,7 +41,6 @@ namespace Code.Scripts.Players
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            Debug.Log(other.gameObject.name);
             Vector2 position = other.contacts[0].point;
             float rotationOffset = 180;
             Quaternion rotation = Quaternion.LookRotation(Vector3.forward,
