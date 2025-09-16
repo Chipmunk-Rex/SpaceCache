@@ -1,17 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Scripts.Items;
 using Code.Scripts.Players;
 using DG.Tweening;
-using JetBrains.Annotations;
 using PSB_Lib.Dependencies;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 public class CardManager : MonoBehaviour
@@ -42,12 +36,6 @@ public class CardManager : MonoBehaviour
     private void OnDestroy()
     {
         _playerLevelSystem.OnLevelUp -= PlayerLevelUpHandler;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            PlayerLevelUpHandler();
     }
 
     private void PlayerLevelUpHandler() => DrawCards();
