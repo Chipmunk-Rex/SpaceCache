@@ -72,7 +72,6 @@ namespace Code.Scripts.Players.States
         {
             if (_player.PlayerInput.IsAttackPressed)
             {
-                Debug.Log("ww");
                 FireBullet();
             }
         }

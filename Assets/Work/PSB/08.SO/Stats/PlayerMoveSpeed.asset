@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statName: "\uC774\uB3D9\uC18D\uB3C4"
   description: Player's move speed stat
-  icon: {fileID: -2907186346581270159, guid: bf4c3c9fa57729c4d99adc71bb13bad0, type: 3}
+  icon: {fileID: -8381846992734194457, guid: 7ef6ff2c6ba919a4d987dfd1532bca97, type: 3}
   displayName: MoveSpeed
   baseValue: 15
   minValue: 1
