@@ -8,6 +8,7 @@ using DG.Tweening;
 using JetBrains.Annotations;
 using PSB_Lib.Dependencies;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -21,6 +22,7 @@ public class CardManager : MonoBehaviour
 
     [Inject] private Player _player;
     [Inject] private PlayerLevelSystem _playerLevelSystem;
+    public UnityEvent skillClick;
 
     [SerializeField] private float yOffset = 1000f;
     private int cardCount = 3;
@@ -80,6 +82,7 @@ public class CardManager : MonoBehaviour
     private void OnCardSelected()
     {
         SetPaused(false);
+        skillClick?.Invoke();
         rectTransform.DOAnchorPos(_defaultPosition + Vector2.up * yOffset, 0.5f).SetEase(Ease.InBack);
     }
 

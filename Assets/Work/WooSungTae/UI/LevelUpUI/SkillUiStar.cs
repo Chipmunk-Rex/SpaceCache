@@ -10,7 +10,17 @@ public class SkillUiStar : MonoBehaviour
     public void StarInstantiate(LevelUpItemSO upSO)
     {
         levelUpSO = upSO;
-        for(int i = 0; i < levelUpSO.selectCount; i++)
-        Instantiate(star, starPosition.transform);
+
+        // 기존 별 제거
+        foreach (Transform child in starPosition.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // 새로 생성
+        for (int i = 0; i < levelUpSO.selectCount; i++)
+        {
+            Instantiate(star, starPosition.transform);
+        }
     }
 }
