@@ -66,5 +66,8 @@ TagManager:
   - name: BossBullet
     uniqueID: 4083421237
     locked: 0
+  - name: VFX
+    uniqueID: 2281887651
+    locked: 0
   m_RenderingLayers:
   - Default

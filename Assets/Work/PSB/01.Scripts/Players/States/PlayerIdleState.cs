@@ -11,7 +11,7 @@ namespace Code.Scripts.Players.States
         public override void Enter()
         {
             base.Enter();
-            _movement.StopImmediately();
+            // _movement.StopImmediately();
         }
         
         public override void Update()

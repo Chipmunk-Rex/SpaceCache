@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Code.Scripts.Entities;
 using PSB_Lib.StatSystem;
+using UnityEngine.Events;
 
 public abstract class EnemyBase : Entity, IEntityComponent
 {
@@ -25,12 +26,14 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
     private Entity _entity;
     protected EntityStat _statCompo;
+    public UnityEvent OnInitEvent;
     
     [SerializeField] protected float fadeDelaySeconds = 0f;
     [SerializeField] protected float fadeOutSpeed = 1.5f;
     
     [field: SerializeField] protected StatSO hpStat;
     [field: SerializeField] protected StatSO attackStat;
+    [field: SerializeField] protected StatSO speedStat;
     
     public void Initialize(Entity entity)
     {
@@ -50,17 +53,69 @@ public abstract class EnemyBase : Entity, IEntityComponent
         pool = GetComponentInParent<ObjectPooling>();
 
         attackTimer     = 0f;
-        OnInit();
         animator.SetBool("isSosang", true);
     }
     
     protected virtual void OnInit() 
     {
-         if (data != null)
-         {
-             if (data.enemyDamageUp  != 0f) IncreaseAttack ((int)data.enemyDamageUp);
-             if (data.enemyDefenseUp != 0f) IncreaseDefense((int)data.enemyDefenseUp);
-         }
+        OnInitEvent?.Invoke();
+    }
+    
+    protected virtual void OnEnable()
+    {
+        isDead = false;
+        attackTimer = 0f;
+
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector2.zero;
+            rb.simulated = true;
+        }
+        if (col != null) col.enabled = true;
+
+        if (spriteRenderer != null)
+        {
+            var c = spriteRenderer.color;
+            c.a = 1f;            
+            spriteRenderer.color = c;
+        }
+
+        OnInit();
+    }
+
+    
+    private void Update()
+    {
+        if (isDead) return;
+
+        Move();
+
+        if (player != null)
+        {
+            float distance = Vector2.Distance(transform.position, player.position);
+            
+            if (data.teleportDistance != 0)
+            {
+                if (distance > data.teleportDistance)
+                {
+                    Vector2 targetPos = GetOutsideCameraPos(player.position, data.teleportRange);
+
+                    if (rb != null)
+                        rb.position = targetPos;
+                    else
+                        transform.position = targetPos;
+                }
+            }
+
+            if (attackTimer > 0f)
+                attackTimer -= Time.deltaTime;
+
+            if (distance <= data.engageRange && attackTimer <= 0f)
+            {
+                Attack();
+                attackTimer = Mathf.Max(0.01f, data.attackCooldown);
+            }
+        }
     }
     
     protected virtual void Move()
@@ -71,7 +126,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
         float newAngle = Mathf.MoveTowardsAngle(rb.rotation, targetAngle, data.rotationSpeed * Time.deltaTime * 8);
         rb.MoveRotation(newAngle);
         float distance = Vector2.Distance(transform.position, player.position);
-        rb.linearVelocity  = distance > data.range ? dir * data.moveSpeed : Vector2.zero;
+        rb.linearVelocity  = distance > data.range ? dir * speedStat.BaseValue : Vector2.zero;
     }
     
     protected abstract void Attack();
@@ -102,47 +157,28 @@ public abstract class EnemyBase : Entity, IEntityComponent
 
         StartCoroutine(FaidOut());
     }
-
-    private void OnEnable()
-    {
-        isDead = false;
-        attackTimer = 0f;
-
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector2.zero;
-            rb.simulated = true;
-        }
-        if (col != null) col.enabled = true;
-
-        if (spriteRenderer != null)
-        {
-            var c = spriteRenderer.color;
-            c.a = 1f;            
-            spriteRenderer.color = c;
-        }
-    }
     
-    private void Update()
+    private Vector2 GetOutsideCameraPos(Vector2 center, float range)
     {
-        if (isDead) return;
-        {
-            Move();
+        Camera cam = Camera.main;
+        if (cam == null) return center;
 
-            if (player != null)
-            {
-                float distance = Vector2.Distance(transform.position, player.position);
-                
-                if (attackTimer > 0f)
-                    attackTimer -= Time.deltaTime;
-                
-                if (distance <= data.engageRange && attackTimer <= 0f)
-                {
-                    Attack();
-                    attackTimer = Mathf.Max(0.01f, data.attackCooldown);
-                }
-            }
-        }
+        Vector2 pos;
+        do
+        {
+            Vector2 dir = Random.insideUnitCircle.normalized;
+            float dist = Random.Range(range * 0.5f, range);
+            pos = center + dir * dist;
+
+        } while (IsVisibleFrom(pos, cam));
+
+        return pos;
+    }
+
+    private bool IsVisibleFrom(Vector2 pos, Camera cam)
+    {
+        Vector3 vp = cam.WorldToViewportPoint(pos);
+        return (vp.x is > 0f and < 1f) && (vp.y is > 0f and < 1f) && vp.z > 0f;
     }
     
 }

@@ -13,12 +13,13 @@ MonoBehaviour:
   m_Name: Fighter
   m_EditorClassIdentifier: 
   enemyName: Fighter
-  moveSpeed: 7
   attackCooldown: 0.8
   range: 8.5
   engageRange: 10.5
   rotationSpeed: 120
   prefab: {fileID: 583878187766282213, guid: d629ab32c5aa27945a1d266a6022c7b9, type: 3}
-  enemyDamageUp: 20
-  enemyDefenseUp: 20
+  teleportDistance: 70
+  teleportRange: 25
+  enemyDefenseUp: 0.6
+  enemyDamageUp: 0.25
   enemySpeedUp: 0

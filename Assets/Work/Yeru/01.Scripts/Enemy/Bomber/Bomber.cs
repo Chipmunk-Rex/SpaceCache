@@ -7,6 +7,7 @@ public class Bomber : EnemyBase
 {
     [SerializeField] private float     explosionRadius = 1.7f;  
     [SerializeField] private LayerMask damageLayers;
+    private int _forceOpaqueFrames = 0;
 
     private EntityAttack _attackCompo;
     private bool exploded;
@@ -32,15 +33,19 @@ public class Bomber : EnemyBase
     public override void IncreaseAttack(float amount)
     {
         _statCompo.IncreaseBaseValue(attackStat, amount);
+        Debug.Log($"{gameObject.name} : {attackStat.BaseValue}");
     }
             
     public override void IncreaseDefense(float amount)
     {
         _statCompo.IncreaseBaseValue(hpStat, amount);
+        Debug.Log($"{gameObject.name} : {hpStat.BaseValue}");
     }
-
+   
     public override void IncreaseSpeed(float amount)
     {
+        _statCompo.IncreaseBaseValue(speedStat, amount);
+        Debug.Log($"{gameObject.name} : {speedStat.BaseValue}");
     }
     
     public void HandleOnHit()
@@ -78,14 +83,25 @@ public class Bomber : EnemyBase
     {
         if (!exploded)
         {
-            HandleOnDead();             // 먼저 폭발 + 내부에서 Die() 재호출
+            HandleOnDead();            
             return;
         }
         base.Die();
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         exploded = false; 
+        _forceOpaqueFrames = 3;       
+        SetAlpha(1f); 
+    }
+    private void SetAlpha(float a)
+    {
+        if (!spriteRenderer) return;
+        var c = spriteRenderer.color;
+        if (Mathf.Approximately(c.a, a)) return;
+        c.a = a;
+        spriteRenderer.color = c;
     }
 
 #if UNITY_EDITOR

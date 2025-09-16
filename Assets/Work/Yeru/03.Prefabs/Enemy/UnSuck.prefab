@@ -174,7 +174,7 @@ MonoBehaviour:
   jumpHeight: 2
   jumpDistance: 1
   duration: 1
-  dropValue: 1
+  dropValue: 5
 --- !u!1 &6097428571700696030
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,8 +306,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: 641e31b9b8bec204f8168755a1070822, type: 2}
+  OnInitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1588700571884031286}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: DropFlagReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  fadeDelaySeconds: 0
+  fadeOutSpeed: 1.5
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
   _speed: 1
   currentHP: 0
   _maxHP: 100

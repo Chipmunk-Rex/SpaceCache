@@ -11,16 +11,19 @@ namespace Code.Scripts.Players
         [SerializeField] private Rigidbody2D rigid2D;
         [SerializeField] private PlayerLookCam lookCam;
         
-        [SerializeField] private float increaseSpeedValue = 5f;
-        [SerializeField] private float decreaseSpeedValue = -5f;
+        // [SerializeField] private
         
+        public bool IsAccelerating => _player.PlayerInput.IsMoving;
+
         public float moveSpeed = 10f;
+        public float acceleration = 20f; // 가속도
+        public float deceleration = 25f; // 감속도
         public bool isRunning = true;
-        
+
         private Player _player;
         private EntityStat _statCompo;
-        private Vector2 _velocity;
-        
+        // private Vector2 _velocity;
+
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
@@ -30,17 +33,13 @@ namespace Code.Scripts.Players
         public void AfterInitialize()
         {
             moveSpeed = _statCompo.SubscribeStat(moveSpeedStat, HandleMoveSpeedChange, 8f);
-            _player.PlayerInput.OnSpeedUpPressed += HandleSpeedUp;
-            _player.PlayerInput.OnSpeedDownPressed += HandleSpeedDown;
         }
 
         private void OnDestroy()
         {
             _statCompo.UnSubscribeStat(moveSpeedStat, HandleMoveSpeedChange);
-            _player.PlayerInput.OnSpeedUpPressed -= HandleSpeedUp;
-            _player.PlayerInput.OnSpeedDownPressed -= HandleSpeedDown;
         }
-        
+
         private void FixedUpdate()
         {
             CalculateMovement();
@@ -52,44 +51,47 @@ namespace Code.Scripts.Players
             moveSpeed = currentValue;
         }
 
-        private void HandleSpeedUp()
-        {
-            if (moveSpeed > 30) return;
-            
-            _statCompo.IncreaseBaseValue(moveSpeedStat, increaseSpeedValue);
-        }
-
-        private void HandleSpeedDown()
-        {
-            if (moveSpeed <= 0) return;
-            
-            _statCompo.IncreaseBaseValue(moveSpeedStat, decreaseSpeedValue);
-        }
-
         private void CalculateMovement()
         {
-            _velocity = lookCam.transform.up * moveSpeed;
-
-            if (_velocity.sqrMagnitude > 0.001f)
-            {
-                transform.up = _velocity;
-            }
+            // _velocity = lookCam.transform.up * moveSpeed;
+            //
+            // if (_velocity.sqrMagnitude > 0.001f)
+            // {
+            //     transform.up = _velocity;
+            // }
         }
 
         private void Move()
         {
             if (!isRunning) return;
-            
-            Vector2 move = _velocity * Time.fixedDeltaTime;
-            rigid2D.MovePosition(rigid2D.position + move);
+            Vector2 velocity = rigid2D.linearVelocity;
+            // 가속
+            if (_player.PlayerInput.IsMoving)
+            {
+                velocity += (Vector2)lookCam.transform.up * acceleration * Time.fixedDeltaTime;
+                if (velocity.magnitude > moveSpeed)
+                    velocity = velocity.normalized * moveSpeed;
+            }
+            // 감속
+            // else if (_player.PlayerInput.speedDown)
+            else
+            {
+                if (velocity.magnitude > 0)
+                {
+                    velocity -= velocity.normalized * deceleration * Time.fixedDeltaTime;
+                    if (Vector2.Dot(velocity, velocity) < 0.01f) // 너무 느려지면 정지
+                        velocity = Vector2.zero;
+                }
+            }
+
+            // 입력 없을 때 자연 감속(관성 유지)
+            rigid2D.linearVelocity = velocity;
         }
 
         public void StopImmediately()
         {
             isRunning = false;
-            _velocity = Vector2.zero;
+            rigid2D.linearVelocity = Vector2.zero;
         }
-        
-        
     }
 }

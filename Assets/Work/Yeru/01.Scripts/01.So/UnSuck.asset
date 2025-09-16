@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: UnSuck
   m_EditorClassIdentifier: 
   enemyName: Bomber
-  moveSpeed: 4
   attackCooldown: 0
   range: 1
   engageRange: 1
   rotationSpeed: 150
   prefab: {fileID: 6097428571700696030, guid: 0ce111eb13ea04247a2fe73284befc0c, type: 3}
-  enemyDamageUp: 10
   enemyDefenseUp: 0
+  enemyDamageUp: 1
   enemySpeedUp: 1
