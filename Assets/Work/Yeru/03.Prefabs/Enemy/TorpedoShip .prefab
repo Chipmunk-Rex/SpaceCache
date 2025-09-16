@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 7414146348292155553}
   - component: {fileID: -2290230471685533472}
   - component: {fileID: 2233490630984614912}
+  - component: {fileID: 325999725631102061}
   m_Layer: 16
   m_Name: 'TorpedoShip '
   m_TagString: Untagged
@@ -1003,10 +1004,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: e214fe6e27553e14da0c57cabb82b929, type: 2}
+  OnInitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4590075216649062749}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: DropFlagReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fadeDelaySeconds: 0
   fadeOutSpeed: 1.5
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
   bulletPool: {fileID: 0}
   shooter:
   - {fileID: 3137703120968939896}
@@ -1112,7 +1129,10 @@ MonoBehaviour:
     overrideValue: 25
   - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
     isUseOverride: 1
-    overrideValue: 1
+    overrideValue: 2
+  - stat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+    isUseOverride: 1
+    overrideValue: 5
 --- !u!114 &2233490630984614912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1127,6 +1147,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitSprite: {fileID: 4575568298653646426}
   flashSpeed: 3
+--- !u!114 &325999725631102061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4998605848131002836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32fe0d87614d78ba93c8eec18f2d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+  baseSpeed: 0
+  currentSpeed: 0
 --- !u!1 &5312126028686396924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,7 +1242,7 @@ MonoBehaviour:
   jumpHeight: 2
   jumpDistance: 1
   duration: 1
-  dropValue: 1
+  dropValue: 4
 --- !u!1 &5891329491994786111
 GameObject:
   m_ObjectHideFlags: 0

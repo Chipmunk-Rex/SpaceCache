@@ -48,7 +48,7 @@ MonoBehaviour:
   jumpHeight: 2
   jumpDistance: 1
   duration: 1
-  dropValue: 1
+  dropValue: 3
 --- !u!1 &3252333900620965849
 GameObject:
   m_ObjectHideFlags: 0
@@ -66,6 +66,7 @@ GameObject:
   - component: {fileID: 5126498037397629300}
   - component: {fileID: 7323577503284955515}
   - component: {fileID: 8142116348276239082}
+  - component: {fileID: 3169929276007471609}
   - component: {fileID: 2100920206054698562}
   m_Layer: 16
   m_Name: Bomber
@@ -248,10 +249,26 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   data: {fileID: 11400000, guid: 1bb8b9c840cfe00409f2484085bb789b, type: 2}
+  OnInitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6542850270258077277}
+        m_TargetAssemblyTypeName: Code.Scripts.Items.DropItem, Assembly-CSharp
+        m_MethodName: DropFlagReset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   fadeDelaySeconds: 0.75
   fadeOutSpeed: 7
   hpStat: {fileID: 11400000, guid: b62922edde736da4f8f36de1e8384d39, type: 2}
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
   explosionRadius: 2.3
   damageLayers:
     serializedVersion: 2
@@ -363,6 +380,9 @@ MonoBehaviour:
   - stat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
     isUseOverride: 1
     overrideValue: 5
+  - stat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+    isUseOverride: 1
+    overrideValue: 10
 --- !u!114 &8142116348276239082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +398,21 @@ MonoBehaviour:
   attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
   baseAttack: 0
   currentAttack: 0
+--- !u!114 &3169929276007471609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3252333900620965849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a32fe0d87614d78ba93c8eec18f2d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedStat: {fileID: 11400000, guid: 5b880cf4b448a70469932ea77d9bc91b, type: 2}
+  baseSpeed: 0
+  currentSpeed: 0
 --- !u!114 &2100920206054698562
 MonoBehaviour:
   m_ObjectHideFlags: 0

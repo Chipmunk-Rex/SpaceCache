@@ -26,19 +26,23 @@ public class TorpedoShip : EnemyBase
         base.OnInit();
     }
     
-     public override void IncreaseAttack(float amount)
-     {
-         _statCompo.IncreaseBaseValue(attackStat, amount);
-     }
+    public override void IncreaseAttack(float amount)
+    {
+        _statCompo.IncreaseBaseValue(attackStat, amount);
+        Debug.Log($"{gameObject.name} : {attackStat.BaseValue}");
+    }
             
-     public override void IncreaseDefense(float amount)
-     {
-         _statCompo.IncreaseBaseValue(hpStat, amount);
-     }
-     
-     public override void IncreaseSpeed(float amount)
-     {
-     }
+    public override void IncreaseDefense(float amount)
+    {
+        _statCompo.IncreaseBaseValue(hpStat, amount);
+        Debug.Log($"{gameObject.name} : {hpStat.BaseValue}");
+    }
+   
+    public override void IncreaseSpeed(float amount)
+    {
+        _statCompo.IncreaseBaseValue(speedStat, amount);
+        Debug.Log($"{gameObject.name} : {speedStat.BaseValue}");
+    }
     
     protected override void Attack()
     {

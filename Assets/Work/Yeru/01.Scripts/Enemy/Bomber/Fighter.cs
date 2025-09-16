@@ -20,15 +20,19 @@ public class Fighter : EnemyBase
     public override void IncreaseAttack(float amount)
     {
         _statCompo.IncreaseBaseValue(attackStat, amount);
+        Debug.Log($"{gameObject.name} : {attackStat.BaseValue}");
     }
             
     public override void IncreaseDefense(float amount)
     {
         _statCompo.IncreaseBaseValue(hpStat, amount);
+        Debug.Log($"{gameObject.name} : {hpStat.BaseValue}");
     }
-    
+   
     public override void IncreaseSpeed(float amount)
     {
+        _statCompo.IncreaseBaseValue(speedStat, amount);
+        Debug.Log($"{gameObject.name} : {speedStat.BaseValue}");
     }
    
     public void HandleOnDead()
