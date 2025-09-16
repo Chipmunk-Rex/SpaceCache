@@ -16,7 +16,7 @@ namespace Code.Scripts.Items.ItemSos
             if (statCompo == null)
                 Debug.LogError("No have attackCompo");
 
-            statCompo.IncreaseBaseValue(_healthCompo.hpStat, 50f);
+            statCompo.IncreaseBaseValue(_healthCompo.hpStat, 100f);
             
             _healthCompo.SetFullHp();
         }

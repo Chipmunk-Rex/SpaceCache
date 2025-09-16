@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e0f9d22fa85eb43e8af60b22fb69c43c, type: 3}
-  m_Name: CrossWipeDiagonal3
+  m_Name: Smear Inverse
   m_EditorClassIdentifier: 
-  type: 22
-  invert: 0
+  type: 100
+  invert: 1
   timeMultiplier: 1
   colorMode: 0
   color: {r: 0, g: 0, b: 0, a: 1}
@@ -50,16 +50,16 @@ MonoBehaviour:
   gradientMode: 0
   shapeTexture: {fileID: 2800000, guid: 2873235459d4547b58d76a16bc824b5a, type: 3}
   duration: 2
-  noiseIntensity: 0
+  noiseIntensity: 0.5
   vignetteIntensity: 1
-  toonGradientIntensity: 1
-  toonDotIntensity: 0
+  toonGradientIntensity: 64
+  toonDotIntensity: 0.5
   toonDotRadius: 0.333
   toonDotCount: 32
   rotationMultiplier: 0
-  rotation: 225
+  rotation: 0
   distortion: 0
-  splits: 4
+  splits: 2
   center: {x: 0, y: 0}
   keepAspectRatio: 0
   seed: 0

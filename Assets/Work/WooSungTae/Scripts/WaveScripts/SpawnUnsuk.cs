@@ -66,10 +66,16 @@ public class SpawnUnsuk : MonoBehaviour
         }
         unsuk.transform.position = GetRandonSpawnPosition() + (Vector2)cam.transform.position;
         unsuk.SetActive(true);
+        // UnSuck에 SpawnUnsuk 참조 할당
+        var unsuckComponent = unsuk.GetComponent<UnSuck>();
+        if (unsuckComponent != null)
+        {
+            unsuckComponent.SetPoolHandler(this);
+        }
         return unsuk;
     }
 
-    private void UnsukDie(GameObject unsuk)
+    public void UnsukDie(GameObject unsuk)
     {
         unsuk.SetActive(false);
         stack.Push(unsuk);
