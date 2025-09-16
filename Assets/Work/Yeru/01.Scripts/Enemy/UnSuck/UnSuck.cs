@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UnSuck : EnemyBase, IDamageable
 {
@@ -12,6 +13,8 @@ public class UnSuck : EnemyBase, IDamageable
     [SerializeField] private Transform _player;
     [SerializeField] private int playerLayer;
     private Vector2 _movedir;
+    
+    public UnityEvent OnDamagedEvent;
     
     private float bonusHealth = 0f;
     private float bonusSpeed = 0f;
@@ -87,7 +90,7 @@ public class UnSuck : EnemyBase, IDamageable
             if (_die) return;                     
             _die = true;
 
-            _animator.SetTrigger("isDead");
+            _animator.SetTrigger("isdead");
             _rb.linearVelocity = Vector2.zero;
 
             if (TryGetComponent(out Collider2D col))
@@ -169,6 +172,7 @@ public class UnSuck : EnemyBase, IDamageable
     {
         if(_die) return;
         currentHP=Mathf.Max(0f,currentHP-amount);
+        OnDamagedEvent?.Invoke();
     }
 
     public void SetPoolHandler(SpawnUnsuk handler)
@@ -187,4 +191,6 @@ public class UnSuck : EnemyBase, IDamageable
             gameObject.SetActive(false);
         }
     }
+    
+    
 }
