@@ -25,7 +25,11 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+<<<<<<< Updated upstream
     - _Flash: -0.015735175
+=======
+    - _Flash: -0.005729484
+>>>>>>> Stashed changes
     m_Colors:
     - _Flash_Color: {r: 0.99999994, g: 0.99999994, b: 0.99999994, a: 0}
   m_BuildTextureStacks: []
