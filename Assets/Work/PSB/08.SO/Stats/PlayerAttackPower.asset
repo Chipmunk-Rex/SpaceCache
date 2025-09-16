@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statName: "\uACF5\uACA9\uB825"
   description: Player's attack power stat
-  icon: {fileID: -4801295666083566767, guid: a93b5f2dc9d364749b0fc74fd1711f60, type: 3}
+  icon: {fileID: 529010437360870187, guid: b69a98755177d1c48b993e238955f21e, type: 3}
   displayName: AttackPower
   baseValue: 10
   minValue: 1

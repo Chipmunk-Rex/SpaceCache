@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statName: "\uACF5\uACA9\uC8FC\uAE30"
   description: Player's attack speed stat
-  icon: {fileID: -2520797534076920382, guid: 8dcb640bcabe405478e3512c675d4a43, type: 3}
+  icon: {fileID: -3756921756688099093, guid: 97454d53282c52c44954574da896bbfe, type: 3}
   displayName: AttackSpeed
   baseValue: 2
   minValue: 0.5
