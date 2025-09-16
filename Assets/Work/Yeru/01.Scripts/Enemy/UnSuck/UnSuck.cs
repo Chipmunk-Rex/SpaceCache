@@ -23,6 +23,9 @@ public class UnSuck : EnemyBase, IDamageable
     private bool _Degam;
     private bool _die;
 
+    private SpawnUnsuk _poolHandler;
+    private float _poolCheckDistance = 30f; // 카메라와의 거리 기준값(원하는 값으로 조정)
+
     protected override void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -65,6 +68,15 @@ public class UnSuck : EnemyBase, IDamageable
         {
             transform.Rotate(0, 0, _RotationSpeed * 4f * Time.deltaTime);
         }
+        // 카메라와 일정 거리 이상 멀어지면 Pool 반환
+        if (_mainCamera != null && !_die)
+        {
+            float dist = Vector2.Distance(transform.position, _mainCamera.transform.position);
+            if (dist > _poolCheckDistance)
+            {
+                PoolReturn();
+            }
+        }
     }
 
     private void CheckBang()
@@ -83,14 +95,15 @@ public class UnSuck : EnemyBase, IDamageable
 
             GetComponentInChildren<UnSuckExplosion>()?.Bob();
             StartCoroutine(Faid());     
+            PoolReturn(); // 죽을 때 Pool 반환
             return;
         }
-        else if (currentHP < _maxHP * 0.25f)
+        else if (currentHP < _maxHP * 0.35f)
         {
             _animator.SetBool("isLowHP 0", true);
             _rb.linearVelocity = _movedir * (_speed + 0.2f);
         }
-        else if (currentHP < _maxHP * 0.5f)
+        else if (currentHP < _maxHP * 0.7f)
         {
             _animator.SetTrigger("isLowHP");
             _rb.linearVelocity = _movedir * (_speed + 0.1f);
@@ -157,5 +170,21 @@ public class UnSuck : EnemyBase, IDamageable
         if(_die) return;
         currentHP=Mathf.Max(0f,currentHP-amount);
     }
-   
-}    
+
+    public void SetPoolHandler(SpawnUnsuk handler)
+    {
+        _poolHandler = handler;
+    }
+
+    private void PoolReturn()
+    {
+        if (_poolHandler != null)
+        {
+            _poolHandler.UnsukDie(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+}

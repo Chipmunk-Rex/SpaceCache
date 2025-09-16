@@ -43,7 +43,7 @@ namespace Code.Scripts.Players
 
         private void FixedUpdate()
         {
-            if (Keyboard.current.altKey.isPressed)
+            if (_player.PlayerInput.IsMoving == false)
             {
                 UpdateAnimatorRotateParam(0, 0);
                 return;
