@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Work/WooSungTae/Scene/StartScene.unity
     guid: b5eebb64ab92bd546864388688e869da
   - enabled: 1
-    path: Assets/Work/PSB/00.Scene/GameScene.unity
-    guid: 3ed9877ea87e67641a5792792cb3db51
+    path: Assets/Work/Chipmunk/00.Scenes/GameScene.unity
+    guid: 98e2dd339bc192d428b671c012717b2d
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 06cfbc73f356b3f4fa650c15f311d785, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

@@ -18,7 +18,7 @@ public class DropCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         Card card = eventData.pointerDrag.GetComponent<Card>();
         card.OnClickCard();
         BroAudio.Play(skillSelectSound);
-        cardManager.StartCardUp();
+        // cardManager.StartCardUp();
     }
 
     public void OnPointerEnter(PointerEventData eventData)

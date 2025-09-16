@@ -10,6 +10,10 @@ namespace Code.Scripts.Players
         [field: SerializeField] public StatSO moveSpeedStat;
         [SerializeField] private Rigidbody2D rigid2D;
         [SerializeField] private PlayerLookCam lookCam;
+        
+        // [SerializeField] private
+        
+        public bool IsAccelerating => _player.PlayerInput.IsMoving;
 
         public float moveSpeed = 10f;
         public float acceleration = 20f; // 가속도

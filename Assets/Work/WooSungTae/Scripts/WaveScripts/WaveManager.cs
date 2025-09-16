@@ -59,7 +59,7 @@ public class WaveManager : MonoBehaviour
             _text.text = $"Wave : {waveNum}";
             _text.gameObject.SetActive(true);
             yield return new WaitForSeconds(3f); // 3초 동안 텍스트 표시
-            _text.gameObject.SetActive(false);
+            // _text.gameObject.SetActive(false);
 
             // 3. 보스 스폰 코루틴 시작
             if (waveList.bossSpawn)

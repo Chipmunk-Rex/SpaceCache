@@ -13,37 +13,38 @@ namespace Code.Scripts.Players.States
 {
     public class PlayerAttackCompo : MonoBehaviour, IEntityComponent, IAfterInitialize
     {
-        [Header("SerializeField")]
-        [field: SerializeField] public StatSO attackPowerStat;
+        [Header("SerializeField")] [field: SerializeField]
+        public StatSO attackPowerStat;
+
         [field: SerializeField] public StatSO attackSpeedStat;
         [SerializeField] private PoolItemSO bullet;
         [SerializeField] private Transform spawnPoint;
         [SerializeField] private Transform spawnPoint2;
-        
-        [Header("Value")]
-        [field: SerializeField] public float attackPower = 10f;
+
+        [Header("Value")] [field: SerializeField]
+        public float attackPower = 10f;
+
         [field: SerializeField] public float attackCooldown = 2f;
 
-        [Header("Sound")] 
-        [SerializeField] private SoundID shotSound;
-        
+        [Header("Sound")] [SerializeField] private SoundID shotSound;
+
         [Inject] private PoolManagerMono _poolManager;
 
         public UnityEvent OnAttackEvent;
         public event Action<float> OnAttackCooldownStart;
         public event Action OnAttackCooldownEnd;
-        
+
         private Player _player;
         private EntityStat _statCompo;
         private bool _isAutoFiring;
-        
+
         private float _nextAttackTime;
 
         public void Initialize(Entity entity)
         {
             _player = entity as Player;
             _statCompo = entity.GetCompo<EntityStat>();
-            
+
             if (_player != null) _player.PlayerInput.IsCanAttack = true;
         }
 
@@ -61,16 +62,25 @@ namespace Code.Scripts.Players.States
         {
             _statCompo.UnSubscribeStat(attackPowerStat, HandleAttackPowerChange);
             _statCompo.UnSubscribeStat(attackSpeedStat, HandleAttackSpeedChange);
-            
+
             _player.PlayerInput.OnAttackPressed -= FireBullet;
             _player.PlayerInput.OnAttackStart -= StartAutoFire;
             _player.PlayerInput.OnAttackStop -= StopAutoFire;
         }
 
+        private void Update()
+        {
+            if (_player.PlayerInput.IsAttackPressed)
+            {
+                Debug.Log("ww");
+                FireBullet();
+            }
+        }
+
         public void FireBullet()
         {
             if (Time.time < _nextAttackTime) return;
-            
+
             SpawnBullet(spawnPoint);
             SpawnBullet(spawnPoint2);
 
@@ -82,7 +92,7 @@ namespace Code.Scripts.Players.States
             OnAttackCooldownStart?.Invoke(delay);
             _ = ResetAttackCooldown(delay);
         }
-        
+
         private async void StartAutoFire()
         {
             if (_isAutoFiring) return;
@@ -100,7 +110,7 @@ namespace Code.Scripts.Players.States
         {
             _isAutoFiring = false;
         }
-        
+
         private void SpawnBullet(Transform point)
         {
             PlayerBullet playerBullet = _poolManager.Pop<PlayerBullet>(bullet);
@@ -123,7 +133,5 @@ namespace Code.Scripts.Players.States
         {
             attackPower = currentValue;
         }
-        
-        
     }
 }

@@ -1,45 +1,50 @@
+using System;
 using Code.Scripts.Items;
 using Code.Scripts.Players;
+using DG.Tweening;
 using PSB_Lib.Dependencies;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class Card : MonoBehaviour
+public class Card : MonoBehaviour, IPointerClickHandler
 {
-    public  bool iClicked { get; private set; } = false;
-    public static bool clicked { get; private set; } = false;
-    public LevelUpItemSO _levelUpSO;
-    public CardManager _cardManager;
+    private LevelUpItemSO _levelUpSO;
     [SerializeField] private TextMeshProUGUI _descriptionText;
     [SerializeField] private Image _image;
-    [Inject] private Player _player;
 
-    public void CardGetBasic(LevelUpItemSO levelUpSO)
+    private RectTransform _rectTransform;
+    private Vector2 _defaultPosition;
+
+    private Player _player;
+
+    private Action _clickCallback;
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _defaultPosition = _rectTransform.anchoredPosition;
+    }
+
+    public void Initialize(LevelUpItemSO levelUpSO, Player player, Action clickCallback)
     {
         _levelUpSO = levelUpSO;
         _descriptionText.text = levelUpSO.Description;
         _image.sprite = levelUpSO.SkillIcon;
+        _player = player;
+        _clickCallback = clickCallback;
     }
 
     public void OnClickCard()
     {
-        if(!clicked)
-        {
-            iClicked = true;
-            clicked = true;
-            _levelUpSO.selectCount++;
-            _levelUpSO.ApplyItem(_player);
-        }
+        _levelUpSO.selectCount++;
+        _levelUpSO.ApplyItem(_player);
+        _clickCallback?.Invoke();
     }
 
-    public static void SetClicked(bool value)
+    public void OnPointerClick(PointerEventData eventData)
     {
-        clicked = value;
-    }
-    public void SetIClicked(bool value)
-    {
-        iClicked = value;
+        OnClickCard();
     }
 }

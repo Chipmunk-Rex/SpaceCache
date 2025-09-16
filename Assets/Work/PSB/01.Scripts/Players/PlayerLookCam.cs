@@ -1,5 +1,6 @@
 ﻿using Code.Scripts.Entities;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Code.Scripts.Players
 {
@@ -42,6 +43,12 @@ namespace Code.Scripts.Players
 
         private void FixedUpdate()
         {
+            if (Keyboard.current.altKey.isPressed)
+            {
+                UpdateAnimatorRotateParam(0, 0);
+                return;
+            }
+
             float prevAngle = _currentAngle;
             RotateTowardsMouse();
             ApplyAngleRotation();
@@ -63,9 +70,10 @@ namespace Code.Scripts.Players
             if (_player == null || Camera.main == null) return;
             Vector2 mouseScreenPos = _player.PlayerInput.mousePosition;
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(new Vector2(mouseScreenPos.x, mouseScreenPos.y));
-            Vector2 dir = (mouseWorldPos - (Vector2) transform.position);
+            Vector2 dir = (mouseWorldPos - (Vector2)transform.position);
             float targetAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            _currentAngle = Mathf.MoveTowardsAngle(_currentAngle, targetAngle, rotationSpeed * 360 * Time.fixedDeltaTime);
+            _currentAngle =
+                Mathf.MoveTowardsAngle(_currentAngle, targetAngle, rotationSpeed * 360 * Time.fixedDeltaTime);
         }
 
         private void ApplyAngleRotation()

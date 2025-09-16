@@ -21,6 +21,7 @@ namespace Code.Scripts.Players
         private Controls _controls;
 
         public bool IsCanAttack { get; set; } = true;
+        public bool IsAttackPressed { get; private set; } = false;
         public bool IsCanShield { get; set; } = false;
         public bool IsCanMachine { get; set; } = false;
         [field: SerializeField] public bool IsMachineGun { get; set; } = false;
@@ -56,6 +57,15 @@ namespace Code.Scripts.Players
 
         public void OnAttack(InputAction.CallbackContext context)
         {
+            if (context.performed)
+            {
+                IsAttackPressed = true;
+            }
+            else if (context.canceled)
+            {
+                IsAttackPressed = false;
+            }
+
             if (!IsCanAttack) return;
 
             if (IsMachineGun)
@@ -72,7 +82,9 @@ namespace Code.Scripts.Players
             else
             {
                 if (context.performed)
+                {
                     OnAttackPressed?.Invoke();
+                }
             }
         }
 
