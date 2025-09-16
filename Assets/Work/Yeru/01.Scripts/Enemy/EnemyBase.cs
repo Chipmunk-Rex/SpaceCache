@@ -98,8 +98,7 @@ public abstract class EnemyBase : Entity, IEntityComponent
             {
                 if (distance > data.teleportDistance)
                 {
-                    Vector2 randomOffset = Random.insideUnitCircle * data.teleportRange;
-                    Vector2 targetPos = (Vector2)player.position + randomOffset;
+                    Vector2 targetPos = GetOutsideCameraPos(player.position, data.teleportRange);
 
                     if (rb != null)
                         rb.position = targetPos;
@@ -157,6 +156,29 @@ public abstract class EnemyBase : Entity, IEntityComponent
         animator.SetTrigger("isdead");
 
         StartCoroutine(FaidOut());
+    }
+    
+    private Vector2 GetOutsideCameraPos(Vector2 center, float range)
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return center;
+
+        Vector2 pos;
+        do
+        {
+            Vector2 dir = Random.insideUnitCircle.normalized;
+            float dist = Random.Range(range * 0.5f, range);
+            pos = center + dir * dist;
+
+        } while (IsVisibleFrom(pos, cam));
+
+        return pos;
+    }
+
+    private bool IsVisibleFrom(Vector2 pos, Camera cam)
+    {
+        Vector3 vp = cam.WorldToViewportPoint(pos);
+        return (vp.x is > 0f and < 1f) && (vp.y is > 0f and < 1f) && vp.z > 0f;
     }
     
 }

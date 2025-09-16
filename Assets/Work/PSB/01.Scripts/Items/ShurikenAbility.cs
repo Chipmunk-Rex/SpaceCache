@@ -19,6 +19,7 @@ namespace Code.Scripts.Items
         [SerializeField] private float increaseRadius = 0.5f;
         
         private List<Transform> _shurikenList = new List<Transform>();
+        private List<Vector3> _originalScales = new List<Vector3>();
         private float _currentAngle = 0f;
 
         private Player _player;
@@ -40,11 +41,12 @@ namespace Code.Scripts.Items
             
             GameObject newShuriken = Instantiate(shurikenPrefab, transform);
             _shurikenList.Add(newShuriken.transform);
-            
-            float scaleFactor = 1f + (currentCount - 1) * 0.4f;
-            foreach (var shuriken in _shurikenList)
+            _originalScales.Add(newShuriken.transform.localScale);
+
+            float scaleFactor = 1f + (currentCount - 1) * 0.2f;
+            for (int i = 0; i < _shurikenList.Count; i++)
             {
-                shuriken.localScale *= scaleFactor;
+                _shurikenList[i].localScale = _originalScales[i] * scaleFactor;
             }
             
             ArrangeShurikens();
@@ -81,14 +83,12 @@ namespace Code.Scripts.Items
                     0
                 ) * radius;
 
-                // 플레이어 위치 + 궤도 위치
                 _shurikenList[i].position = _player.transform.position + offset;
             }
         }
 
         private void ArrangeShurikens()
         {
-            // 처음 생성할 때 균등 배치
             int count = _shurikenList.Count;
 
             for (int i = 0; i < count; i++)
@@ -104,8 +104,7 @@ namespace Code.Scripts.Items
                 _shurikenList[i].position = _player.transform.position + offset;
             }
         }
-
-
+        
         
     }
 }
