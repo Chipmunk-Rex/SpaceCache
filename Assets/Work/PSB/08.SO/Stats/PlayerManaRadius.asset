@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   statName: "\uB9C8\uB098 \uD68D\uB4DD \uBC94\uC704"
   description: Player's mana radius stat
-  icon: {fileID: -5471238548522414493, guid: 69fbd977f0d9336429090a4cbbaa1ea8, type: 3}
+  icon: {fileID: 5110946919806111879, guid: a686b0f0ac447b844848998867bdcea7, type: 3}
   displayName: ManaRadius
   baseValue: 2
   minValue: 1

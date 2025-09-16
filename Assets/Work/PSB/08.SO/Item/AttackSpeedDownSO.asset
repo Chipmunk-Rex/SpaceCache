@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AttackSpeedDownSO
   m_EditorClassIdentifier: 
   itemType: 1
-  SkillIcon: {fileID: -2520797534076920382, guid: 8dcb640bcabe405478e3512c675d4a43, type: 3}
+  SkillIcon: {fileID: 21300000, guid: 97454d53282c52c44954574da896bbfe, type: 3}
   Name: "\uACF5\uACA9 \uC8FC\uAE30 \uAC10\uC18C"
   Description: "\uACF5\uACA9 \uC8FC\uAE30\uAC00 \uAC10\uC18C\uD569\uB2C8\uB2E4."
   cardUiSpawn: 0
