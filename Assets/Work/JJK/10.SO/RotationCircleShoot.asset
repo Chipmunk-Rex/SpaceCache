@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 740b11946947b744d9c3dff902baaaa1, type: 3}
   m_Name: RotationCircleShoot
   m_EditorClassIdentifier: 
+  damage: 1
   bulletCount: 5
   rotationStep: 15
   roundCount: 24
-  bulletSpeed: 6
+  bulletSpeed: 10
   delayBetweenRounds: 0.25

@@ -6,12 +6,13 @@ public class TripleShootSO : BossPatternSO
 {
     public int burstCount = 20;
     public float interval = 0.1f;
+    public float bulletSpeed = 7f;
 
     public override IEnumerator Execute(Boss boss)
     {
         for (int i = 0; i < burstCount; i++)
         {
-            boss.ShootBullet2();
+            boss.ShootBullet2(bulletSpeed);
             boss.OnFire.Invoke();
             yield return new WaitForSeconds(0.01f);
             boss.OnFire.Invoke();

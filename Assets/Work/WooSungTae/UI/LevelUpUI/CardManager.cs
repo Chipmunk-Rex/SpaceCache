@@ -1,16 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Code.Scripts.Items;
 using Code.Scripts.Players;
 using DG.Tweening;
-using JetBrains.Annotations;
 using PSB_Lib.Dependencies;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
-using UnityEngine.UI;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 public class CardManager : MonoBehaviour
@@ -21,6 +16,7 @@ public class CardManager : MonoBehaviour
 
     [Inject] private Player _player;
     [Inject] private PlayerLevelSystem _playerLevelSystem;
+    public UnityEvent skillClick;
 
     [SerializeField] private float yOffset = 1000f;
     private int cardCount = 3;
@@ -40,12 +36,6 @@ public class CardManager : MonoBehaviour
     private void OnDestroy()
     {
         _playerLevelSystem.OnLevelUp -= PlayerLevelUpHandler;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.K))
-            PlayerLevelUpHandler();
     }
 
     private void PlayerLevelUpHandler() => DrawCards();
@@ -80,6 +70,7 @@ public class CardManager : MonoBehaviour
     private void OnCardSelected()
     {
         SetPaused(false);
+        skillClick?.Invoke();
         rectTransform.DOAnchorPos(_defaultPosition + Vector2.up * yOffset, 0.5f).SetEase(Ease.InBack);
     }
 
