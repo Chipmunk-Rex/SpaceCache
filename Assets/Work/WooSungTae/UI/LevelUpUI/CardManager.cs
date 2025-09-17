@@ -16,7 +16,7 @@ public class CardManager : MonoBehaviour
 
     [Inject] private Player _player;
     [Inject] private PlayerLevelSystem _playerLevelSystem;
-    public UnityEvent skillClick;
+    public UnityEvent skillClick = new UnityEvent();
 
     [SerializeField] private float yOffset = 1000f;
     private int cardCount = 3;
@@ -44,7 +44,7 @@ public class CardManager : MonoBehaviour
     {
         SetPaused(true);
         rectTransform.DOAnchorPos(_defaultPosition, 0.5f).SetEase(Ease.OutBack).SetUpdate(true);
-        
+
         foreach (Transform child in cardContainer)
         {
             Destroy(child.gameObject);
