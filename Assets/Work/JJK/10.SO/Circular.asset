@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3bd4a3d1eb087c488c75880717b9958, type: 3}
   m_Name: Circular
   m_EditorClassIdentifier: 
+  damage: 1
   bulletCount: 12
   repeatCount: 7
-  bulletSpeed: 6
+  bulletSpeed: 10
   waitBetweenRounds: 0.5

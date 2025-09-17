@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerMovements : MonoBehaviour
 {
     Vector3 moveDir;
-    float moveSpeed = 7f;
+    float moveSpeed = 10f;
 
     private void OnMove(InputValue value)
     {
