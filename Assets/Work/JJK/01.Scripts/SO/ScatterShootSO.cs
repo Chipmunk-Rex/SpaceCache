@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "ScatterShootSO", menuName = "Scriptable Objects/ScatterShootSO")]
 public class ScatterShootSO : BossPatternSO
@@ -8,7 +9,7 @@ public class ScatterShootSO : BossPatternSO
     public int bulletPerRound = 5;
     public float angleStep = 10f;
     public float waitBetweenRounds = 0.5f;
-    public float moveSpeed = 5f;
+    public float bulletSpeed = 5f;
 
     public override IEnumerator Execute(Boss boss)
     {
@@ -19,7 +20,7 @@ public class ScatterShootSO : BossPatternSO
                 yield return new WaitForSeconds(boss.ReloadTime);
 
                 float angle = angleStep * j - 45;
-                boss.ShootBullet1(angle, moveSpeed);
+                boss.ShootBullet1(angle, bulletSpeed);
                 boss.OnFire?.Invoke();
             }
             for (int j = 0; j < bulletPerRound; j++)
@@ -27,7 +28,7 @@ public class ScatterShootSO : BossPatternSO
                 yield return new WaitForSeconds(boss.ReloadTime);
 
                 float angle = angleStep * (bulletPerRound - j) - 45;
-                boss.ShootBullet1(angle, moveSpeed);
+                boss.ShootBullet1(angle, bulletSpeed);
                 boss.OnFire?.Invoke();
             }
         }
