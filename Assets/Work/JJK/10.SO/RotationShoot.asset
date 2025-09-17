@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2a76631801c2645965abb1e6e94ffb, type: 3}
   m_Name: RotationShoot
   m_EditorClassIdentifier: 
+  damage: 1
   rotationSpeed: 28
   duration: 5
-  bulletSpeed: 7
+  bulletSpeed: 10
   fireRate: 0.06

@@ -232,7 +232,7 @@ public class Boss : Entity, IEntityComponent
         }
     }
 
-    public void ShootBullet2()
+    public void ShootBullet2(float speed)
     {
         Vector3 right = firePoint.right;
         Vector3 up = firePoint.up;
@@ -249,7 +249,6 @@ public class Boss : Entity, IEntityComponent
             GameObject bullet = GetPooledBullet2();
             if (bullet != null)
             {
-                float speed = 8f;
                 damage = _attackCompo.GetAttack();
                 bullet.transform.position = firePoint.position + offset;
                 bullet.GetComponent<Bullet>().Init(transform.up, speed, damage);
