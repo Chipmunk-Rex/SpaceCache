@@ -157,8 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  lifeTime: 2
-  attackStat: {fileID: 11400000, guid: 01218cc7ff39f2a41918da7d3abfa7c5, type: 2}
+  lifeTime: 7
 --- !u!58 &5911938762092770760
 CircleCollider2D:
   m_ObjectHideFlags: 0

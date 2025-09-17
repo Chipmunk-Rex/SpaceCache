@@ -109,7 +109,7 @@ MonoBehaviour:
   moveSpeed: 10
   rotateSpeed: 200
   homingTime: 2
-  lifeTime: 5
+  lifeTime: 8
 --- !u!70 &8826581466681107295
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

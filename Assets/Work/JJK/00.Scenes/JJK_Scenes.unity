@@ -696,6 +696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss3
       objectReference: {fileID: 0}
+    - target: {fileID: 5534631587808616172, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6412058014570634772, guid: 3a3b9e1d0c5de21429220b2f7d98d639, type: 3}
       propertyPath: playerPos
       value: 
