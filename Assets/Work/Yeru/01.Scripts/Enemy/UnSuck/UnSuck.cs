@@ -97,8 +97,7 @@ public class UnSuck : EnemyBase, IDamageable
                 col.enabled = false;     
 
             GetComponentInChildren<UnSuckExplosion>()?.Bob();
-            StartCoroutine(Faid());     
-            PoolReturn(); // 죽을 때 Pool 반환
+            StartCoroutine(Faid()); // 죽을 때 Pool 반환
             return;
         }
         else if (currentHP < _maxHP * 0.35f)
@@ -165,7 +164,7 @@ public class UnSuck : EnemyBase, IDamageable
             _spriteRenderer.color = color;
             yield return null; 
         }
-        gameObject.SetActive(false);
+        PoolReturn();
     }
 
     public void TakeDamage(float amount)

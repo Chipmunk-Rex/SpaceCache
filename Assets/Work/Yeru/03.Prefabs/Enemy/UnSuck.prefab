@@ -332,3 +332,6 @@ MonoBehaviour:
   _RotationSpeed: 2
   _player: {fileID: 0}
   playerLayer: 7
+  OnDamagedEvent:
+    m_PersistentCalls:
+      m_Calls: []
